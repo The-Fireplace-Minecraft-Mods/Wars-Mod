@@ -4,8 +4,11 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
@@ -27,16 +30,20 @@ public class BlockMazeStart extends Block {
 
 	
 	@Override
-	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
-		mazeRace.generate(par1World, i - 21, j - 8, k - 19, true);
-		warsmod.generateBlock(par1World, i + 0, j - 0, k + 0, WarsBlocks.mazeReset);
+		int i = pos.getX();
+		int j = pos.getX();
+		int k = pos.getX();
+		
+		mazeRace.generate(world, i - 21, j - 8, k - 19, true);
+		warsmod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.mazeReset);
 
 		Random random = new Random();
 
 		num = random.nextInt(8);
 
-		warsmod.generateBlock(par1World, i - 8, j - 5, k + 4, Blocks.glass);
+		warsmod.generateBlock(world, i - 8, j - 5, k + 4, Blocks.glass);
 		return false;
 
 	}

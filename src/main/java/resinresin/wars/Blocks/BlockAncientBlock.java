@@ -3,8 +3,11 @@ package resinresin.wars.Blocks;
 import ibxm.Player;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.Packet;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.warsmod;
 import resinresin.wars.data.WarsSavedData;
@@ -22,7 +25,8 @@ public class BlockAncientBlock extends Block {
 
 	
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float a, float b, float c) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
+
 		WarsSavedData savedWarsData = WarsSavedData.get(player.worldObj);
 		if (savedWarsData.editMode.editModeToggle == false) {
 
