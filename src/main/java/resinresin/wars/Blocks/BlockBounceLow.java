@@ -2,7 +2,10 @@ package resinresin.wars.Blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import resinresin.wars.warsmod;
 
@@ -15,8 +18,9 @@ public class BlockBounceLow extends Block {
 
 	
 	@Override
-	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+		if (entity instanceof EntityLivingBase) {
 		entity.motionY += 1.0;
-
+		}
 	}
 }

@@ -203,7 +203,7 @@ public class WarsBlocks {
 
 	public static void createBlocks() {
 
-		deadDirt = new BlockDeadDirt(warsmod.conf.getTerrainBlock("TerrainID", "DeadDirt", 259, "?").getInt()).setUnlocalizedName("DeadDirt").setHardness(0.5F).setStepSound(Block.soundTypeGrass);
+		deadDirt = new BlockDeadDirt().setUnlocalizedName("DeadDirt").setHardness(0.5F).setStepSound(Block.soundTypeGrass);
 		controlRed = new BlockCRed().setUnlocalizedName("ControlRed").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		controlGreen = new BlockCGreen().setUnlocalizedName("ControlGreen").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		controlBlue = new BlockCBlue().setUnlocalizedName("ControlBlue").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);

@@ -14,8 +14,8 @@ import resinresin.wars.WorldGen.resinresinLoader;
 
 public class BlockCorner1 extends BlockStairs {
 
-	public BlockCorner1(Block par2Block, int par3) {
-		super(par2Block, par3);
+	public BlockCorner1() {
+		super(modelState);
 
 		setCreativeTab(warsmod.tabWarsBlocks);
 
@@ -65,18 +65,6 @@ public class BlockCorner1 extends BlockStairs {
 	@SideOnly(Side.CLIENT)
 	public static Icon iconMain;
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister icon) {
-		iconMain = icon.registerIcon("warsmod:Wall1");
-	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int metadata) {
-
-		return iconMain;
-
-	}
 
 }
