@@ -18,6 +18,7 @@ public class BlockCRed extends Block {
 
 	resinresinLoader controlRed = new resinresinLoader("controlRed.resinresin");
 
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		controlRed.generate(par1World, i + -1, j - 0, k + 0, true);

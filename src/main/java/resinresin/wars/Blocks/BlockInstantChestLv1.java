@@ -20,6 +20,7 @@ public class BlockInstantChestLv1 extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		world.setBlock(i + 0, j + 0, k + 0, Block.chest.blockID, 2, 2);
@@ -154,7 +155,7 @@ public class BlockInstantChestLv1 extends Block {
 				}
 			}
 		}
-		return blockConstructorCalled;
+		return false;
 	}
 
 }

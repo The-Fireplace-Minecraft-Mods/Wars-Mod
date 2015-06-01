@@ -6,8 +6,8 @@ import resinresin.wars.warsmod;
 
 public class BlockDeadDirt extends Block {
 
-	public BlockDeadDirt(int ID) {
-		super(ID, Material.grass);
+	public BlockDeadDirt() {
+		super(Material.grass);
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 

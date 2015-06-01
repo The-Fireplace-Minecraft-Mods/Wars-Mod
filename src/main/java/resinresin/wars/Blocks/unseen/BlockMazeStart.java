@@ -25,6 +25,8 @@ public class BlockMazeStart extends Block {
 
 	resinresinLoader mazeRace = new resinresinLoader("mazeRace.resinresin");
 
+	
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		mazeRace.generate(par1World, i - 21, j - 8, k - 19, true);

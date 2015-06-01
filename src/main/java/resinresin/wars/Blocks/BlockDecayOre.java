@@ -14,10 +14,12 @@ public class BlockDecayOre extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	@Override
 	public int idDropped(int i, Random random, int j) {
 		return WarsItems.decayGem.itemID;
 	}
 
+	@Override
 	public int quantityDropped(Random random) {
 		return 1;
 

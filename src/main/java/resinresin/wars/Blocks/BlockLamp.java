@@ -16,6 +16,8 @@ public class BlockLamp extends Block {
 
 	resinresinLoader lamp = new resinresinLoader("lamp.resinresin");
 
+	
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		lamp.generate(par1World, i - 1, j - 0, k - 1, false);

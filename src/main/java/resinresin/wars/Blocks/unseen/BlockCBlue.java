@@ -18,6 +18,8 @@ public class BlockCBlue extends Block {
 
 	resinresinLoader controlBlue = new resinresinLoader("controlBlue.resinresin");
 
+	
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		controlBlue.generate(par1World, i + -2, j - 0, k + -1, true);

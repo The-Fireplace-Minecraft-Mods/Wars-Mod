@@ -18,15 +18,18 @@ public class BlockSelectorBasic extends BlockContainer {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	@Override
 	public int idDropped(int i, Random random, int j) {
 		return WarsItems.ancientGem.itemID;
 	}
 
+	@Override
 	public int quantityDropped(Random random) {
 		return 1;
 
 	}
 
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float a, float b, float c) {
 
 		TileEntity tile_entity = world.getBlockTileEntity(x, y, z);

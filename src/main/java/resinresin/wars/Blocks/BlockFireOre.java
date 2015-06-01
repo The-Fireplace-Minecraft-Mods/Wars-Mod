@@ -13,11 +13,15 @@ public class BlockFireOre extends Block {
 		super(Material.iron);
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
-
+	
+	
+	@Override
 	public int idDropped(int i, Random random, int j) {
 		return WarsItems.fireGem.itemID;
 	}
 
+	
+	@Override
 	public int quantityDropped(Random random) {
 		return 1;
 

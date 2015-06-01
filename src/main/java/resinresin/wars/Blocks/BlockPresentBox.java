@@ -20,6 +20,8 @@ public class BlockPresentBox extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	
+	@Override
 	public void updateTick(World par1World, int i, int j, int k, Random par5Random) {
 		if (!par1World.isRemote) {
 

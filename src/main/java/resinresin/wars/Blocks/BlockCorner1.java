@@ -1,14 +1,14 @@
 package resinresin.wars.Blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import javax.swing.Icon;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
@@ -26,11 +26,15 @@ public class BlockCorner1 extends BlockStairs {
 	resinresinLoader corner3 = new resinresinLoader("corner180.resinresin");
 	resinresinLoader corner4 = new resinresinLoader("corner370.resinresin");
 
+	
+	@Override
 	private boolean isBlockStairsDirection(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
 		int i1 = par1IBlockAccess.getBlockId(par2, par3, par4);
 		return isBlockStairsID(i1) && par1IBlockAccess.getBlockMetadata(par2, par3, par4) == par5;
 	}
 
+	
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		if (this.isBlockStairsDirection(par1World, i, j, k, 1)) {
@@ -63,7 +67,7 @@ public class BlockCorner1 extends BlockStairs {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	public void registerIcons(IIconRegister icon) {
 		iconMain = icon.registerIcon("warsmod:Wall1");
 	}
 

@@ -21,6 +21,8 @@ public class BlockWarChest extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	
+	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		warsmod.generateBlock(world, i + 0, j + 0, k + 0, Blocks.chest);

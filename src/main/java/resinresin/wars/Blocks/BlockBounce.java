@@ -13,6 +13,8 @@ public class BlockBounce extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	
+	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
 		entity.motionY += 2.0;
 

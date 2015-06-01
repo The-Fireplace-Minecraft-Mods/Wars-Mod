@@ -14,6 +14,8 @@ public class BlockSetSpawn extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	
+	@Override
 	public int getRenderBlockPass() {
 		return 0;
 	}
@@ -23,6 +25,7 @@ public class BlockSetSpawn extends Block {
 	 * or not to render the shared face of two adjacent blocks and also whether
 	 * the player can attach torches, redstone wire, etc to this block.
 	 */
+	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
@@ -31,10 +34,12 @@ public class BlockSetSpawn extends Block {
 	 * If this block doesn't render as an ordinary block it will return False
 	 * (examples: signs, buttons, stairs, etc)
 	 */
+	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
 
+	@Override 
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		par1World.getWorldInfo().setSpawnPosition(i, j, k);
@@ -47,7 +52,8 @@ public class BlockSetSpawn extends Block {
 
 		}
 		par1World.setBlock(i + 0, j - 0, k + 0, 0, 2, 2);
-		return blockConstructorCalled;
+		
+		return false;
 
 	}
 

@@ -14,10 +14,14 @@ public class BlockWaterOre extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	
+	@Override
 	public int idDropped(int i, Random random, int j) {
 		return WarsItems.waterGem.itemID;
 	}
-
+	
+	
+	@Override
 	public int quantityDropped(Random random) {
 		return 1;
 

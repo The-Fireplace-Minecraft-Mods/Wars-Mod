@@ -14,6 +14,7 @@ public class BlockSpleefStone extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 		warsmod.generateBlock(par1World, i + 0, j - 0, k + 0, Blocks.air);
 		par1World.playSoundAtEntity(par5EntityPlayer, "step.cloth", 1, 1);

@@ -20,7 +20,9 @@ public class BlockHungerGamesLv2Reset extends Block {
 	}
 
 	resinresinLoader hgLTop = new resinresinLoader("hgLTop.resinresin");
-
+	
+	
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		hgLTop.generate(par1World, i - 21, j + 1, k - 22, true);

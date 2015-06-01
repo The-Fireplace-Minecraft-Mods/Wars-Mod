@@ -17,6 +17,8 @@ public class BlockCottage extends Block {
 
 	resinresinLoader cottage = new resinresinLoader("cottage.resinresin");
 
+	
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		warsmod.generateBlock(par1World, i + 4, j + 2, k - 2, Blocks.stone);

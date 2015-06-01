@@ -14,10 +14,14 @@ public class BlockNaturalOre extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
+	
+	@Override
 	public int idDropped(int i, Random random, int j) {
 		return WarsItems.naturalGem.itemID;
 	}
 
+	
+	@Override
 	public int quantityDropped(Random random) {
 		return 1;
 

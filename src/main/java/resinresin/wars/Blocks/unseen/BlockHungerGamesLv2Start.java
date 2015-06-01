@@ -27,6 +27,8 @@ public class BlockHungerGamesLv2Start extends Block {
 		return new TileEntityHungerGamesLv2();
 	}
 
+	
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		

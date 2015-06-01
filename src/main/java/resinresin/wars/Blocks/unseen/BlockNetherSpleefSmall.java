@@ -20,6 +20,8 @@ public class BlockNetherSpleefSmall extends Block {
 
 	resinresinLoader nSpleef = new resinresinLoader("nSpleef.resinresin");
 
+	
+	@Override
 	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
 
 		nSpleef.generate(par1World, i + -8, j - 0, k + -1, false);

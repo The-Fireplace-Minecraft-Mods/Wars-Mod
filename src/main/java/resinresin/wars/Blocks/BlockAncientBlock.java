@@ -20,6 +20,8 @@ public class BlockAncientBlock extends Block {
 
 	}
 
+	
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float a, float b, float c) {
 		WarsSavedData savedWarsData = WarsSavedData.get(player.worldObj);
 		if (savedWarsData.editMode.editModeToggle == false) {

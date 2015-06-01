@@ -21,6 +21,8 @@ public class BlockAncientOre extends Block {
 		return WarsItems.ancientGem;
 	}
 
+    
+    @Override
 	public int quantityDropped(Random random) {
 		return 1;
 
