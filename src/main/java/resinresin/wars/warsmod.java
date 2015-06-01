@@ -69,9 +69,9 @@ public class warsmod {
 	public static Configuration conf;
 	@SuppressWarnings("rawtypes")
 	public static List donators;
-	public static CreativeTabs tabWarsBlocks = new WarsBlocksTab(CreativeTabs.getNextID(), "tabWarsItems");
-	public static CreativeTabs tabWarsItems = new WarsItemsTab(CreativeTabs.getNextID(), "tabWarsBlocks");
-	public static CreativeTabs tabWarsClasses = new WarsClassesTab(CreativeTabs.getNextID(), "tabWarsClasses");
+	public static CreativeTabs tabWarsBlocks = new WarsBlocksTab("tabWarsItems");
+	public static CreativeTabs tabWarsItems = new WarsItemsTab("tabWarsBlocks");
+	public static CreativeTabs tabWarsClasses = new WarsClassesTab("tabWarsClasses");
 	public boolean doBiomes;
 	public static boolean doSand;
 
@@ -128,7 +128,6 @@ public class warsmod {
 
 		GameRegistry.registerWorldGenerator(new WarsWorldGenerator(), 0);
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
-		TickRegistry.registerTickHandler(new ServerTickHandler(EnumSet.of(TickType.SERVER)), Side.SERVER);
 
 		worldGen = new WarsWorldGenerator();
 		if (doBiomes == true) {

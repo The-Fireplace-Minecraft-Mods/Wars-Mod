@@ -7,8 +7,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.registry.WarsItems;
 
 public final class WarsItemsTab extends CreativeTabs {
-	public WarsItemsTab(int par1, String par2Str) {
-		super(par1, par2Str);
+	public WarsItemsTab(String par2Str) {
+		super(par2Str);
 	}
 
 

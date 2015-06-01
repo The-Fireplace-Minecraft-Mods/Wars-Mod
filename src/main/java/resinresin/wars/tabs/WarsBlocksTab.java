@@ -7,8 +7,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.registry.WarsBlocks;
 
 public final class WarsBlocksTab extends CreativeTabs {
-	public WarsBlocksTab(int par1, String par2Str) {
-		super(par1, par2Str);
+	public WarsBlocksTab(String par2Str) {
+		super(par2Str);
 	}
 
 	public String getTranslatedTabLabel() {
