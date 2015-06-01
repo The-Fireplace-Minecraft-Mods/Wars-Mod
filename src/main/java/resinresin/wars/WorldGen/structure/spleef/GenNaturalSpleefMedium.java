@@ -1,7 +1,7 @@
 package resinresin.wars.WorldGen.structure.spleef;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import resinresin.wars.warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
@@ -11,9 +11,9 @@ public class GenNaturalSpleefMedium {
 	public GenNaturalSpleefMedium(EntityPlayer player, int i, int j, int k) {
 		resinresinLoader pSpleefM = new resinresinLoader("pSpleefM.resinresin");
 
-		warsmod.generateBlock(player.worldObj, i + 0, j + 2, k + 10, Block.stone);
-		warsmod.generateBlock(player.worldObj, i + 1, j + 2, k + 10, Block.stone);
-		warsmod.generateBlock(player.worldObj, i + 10, j + 1, k - 2, Block.stone);
+		warsmod.generateBlock(player.worldObj, i + 0, j + 2, k + 10, Blocks.stone);
+		warsmod.generateBlock(player.worldObj, i + 1, j + 2, k + 10, Blocks.stone);
+		warsmod.generateBlock(player.worldObj, i + 10, j + 1, k - 2, Blocks.stone);
 		pSpleefM.generate(player.worldObj, i + -14, j - 2, k + -13, false);
 
 		// 1

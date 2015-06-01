@@ -4,6 +4,8 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.Item;
 import resinresin.wars.warsmod;
 import resinresin.wars.registry.WarsItems;
 
@@ -15,9 +17,9 @@ public class BlockWaterOre extends Block {
 	}
 
 	
-	@Override
-	public int idDropped(int i, Random random, int j) {
-		return WarsItems.waterGem.itemID;
+	@Override 
+	public Item getItemDropped(IBlockState state, Random random, int j) {
+		return WarsItems.waterGem;
 	}
 	
 	

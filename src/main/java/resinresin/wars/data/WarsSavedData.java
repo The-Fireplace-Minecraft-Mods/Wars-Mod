@@ -38,14 +38,14 @@ public class WarsSavedData extends WorldSavedData {
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbttagcompound) {
-		nbttagcompound.setCompoundTag("teamRed", teamRed.writeToNBT(new NBTTagCompound()));
-		nbttagcompound.setCompoundTag("teamBlue", teamBlue.writeToNBT(new NBTTagCompound()));
-		nbttagcompound.setCompoundTag("teamGreen", teamGreen.writeToNBT(new NBTTagCompound()));
-		nbttagcompound.setCompoundTag("teamYellow", teamYellow.writeToNBT(new NBTTagCompound()));
+		nbttagcompound.setTag("teamRed", teamRed.writeToNBT(new NBTTagCompound()));
+		nbttagcompound.setTag("teamBlue", teamBlue.writeToNBT(new NBTTagCompound()));
+		nbttagcompound.setTag("teamGreen", teamGreen.writeToNBT(new NBTTagCompound()));
+		nbttagcompound.setTag("teamYellow", teamYellow.writeToNBT(new NBTTagCompound()));
 
-		nbttagcompound.setCompoundTag("teamChaos", teamChaos.writeToNBT(new NBTTagCompound()));
+		nbttagcompound.setTag("teamChaos", teamChaos.writeToNBT(new NBTTagCompound()));
 
-		nbttagcompound.setCompoundTag("editMode", editMode.writeToNBT(new NBTTagCompound()));
+		nbttagcompound.setTag("editMode", editMode.writeToNBT(new NBTTagCompound()));
 
 	}
 
