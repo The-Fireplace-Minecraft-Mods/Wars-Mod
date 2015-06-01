@@ -59,7 +59,7 @@ public class CommonProxy implements IGuiHandler { // WILL NOT WORK WITHOUT THIS
 
 		NBTTagCompound playerNbt = player.getEntityData();
 		if (!playerNbt.hasKey(EntityPlayer.PERSISTED_NBT_TAG)) {
-			playerNbt.setCompoundTag(EntityPlayer.PERSISTED_NBT_TAG, new NBTTagCompound());
+			playerNbt.setTag(EntityPlayer.PERSISTED_NBT_TAG, new NBTTagCompound());
 		}
 		NBTTagCompound persisted = playerNbt.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
 

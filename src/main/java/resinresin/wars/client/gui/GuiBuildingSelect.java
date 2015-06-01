@@ -13,8 +13,6 @@ import resinresin.wars.warsmod;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
-import cpw.mods.fml.common.network.PacketDispatcher;
-
 public class GuiBuildingSelect extends GuiScreen {
 
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/classBuildings.png");
@@ -38,9 +36,9 @@ public class GuiBuildingSelect extends GuiScreen {
 	public GuiBuildingSelect(EntityPlayer player, TileEntity tile) {
 		// the container is instanciated and passed to the superclass for
 		// handling
-		this.x = tile.xCoord;
-		this.y = tile.yCoord;
-		this.z = tile.zCoord;
+		this.x = tile.getPos().getX();
+		this.y = tile.getPos().getY();
+		this.z = tile.getPos().getZ();
 
 	}
 
