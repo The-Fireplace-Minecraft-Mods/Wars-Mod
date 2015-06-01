@@ -2,8 +2,12 @@ package resinresin.wars.Blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.warsmod;
 
@@ -14,44 +18,34 @@ public class BlockSetSpawn extends Block {
 		setCreativeTab(warsmod.tabWarsBlocks);
 	}
 
-	
-	@Override
-	public int getRenderBlockPass() {
-		return 0;
-	}
-
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-	 * or not to render the shared face of two adjacent blocks and also whether
-	 * the player can attach torches, redstone wire, etc to this block.
-	 */
 	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
-
-	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
-	 */
+	
 	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
+    public boolean isFullCube()
+    {
+        return false;
+    }
 
 	@Override 
-	public boolean onBlockActivated(World par1World, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
-		par1World.getWorldInfo().setSpawnPosition(i, j, k);
+		int i = pos.getX();
+		int j = pos.getX();
+		int k = pos.getX();
+		
+		world.getWorldInfo().setSpawn(pos);
 
-		if (!par1World.isRemote) {
+		if (!world.isRemote) {
 
 			Minecraft mc = Minecraft.getMinecraft();
 
 			mc.thePlayer.addChatMessage("World Spawn Set To" + "  " + i + "  " + j + "  " + k);
 
 		}
-		par1World.setBlock(i + 0, j - 0, k + 0, 0, 2, 2);
+		warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
 		
 		return false;
 

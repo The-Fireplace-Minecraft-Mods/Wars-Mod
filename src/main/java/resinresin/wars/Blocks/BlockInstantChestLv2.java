@@ -4,11 +4,14 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.warsmod;
 
@@ -21,12 +24,16 @@ public class BlockInstantChestLv2 extends Block {
 
 	
 	@Override
-	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
-		world.setBlock(i + 0, j + 0, k + 0, Block.chest.blockID, 2, 2);
+		int i = pos.getX();
+		int j = pos.getX();
+		int k = pos.getX();
+		
+		warsmod.generateBlock(world, i + 0, j + 0, k + 0, Blocks.chest);
 		TileEntityChest chest2 = new TileEntityChest();
 
-		world.setBlockTileEntity(i + 0, j + 0, k + 0, chest2);
+		world.setTileEntity(pos, chest2);
 
 		Random random = new Random();
 

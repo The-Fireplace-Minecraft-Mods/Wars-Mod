@@ -4,9 +4,12 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.warsmod;
 import resinresin.wars.tileentities.TileEntityTeleporter;
@@ -20,13 +23,18 @@ public class BlockTeleporter extends Block {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float par7, float par8, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
+
+		int x = pos.getX();
+		int y = pos.getX();
+		int z = pos.getX();
+		
 		if (!world.isRemote) {
 			int distance = -1;
 			TileEntity foundTileEntity = null;
-			TileEntity thisTileEntity = world.getBlockTileEntity(x, y, z);
+			TileEntity thisTileEntity = world.getTileEntity(pos);
 			for (TileEntity tileEntity : (List<TileEntity>) world.loadedTileEntityList) {
-				if (tileEntity != thisTileEntity && world.getBlockId(tileEntity.xCoord, tileEntity.yCoord, tileEntity.zCoord) == blockID) {
+				if (tileEntity != thisTileEntity && world.getBlock(tileEntity.xCoord, tileEntity.yCoord, tileEntity.zCoord) == block) {
 					int thisDistance = ((TileEntityTeleporter) tileEntity).getDistanceTo(x, y, z);
 					if (thisDistance <= 50000 && (distance < 0 || distance > thisDistance)) {
 						foundTileEntity = tileEntity;
