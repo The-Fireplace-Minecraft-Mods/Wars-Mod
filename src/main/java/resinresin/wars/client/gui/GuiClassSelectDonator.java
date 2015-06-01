@@ -22,8 +22,6 @@ import resinresin.wars.client.ClientProxy;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
-import cpw.mods.fml.common.network.PacketDispatcher;
-
 public class GuiClassSelectDonator extends GuiScreen {
 
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/classSelectionDonator.png");
@@ -64,9 +62,9 @@ public class GuiClassSelectDonator extends GuiScreen {
 		int posY = (this.height - ySizeOfTexture) / 2;
 		drawTexturedModalRect(posX, posY, 0, 0, xSizeOfTexture, ySizeOfTexture);
 
-		drawString(fontRenderer, talkTo, posX + 40, posY + 148, colorsHex[colorIndex]);
+		drawString(fontRendererObj, talkTo, posX + 40, posY + 148, colorsHex[colorIndex]);
 
-		drawString(fontRenderer, info, posX + 25, posY + 30, 0x6A5ACD);
+		drawString(fontRendererObj, info, posX + 25, posY + 30, 0x6A5ACD);
 
 		func_110423_a(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.thePlayer);
 
@@ -141,7 +139,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 	
 		switch (guibutton.id) {
 		case 1:
-			if (ClientProxy.donators.contains(this.mc.thePlayer.username)) {
+			if (ClientProxy.donators.contains(this.mc.thePlayer.getName())) {
 				colorIndex = 2;
 				talkTo = "ChaosWarrior Selected";
 			} else {

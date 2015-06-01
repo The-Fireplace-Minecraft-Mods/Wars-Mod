@@ -4,6 +4,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
@@ -12,8 +13,6 @@ import resinresin.wars.warsmod;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-
-import cpw.mods.fml.common.network.PacketDispatcher;
 
 public class GuiSetupSelection extends GuiScreen {
 
@@ -31,22 +30,18 @@ public class GuiSetupSelection extends GuiScreen {
 	public String sizeHeight = "";
 	public String sizeArea = "";
 
-	public int x = 0;
-	public int y = 0;
-	public int z = 0;
-
+	public BlockPos blockPos; 
+	
+	
 	public GuiSetupSelection(EntityPlayer player, TileEntity tile) {
 		// the container is instanciated and passed to the superclass for
 		// handling
-		this.x = tile.xCoord;
-		this.y = tile.yCoord;
-		this.z = tile.zCoord;
-
+		this.blockPos = tile.getPos();
 	}
 
 	@Override
 	protected void keyTyped(char par1, int par2) {
-		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.keyCode) {
+		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
 			this.mc.thePlayer.closeScreen();
 		}
 	}
@@ -83,12 +78,12 @@ public class GuiSetupSelection extends GuiScreen {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		drawTexturedModalRect(posX + 250, posY + 15, 0, 0, xSizeOfTexture2, ySizeOfTexture2);
 
-		drawString(fontRenderer, title, posX + 252, posY + 20, 0x6A5ACD);
+		drawString(fontRendererObj, title, posX + 252, posY + 20, 0x6A5ACD);
 
-		drawString(fontRenderer, sizeHeight, posX + 254, posY + 130, 0xFF6600);
-		drawString(fontRenderer, sizeArea, posX + 254, posY + 140, 0xFF6600);
+		drawString(fontRendererObj, sizeHeight, posX + 254, posY + 130, 0xFF6600);
+		drawString(fontRendererObj, sizeArea, posX + 254, posY + 140, 0xFF6600);
 
-		fontRenderer.drawSplitString(info, posX + 252, posY + 30, 80, 7);
+		fontRendererObj.drawSplitString(info, posX + 252, posY + 30, 80, 7);
 
 		super.drawScreen(x, y, f);
 	}
