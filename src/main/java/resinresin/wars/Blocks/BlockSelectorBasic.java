@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.registry.WarsItems;
 import resinresin.wars.tileentities.TileEntityClassSelect;
 
@@ -19,7 +19,7 @@ public class BlockSelectorBasic extends BlockContainer {
 
 	public BlockSelectorBasic() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	@Override 
@@ -44,7 +44,7 @@ public class BlockSelectorBasic extends BlockContainer {
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
 		}
-		player.openGui(warsmod.instance, 1, world, x, y, z);
+		player.openGui(Warsmod.instance, 1, world, x, y, z);
 		return true;
 	}
 

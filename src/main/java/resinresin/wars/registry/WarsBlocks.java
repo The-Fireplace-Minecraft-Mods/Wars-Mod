@@ -2,9 +2,8 @@ package resinresin.wars.registry;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.Blocks.BlockAncientBlock;
 import resinresin.wars.Blocks.BlockAncientOre;
 import resinresin.wars.Blocks.BlockBadBlock;
@@ -263,7 +262,7 @@ public class WarsBlocks {
 		teleporterBlock4 = new BlockTeleporter4().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv4");
 		teleporterBlock3 = new BlockTeleporter3().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv3");
 		teleporterBlock2 = new BlockTeleporter2().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv2");
-		teleporterBlock = new BlockTeleporter(warsmod.conf.getBlock("teleporterBlock1", 279).getInt()).setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv1");
+		teleporterBlock = new BlockTeleporter(Warsmod.conf.getBlock("teleporterBlock1", 279).getInt()).setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv1");
 		hill = new BlockHill().setUnlocalizedName("Hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		cottage = new BlockCottage().setUnlocalizedName("Cottage").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		wallNS = new BlockWallNS(hill, 0).setBlockUnbreakable().setUnlocalizedName("Wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -293,7 +292,7 @@ public class WarsBlocks {
 		insChest4 = new BlockInstantChestLv4().setUnlocalizedName("HgBoxLv4").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		warChest = new BlockWarChest().setBlockUnbreakable().setBlockUnbreakable().setUnlocalizedName("WarChest").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		playerTNT = new BlockPlayerTNT(106).setHardness(0.2F).setUnlocalizedName("PTNTFront").setResistance(1F).setStepSound(Block.soundTypeStone);
-		setSpawn = new BlockSetSpawn().setUnlocalizedName("SpawnSetter").setTextureName("warsmod:SpawnSetter").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
+		setSpawn = new BlockSetSpawn().setUnlocalizedName("SpawnSetter").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		redPlate = new BlockRedPlate("wool_colored_red", Material.rock, EnumMobType.mobs).setUnlocalizedName("RedPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		bluePlate = new BlockBluePlate("wool_colored_blue", Material.rock, EnumMobType.mobs).setUnlocalizedName("BluePlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		greenPlate = new BlockGreenPlate("wool_colored_green", Material.rock, EnumMobType.mobs).setUnlocalizedName("GreenPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);

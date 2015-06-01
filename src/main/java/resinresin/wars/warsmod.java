@@ -59,13 +59,13 @@ import resinresin.wars.tabs.WarsClassesTab;
 import resinresin.wars.tabs.WarsItemsTab;
 
 @Mod(modid = "warsmod", name = "Wars Mod", version = "6.3")
-public class warsmod {
+public class Warsmod {
 
 	//@SidedProxy(clientSide = "resinresin.wars.client.ClientProxy", serverSide = "resinresin.wars.CommonProxy")
 	public static CommonProxy proxy;
 
 	//@Instance("warsmod")
-	public static warsmod instance;
+	public static Warsmod instance;
 	public static Configuration conf;
 	@SuppressWarnings("rawtypes")
 	public static List donators;
@@ -140,7 +140,7 @@ public class warsmod {
 
 		int entityIdPTNT = EntityRegistry.findGlobalUniqueEntityId();
 		EntityRegistry.registerGlobalEntityID(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT);
-		EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT, warsmod.instance, 16, 1, false);
+		EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT, Warsmod.instance, 16, 1, false);
 
 		proxy.registerRenderInformation();
 		conf.save();

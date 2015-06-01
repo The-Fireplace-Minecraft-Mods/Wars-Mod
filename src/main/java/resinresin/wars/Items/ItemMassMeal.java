@@ -9,12 +9,12 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.entity.player.BonemealEvent;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 public class ItemMassMeal extends Item {
 	public ItemMassMeal() {
 		super();
-		this.setCreativeTab(warsmod.tabWarsItems);
+		this.setCreativeTab(Warsmod.tabWarsItems);
 
 	}
 

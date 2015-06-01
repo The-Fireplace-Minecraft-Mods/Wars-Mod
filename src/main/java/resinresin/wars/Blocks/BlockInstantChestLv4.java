@@ -13,13 +13,13 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 public class BlockInstantChestLv4 extends Block {
 
 	public BlockInstantChestLv4() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	
@@ -30,7 +30,7 @@ public class BlockInstantChestLv4 extends Block {
 		int j = pos.getX();
 		int k = pos.getX();
 		
-		warsmod.generateBlock(world, i + 0, j + 0, k + 0, Blocks.chest);
+		Warsmod.generateBlock(world, i + 0, j + 0, k + 0, Blocks.chest);
 		TileEntityChest chest2 = new TileEntityChest();
 
 		world.setTileEntity(pos, chest2);

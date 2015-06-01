@@ -8,14 +8,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
 public class BlockRoadPiece extends Block {
 
 	public BlockRoadPiece() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	resinresinLoader road = new resinresinLoader("roadPiece.resinresin");
@@ -28,7 +28,7 @@ public class BlockRoadPiece extends Block {
 		int j = pos.getX();
 		int k = pos.getX();
 		
-		warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
+		Warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
 		road.generate(world, i - 0, j - 1, k - 0, true);
 		return false;
 

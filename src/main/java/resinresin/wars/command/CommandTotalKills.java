@@ -4,7 +4,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.packet.Packet;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
@@ -39,7 +39,7 @@ public class CommandTotalKills extends CommandBase {
 
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeInt(warsmod_totalKill);
-		Packet packet = PacketDispatcher.getTinyPacket(warsmod.instance, (short) 3, out.toByteArray());
+		Packet packet = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 3, out.toByteArray());
 		PacketDispatcher.sendPacketToPlayer(packet, (Player) player);
 
 	}

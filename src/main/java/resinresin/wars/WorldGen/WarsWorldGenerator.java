@@ -10,7 +10,7 @@ import net.minecraft.world.biome.BiomeGenPlains;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.registry.WarsBlocks;
 
 public class WarsWorldGenerator implements IWorldGenerator {
@@ -76,7 +76,7 @@ public class WarsWorldGenerator implements IWorldGenerator {
 			}
 		}
 
-		if (warsmod.doSand == true) {
+		if (Warsmod.doSand == true) {
 		if (biomegenbase instanceof BiomeGenDesert) {
 
 			for (int i = 0; i < 100; i++) {

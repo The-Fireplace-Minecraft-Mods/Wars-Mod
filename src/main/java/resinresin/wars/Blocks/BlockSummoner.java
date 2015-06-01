@@ -13,13 +13,13 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 public class BlockSummoner extends Block {
 
 	public BlockSummoner() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	@Override

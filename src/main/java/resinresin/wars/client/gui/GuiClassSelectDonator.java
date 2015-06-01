@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.client.ClientProxy;
 
 import com.google.common.io.ByteArrayDataOutput;
@@ -135,7 +135,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 		// id is the id you give your button
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeByte(guibutton.id);
-		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(warsmod.instance, (short) 4, out.toByteArray()));
+		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 4, out.toByteArray()));
 	
 		switch (guibutton.id) {
 		case 1:

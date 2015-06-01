@@ -5,12 +5,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 public class ItemAncientEmblem extends Item {
 	public ItemAncientEmblem() { 
 		super();
-		this.setCreativeTab(warsmod.tabWarsItems); 
+		this.setCreativeTab(Warsmod.tabWarsItems); 
 													
 													
 

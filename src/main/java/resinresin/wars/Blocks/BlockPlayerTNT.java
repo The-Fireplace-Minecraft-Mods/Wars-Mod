@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.Items.ItemArmorMod;
 import resinresin.wars.entities.EntityPTNTPrimed;
 import resinresin.wars.registry.WarsItems;
@@ -31,7 +31,7 @@ public class BlockPlayerTNT extends Block {
 	public BlockPlayerTNT(int par1, int par2) {
 		super(par1, Material.tnt);
 
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	@Override

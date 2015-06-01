@@ -19,7 +19,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.registry.WarsItems;
 
@@ -136,7 +136,7 @@ public class WarsEventHandler {
 				}
 				}
 
-				Packet packet = PacketDispatcher.getTinyPacket(warsmod.instance, (short) 0, out.toByteArray());
+				Packet packet = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 0, out.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet, (Player) source.getEntity());
 
 				warsmod_totalKill = source.getEntity().getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
@@ -145,7 +145,7 @@ public class WarsEventHandler {
 
 				out2.writeInt(warsmod_totalKill);
 
-				Packet packet2 = PacketDispatcher.getTinyPacket(warsmod.instance, (short) 3, out2.toByteArray());
+				Packet packet2 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 3, out2.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet2, (Player) source.getEntity());
 
 			}

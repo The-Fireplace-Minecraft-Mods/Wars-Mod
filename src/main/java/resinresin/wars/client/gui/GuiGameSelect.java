@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
@@ -137,7 +137,7 @@ public class GuiGameSelect extends GuiScreen {
 
 		out.writeInt(z);
 
-		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(warsmod.instance, (short) 14, out.toByteArray()));
+		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 14, out.toByteArray()));
 
 		switch (guibutton.id) {
 		case 1:

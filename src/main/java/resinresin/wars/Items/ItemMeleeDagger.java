@@ -8,7 +8,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.registry.WarsBlocks;
 
 import com.google.common.collect.Multimap;
@@ -22,7 +22,7 @@ public class ItemMeleeDagger extends Item {
 
 	public ItemMeleeDagger() {
 		super();
-		this.setCreativeTab(warsmod.tabWarsClasses);
+		this.setCreativeTab(Warsmod.tabWarsClasses);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(300);
 		this.weaponDamage = 2F;

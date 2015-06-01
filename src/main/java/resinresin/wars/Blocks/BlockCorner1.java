@@ -9,7 +9,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
 public class BlockCorner1 extends BlockStairs {
@@ -17,7 +17,7 @@ public class BlockCorner1 extends BlockStairs {
 	public BlockCorner1() {
 		super(modelState);
 
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 
 	}
 

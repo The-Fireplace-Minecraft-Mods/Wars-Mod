@@ -8,12 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 public class ItemAntidote extends Item {
 	public ItemAntidote() {
 		super();
-		this.setCreativeTab(warsmod.tabWarsItems);
+		this.setCreativeTab(Warsmod.tabWarsItems);
 		this.setMaxStackSize(1);
 	}
 

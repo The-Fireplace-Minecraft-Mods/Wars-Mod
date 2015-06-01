@@ -10,7 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
@@ -18,7 +18,7 @@ public class BlockMazeStart extends Block {
 
 	public BlockMazeStart() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 
 	}
 
@@ -37,13 +37,13 @@ public class BlockMazeStart extends Block {
 		int k = pos.getX();
 		
 		mazeRace.generate(world, i - 21, j - 8, k - 19, true);
-		warsmod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.mazeReset);
+		Warsmod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.mazeReset);
 
 		Random random = new Random();
 
 		num = random.nextInt(8);
 
-		warsmod.generateBlock(world, i - 8, j - 5, k + 4, Blocks.glass);
+		Warsmod.generateBlock(world, i - 8, j - 5, k + 4, Blocks.glass);
 		return false;
 
 	}

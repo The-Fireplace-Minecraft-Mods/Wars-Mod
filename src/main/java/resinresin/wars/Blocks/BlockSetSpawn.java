@@ -9,13 +9,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 public class BlockSetSpawn extends Block {
 
 	public BlockSetSpawn() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class BlockSetSpawn extends Block {
 			mc.thePlayer.addChatMessage("World Spawn Set To" + "  " + i + "  " + j + "  " + k);
 
 		}
-		warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
+		Warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
 		
 		return false;
 

@@ -8,13 +8,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 
 public class BlockSpleefStone extends Block {
 
 	public BlockSpleefStone() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class BlockSpleefStone extends Block {
 		int k = pos.getX();
 		
 		
-		warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
+		Warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
 		world.playSoundAtEntity(player, "step.cloth", 1, 1);
 
 		return false;

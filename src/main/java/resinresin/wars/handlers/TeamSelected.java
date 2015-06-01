@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.registry.WarsItems;
 
@@ -42,7 +42,7 @@ public class TeamSelected {
 				
 				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 				out3.writeByte(0);
-				Packet packet3 = PacketDispatcher.getTinyPacket(warsmod.instance, (short) 16, out3.toByteArray());
+				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
 			}
 			break;
@@ -67,7 +67,7 @@ public class TeamSelected {
 			
 				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 				out3.writeByte(0);
-				Packet packet3 = PacketDispatcher.getTinyPacket(warsmod.instance, (short) 16, out3.toByteArray());
+				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
 			}
 			break;
@@ -95,7 +95,7 @@ public class TeamSelected {
 				
 				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 				out3.writeByte(0);
-				Packet packet3 = PacketDispatcher.getTinyPacket(warsmod.instance, (short) 16, out3.toByteArray());
+				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
 
 			}
@@ -121,7 +121,7 @@ public class TeamSelected {
 				
 				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 				out3.writeByte(0);
-				Packet packet3 = PacketDispatcher.getTinyPacket(warsmod.instance, (short) 16, out3.toByteArray());
+				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
 			}
 		}

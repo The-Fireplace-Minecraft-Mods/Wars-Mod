@@ -8,14 +8,14 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.tileentities.TileEntityBuildingStructures;
 
 public class BlockSelectorBuildings extends BlockContainer {
 
 	public BlockSelectorBuildings() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	
@@ -30,7 +30,7 @@ public class BlockSelectorBuildings extends BlockContainer {
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
 		}
-		player.openGui(warsmod.instance, 6, world, x, y, z);
+		player.openGui(Warsmod.instance, 6, world, x, y, z);
 		return true;
 	}
 

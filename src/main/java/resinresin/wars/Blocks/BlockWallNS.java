@@ -9,7 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
 public class BlockWallNS extends BlockStairs {
@@ -17,7 +17,7 @@ public class BlockWallNS extends BlockStairs {
 	public BlockWallNS(int ID, Block par2Block, int par3) {
 		super(ID, par2Block, par3);
 
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	resinresinLoader wallNS = new resinresinLoader("wall0.resinresin");

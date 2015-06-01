@@ -9,7 +9,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.data.WarsSavedData;
 
 import com.google.common.io.ByteArrayDataOutput;
@@ -19,7 +19,7 @@ public class BlockAncientBlock extends Block {
 
 	public BlockAncientBlock() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 
 	}
 
@@ -32,7 +32,7 @@ public class BlockAncientBlock extends Block {
 
 			ByteArrayDataOutput out7 = ByteStreams.newDataOutput();
 			out7.writeByte(1);
-			Packet packet7 = PacketDispatcher.getTinyPacket(warsmod.instance, (short) 10, out7.toByteArray());
+			Packet packet7 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 10, out7.toByteArray());
 			PacketDispatcher.sendPacketToPlayer(packet7, (Player) player);
 		}
 		return false;

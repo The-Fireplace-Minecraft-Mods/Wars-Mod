@@ -8,14 +8,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.warsmod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
 public class BlockTower extends Block {
 
 	public BlockTower() {
 		super(Material.iron);
-		setCreativeTab(warsmod.tabWarsBlocks);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
 	resinresinLoader Tower = new resinresinLoader("tower.resinresin");
@@ -32,7 +32,7 @@ public class BlockTower extends Block {
 		Tower.generate(world, i - 4, j - 1, k - 4, false);
 		Tower.generate(world, i - 4, j - 1, k - 4, false);
 
-		warsmod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
+		Warsmod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
 		
 		return false;
 
