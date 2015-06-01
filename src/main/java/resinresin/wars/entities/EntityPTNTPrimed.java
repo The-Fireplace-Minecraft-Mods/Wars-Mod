@@ -20,7 +20,7 @@ public class EntityPTNTPrimed extends Entity {
 		this.fuse = 50;
 		this.preventEntitySpawning = true;
 		this.setSize(0.98F, 0.98F);
-		this.yOffset = this.height / 2.0F;
+		this.posY = this.height / 2.0F;
 	}
 
 	public EntityPTNTPrimed(World par1World, double par2, double par4, double par6) {
@@ -76,7 +76,7 @@ public class EntityPTNTPrimed extends Entity {
 		}
 
 		if (this.fuse-- <= 0) {
-			this.worldObj.spawnParticle("hugeexplosion", this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
+			this.worldObj.spawnParticle("hugeexplosion", this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D, new int[0]);
 			this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
 
 			this.setDead();
@@ -87,7 +87,7 @@ public class EntityPTNTPrimed extends Entity {
 
 			}
 		} else {
-			this.worldObj.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
+			this.worldObj.spawnParticle("smoke", this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
 
 		}
 	}

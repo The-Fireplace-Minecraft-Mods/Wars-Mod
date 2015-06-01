@@ -14,7 +14,7 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
 	public EnumArmorMaterial material;
 
-	public ItemArmorMod(int i, EnumArmorMaterial enumarmormaterial, int type, int texture) {
+	public ItemArmorMod(int i, ArmorMaterial armormaterial, int type, int texture) {
 		super(i, enumarmormaterial, 0, type);
 		material = enumarmormaterial;
 

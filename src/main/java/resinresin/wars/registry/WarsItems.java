@@ -40,14 +40,14 @@ public abstract class WarsItems {
 
 	
 	public static ArmorMaterial scoutArmor = EnumHelper.addArmorMaterial("SCOUT", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial guardArmor = EnumHelper.addArmorMaterial("GUARD", -1, new int[] { 2, 6, 5, 2 }, 9);
-	public static ArmorMaterial healerArmor = EnumHelper.addArmorMaterial("HEALER", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial archerArmor = EnumHelper.addArmorMaterial("ARCHER", -1, new int[] { 1, 3, 2, 1 }, 15);
-	public static ArmorMaterial knightArmor = EnumHelper.addArmorMaterial("KNIGHT", -1, new int[] { 4, 9, 7, 4 }, 10);
-	public static ArmorMaterial techArmor = EnumHelper.addArmorMaterial("TECH", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial bootsArmor = EnumHelper.addArmorMaterial("BOOT", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial readArmor = EnumHelper.addArmorMaterial("READ", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial guardArmor = EnumHelper.addArmorMaterial("GUARD", null, -1, new int[] { 2, 6, 5, 2 }, 9);
+	public static ArmorMaterial healerArmor = EnumHelper.addArmorMaterial("HEALER", null, -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial archerArmor = EnumHelper.addArmorMaterial("ARCHER", null, -1, new int[] { 1, 3, 2, 1 }, 15);
+	public static ArmorMaterial knightArmor = EnumHelper.addArmorMaterial("KNIGHT", null, -1, new int[] { 4, 9, 7, 4 }, 10);
+	public static ArmorMaterial techArmor = EnumHelper.addArmorMaterial("TECH", null, -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial bootsArmor = EnumHelper.addArmorMaterial("BOOT", null, -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial readArmor = EnumHelper.addArmorMaterial("READ", null, -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", null, -1, new int[] { 0, 0, 0, 0 }, 30);
 
 	public final static EnumToolMaterial healTool = EnumHelper.addToolMaterial("HEALT", 0, 0, 0F, 0, 0);
 
@@ -151,7 +151,7 @@ public abstract class WarsItems {
 		greenBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("GreenBoots").setCreativeTab(Warsmod.tabWarsClasses);
 		yellowBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("YellowBoots").setCreativeTab(Warsmod.tabWarsClasses);
 		blueBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("BlueBoots").setCreativeTab(Warsmod.tabWarsClasses);
-		chaosBoots = (ew ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("ChaosBoots").setCreativeTab(Warsmod.tabWarsClasses);
+		chaosBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("ChaosBoots").setCreativeTab(Warsmod.tabWarsClasses);
 		waterGem = new ItemWaterGem().setUnlocalizedName("WaterGem");
 		fireGem = new ItemFireGem().setUnlocalizedName("FireGem");
 		decayGem = new ItemDecayGem().setUnlocalizedName("DecayGem");
