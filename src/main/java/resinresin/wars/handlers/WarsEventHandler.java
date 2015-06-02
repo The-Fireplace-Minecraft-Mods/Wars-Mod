@@ -9,17 +9,30 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
+import net.minecraft.command.ICommandManager;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import resinresin.wars.Warsmod;
+import resinresin.wars.command.CommandBlueBase;
+import resinresin.wars.command.CommandChaosSpawn;
+import resinresin.wars.command.CommandEditMode;
+import resinresin.wars.command.CommandGreenBase;
+import resinresin.wars.command.CommandKillstreak;
+import resinresin.wars.command.CommandRedBase;
+import resinresin.wars.command.CommandTotalKills;
+import resinresin.wars.command.CommandYellowBase;
 import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.registry.WarsItems;
 
@@ -28,9 +41,46 @@ import com.google.common.io.ByteStreams;
 
 public class WarsEventHandler {
 
+	@EventHandler
+	public void serverStart(FMLServerStartingEvent event) {
 
+		MinecraftServer server = MinecraftServer.getServer();
+		ICommandManager command = server.getCommandManager();
 
-	
+		ServerCommandManager serverCommand = ((ServerCommandManager) command);
+
+		// Registering Commands
+		serverCommand.registerCommand(new CommandKillstreak());
+		serverCommand.registerCommand(new CommandTotalKills());
+		serverCommand.registerCommand(new CommandRedBase());
+		serverCommand.registerCommand(new CommandGreenBase());
+		serverCommand.registerCommand(new CommandBlueBase());
+		serverCommand.registerCommand(new CommandYellowBase());
+		serverCommand.registerCommand(new CommandChaosSpawn());
+		serverCommand.registerCommand(new CommandEditMode());
+	}
+
+	@SubscribeEvent
+	public void onLivingAttack(LivingAttackEvent evt) {
+		if (evt.entity instanceof EntityPlayer && evt.source instanceof EntityDamageSource) {
+			EntityDamageSource source = (EntityDamageSource) evt.source;
+			if (source.getEntity() instanceof EntityPlayer) {
+				EntityPlayer attacker = (EntityPlayer) source.getEntity();
+				EntityPlayer damagee = (EntityPlayer) evt.entity;
+
+				ItemStack attackerBoots = attacker.inventory.armorItemInSlot(0);
+				ItemStack damageeBoots = damagee.inventory.armorItemInSlot(0);
+				if (attackerBoots != null && damageeBoots != null && attackerBoots.itemID == damageeBoots.itemID) {
+					int id = damageeBoots.itemID;
+					if (id == WarsItems.redBoots.itemID || id == WarsItems.greenBoots.itemID || id == WarsItems.blueBoots.itemID || id == WarsItems.yellowBoots.itemID) {
+						evt.setCanceled(true);
+
+					}
+
+				}
+			}
+		}
+	}
 
 	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent evt) {

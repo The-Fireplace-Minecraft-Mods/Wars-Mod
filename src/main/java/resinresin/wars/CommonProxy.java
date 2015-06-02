@@ -50,7 +50,7 @@ public class CommonProxy implements IGuiHandler { // WILL NOT WORK WITHOUT THIS
 	public void handleYellowPlayers(int yellowPlayers) {
 
 	}
-	
+
 	public void closeOpenGui() {
 	}
 

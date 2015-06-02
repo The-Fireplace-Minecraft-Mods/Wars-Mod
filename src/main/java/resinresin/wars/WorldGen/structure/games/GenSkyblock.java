@@ -1,11 +1,11 @@
 package resinresin.wars.WorldGen.structure.games;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.BlockPos;
 import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
@@ -22,8 +22,10 @@ public class GenSkyblock {
 	    	Warsmod.generateBlock(player.worldObj, i + 0, j + 65, k + -1, Blocks.sand);
 	    	Warsmod.generateBlock(player.worldObj, i + 3, j + 67, k + -2, Blocks.chest);
 	        TileEntityChest chest2 = new TileEntityChest();
-	        player.worldObj.setBlockTileEntity(i + 3, j + 67, k + -2, chest2);
-	        TileEntityChest tileentitychest = (TileEntityChest)player.worldObj.getBlockTileEntity(i + 3, j + 67, k + -2);
+	        
+	        BlockPos chestPos1 = new BlockPos(i + 3, j + 67, k + -2);
+	        player.worldObj.setTileEntity(chestPos1, chest2);
+	        TileEntityChest tileentitychest = (TileEntityChest)player.worldObj.getTileEntity(chestPos1);
 	        if (tileentitychest != null && tileentitychest.getSizeInventory() > 0) {
 	        	ItemStack itemstack = new ItemStack(Items.string, 12);
 	        	tileentitychest.setInventorySlotContents(0, itemstack);
@@ -48,8 +50,11 @@ public class GenSkyblock {
 	        	
 	        Warsmod.generateBlock(player.worldObj, i + 1, j + 1, k + 0, Blocks.chest);
 	        TileEntityChest chest3 = new TileEntityChest();
-	        player.worldObj.setBlockTileEntity(i + 1, j + 1, k + 0, chest3);
-	        TileEntityChest tileentitychest1 = (TileEntityChest)player.worldObj.getBlockTileEntity(i + 1, j + 1, k + 0);
+	        
+	        BlockPos chestPos2 = new BlockPos(i + 1, j + 1, k + 0);
+	        
+	        player.worldObj.setTileEntity(chestPos2, chest3);
+	        TileEntityChest tileentitychest1 = (TileEntityChest)player.worldObj.getTileEntity(chestPos2);
 	        if (tileentitychest1 != null && tileentitychest1.getSizeInventory() > 0) {
 	        ItemStack itemstack15 = new ItemStack(Items.boat, 4);
 	        tileentitychest1.setInventorySlotContents(0, itemstack15);
