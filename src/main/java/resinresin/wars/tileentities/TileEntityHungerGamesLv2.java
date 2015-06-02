@@ -2,12 +2,13 @@ package resinresin.wars.tileentities;
 
 import net.minecraft.block.Block;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatMessageComponent;
+import net.minecraft.util.ChatComponentText;
 import resinresin.wars.WorldGen.resinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
-public class TileEntityHungerGamesLv2 extends TileEntity {
+public class TileEntityHungerGamesLv2 extends TileEntity implements IUpdatePlayerListBox {
 
 	private static final int TICKS_IN_30_SECONDS = 600; // figure that out
 	private static final int TICKS_IN_50_SECONDS = 1000; // figure that out
@@ -24,54 +25,55 @@ public class TileEntityHungerGamesLv2 extends TileEntity {
 	resinresinLoader hgLStarted = new resinresinLoader("hgLStarted.resinresin");
 
 	@Override
-	public void updateEntity() {
+	public void update() {
 		if (shouldTick && !worldObj.isRemote) {
 			tickCount++;
 
 			if (tickCount == TICKS_IN_30_SECONDS) {
-				MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText("\u00a75HUNGER GAMES MEDIUM STARTING IN 30 SECONDS"));
+				MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a75HUNGER GAMES MEDIUM STARTING IN 30 SECONDS"));
 			}
 		}
 
 		if (tickCount == TICKS_IN_50_SECONDS) {
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText("\u00a75HUNGER GAMES MEDIUM STARTING IN 10 SECONDS"));
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a75HUNGER GAMES MEDIUM STARTING IN 10 SECONDS"));
 
 		}
 
 		if (tickCount == TICKS_IN_55_SECONDS) {
 
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText("\u00a75HUNGER GAMES MEDIUM STARTING IN 5 SECONDS"));
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a75HUNGER GAMES MEDIUM STARTING IN 5 SECONDS"));
 
 		}
 
 		if (tickCount == TICKS_IN_56_SECONDS) {
 
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText("\u00a754"));
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a754"));
 
 		}
 
 		if (tickCount == TICKS_IN_57_SECONDS) {
 
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText("\u00a753"));
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a753"));
 
 		}
 
 		if (tickCount == TICKS_IN_58_SECONDS) {
 
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText("\u00a752"));
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a752"));
 
 		}
 
 		if (tickCount == TICKS_IN_59_SECONDS) {
 
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText("\u00a751"));
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a751"));
 
 		}
 
 		if (tickCount == TICKS_IN_1_MINUTE) {
 
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText("\u00a72HUNGER GAMES MEDIUM HAS STARTED GO GO GO "));
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a72HUNGER GAMES MEDIUM HAS STARTED GO GO GO "));
 
+			
 			worldObj.createExplosion(null, xCoord - 19, yCoord + 4, zCoord - 0, 0.0F, shouldTick);
 			worldObj.createExplosion(null, xCoord - 19, yCoord + 5, zCoord - 0, 0.0F, shouldTick);
 			worldObj.createExplosion(null, xCoord - 19, yCoord + 6, zCoord - 0, 0.0F, shouldTick);
@@ -128,4 +130,6 @@ public class TileEntityHungerGamesLv2 extends TileEntity {
 		}
 
 	}
+
+
 }

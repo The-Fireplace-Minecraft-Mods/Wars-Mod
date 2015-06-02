@@ -524,14 +524,14 @@ public class GenRedCastle {
 		Warsmod.generateBlock(player.worldObj, i - 0, j - 10, k + -8, Blocks.air);
 		Warsmod.generateBlock(player.worldObj, i - 0, j - 10, k + -9, Blocks.air);
 
-		Warsmod.generateBlock(player.worldObj, i + 8, j - 8, k + 2, Block.cobblestone.blockID, 2, 2);
-		Warsmod.generateBlock(player.worldObj, i + 8, j - 8, k + 3, Block.cobblestone.blockID, 2, 2);
-		Warsmod.generateBlock(player.worldObj, i + 8, j - 8, k + 4, Block.cobblestone.blockID, 2, 2);
+		Warsmod.generateBlock(player.worldObj, i + 8, j - 8, k + 2, Blocks.cobblestone);
+		Warsmod.generateBlock(player.worldObj, i + 8, j - 8, k + 3, Blocks.cobblestone);
+		Warsmod.generateBlock(player.worldObj, i + 8, j - 8, k + 4, Blocks.cobblestone);
 
-		Warsmod.generateBlock(player.worldObj, i - 11, j - 14, k + 0, Block.cobblestone.blockID, 2, 2);
+		Warsmod.generateBlock(player.worldObj, i - 11, j - 14, k + 0, Blocks.cobblestone);
 
-		Warsmod.generateBlock(player.worldObj, i - 2, j - 12, k + 0, WarsBlocks.classSelect.blockID, 2, 2);
-		Warsmod.generateBlock(player.worldObj, i - 2, j - 11, k + 0, WarsBlocks.classSelectDonator.blockID, 2, 2);
+		Warsmod.generateBlock(player.worldObj, i - 2, j - 12, k + 0, WarsBlocks.classSelect);
+		Warsmod.generateBlock(player.worldObj, i - 2, j - 11, k + 0, WarsBlocks.classSelectDonator);
 
 	}
 

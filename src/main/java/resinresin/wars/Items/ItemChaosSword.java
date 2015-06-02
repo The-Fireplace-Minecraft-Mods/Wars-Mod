@@ -58,7 +58,7 @@ public class ItemChaosSword extends Item {
 
 
 			if (cooldown <= 0) {
-				if (Warsmod.donators.contains(par3EntityPlayer.username)) {
+				if (Warsmod.donators.contains(par3EntityPlayer.getName())) {
 
 					if (par3EntityPlayer instanceof EntityPlayerMP && ItemArmorMod.fullEquiped(par3EntityPlayer, resinresin.wars.registry.WarsItems.chaosArmor)) {
 
@@ -90,7 +90,7 @@ public class ItemChaosSword extends Item {
 			stack.stackSize = 0;
 		}
 
-		else if (!Warsmod.donators.contains(player.username)) {
+		else if (!Warsmod.donators.contains(player.getName())) {
 			stack.stackSize = 0;
 			player.addChatMessage("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com");
 

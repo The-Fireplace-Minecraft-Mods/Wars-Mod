@@ -111,7 +111,7 @@ public class ItemArcherBow extends Item {
 	 * is being used
 	 */
 	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.bow;
+		return EnumAction.BOW;
 	}
 
 	/**
