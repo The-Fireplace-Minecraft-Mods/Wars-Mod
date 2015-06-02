@@ -2,7 +2,7 @@ package resinresin.wars.handlers;
 
 import java.util.Arrays;
 
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.registry.WarsItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +13,7 @@ public class DonatorClassSelected {
 
 	public DonatorClassSelected(EntityPlayer player) {
 		WarsSavedData savedData = WarsSavedData.get(player.worldObj);
-		if (Warsmod.donators.contains(player.getName())) {
+		if (WarsMod.donators.contains(player.getName())) {
 
 			Arrays.fill(player.inventory.mainInventory, null);
 

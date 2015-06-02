@@ -7,14 +7,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
 public class BlockLamp extends Block {
 
 	public BlockLamp() {
 		super(Material.iron);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	resinresinLoader lamp = new resinresinLoader("lamp.resinresin");

@@ -7,13 +7,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 
 public class BlockBounceLow extends Block {
 
 	public BlockBounceLow() {
 		super(Material.iron);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	

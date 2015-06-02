@@ -3,7 +3,7 @@ package resinresin.wars.registry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.Blocks.BlockAncientBlock;
 import resinresin.wars.Blocks.BlockAncientOre;
 import resinresin.wars.Blocks.BlockBadBlock;
@@ -262,7 +262,7 @@ public class WarsBlocks {
 		teleporterBlock4 = new BlockTeleporter4().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv4");
 		teleporterBlock3 = new BlockTeleporter3().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv3");
 		teleporterBlock2 = new BlockTeleporter2().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv2");
-		teleporterBlock = new BlockTeleporter(Warsmod.conf.getBlock("teleporterBlock1", 279).getInt()).setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv1");
+		teleporterBlock = new BlockTeleporter(WarsMod.config.getBlock("teleporterBlock1", 279).getInt()).setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("TeleLv1");
 		hill = new BlockHill().setUnlocalizedName("Hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		cottage = new BlockCottage().setUnlocalizedName("Cottage").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		wallNS = new BlockWallNS(hill, 0).setBlockUnbreakable().setUnlocalizedName("Wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);

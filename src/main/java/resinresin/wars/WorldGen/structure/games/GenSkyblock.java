@@ -6,7 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
 public class GenSkyblock {
@@ -17,10 +17,10 @@ public class GenSkyblock {
 	    	
 	    	
 	    	skyBlock.generate(player.worldObj, i + -9, j - 0, k + -9, true);
-	    	Warsmod.generateBlock(player.worldObj, i + 2, j + 65, k + -1, Blocks.sand);
-	    	Warsmod.generateBlock(player.worldObj, i + 1, j + 65, k + -1, Blocks.sand);
-	    	Warsmod.generateBlock(player.worldObj, i + 0, j + 65, k + -1, Blocks.sand);
-	    	Warsmod.generateBlock(player.worldObj, i + 3, j + 67, k + -2, Blocks.chest);
+	    	WarsMod.generateBlock(player.worldObj, i + 2, j + 65, k + -1, Blocks.sand);
+	    	WarsMod.generateBlock(player.worldObj, i + 1, j + 65, k + -1, Blocks.sand);
+	    	WarsMod.generateBlock(player.worldObj, i + 0, j + 65, k + -1, Blocks.sand);
+	    	WarsMod.generateBlock(player.worldObj, i + 3, j + 67, k + -2, Blocks.chest);
 	        TileEntityChest chest2 = new TileEntityChest();
 	        player.worldObj.setBlockTileEntity(i + 3, j + 67, k + -2, chest2);
 	        TileEntityChest tileentitychest = (TileEntityChest)player.worldObj.getBlockTileEntity(i + 3, j + 67, k + -2);
@@ -46,7 +46,7 @@ public class GenSkyblock {
 	        	ItemStack itemstack9 = new ItemStack(Blocks.cactus, 1);
 	        	tileentitychest.setInventorySlotContents(20, itemstack9);
 	        	
-	        Warsmod.generateBlock(player.worldObj, i + 1, j + 1, k + 0, Blocks.chest);
+	        WarsMod.generateBlock(player.worldObj, i + 1, j + 1, k + 0, Blocks.chest);
 	        TileEntityChest chest3 = new TileEntityChest();
 	        player.worldObj.setBlockTileEntity(i + 1, j + 1, k + 0, chest3);
 	        TileEntityChest tileentitychest1 = (TileEntityChest)player.worldObj.getBlockTileEntity(i + 1, j + 1, k + 0);

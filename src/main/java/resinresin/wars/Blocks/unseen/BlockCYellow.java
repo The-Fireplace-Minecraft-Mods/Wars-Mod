@@ -8,7 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.WorldGen.resinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
@@ -30,10 +30,10 @@ public class BlockCYellow extends Block {
 		
 		controlYellow.generate(world, i + 0, j - 0, k + -1, true);
 		{
-			Warsmod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.controlYellow);
-			Warsmod.generateBlock(world, i + 2, j - 0, k + 0, WarsBlocks.controlBlue);
-			Warsmod.generateBlock(world, i + 1, j - 0, k + -1, WarsBlocks.controlRed);
-			Warsmod.generateBlock(world, i + 1, j - 0, k + 1, WarsBlocks.controlGreen);
+			WarsMod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.controlYellow);
+			WarsMod.generateBlock(world, i + 2, j - 0, k + 0, WarsBlocks.controlBlue);
+			WarsMod.generateBlock(world, i + 1, j - 0, k + -1, WarsBlocks.controlRed);
+			WarsMod.generateBlock(world, i + 1, j - 0, k + 1, WarsBlocks.controlGreen);
 
 		}
 		{

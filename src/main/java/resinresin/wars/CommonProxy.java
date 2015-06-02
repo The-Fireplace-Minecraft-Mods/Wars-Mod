@@ -4,7 +4,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class CommonProxy implements IGuiHandler { // WILL NOT WORK WITHOUT THIS
 
 	public void registerRenderInformation() {
@@ -50,11 +55,10 @@ public class CommonProxy implements IGuiHandler { // WILL NOT WORK WITHOUT THIS
 	public void handleYellowPlayers(int yellowPlayers) {
 
 	}
-	
+
 	public void closeOpenGui() {
 	}
 
-	@SuppressWarnings("unused")
 	public void totalKills(EntityPlayer player) {
 
 		NBTTagCompound playerNbt = player.getEntityData();

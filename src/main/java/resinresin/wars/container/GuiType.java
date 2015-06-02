@@ -1,6 +1,6 @@
 package resinresin.wars.container;
 
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import net.minecraft.entity.player.EntityPlayer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -22,7 +22,7 @@ public enum GuiType {
 
 	@SideOnly(Side.SERVER)
 	public void open(EntityPlayer player, int x, int y, int z) {
-		player.openGui(Warsmod.instance, ordinal(), player.worldObj, x, y, z);
+		player.openGui(WarsMod.instance, ordinal(), player.worldObj, x, y, z);
 
 	}
 

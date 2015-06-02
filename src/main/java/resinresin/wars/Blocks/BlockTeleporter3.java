@@ -8,14 +8,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.tileentities.TileEntityTeleporter;
 
 public class BlockTeleporter3 extends Block {
 
 	public BlockTeleporter3() {
 		super(Material.iron);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	@SuppressWarnings("unchecked")

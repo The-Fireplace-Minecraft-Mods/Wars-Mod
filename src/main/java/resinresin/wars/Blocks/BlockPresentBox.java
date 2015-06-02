@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
 
 public class BlockPresentBox extends Block {
@@ -17,7 +17,7 @@ public class BlockPresentBox extends Block {
 	public BlockPresentBox() {
 		super(Material.iron);
 		this.setTickRandomly(true);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	

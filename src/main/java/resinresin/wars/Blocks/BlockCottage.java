@@ -8,14 +8,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
 public class BlockCottage extends Block {
 
 	public BlockCottage() {
 		super(Material.iron);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	resinresinLoader cottage = new resinresinLoader("cottage.resinresin");
@@ -28,18 +28,18 @@ public class BlockCottage extends Block {
 		int j = pos.getX();
 		int k = pos.getX();
 		
-		Warsmod.generateBlock(world, i + 4, j + 2, k - 2, Blocks.stone);
+		WarsMod.generateBlock(world, i + 4, j + 2, k - 2, Blocks.stone);
 
-		Warsmod.generateBlock(world, i - 1, j + 2, k + 5, Blocks.stone);
-		Warsmod.generateBlock(world, i + 1, j + 2, k + 5, Blocks.stone);
+		WarsMod.generateBlock(world, i - 1, j + 2, k + 5, Blocks.stone);
+		WarsMod.generateBlock(world, i + 1, j + 2, k + 5, Blocks.stone);
 
-		Warsmod.generateBlock(world, i + 2, j + 7, k + 5, Blocks.stone);
+		WarsMod.generateBlock(world, i + 2, j + 7, k + 5, Blocks.stone);
 
-		Warsmod.generateBlock(world, i - 2, j + 7, k + 5, Blocks.stone);
+		WarsMod.generateBlock(world, i - 2, j + 7, k + 5, Blocks.stone);
 
 		cottage.generate(world, i - 5, j - 1, k - 6, false);
 
-		Warsmod.generateBlock(world, i - 0, j + 0, k + 0, Blocks.air);
+		WarsMod.generateBlock(world, i - 0, j + 0, k + 0, Blocks.air);
 
 		return false;
 

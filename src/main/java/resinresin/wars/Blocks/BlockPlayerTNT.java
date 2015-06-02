@@ -4,34 +4,25 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.Items.ItemArmorMod;
 import resinresin.wars.entities.EntityPTNTPrimed;
 import resinresin.wars.registry.WarsItems;
 import resinresin.wars.tileentities.TileEntityPlayerTNT;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockPlayerTNT extends Block {
 
-	@SideOnly(Side.CLIENT)
-	private Icon blockTop;
-	@SideOnly(Side.CLIENT)
-	private Icon blockBase;
+	public BlockPlayerTNT() {
+		super(Material.tnt);
 
-	public BlockPlayerTNT(int par1, int par2) {
-		super(par1, Material.tnt);
-
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	@Override
@@ -42,13 +33,6 @@ public class BlockPlayerTNT extends Block {
 	@Override
 	public TileEntity createTileEntity(World world, int metadata) {
 		return new TileEntityPlayerTNT();
-	}
-
-	/**
-	 * Returns the block texture based on the side being looked at. Args: side
-	 */
-	public Icon getIcon(int par1, int par2) {
-		return par1 == 0 ? this.blockBase : (par1 == 1 ? this.blockTop : this.blockIcon);
 	}
 
 	/**

@@ -16,7 +16,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsBlocks;
 
 import com.google.common.collect.Multimap;
@@ -27,7 +27,7 @@ public class ItemChaosSword extends Item {
 
 	public ItemChaosSword() {
 		super();
-		this.setCreativeTab(Warsmod.tabWarsClasses);
+		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(300);
 		this.weaponDamage = 3F;
@@ -57,7 +57,7 @@ public class ItemChaosSword extends Item {
 
 
 			if (cooldown <= 0) {
-				if (Warsmod.donators.contains(par3EntityPlayer.username)) {
+				if (WarsMod.donators.contains(par3EntityPlayer.username)) {
 
 					if (par3EntityPlayer instanceof EntityPlayerMP && ItemArmorMod.fullEquiped(par3EntityPlayer, resinresin.wars.registry.WarsItems.chaosArmor)) {
 
@@ -73,7 +73,7 @@ public class ItemChaosSword extends Item {
 						cooldown = 40;
 					}
 				}
-			} else if (!Warsmod.donators.contains(par3EntityPlayer.username)) {
+			} else if (!WarsMod.donators.contains(par3EntityPlayer.username)) {
 				par3EntityPlayer.addChatMessage("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com");
 
 			}
@@ -89,7 +89,7 @@ public class ItemChaosSword extends Item {
 			stack.stackSize = 0;
 		}
 
-		else if (!Warsmod.donators.contains(player.username)) {
+		else if (!WarsMod.donators.contains(player.username)) {
 			stack.stackSize = 0;
 			player.addChatMessage("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com");
 

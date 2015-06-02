@@ -17,7 +17,7 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 
 public class ItemArcherBow extends Item {
 	public static final String[] bowPullIconNameArray = new String[] { "ArcherBow_pulling_0", "ArcherBow_pulling_1", "ArcherBow_pulling_2" };
@@ -28,7 +28,7 @@ public class ItemArcherBow extends Item {
 		super();
 		this.maxStackSize = 1;
 		this.setMaxDamage(384);
-		this.setCreativeTab(Warsmod.tabWarsClasses);
+		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setFull3D();
 	}
 

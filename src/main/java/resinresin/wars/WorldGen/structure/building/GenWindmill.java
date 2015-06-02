@@ -2,7 +2,7 @@ package resinresin.wars.WorldGen.structure.building;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
 public class GenWindmill {
@@ -13,7 +13,7 @@ public class GenWindmill {
 		windmill.generate(player.worldObj, i - 6, j - 1, k - 8, false);
 		windmill.generate(player.worldObj, i - 6, j - 1, k - 8, false);
 
-		Warsmod.generateBlock(player.worldObj, i + 0, j - 0, k - 0, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k - 0, Blocks.air);
 	}
 
 }

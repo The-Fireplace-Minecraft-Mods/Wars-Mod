@@ -10,7 +10,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsBlocks;
 
 import com.google.common.collect.Multimap;
@@ -24,7 +24,7 @@ public class ItemGuardSword extends Item {
 
 	public ItemGuardSword() {
 		super();
-		this.setCreativeTab(Warsmod.tabWarsClasses);
+		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(300);
 		this.weaponDamage = 3F;

@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsBlocks;
 
 import com.google.common.collect.Multimap;
@@ -27,7 +27,7 @@ public class ItemWizardStaff extends Item {
 
 	public ItemWizardStaff() {
 		super();
-		this.setCreativeTab(Warsmod.tabWarsClasses);
+		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(300);
 		this.weaponDamage = 1F;

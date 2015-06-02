@@ -10,12 +10,12 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 
 public class ItemAdminWandWater extends Item {
 	public ItemAdminWandWater() {
 		super();
-		this.setCreativeTab(Warsmod.tabWarsItems);
+		this.setCreativeTab(WarsMod.tabWarsItems);
 
 	}
 

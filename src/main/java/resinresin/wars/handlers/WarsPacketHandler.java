@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.packet.NetHandler;
 import net.minecraft.network.packet.Packet131MapData;
 import resinresin.wars.WarsPlayerTracker;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
@@ -26,7 +26,7 @@ public class WarsPacketHandler implements ITinyPacketHandler {
 		switch (mapData.uniqueID) { // this is your PACKET_ID from above
 		case 0:
 			int killstreak = in.readInt();
-			Warsmod.proxy.handleKillstreak(killstreak);
+			WarsMod.proxy.handleKillstreak(killstreak);
 
 			break;
 		case 1:
@@ -36,7 +36,7 @@ public class WarsPacketHandler implements ITinyPacketHandler {
 
 		case 3:
 			int warsmod_totalKill = in.readInt();
-			Warsmod.proxy.handleTotalKill(warsmod_totalKill);
+			WarsMod.proxy.handleTotalKill(warsmod_totalKill);
 
 			break;
 		case 4:
@@ -50,27 +50,27 @@ public class WarsPacketHandler implements ITinyPacketHandler {
 			break;
 		case 6:
 			redPlayers = in.readUnsignedByte();
-			Warsmod.proxy.handleRedPlayers(redPlayers);
+			WarsMod.proxy.handleRedPlayers(redPlayers);
 
 			break;
 		case 7:
 			greenPlayers = in.readUnsignedByte();
-			Warsmod.proxy.handleGreenPlayers(greenPlayers);
+			WarsMod.proxy.handleGreenPlayers(greenPlayers);
 
 			break;
 		case 8:
 			bluePlayers = in.readUnsignedByte();
-			Warsmod.proxy.handleBluePlayers(bluePlayers);
+			WarsMod.proxy.handleBluePlayers(bluePlayers);
 
 			break;
 		case 9:
 			yellowPlayers = in.readUnsignedByte();
-			Warsmod.proxy.handleYellowPlayers(yellowPlayers);
+			WarsMod.proxy.handleYellowPlayers(yellowPlayers);
 
 			break;
 		case 10:
 			EntityPlayer player3 = handler.getPlayer();
-			player3.openGui(Warsmod.instance, 3, player3.worldObj, 0, 0, 0);
+			player3.openGui(WarsMod.instance, 3, player3.worldObj, 0, 0, 0);
 
 			break;
 		case 11:
@@ -114,7 +114,7 @@ public class WarsPacketHandler implements ITinyPacketHandler {
 
 			break;
 		case 16:
-			Warsmod.proxy.closeOpenGui();
+			WarsMod.proxy.closeOpenGui();
 
 			break;
 			
