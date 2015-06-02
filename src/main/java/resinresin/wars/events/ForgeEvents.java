@@ -1,13 +1,9 @@
-package resinresin.wars.handlers;
+package resinresin.wars.events;
 
 import ibxm.Player;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.List;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -15,23 +11,39 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
-import resinresin.wars.Warsmod;
-import resinresin.wars.data.WarsSavedData;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
+/**
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
+public class ForgeEvents {
+	@SubscribeEvent
+	public void onLivingAttack(LivingAttackEvent evt) {
+		if (evt.entity instanceof EntityPlayer && evt.source instanceof EntityDamageSource) {
+			EntityDamageSource source = (EntityDamageSource) evt.source;
+			if (source.getEntity() instanceof EntityPlayer) {
+				EntityPlayer attacker = (EntityPlayer) source.getEntity();
+				EntityPlayer damagee = (EntityPlayer) evt.entity;
 
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
+				ItemStack attackerBoots = attacker.inventory.armorItemInSlot(0);
+				ItemStack damageeBoots = damagee.inventory.armorItemInSlot(0);
+				if (attackerBoots != null && damageeBoots != null && attackerBoots.itemID == damageeBoots.itemID) {
+					int id = damageeBoots.itemID;
+					if (id == WarsItems.redBoots.itemID || id == WarsItems.greenBoots.itemID || id == WarsItems.blueBoots.itemID || id == WarsItems.yellowBoots.itemID) {
+						evt.setCanceled(true);
 
-public class WarsEventHandler {
+					}
 
-
-
+				}
+			}
+		}
+	}
 	
-
 	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent evt) {
 
@@ -136,7 +148,7 @@ public class WarsEventHandler {
 				}
 				}
 
-				Packet packet = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 0, out.toByteArray());
+				Packet packet = PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 0, out.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet, (Player) source.getEntity());
 
 				warsmod_totalKill = source.getEntity().getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
@@ -145,7 +157,7 @@ public class WarsEventHandler {
 
 				out2.writeInt(warsmod_totalKill);
 
-				Packet packet2 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 3, out2.toByteArray());
+				Packet packet2 = PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 3, out2.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet2, (Player) source.getEntity());
 
 			}

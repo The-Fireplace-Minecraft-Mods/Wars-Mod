@@ -47,8 +47,9 @@ import resinresin.wars.command.CommandRedBase;
 import resinresin.wars.command.CommandTotalKills;
 import resinresin.wars.command.CommandYellowBase;
 import resinresin.wars.entities.EntityPTNTPrimed;
+import resinresin.wars.events.FMLEvents;
+import resinresin.wars.events.ForgeEvents;
 import resinresin.wars.handlers.GuiHandler;
-import resinresin.wars.handlers.WarsEventHandler;
 import resinresin.wars.registry.CraftingRecipes;
 import resinresin.wars.registry.WarsBlocks;
 import resinresin.wars.registry.WarsDungeonChests;
@@ -121,10 +122,8 @@ public class Warsmod {
 		WarsDungeonChests.doDungeonChestHooks();
 		WarsTileEntities.createTileEntities();
 
-		WarsEventHandler handler = new WarsEventHandler();
-		MinecraftForge.EVENT_BUS.register(handler);
-		MinecraftForge.EVENT_BUS.register(this);
-
+		FMLCommonHandler.instance().bus().register(new FMLEvents());
+		MinecraftForge.EVENT_BUS.register(new ForgeEvents());
 
 		GameRegistry.registerWorldGenerator(new WarsWorldGenerator(), 0);
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
@@ -145,56 +144,9 @@ public class Warsmod {
 		proxy.registerRenderInformation();
 		conf.save();
 	}
-	
-	@EventHandler
-	public void serverStart(FMLServerStartingEvent event) {
 
-		MinecraftServer server = MinecraftServer.getServer();
-		ICommandManager command = server.getCommandManager();
-
-		ServerCommandManager serverCommand = ((ServerCommandManager) command);
-
-		serverCommand.registerCommand(new CommandKillstreak());
-		serverCommand.registerCommand(new CommandTotalKills());
-		serverCommand.registerCommand(new CommandRedBase());
-		serverCommand.registerCommand(new CommandGreenBase());
-		serverCommand.registerCommand(new CommandBlueBase());
-	    serverCommand.registerCommand(new CommandYellowBase());
-		serverCommand.registerCommand(new CommandChaosSpawn());
-		serverCommand.registerCommand(new CommandEditMode());
-	}
-	
-	
 	public static void generateBlock(World par1World, int i, int j, int k, Block block) {
-		
-		
 		BlockPos position = new BlockPos(i, j, k);
 		par1World.setBlockState(position, block.getDefaultState());
-		
 	}
-
-	@SubscribeEvent
-	public void onLivingAttack(LivingAttackEvent evt) {
-		if (evt.entity instanceof EntityPlayer && evt.source instanceof EntityDamageSource) {
-			EntityDamageSource source = (EntityDamageSource) evt.source;
-			if (source.getEntity() instanceof EntityPlayer) {
-				EntityPlayer attacker = (EntityPlayer) source.getEntity();
-				EntityPlayer damagee = (EntityPlayer) evt.entity;
-
-				ItemStack attackerBoots = attacker.inventory.armorItemInSlot(0);
-				ItemStack damageeBoots = damagee.inventory.armorItemInSlot(0);
-				if (attackerBoots != null && damageeBoots != null && attackerBoots.itemID == damageeBoots.itemID) {
-					int id = damageeBoots.itemID;
-					if (id == WarsItems.redBoots.itemID || id == WarsItems.greenBoots.itemID || id == WarsItems.blueBoots.itemID || id == WarsItems.yellowBoots.itemID) {
-						evt.setCanceled(true);
-
-					}
-
-				}
-			}
-		}
-	}
-	
-	
-
 }
