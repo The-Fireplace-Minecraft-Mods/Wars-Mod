@@ -1,6 +1,5 @@
 package resinresin.wars.WorldGen.structure.basic;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import resinresin.wars.Warsmod;
@@ -15,28 +14,24 @@ public class GenRedCastle {
 	resinresinLoader castleStorage = new resinresinLoader("castleStorage.resinresin");
 	resinresinLoader castleTop = new resinresinLoader("castleTop.resinresin");
 
-	@SuppressWarnings("unused")
 	public GenRedCastle(EntityPlayer player, int i, int j, int k) {
-
-		int cloth = Block.cloth.blockID;
-		int lava = Block.lavaStill.blockID;
 
 		castleFloor.generate(player.worldObj, i - 10, j - 4, k - 10, true);
 		castleTop.generate(player.worldObj, i - 13, j + 0, k - 13, true);
 		Warsmod.generateBlock(player.worldObj, i + 0, j - 0, k + 0, Blocks.air);
 		castleBase.generate(player.worldObj, i - 14, j - 14, k - 10, true);
 
-		Warsmod.generateBlock(player.worldObj, i - 4, j + 13, k - 11, cloth, 14, 2);
-		Warsmod.generateBlock(player.worldObj, i + 15, j + 13, k - 11, cloth, 14, 2);
+		Warsmod.generateBlockWithMeta(player.worldObj, i - 4, j + 13, k - 11, Blocks.wool.getStateFromMeta(14));
+		Warsmod.generateBlockWithMeta(player.worldObj, i + 15, j + 13, k - 11, Blocks.wool.getStateFromMeta(14));
 
-		Warsmod.generateBlock(player.worldObj, i + 12, j + 15, k - 8, cloth, 14, 2);
-		Warsmod.generateBlock(player.worldObj, i - 7, j + 15, k - 8, cloth, 14, 2);
+		Warsmod.generateBlockWithMeta(player.worldObj, i + 12, j + 15, k - 8, Blocks.wool.getStateFromMeta(14));
+		Warsmod.generateBlockWithMeta(player.worldObj, i - 7, j + 15, k - 8, Blocks.wool.getStateFromMeta(14));
 
-		Warsmod.generateBlock(player.worldObj, i + 15, j + 13, k + 7, cloth, 14, 2);
-		Warsmod.generateBlock(player.worldObj, i - 4, j + 13, k + 7, cloth, 14, 2);
+		Warsmod.generateBlockWithMeta(player.worldObj, i + 15, j + 13, k + 7, Blocks.wool.getStateFromMeta(14));
+		Warsmod.generateBlockWithMeta(player.worldObj, i - 4, j + 13, k + 7, Blocks.wool.getStateFromMeta(14));
 
-		Warsmod.generateBlock(player.worldObj, i + 12, j + 15, k + 10, cloth, 14, 2);
-		Warsmod.generateBlock(player.worldObj, i - 7, j + 15, k + 10, cloth, 14, 2);
+		Warsmod.generateBlockWithMeta(player.worldObj, i + 12, j + 15, k + 10, Blocks.wool.getStateFromMeta(14));
+		Warsmod.generateBlockWithMeta(player.worldObj, i - 7, j + 15, k + 10, Blocks.wool.getStateFromMeta(14));
 
 		Warsmod.generateBlock(player.worldObj, i - 5, j - 12, k + 9, Blocks.air);
 		Warsmod.generateBlock(player.worldObj, i - 5, j - 12, k + 8, Blocks.air);

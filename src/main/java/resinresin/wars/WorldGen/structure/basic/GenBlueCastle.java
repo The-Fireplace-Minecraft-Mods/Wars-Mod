@@ -23,19 +23,17 @@ public class GenBlueCastle {
 		Warsmod.generateBlock(player.worldObj, i + 0, j - 0, k + 0, Blocks.air);
 		castleBase.generate(player.worldObj, i - 14, j - 14, k - 10, true);
 
-		
-		// TODO wool states 
-		Warsmod.generateBlock(player.worldObj, i - 4, j + 13, k - 11, Blocks.wool);
-		Warsmod.generateBlock(player.worldObj, i + 15, j + 13, k - 11, Blocks.wool);
+		Warsmod.generateBlockWithMeta(player.worldObj, i - 4, j + 13, k - 11, Blocks.wool.getStateFromMeta(11));
+		Warsmod.generateBlockWithMeta(player.worldObj, i + 15, j + 13, k - 11, Blocks.wool.getStateFromMeta(11));
 
-		Warsmod.generateBlock(player.worldObj, i + 12, j + 15, k - 8, Blocks.wool);
-		Warsmod.generateBlock(player.worldObj, i - 7, j + 15, k - 8, Blocks.wool);
+		Warsmod.generateBlockWithMeta(player.worldObj, i + 12, j + 15, k - 8, Blocks.wool.getStateFromMeta(11));
+		Warsmod.generateBlockWithMeta(player.worldObj, i - 7, j + 15, k - 8, Blocks.wool.getStateFromMeta(11));
 
-		Warsmod.generateBlock(player.worldObj, i + 15, j + 13, k + 7, Blocks.wool);
-		Warsmod.generateBlock(player.worldObj, i - 4, j + 13, k + 7, Blocks.wool);
+		Warsmod.generateBlockWithMeta(player.worldObj, i + 15, j + 13, k + 7, Blocks.wool.getStateFromMeta(11));
+		Warsmod.generateBlockWithMeta(player.worldObj, i - 4, j + 13, k + 7, Blocks.wool.getStateFromMeta(11));
 
-		Warsmod.generateBlock(player.worldObj, i + 12, j + 15, k + 10, Blocks.wool);
-		Warsmod.generateBlock(player.worldObj, i - 7, j + 15, k + 10, Blocks.wool);
+		Warsmod.generateBlockWithMeta(player.worldObj, i + 12, j + 15, k + 10, Blocks.wool.getStateFromMeta(11));
+		Warsmod.generateBlockWithMeta(player.worldObj, i - 7, j + 15, k + 10, Blocks.wool.getStateFromMeta(11));
 
 		Warsmod.generateBlock(player.worldObj, i - 5, j - 12, k + 9, Blocks.air);
 		Warsmod.generateBlock(player.worldObj, i - 5, j - 12, k + 8, Blocks.air);
