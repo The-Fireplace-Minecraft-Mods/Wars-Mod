@@ -39,8 +39,8 @@ import resinresin.wars.Items.ItemWorkWaffel;
 
 public abstract class WarsItems {
 
-	
-	public static ArmorMaterial scoutArmor = EnumHelper.addArmorMaterial("SCOUT", -1, new int[] { 0, 0, 0, 0 }, 30);
+
+	public static ArmorMaterial scoutArmor = EnumHelper.addArmorMaterial("SCOUT", null, -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial guardArmor = EnumHelper.addArmorMaterial("GUARD", null, -1, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial healerArmor = EnumHelper.addArmorMaterial("HEALER", null, -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial archerArmor = EnumHelper.addArmorMaterial("ARCHER", null, -1, new int[] { 1, 3, 2, 1 }, 15);
@@ -50,7 +50,7 @@ public abstract class WarsItems {
 	public static ArmorMaterial readArmor = EnumHelper.addArmorMaterial("READ", null, -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", null, -1, new int[] { 0, 0, 0, 0 }, 30);
 
-	public final static EnumToolMaterial healTool = EnumHelper.addToolMaterial("HEALT", 0, 0, 0F, 0, 0);
+	public final static ToolMaterial healTool = EnumHelper.addToolMaterial("HEALT", 0, 0, 0F, 0, 0);
 
 	public static Item ancientGem;
 	public static Item ancientEmblem;
