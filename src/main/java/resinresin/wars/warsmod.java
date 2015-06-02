@@ -58,17 +58,22 @@ import resinresin.wars.registry.WarsTileEntities;
 import resinresin.wars.tabs.WarsBlocksTab;
 import resinresin.wars.tabs.WarsClassesTab;
 import resinresin.wars.tabs.WarsItemsTab;
+/**
+ * @author resinresin
+ * @author The_Fireplace
+ */
+@Mod(modid = WarsMod.MODID, name = WarsMod.MODNAME, version = WarsMod.VERSION, acceptedMinecraftVersions="1.8", guiFactory="resinresin.wars.config.WarsModGuiFactory")
+public class WarsMod {
+	@Instance(WarsMod.MODID)
+	public static WarsMod instance;
 
-@Mod(modid = "warsmod", name = "Wars Mod", version = "6.3")
-public class Warsmod {
+	public static final String MODID = "warsmod";
+	public static final String MODNAME = "Wars Mod";
+	public static final String VERSION = "6.3";
 
-	//@SidedProxy(clientSide = "resinresin.wars.client.ClientProxy", serverSide = "resinresin.wars.CommonProxy")
+	@SidedProxy(clientSide = "resinresin.wars.client.ClientProxy", serverSide = "resinresin.wars.CommonProxy")
 	public static CommonProxy proxy;
 
-	//@Instance("warsmod")
-	public static Warsmod instance;
-	public static Configuration conf;
-	@SuppressWarnings("rawtypes")
 	public static List donators;
 	public static CreativeTabs tabWarsBlocks = new WarsBlocksTab("tabWarsItems");
 	public static CreativeTabs tabWarsItems = new WarsItemsTab("tabWarsBlocks");
@@ -84,13 +89,26 @@ public class Warsmod {
 		metadata.description = "The wars mod adds hundreds of epic structures :P";
 	    metadata.logoFile = "https://dl.dropboxusercontent.com/u/104023161/Questology%20banner%202.png";
 		metadata.updateUrl = "https://dl.dropboxusercontent.com/u/104023161/WarsModUpdates.txt";
-	    conf = new Configuration(evt.getSuggestedConfigurationFile());
-		conf.load();
+	public static Configuration config;
+	public static Property DOBIOMES_PROPERTY;
+	public static Property DOSAND_PROPERTY;
 
-		doBiomes = conf.get(Configuration.CATEGORY_GENERAL, "Generate Biomes", true).getBoolean(true);
-		doSand = conf.get(Configuration.CATEGORY_GENERAL, "Generate Sink Sand", true).getBoolean(true);
+	public void syncConfig(){
+		ConfigValues.DOBIOMES = DOBIOMES_PROPERTY.getBoolean();
+		ConfigValues.DOSAND = DOSAND_PROPERTY.getBoolean();
+		if(config.hasChanged()){
+			config.save();
+		}
+	}
 
 		
+		config = new Configuration(event.getSuggestedConfigurationFile());
+		config.load();
+		DOBIOMES_PROPERTY = config.get(Configuration.CATEGORY_GENERAL, ConfigValues.DOBIOMES_NAME, ConfigValues.DOBIOMES_DEFAULT);
+		DOBIOMES_PROPERTY.comment=StatCollector.translateToLocal("cfg.doBiomes");
+		DOSAND_PROPERTY = config.get(Configuration.CATEGORY_GENERAL, ConfigValues.DOSAND_NAME, ConfigValues.DOSAND_DEFAULT);
+		DOSAND_PROPERTY.comment=StatCollector.translateToLocal("cfg.doSand");
+		syncConfig();
 		donators = new ArrayList<String>();
 		try {
 			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");
@@ -142,7 +160,6 @@ public class Warsmod {
 		EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT, Warsmod.instance, 16, 1, false);
 
 		proxy.registerRenderInformation();
-		conf.save();
 	}
 
 	public static void generateBlock(World par1World, int i, int j, int k, Block block) {
