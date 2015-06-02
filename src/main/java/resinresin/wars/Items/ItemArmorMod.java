@@ -3,7 +3,6 @@ package resinresin.wars.Items;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -12,79 +11,77 @@ import resinresin.wars.registry.WarsItems;
 
 public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
-	public EnumArmorMaterial material;
 
-	public ItemArmorMod(int i, ArmorMaterial armormaterial, int type, int texture) {
-		super(i, enumarmormaterial, 0, type);
-		material = enumarmormaterial;
+	public ItemArmorMod(ArmorMaterial material, int renderIndex, int type) {
+		super(material, 0, type);
 
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack itemstack, Entity entity, int Slot, int Layer) {
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
 
-		if (itemstack.itemID == WarsItems.scoutHelm.itemID || itemstack.itemID == WarsItems.scoutPlate.itemID) {
+		if (stack.getItem() == WarsItems.scoutHelm || stack.getItem() == WarsItems.scoutPlate) {
 			return "warsmod:armor/warsmod_scout_1.png";
 		}
-		if (itemstack.itemID == WarsItems.scoutLegs.itemID) {
+		if (stack.getItem() == WarsItems.scoutLegs) {
 			return "warsmod:armor/warsmod_scout_2.png";
 		}
 
-		if (itemstack.itemID == WarsItems.knightHelm.itemID || itemstack.itemID == WarsItems.knightPlate.itemID) {
+		if (stack.getItem() == WarsItems.knightHelm || stack.getItem() == WarsItems.knightPlate) {
 			return "warsmod:armor/warsmod_knight_1.png";
 		}
-		if (itemstack.itemID == WarsItems.knightLegs.itemID) {
+		if (stack.getItem() == WarsItems.knightLegs) {
 			return "warsmod:armor/warsmod_knight_2.png";
 		}
 
-		if (itemstack.itemID == WarsItems.healerHelm.itemID || itemstack.itemID == WarsItems.healerPlate.itemID) {
+		if (stack.getItem() == WarsItems.healerHelm || stack.getItem() == WarsItems.healerPlate) {
 			return "warsmod:armor/warsmod_healer_1.png";
 		}
-		if (itemstack.itemID == WarsItems.healerLegs.itemID) {
+		if (stack.getItem() == WarsItems.healerLegs) {
 			return "warsmod:armor/warsmod_healer_2.png";
 		}
 
-		if (itemstack.itemID == WarsItems.guardHelm.itemID || itemstack.itemID == WarsItems.guardPlate.itemID) {
+		if (stack.getItem() == WarsItems.guardHelm || stack.getItem() == WarsItems.guardPlate) {
 			return "warsmod:armor/warsmod_guard_1.png";
 		}
-		if (itemstack.itemID == WarsItems.guardLegs.itemID) {
+		if (stack.getItem() == WarsItems.guardLegs) {
 			return "warsmod:armor/warsmod_guard_2.png";
 		}
 
-		if (itemstack.itemID == WarsItems.techHelm.itemID || itemstack.itemID == WarsItems.techPlate.itemID) {
+		if (stack.getItem() == WarsItems.techHelm || stack.getItem() == WarsItems.techPlate) {
 			return "warsmod:armor/warsmod_tech_1.png";
 		}
-		if (itemstack.itemID == WarsItems.techLegs.itemID) {
+		if (stack.getItem() == WarsItems.techLegs) {
 			return "warsmod:armor/warsmod_tech_2.png";
 		}
 
-		if (itemstack.itemID == WarsItems.archerHelm.itemID || itemstack.itemID == WarsItems.archerPlate.itemID) {
+		if (stack.getItem() == WarsItems.archerHelm || stack.getItem() == WarsItems.archerPlate) {
 			return "warsmod:armor/warsmod_archer_1.png";
 		}
-		if (itemstack.itemID == WarsItems.archerLegs.itemID) {
+		if (stack.getItem() == WarsItems.archerLegs) {
 			return "warsmod:armor/warsmod_archer_2.png";
 		}
 
-		if (itemstack.itemID == WarsItems.chaosHelm.itemID || itemstack.itemID == WarsItems.chaosPlate.itemID) {
+		if (stack.getItem() == WarsItems.chaosHelm || stack.getItem() == WarsItems.chaosPlate) {
 			return "warsmod:armor/warsmod_chaos_1.png";
 		}
-		if (itemstack.itemID == WarsItems.chaosLegs.itemID) {
+		if (stack.getItem() == WarsItems.chaosLegs) {
 			return "warsmod:armor/warsmod_chaos_2.png";
 		}
 
-		if (itemstack.itemID == WarsItems.blueBoots.itemID) {
+		if (stack.getItem() == WarsItems.blueBoots) {
 			return "warsmod:armor/warsmod_blue_1.png";
 		}
-		if (itemstack.itemID == WarsItems.greenBoots.itemID) {
+		if (stack.getItem() == WarsItems.greenBoots) {
 			return "warsmod:armor/warsmod_green_1.png";
 		}
-		if (itemstack.itemID == WarsItems.yellowBoots.itemID) {
+		if (stack.getItem() == WarsItems.yellowBoots) {
 			return "warsmod:armor/warsmod_yellow_1.png";
 		}
-		if (itemstack.itemID == WarsItems.redBoots.itemID) {
+		if (stack.getItem() == WarsItems.redBoots) {
 			return "warsmod:armor/warsmod_red_1.png";
 		}
-		if (itemstack.itemID == WarsItems.chaosBoots.itemID) {
+		if (stack.getItem() == WarsItems.chaosBoots) {
 			return "warsmod:armor/warsmod_chaosb_1.png";
 		}
 
@@ -94,46 +91,46 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
 	@Override
 	public ArmorProperties getProperties(EntityLivingBase entity, ItemStack armor, DamageSource source, double damage, int slot) {
-		if (material == WarsItems.scoutArmor) {
+		if (getArmorMaterial() == WarsItems.scoutArmor) {
 			return new ArmorProperties(0, 0, 0);
-		} else if (material == WarsItems.archerArmor) {
-			if (entity instanceof EntityPlayer && fullEquiped((EntityPlayer) entity, material) && slot == 0) {
+		} else if (getArmorMaterial() == WarsItems.archerArmor) {
+			if (entity instanceof EntityPlayer && fullEquiped((EntityPlayer) entity, getArmorMaterial()) && slot == 0) {
 				return new ArmorProperties(0, 1, (int) (damage / 2) * 25);
 			} else {
 				return new ArmorProperties(0, 0, 0);
 			}
 
-		} else if (material == WarsItems.guardArmor) {
+		} else if (getArmorMaterial() == WarsItems.guardArmor) {
 			return new ArmorProperties(0, 0, 0);
 
-		} else if (material == WarsItems.knightArmor) {
+		} else if (getArmorMaterial() == WarsItems.knightArmor) {
 			return new ArmorProperties(0, 0, 0);
 
-		} else if (material == WarsItems.healerArmor) {
+		} else if (getArmorMaterial() == WarsItems.healerArmor) {
 			return new ArmorProperties(0, 0, 0);
 
-		} else if (material == WarsItems.bootsArmor) {
+		} else if (getArmorMaterial() == WarsItems.bootsArmor) {
 			return new ArmorProperties(0, 0, 0);
 
-		} else if (material == WarsItems.techArmor) {
+		} else if (getArmorMaterial() == WarsItems.techArmor) {
 			return new ArmorProperties(0, 0, 0);
 
-		} else if (material == WarsItems.chaosArmor) {
+		} else if (getArmorMaterial() == WarsItems.chaosArmor) {
 			return new ArmorProperties(0, 0, 0);
 		}
 
 		return null;
 	}
 
-	public static boolean fullEquiped(EntityPlayer player, EnumArmorMaterial material) {
-		return (player != null && player.inventory != null && material != null && player.inventory.getStackInSlot(39) != null && (player.inventory.getStackInSlot(39).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(39).getItem()).material == material && player.inventory.getStackInSlot(37) != null
-				&& (player.inventory.getStackInSlot(37).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(37).getItem()).material == material && player.inventory.getStackInSlot(38) != null && (player.inventory.getStackInSlot(38).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(38).getItem()).material == material);
+	public static boolean fullEquiped(EntityPlayer player, ArmorMaterial material) {
+		return (player != null && player.inventory != null && material != null && player.inventory.getStackInSlot(39) != null && (player.inventory.getStackInSlot(39).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(39).getItem()).getArmorMaterial() == material && player.inventory.getStackInSlot(37) != null
+				&& (player.inventory.getStackInSlot(37).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(37).getItem()).getArmorMaterial() == material && player.inventory.getStackInSlot(38) != null && (player.inventory.getStackInSlot(38).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(38).getItem()).getArmorMaterial() == material);
 
 	}
 
 	@Override
 	public int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot) {
-		if (fullEquiped(player, this.material) && slot == 0) {
+		if (fullEquiped(player, this.getArmorMaterial()) && slot == 0) {
 			return 20;
 		} else {
 			return 0;
