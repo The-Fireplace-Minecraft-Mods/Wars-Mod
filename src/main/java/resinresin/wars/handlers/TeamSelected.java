@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
+import net.minecraft.util.ChatComponentText;
 import resinresin.wars.Warsmod;
 import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.registry.WarsItems;
@@ -14,11 +15,9 @@ import com.google.common.io.ByteStreams;
 
 public class TeamSelected {
 
-	
-	
 	public TeamSelected(EntityPlayer player, int teamSelected, int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
 		WarsSavedData savedData = WarsSavedData.get(player.worldObj);
-		
+
 		switch (teamSelected) {
 		case 1:
 
@@ -26,7 +25,7 @@ public class TeamSelected {
 
 			} else {
 
-				player.addChatMessage("\u00a74\u00a7lRed Team Selected!");
+				player.addChatMessage(new ChatComponentText("\u00a74\u00a7lRed Team Selected!"));
 
 				int redBaseX = savedData.teamRed.baseX;
 				int redBaseY = savedData.teamRed.baseY;
@@ -39,7 +38,7 @@ public class TeamSelected {
 				// player.addChatMessage("\u00a74Red Team Selected");
 				// }
 				player.setPositionAndUpdate(redBaseX + 0.5, redBaseY, redBaseZ + 0.5);
-				
+
 				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 				out3.writeByte(0);
 				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
@@ -51,7 +50,7 @@ public class TeamSelected {
 
 			} else {
 
-				player.addChatMessage("\u00a72\u00a7lGreen Team Selected!");
+				player.addChatMessage(new ChatComponentText("\u00a72\u00a7lGreen Team Selected!"));
 
 				int greenBaseX = savedData.teamGreen.baseX;
 				int greenBaseY = savedData.teamGreen.baseY;
@@ -64,7 +63,7 @@ public class TeamSelected {
 				// player.addChatMessage("\u00a72Green Team Selected");
 				// }
 				player.setPositionAndUpdate(greenBaseX + 0.5, greenBaseY, greenBaseZ + 0.5);
-			
+
 				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 				out3.writeByte(0);
 				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
@@ -76,7 +75,7 @@ public class TeamSelected {
 
 			} else {
 
-				player.addChatMessage("\u00a79\u00a7lBlue Team Selected!");
+				player.addChatMessage(new ChatComponentText("\u00a79\u00a7lBlue Team Selected!"));
 
 				int blueBaseX = savedData.teamBlue.baseX;
 				int blueBaseY = savedData.teamBlue.baseY;
@@ -92,7 +91,7 @@ public class TeamSelected {
 				// }
 
 				player.setPositionAndUpdate(blueBaseX + 0.5, blueBaseY, blueBaseZ + 0.5);
-				
+
 				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 				out3.writeByte(0);
 				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
@@ -105,7 +104,7 @@ public class TeamSelected {
 
 			} else {
 
-				player.addChatMessage("\u00a76\u00a7lYellow Team Selected!");
+				player.addChatMessage(new ChatComponentText("\u00a76\u00a7lYellow Team Selected!"));
 
 				int yellowBaseX = savedData.teamYellow.baseX;
 				int yellowBaseY = savedData.teamYellow.baseY;
@@ -118,13 +117,13 @@ public class TeamSelected {
 				// player.addChatMessage("\u00a76Yellow Team Selected");
 
 				player.setPositionAndUpdate(yellowBaseX + 0.5, yellowBaseY, yellowBaseZ + 0.5);
-				
+
 				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 				out3.writeByte(0);
 				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
 			}
 		}
-		
+
 	}
 }

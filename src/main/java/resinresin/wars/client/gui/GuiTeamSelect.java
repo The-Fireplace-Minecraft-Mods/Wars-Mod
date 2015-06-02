@@ -55,12 +55,12 @@ public class GuiTeamSelect extends GuiScreen {
 		int posX = (this.width - xSizeOfTexture) / 2;
 		int posY = (this.height - ySizeOfTexture) / 2;
 
-		drawString(fontRenderer, title, posX + 20, posY + 30, colorsHex[colorIndex]);
+		drawString(fontRendererObj, title, posX + 20, posY + 30, colorsHex[colorIndex]);
 
-		drawString(fontRenderer, info, posX + 20, posY + 100, colorsHex[colorIndex]);
+		drawString(fontRendererObj, info, posX + 20, posY + 100, colorsHex[colorIndex]);
 
-		drawString(fontRenderer, howTo, posX + 20, posY + 75, colorsHex[colorIndex]);
-		drawString(fontRenderer, howTo2, posX + 20, posY + 85, colorsHex[colorIndex]);
+		drawString(fontRendererObj, howTo, posX + 20, posY + 75, colorsHex[colorIndex]);
+		drawString(fontRendererObj, howTo2, posX + 20, posY + 85, colorsHex[colorIndex]);
 
 		int xCenter = width / 2;
 		int yCenter = height / 2;

@@ -11,6 +11,7 @@ import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
 import net.minecraft.server.MinecraftServer;
@@ -27,10 +28,10 @@ import com.google.common.io.ByteStreams;
 public class WarsPlayerEventHandler {
 	
 	
-	public static int redPlayers;
-	public static int greenPlayers;
-	public static int bluePlayers;
-	public static int yellowPlayers;
+	public static int redPlayers = 0;
+	public static int greenPlayers = 0;
+	public static int bluePlayers = 0;
+	public static int yellowPlayers = 0;
 	
 	
 	@SubscribeEvent
@@ -38,28 +39,22 @@ public class WarsPlayerEventHandler {
 
 		if (event.player instanceof EntityPlayerMP) {
 
-			redPlayers = 0;
-			greenPlayers = 0;
-			bluePlayers = 0;
-			yellowPlayers = 0;
-
 			for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
-				ItemStack playerBoots = playerMP.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
+				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
 
 				if (playerBoots != null) {
-					int id = playerBoots.itemID;
 
-					if (id == WarsItems.redBoots.itemID) {
+					if (playerBoots == WarsItems.redBoots) {
 						redPlayers++;
 					}
-					if (id == WarsItems.blueBoots.itemID) {
+					if (playerBoots == WarsItems.blueBoots) {
 						bluePlayers++;
 					}
-					if (id == WarsItems.greenBoots.itemID) {
+					if (playerBoots == WarsItems.greenBoots) {
 						greenPlayers++;
 					}
-					if (id == WarsItems.yellowBoots.itemID) {
+					if (playerBoots == WarsItems.yellowBoots) {
 						yellowPlayers++;
 					}
 				}
@@ -80,7 +75,7 @@ public class WarsPlayerEventHandler {
 			Packet packet2 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 3, out2.toByteArray());
 			PacketDispatcher.sendPacketToPlayer(packet2, (Player) event.player);
 
-			player.openGui(Warsmod.instance, 3, event.player.worldObj, 0, 0, 0);
+			event.player.openGui(Warsmod.instance, 3, event.player.worldObj, 0, 0, 0);
 
 			WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
@@ -126,11 +121,6 @@ public class WarsPlayerEventHandler {
 	@SubscribeEvent
 	public void PlayerRespawnEvent(PlayerRespawnEvent event) {
 
-		redPlayers = 0;
-		greenPlayers = 0;
-		bluePlayers = 0;
-		yellowPlayers = 0;
-
 		try {
 			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");
 			InputStream in = targetURL.openStream();
@@ -149,21 +139,20 @@ public class WarsPlayerEventHandler {
 
 		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
-			ItemStack playerBoots = playerMP.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
+			Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
 
 			if (playerBoots != null) {
-				int id = playerBoots.itemID;
 
-				if (id == WarsItems.redBoots.itemID) {
+				if (playerBoots == WarsItems.redBoots) {
 					redPlayers++;
 				}
-				if (id == WarsItems.blueBoots.itemID) {
+				if (playerBoots == WarsItems.blueBoots) {
 					bluePlayers++;
 				}
-				if (id == WarsItems.greenBoots.itemID) {
+				if (playerBoots == WarsItems.greenBoots) {
 					greenPlayers++;
 				}
-				if (id == WarsItems.yellowBoots.itemID) {
+				if (playerBoots == WarsItems.yellowBoots) {
 					yellowPlayers++;
 				}
 			}
@@ -225,21 +214,20 @@ public class WarsPlayerEventHandler {
 
 		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
-			ItemStack playerBoots = playerMP.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
+			Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
 
 			if (playerBoots != null) {
-				int id = playerBoots.itemID;
 
-				if (id == WarsItems.redBoots.itemID) {
+				if (playerBoots == WarsItems.redBoots) {
 					redPlayers++;
 				}
-				if (id == WarsItems.blueBoots.itemID) {
+				if (playerBoots == WarsItems.blueBoots) {
 					bluePlayers++;
 				}
-				if (id == WarsItems.greenBoots.itemID) {
+				if (playerBoots == WarsItems.greenBoots) {
 					greenPlayers++;
 				}
-				if (id == WarsItems.yellowBoots.itemID) {
+				if (playerBoots == WarsItems.yellowBoots) {
 					yellowPlayers++;
 				}
 			}

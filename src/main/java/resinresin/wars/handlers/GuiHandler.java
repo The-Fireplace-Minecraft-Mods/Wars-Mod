@@ -1,6 +1,7 @@
 package resinresin.wars.handlers;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import resinresin.wars.client.gui.GuiBuildingSelect;
@@ -25,6 +26,9 @@ public class GuiHandler implements IGuiHandler {
 	
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+		
+		BlockPos position = new BlockPos(x, y, z);
+		
 		switch (id) {
 
 		case 1:
@@ -36,16 +40,18 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiTeamSelect(player);
 
 		case 4:
-			return new GuiSetupSelection(player, (TileEntityBasicStructures) world.getBlockTileEntity(x, y, z));
+			
+	
+			return new GuiSetupSelection(player, (TileEntityBasicStructures) world.getTileEntity(position));
 
 		case 5:
-			return new GuiSpleefSelect(player, (TileEntitySpleefStructures) world.getBlockTileEntity(x, y, z));
+			return new GuiSpleefSelect(player, (TileEntitySpleefStructures) world.getTileEntity(position));
 
 		case 6:
-			return new GuiBuildingSelect(player, (TileEntityBuildingStructures) world.getBlockTileEntity(x, y, z));
+			return new GuiBuildingSelect(player, (TileEntityBuildingStructures) world.getTileEntity(position));
 
 		case 7:
-			return new GuiGameSelect(player, (TileEntityGameStructures) world.getBlockTileEntity(x, y, z));
+			return new GuiGameSelect(player, (TileEntityGameStructures) world.getTileEntity(position));
 
 		}
 

@@ -83,12 +83,12 @@ public class GuiGameSelect extends GuiScreen {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		drawTexturedModalRect(posX + 250, posY + 15, 0, 0, xSizeOfTexture2, ySizeOfTexture2);
 
-		drawString(fontRenderer, title, posX + 252, posY + 20, 0x6A5ACD);
+		drawString(fontRendererObj, title, posX + 252, posY + 20, 0x6A5ACD);
 
-		drawString(fontRenderer, sizeHeight, posX + 254, posY + 130, 0xFF6600);
-		drawString(fontRenderer, sizeArea, posX + 254, posY + 140, 0xFF6600);
+		drawString(fontRendererObj, sizeHeight, posX + 254, posY + 130, 0xFF6600);
+		drawString(fontRendererObj, sizeArea, posX + 254, posY + 140, 0xFF6600);
 
-		fontRenderer.drawSplitString(info, posX + 252, posY + 30, 80, 7);
+		fontRendererObj.drawSplitString(info, posX + 252, posY + 30, 80, 7);
 
 		super.drawScreen(x, y, f);
 	}

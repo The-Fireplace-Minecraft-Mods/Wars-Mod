@@ -147,7 +147,7 @@ public class WarsEventHandler {
 					break;
 				}
 				case 12: {
-					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lKilltacular! \u00a72Unlocked Damage Boost");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lKilltacular! \u00a72Unlocked Damage Boost"));
 					break;
 				}
 				case 15: {
@@ -158,7 +158,7 @@ public class WarsEventHandler {
 					break;
 				}
 				case 20: {
-					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lWar Crimes! \u00a72Unlocked Protection Lv2");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lWar Crimes! \u00a72Unlocked Protection Lv2"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "20" + " \u00a73" + "Kills"));
@@ -172,7 +172,7 @@ public class WarsEventHandler {
 					break;
 				}
 				case 30: {
-					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lGenocide! \u00a72Unlocked Mega Damage Booster");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lGenocide! \u00a72Unlocked Mega Damage Booster"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "30" + " \u00a73" + "Kills"));
