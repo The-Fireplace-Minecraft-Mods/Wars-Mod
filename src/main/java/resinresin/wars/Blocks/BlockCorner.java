@@ -12,9 +12,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
-public class BlockCorner1 extends BlockStairs {
+public class BlockCorner extends BlockStairs {
 
-	public BlockCorner1() {
+	public BlockCorner() {
 		super(modelState);
 
 		setCreativeTab(Warsmod.tabWarsBlocks);

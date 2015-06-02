@@ -85,24 +85,26 @@ public class BlockHungerGamesLv1Reset extends Block {
 		Warsmod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
 
 		hgS.generate(world, i - 9, j - 2, k - 9, false);
-		Warsmod.generateBlock(world, i + 8, j - 3, k + 0, WarsBlocks.hgTele1);
-		Warsmod.generateBlock(world, i + 0, j - 3, k + 8, WarsBlocks.hgTele2);
-		Warsmod.generateBlock(world, i - 8, j - 3, k + 0, WarsBlocks.hgTele3);
-		Warsmod.generateBlock(world, i + 0, j - 3, k - 8, WarsBlocks.hgTele4);
-		Warsmod.generateBlock(world, i + 6, j - 3, k + 6, WarsBlocks.hgTele5);
-		Warsmod.generateBlock(world, i + 6, j - 3, k - 6, WarsBlocks.hgTele6);
-		Warsmod.generateBlock(world, i - 6, j - 3, k + 6, WarsBlocks.hgTele7);
-		Warsmod.generateBlock(world, i - 6, j - 3, k - 6, WarsBlocks.hgTele8);
-
-		Warsmod.generateBlock(world, i + 6, j + 16, k + 0, WarsBlocks.hgTele1);
-		Warsmod.generateBlock(world, i + 0, j + 16, k + 6, WarsBlocks.hgTele2);
-		Warsmod.generateBlock(world, i - 6, j + 16, k + 0, WarsBlocks.hgTele3);
-		Warsmod.generateBlock(world, i + 0, j + 16, k - 6, WarsBlocks.hgTele4);
-		Warsmod.generateBlock(world, i + 4, j + 16, k + 4, WarsBlocks.hgTele5);
-		Warsmod.generateBlock(world, i + 4, j + 16, k - 4, WarsBlocks.hgTele6);
-		Warsmod.generateBlock(world, i - 4, j + 16, k + 4, WarsBlocks.hgTele7);
-		Warsmod.generateBlock(world, i - 4, j + 16, k - 4, WarsBlocks.hgTele8);
-		Warsmod.generateBlock(world, i + 0, j + 16, k - 0, WarsBlocks.hgTeleMain);
+		
+		//TODO find a better way of making these blocks
+//		Warsmod.generateBlock(world, i + 8, j - 3, k + 0, WarsBlocks.hgTele1);
+//		Warsmod.generateBlock(world, i + 0, j - 3, k + 8, WarsBlocks.hgTele2);
+//		Warsmod.generateBlock(world, i - 8, j - 3, k + 0, WarsBlocks.hgTele3);
+//		Warsmod.generateBlock(world, i + 0, j - 3, k - 8, WarsBlocks.hgTele4);
+//		Warsmod.generateBlock(world, i + 6, j - 3, k + 6, WarsBlocks.hgTele5);
+//		Warsmod.generateBlock(world, i + 6, j - 3, k - 6, WarsBlocks.hgTele6);
+//		Warsmod.generateBlock(world, i - 6, j - 3, k + 6, WarsBlocks.hgTele7);
+//		Warsmod.generateBlock(world, i - 6, j - 3, k - 6, WarsBlocks.hgTele8);
+//
+//		Warsmod.generateBlock(world, i + 6, j + 16, k + 0, WarsBlocks.hgTele1);
+//		Warsmod.generateBlock(world, i + 0, j + 16, k + 6, WarsBlocks.hgTele2);
+//		Warsmod.generateBlock(world, i - 6, j + 16, k + 0, WarsBlocks.hgTele3);
+//		Warsmod.generateBlock(world, i + 0, j + 16, k - 6, WarsBlocks.hgTele4);
+//		Warsmod.generateBlock(world, i + 4, j + 16, k + 4, WarsBlocks.hgTele5);
+//		Warsmod.generateBlock(world, i + 4, j + 16, k - 4, WarsBlocks.hgTele6);
+//		Warsmod.generateBlock(world, i - 4, j + 16, k + 4, WarsBlocks.hgTele7);
+//		Warsmod.generateBlock(world, i - 4, j + 16, k - 4, WarsBlocks.hgTele8);
+//		Warsmod.generateBlock(world, i + 0, j + 16, k - 0, WarsBlocks.hgTeleMain);
 		Warsmod.generateBlock(world, i + 0, j - 0, k + 7, WarsBlocks.hgLv1start);
 		return false;
 

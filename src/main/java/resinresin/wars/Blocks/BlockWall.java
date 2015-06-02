@@ -12,9 +12,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 
-public class BlockWallNS extends BlockStairs {
+public class BlockWall extends BlockStairs {
 
-	public BlockWallNS(int ID, Block par2Block, int par3) {
+	public BlockWall(int ID, Block par2Block, int par3) {
 		super(ID, par2Block, par3);
 
 		setCreativeTab(Warsmod.tabWarsBlocks);

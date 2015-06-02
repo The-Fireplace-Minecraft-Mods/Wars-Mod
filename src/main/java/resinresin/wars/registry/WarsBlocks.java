@@ -12,7 +12,7 @@ import resinresin.wars.Blocks.BlockBounce;
 import resinresin.wars.Blocks.BlockBounceLow;
 import resinresin.wars.Blocks.BlockCastleGreen;
 import resinresin.wars.Blocks.BlockClassSelectorDonator;
-import resinresin.wars.Blocks.BlockCorner1;
+import resinresin.wars.Blocks.BlockCorner;
 import resinresin.wars.Blocks.BlockCottage;
 import resinresin.wars.Blocks.BlockDeadDirt;
 import resinresin.wars.Blocks.BlockDecayOre;
@@ -42,15 +42,11 @@ import resinresin.wars.Blocks.BlockTeleporter2;
 import resinresin.wars.Blocks.BlockTeleporter3;
 import resinresin.wars.Blocks.BlockTeleporter4;
 import resinresin.wars.Blocks.BlockTower;
+import resinresin.wars.Blocks.BlockWall;
 import resinresin.wars.Blocks.BlockWallEnd;
-import resinresin.wars.Blocks.BlockWallNS;
 import resinresin.wars.Blocks.BlockWarChest;
 import resinresin.wars.Blocks.BlockWaterOre;
 import resinresin.wars.Blocks.BlockYellowPlate;
-import resinresin.wars.Blocks.unseen.BlockCBlue;
-import resinresin.wars.Blocks.unseen.BlockCGreen;
-import resinresin.wars.Blocks.unseen.BlockCRed;
-import resinresin.wars.Blocks.unseen.BlockCYellow;
 import resinresin.wars.Blocks.unseen.BlockHungerGamesLv1Reset;
 import resinresin.wars.Blocks.unseen.BlockHungerGamesLv1Start;
 import resinresin.wars.Blocks.unseen.BlockHungerGamesLv2Reset;
@@ -113,44 +109,10 @@ public class WarsBlocks {
 	public static Block teleporterBlock3;
 	public static Block teleporterBlock2;
 	public static Block teleporterBlock;
-	public static Block hgTele1;
-	public static Block hgTele2;
-	public static Block hgTele3;
-	public static Block hgTele4;
-	public static Block hgTele5;
-	public static Block hgTele6;
-	public static Block hgTele7;
-	public static Block hgTele8;
-	public static Block hgTeleMain;
-	public static Block hgTeleb1;
-	public static Block hgTeleb2;
-	public static Block hgTeleb3;
-	public static Block hgTeleb4;
-	public static Block hgTeleb5;
-	public static Block hgTeleb6;
-	public static Block hgTeleb7;
-	public static Block hgTeleb8;
-	public static Block hgTeleb9;
-	public static Block hgTeleb10;
-	public static Block hgTeleb11;
-	public static Block hgTeleb12;
-	public static Block hgTeleb13;
-	public static Block hgTeleb14;
-	public static Block hgTeleb15;
-	public static Block hgTeleb16;
-	public static Block hgTeleb17;
-	public static Block hgTeleb18;
-	public static Block hgTeleb19;
-	public static Block hgTeleb20;
-	public static Block hgTeleb21;
-	public static Block hgTeleb22;
-	public static Block hgTeleb23;
-	public static Block hgTeleb24;
-	public static Block hgTelebM;
 	public static Block playerTNT;
 	public static Block setSpawn;
-	public static Block wallNS;
-	public static Block corner1;
+	public static Block wall;
+	public static Block corner;
 	public static Block lamp;
 	public static Block nostalHouse;
 	public static Block roadPiece;
@@ -205,13 +167,13 @@ public class WarsBlocks {
 		classSelectDonator = new BlockClassSelectorDonator().setBlockUnbreakable().setUnlocalizedName("classSelectorDonator").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		
 		//Class Blocks
-		playerTNT = new BlockPlayerTNT(106).setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
+		playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
 		
 		//Individual Structure Blocks
 		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		cottage = new BlockCottage().setUnlocalizedName("cottage").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		wallNS = new BlockWallNS().setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		corner1 = new BlockCorner1().setBlockUnbreakable().setUnlocalizedName("corner1").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		wall = new BlockWall().setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		corner = new BlockCorner().setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		lamp = new BlockLamp().setBlockUnbreakable().setUnlocalizedName("lamp").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("Road").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		tower = new BlockTower().setBlockUnbreakable().setUnlocalizedName("tower").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -222,11 +184,7 @@ public class WarsBlocks {
 		bluePlate = new BlockBluePlate("wool_colored_blue", Material.rock, EnumMobType.mobs).setUnlocalizedName("bluePlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		greenPlate = new BlockGreenPlate("wool_colored_green", Material.rock, EnumMobType.mobs).setUnlocalizedName("greenPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		yellowPlate = new BlockYellowPlate("wool_colored_yellow", Material.rock, EnumMobType.mobs).setUnlocalizedName("yellowPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		controlRed = new BlockCRed().setUnlocalizedName("ControlRed").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		controlGreen = new BlockCGreen().setUnlocalizedName("ControlGreen").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		controlBlue = new BlockCBlue().setUnlocalizedName("ControlBlue").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		controlYellow = new BlockCYellow().setUnlocalizedName("ControlYellow").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		
+
 		//Game Blocks
 		nSpleefS = new BlockNetherSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNetherSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		nSpleefM = new BlockNetherSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefNetherMedium").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -240,42 +198,6 @@ public class WarsBlocks {
 		hgLv1reset = new BlockHungerGamesLv1Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		hgLv2start = new BlockHungerGamesLv2Start().setUnlocalizedName("startHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		hgLv2reset = new BlockHungerGamesLv2Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		
-		//TODO Hunger Games Teleporters -- need to be removed or assigned to block values
-//		hgTeleMain = new BlockHGTM().setUnlocalizedName("HgLv1Tele").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-//		hgTelebM = new BlockHGTBM().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTele1 = new BlockHGT1().setUnlocalizedName("HgPointLv1").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTele2 = new BlockHGT2().setUnlocalizedName("HgPointLv1").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTele3 = new BlockHGT3().setUnlocalizedName("HgPointLv1").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTele4 = new BlockHGT4().setUnlocalizedName("HgPointLv1").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTele5 = new BlockHGT5().setUnlocalizedName("HgPointLv1").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTele6 = new BlockHGT6().setUnlocalizedName("HgPointLv1").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTele7 = new BlockHGT7().setUnlocalizedName("HgPointLv1").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTele8 = new BlockHGT8().setUnlocalizedName("HgPointLv1").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb1 = new BlockHGTB1().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb2 = new BlockHGTB2().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb3 = new BlockHGTB3().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb4 = new BlockHGTB4().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb5 = new BlockHGTB5().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb6 = new BlockHGTB6().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb7 = new BlockHGTB7().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb8 = new BlockHGTB8().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb9 = new BlockHGTB9().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb10 = new BlockHGTB10().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb11 = new BlockHGTB11().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb12 = new BlockHGTB12().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb13 = new BlockHGTB13().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb14 = new BlockHGTB14().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb15 = new BlockHGTB15().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb16 = new BlockHGTB16().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb17 = new BlockHGTB17().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb18 = new BlockHGTB18().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb19 = new BlockHGTB19().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb20 = new BlockHGTB20().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb21 = new BlockHGTB21().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb22 = new BlockHGTB22().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb23 = new BlockHGTB23().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-//		hgTeleb24 = new BlockHGTB24().setUnlocalizedName("HgPointLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		
 //		/*LanguageRegistry.addName(buildingSelector, "Selector - Buildings");
 //		LanguageRegistry.addName(spleefSelector, "Selector - Spleef");
@@ -366,8 +288,8 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(setSpawn, "setSpawn");
 		GameRegistry.registerBlock(classSelect, "classSelect");
 		GameRegistry.registerBlock(classSelectDonator, "classSelectDonator");
-		GameRegistry.registerBlock(wallNS, "wallNS");
-		GameRegistry.registerBlock(corner1, "corner1");
+		GameRegistry.registerBlock(wall, "wallNS");
+		GameRegistry.registerBlock(corner, "corner1");
 		GameRegistry.registerBlock(lamp, "lamp");
 		GameRegistry.registerBlock(nostalHouse, "nostalHouse");
 		GameRegistry.registerBlock(roadPiece, "roadPiece");
