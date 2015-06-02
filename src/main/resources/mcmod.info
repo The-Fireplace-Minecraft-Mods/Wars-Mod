@@ -1,15 +1,15 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "modid": "warsmod",
+  "name": "Wars Mod",
+  "description": "The wars mod adds hundreds of epic structures :P",
+  "version": "6.3",
+  "mcversion": "1.8",
   "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
+  "updateUrl": "https://dl.dropboxusercontent.com/u/104023161/WarsModUpdates.txt",
+  "authorList": ["Resinresin","The_Fireplace"],
+  "credits": "",
+  "logoFile": "https://dl.dropboxusercontent.com/u/104023161/Questology%20banner%202.png",
   "screenshots": [],
   "dependencies": []
 }
