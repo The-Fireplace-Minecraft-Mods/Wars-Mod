@@ -118,6 +118,8 @@ public class WarsPlayerEventHandler {
 		return MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 	}
 
+	
+	
 	@SubscribeEvent
 	public void PlayerRespawnEvent(PlayerRespawnEvent event) {
 
@@ -158,6 +160,8 @@ public class WarsPlayerEventHandler {
 			}
 
 		}
+		
+		//sends the
 
 		player.getEntityData().setInteger("warsmod_killstreak", 0);
 
@@ -234,6 +238,8 @@ public class WarsPlayerEventHandler {
 
 		}
 
+		
+		//These packets send the amount of player on each team, basically the same as above but on request
 		ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
 		out3.writeByte(redPlayers);
 		Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 6, out3.toByteArray());

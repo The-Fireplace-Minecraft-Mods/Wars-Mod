@@ -31,6 +31,8 @@ import resinresin.wars.WorldGen.structure.spleef.GenNetherSpleefSmall;
 
 public class StructureSpawning {
 
+	
+	//handles what structure should be spawned based on what packet was received. There are 6 structure per GUI over 4 GUI's
 	public StructureSpawning(EntityPlayer player, int type, int structure, int i, int j, int k) {
 
 		switch (type) {

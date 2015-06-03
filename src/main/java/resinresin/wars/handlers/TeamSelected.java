@@ -15,6 +15,8 @@ import com.google.common.io.ByteStreams;
 
 public class TeamSelected {
 
+	
+	//this class handles what happens depending on what team the player selects
 	public TeamSelected(EntityPlayer player, int teamSelected, int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
 		WarsSavedData savedData = WarsSavedData.get(player.worldObj);
 

@@ -187,6 +187,8 @@ public class WarsEventHandler {
 					break;
 				}
 				}
+				
+				
 
 				Packet packet = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 0, out.toByteArray());
 				PacketDispatcher.sendPacketToPlayer(packet, (Player) source.getEntity());
