@@ -13,6 +13,7 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
 import net.minecraft.server.MinecraftServer;
@@ -71,9 +72,9 @@ public class WarsEventHandler {
 
 				ItemStack attackerBoots = attacker.inventory.armorItemInSlot(0);
 				ItemStack damageeBoots = damagee.inventory.armorItemInSlot(0);
-				if (attackerBoots != null && damageeBoots != null && attackerBoots.itemID == damageeBoots.itemID) {
-					int id = damageeBoots.itemID;
-					if (id == WarsItems.redBoots.itemID || id == WarsItems.greenBoots.itemID || id == WarsItems.blueBoots.itemID || id == WarsItems.yellowBoots.itemID) {
+				if (attackerBoots != null && damageeBoots != null && attackerBoots == damageeBoots) {
+					Item id = damageeBoots.getItem();
+					if (id == WarsItems.redBoots || id == WarsItems.greenBoots || id == WarsItems.blueBoots || id == WarsItems.yellowBoots) {
 						evt.setCanceled(true);
 
 					}
