@@ -1,13 +1,14 @@
 package resinresin.wars.Items;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import resinresin.wars.Warsmod;
 
@@ -18,67 +19,62 @@ public class ItemMassMeal extends Item {
 
 	}
 
-	
 	@Override
-	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10) {
-		if (!par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack)) {
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+
+		if (!player.canPlayerEdit(pos, side, stack)) {
 			return false;
-		} else {
-			int var11;
+		}
+
+		else {
+			IBlockState var11;
 			int var12;
 			int var13;
 
-			var11 = par3World.getBlockId(par4, par5, par6);
+			var11 = world.getBlockState(pos);
 
-			BonemealEvent event = new BonemealEvent(par2EntityPlayer, par3World, var11, par4, par5, par6);
-			if (MinecraftForge.EVENT_BUS.post(event)) {
+			BonemealEvent event = new BonemealEvent(player, world, pos, var11);
+
+			if (MinecraftForge.EVENT_BUS.post(event))
 				return false;
-			}
 
-			if (event.getResult() == Result.ALLOW) {
-				if (!par3World.isRemote) {
-					par1ItemStack.stackSize--;
-				}
-				return true;
-			}
-
-			if (var11 == Block.grass.blockID) {
-				if (!par3World.isRemote) {
-					--par1ItemStack.stackSize;
+			if (var11 == Blocks.grass) {
+				if (!world.isRemote) {
+					--stack.stackSize;
 					label133:
 
 					for (var12 = 0; var12 < 128; ++var12) {
-						var13 = par4;
-						int var14 = par5 + 1;
-						int var15 = par6;
+						var13 = pos.getX();
+						int var14 = pos.getY() + 1;
+						int var15 = pos.getZ();
 
 						for (int var16 = 0; var16 < var12 / 16; ++var16) {
 							var13 += itemRand.nextInt(15) - 5;
 							var14 += (itemRand.nextInt(15) - 5) * itemRand.nextInt(15) / 10;
 							var15 += itemRand.nextInt(15) - 5;
 
-							if (par3World.getBlockId(var13, var14 - 1, var15) != Block.grass.blockID || par3World.isBlockNormalCube(var13, var14, var15)) {
+							BlockPos positionGrass2 = new BlockPos(var13, var14 - 1, var15);
+							
+							if (world.getBlockState(positionGrass2) != Blocks.grass || world.isBlockNormalCube(pos, true)) {
 								continue label133;
 							}
 						}
 
-						if (par3World.getBlockId(var13, var14, var15) == 0) {
+						BlockPos positionGrass = new BlockPos(var13, var14, var15);
+						
+						if (world.getBlockState(positionGrass) == Blocks.air) {
 							if (itemRand.nextInt(3) != 0) {
-								if (Block.tallGrass.canBlockStay(par3World, var13, var14, var15)) {
-									par3World.setBlock(var13, var14, var15, Block.tallGrass.blockID, 1, 2);
+								if (Blocks.tallgrass.canBlockStay(world, positionGrass, Blocks.tallgrass.getDefaultState() )) {
+									Warsmod.generateBlock(world, var13, var14, var15, Blocks.tallgrass);
 								}
-							} else {
-								ForgeHooks.plantGrass(par3World, var13, var14, var15);
-							}
+							} 
 						}
 					}
 				}
-
-				return true;
 			}
 		}
+		return false;
 
-		return true;
 	}
 
 }
