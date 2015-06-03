@@ -7,46 +7,24 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.command.ICommandManager;
-import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EntityDamageSource;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import resinresin.wars.WorldGen.BiomeGenExtremeBattlefield;
-import resinresin.wars.WorldGen.BiomeGenWasteland;
 import resinresin.wars.WorldGen.WarsWorldGenerator;
-import resinresin.wars.command.CommandBlueBase;
-import resinresin.wars.command.CommandChaosSpawn;
-import resinresin.wars.command.CommandEditMode;
-import resinresin.wars.command.CommandGreenBase;
-import resinresin.wars.command.CommandKillstreak;
-import resinresin.wars.command.CommandRedBase;
-import resinresin.wars.command.CommandTotalKills;
-import resinresin.wars.command.CommandYellowBase;
 import resinresin.wars.entities.EntityPTNTPrimed;
 import resinresin.wars.handlers.GuiHandler;
 import resinresin.wars.handlers.WarsEventHandler;
@@ -77,12 +55,11 @@ public class Warsmod {
 	public static CreativeTabs tabWarsClasses = new WarsClassesTab("tabWarsClasses");
 
 	public static WarsWorldGenerator worldGen;
-	public static BiomeGenBase waste;
-	public static BiomeGenBase EXbattlefield;
 
 	public boolean doBiomes;
 	public static boolean doSand;
 
+	@SuppressWarnings("unchecked")
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt) {
 		ModMetadata metadata = evt.getModMetadata();
@@ -149,16 +126,7 @@ public class Warsmod {
 		GameRegistry.registerWorldGenerator(new WarsWorldGenerator(), 0);
 
 		// Register Gui Handler
-		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
-
-		// Decide whether to spawn biomes based on config
-		if (doBiomes == true) {
-			waste = (new BiomeGenWasteland(25));
-			EXbattlefield = (new BiomeGenExtremeBattlefield(26));
-
-			GameRegistry.addBiome(waste);
-			GameRegistry.addBiome(EXbattlefield);
-		}
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
 		// Register PTNT Entity (here still as there is only one)
 		int entityIdPTNT = EntityRegistry.findGlobalUniqueEntityId();
