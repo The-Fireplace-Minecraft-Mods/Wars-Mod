@@ -66,7 +66,7 @@ public class TileEntityClassSelect extends TileEntity implements IInventory {
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		return worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
+		return worldObj.getTileEntity(pos) == this && player.getDistanceSq(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) < 64;
 	}
 
 
@@ -74,9 +74,9 @@ public class TileEntityClassSelect extends TileEntity implements IInventory {
 	public void readFromNBT(NBTTagCompound tagCompound) {
 		super.readFromNBT(tagCompound);
 
-		NBTTagList tagList = tagCompound.getTagList("Inventory");
+		NBTTagList tagList = tagCompound.getTagList("Inventory", 3);
 		for (int i = 0; i < tagList.tagCount(); i++) {
-			NBTTagCompound tag = (NBTTagCompound) tagList.tagAt(i);
+			NBTTagCompound tag = (NBTTagCompound) tagList.get(i);
 			byte slot = tag.getByte("Slot");
 			if (slot >= 0 && slot < inv.length) {
 				inv[slot] = ItemStack.loadItemStackFromNBT(tag);

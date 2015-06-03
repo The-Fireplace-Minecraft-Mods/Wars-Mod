@@ -36,6 +36,8 @@ import resinresin.wars.command.CommandRedBase;
 import resinresin.wars.command.CommandTotalKills;
 import resinresin.wars.command.CommandYellowBase;
 import resinresin.wars.data.WarsSavedData;
+import resinresin.wars.packet.PacketKills;
+import resinresin.wars.packet.PacketTeams;
 import resinresin.wars.registry.WarsItems;
 
 import com.google.common.io.ByteArrayDataOutput;
@@ -105,17 +107,12 @@ public class WarsEventHandler {
 
 				source.getEntity().getEntityData().setInteger("warsmod_killstreak", killstreakBefore);
 
-				ByteArrayDataOutput out = ByteStreams.newDataOutput();
-				out.writeInt(killstreakBefore);
-
 				if (lostkills > 1) {
 
 					EntityPlayerMP player = (EntityPlayerMP) evt.entity;
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Died With" + " \u00a75" + " " + lostkills + " \u00a73" + "Kills"));
 				}
-
-				evt.entity.getEntityData().setInteger("warsmod_killstreak", 10);
 
 				switch (lostkills) {
 				case 2:
@@ -187,20 +184,13 @@ public class WarsEventHandler {
 					break;
 				}
 				}
-				
-				
-
-				Packet packet = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 0, out.toByteArray());
-				PacketDispatcher.sendPacketToPlayer(packet, (Player) source.getEntity());
 
 				warsmod_totalKill = source.getEntity().getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 
-				ByteArrayDataOutput out2 = ByteStreams.newDataOutput();
+				int totalKills = source.getEntity().getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
+				warsmod_totalKill = source.getEntity().getEntityData().getInteger("warsmod_killstreak");
 
-				out2.writeInt(warsmod_totalKill);
-
-				Packet packet2 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 3, out2.toByteArray());
-				PacketDispatcher.sendPacketToPlayer(packet2, (Player) source.getEntity());
+				Warsmod.network.sendTo(new PacketKills(totalKills, warsmod_totalKill), (EntityPlayerMP) source.getEntity());
 
 			}
 		}

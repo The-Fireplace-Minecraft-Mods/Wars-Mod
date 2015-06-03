@@ -1,17 +1,11 @@
 package resinresin.wars.handlers;
 
-import ibxm.Player;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.Packet;
 import net.minecraft.util.ChatComponentText;
-import resinresin.wars.Warsmod;
 import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.registry.WarsItems;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
 
 public class TeamSelected {
 
@@ -41,10 +35,6 @@ public class TeamSelected {
 				// }
 				player.setPositionAndUpdate(redBaseX + 0.5, redBaseY, redBaseZ + 0.5);
 
-				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
-				out3.writeByte(0);
-				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
-				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
 			}
 			break;
 		case 2:
@@ -65,11 +55,6 @@ public class TeamSelected {
 				// player.addChatMessage("\u00a72Green Team Selected");
 				// }
 				player.setPositionAndUpdate(greenBaseX + 0.5, greenBaseY, greenBaseZ + 0.5);
-
-				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
-				out3.writeByte(0);
-				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
-				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
 			}
 			break;
 		case 3:
@@ -94,11 +79,6 @@ public class TeamSelected {
 
 				player.setPositionAndUpdate(blueBaseX + 0.5, blueBaseY, blueBaseZ + 0.5);
 
-				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
-				out3.writeByte(0);
-				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
-				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
-
 			}
 			break;
 		case 4:
@@ -119,11 +99,6 @@ public class TeamSelected {
 				// player.addChatMessage("\u00a76Yellow Team Selected");
 
 				player.setPositionAndUpdate(yellowBaseX + 0.5, yellowBaseY, yellowBaseZ + 0.5);
-
-				ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
-				out3.writeByte(0);
-				Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 16, out3.toByteArray());
-				PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
 			}
 		}
 

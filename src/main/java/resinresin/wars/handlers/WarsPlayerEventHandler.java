@@ -1,7 +1,5 @@
 package resinresin.wars.handlers;
 
-import ibxm.Player;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,29 +11,45 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.Packet;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import resinresin.wars.Warsmod;
 import resinresin.wars.data.WarsSavedData;
+import resinresin.wars.packet.PacketKills;
+import resinresin.wars.packet.PacketOpenTeamSelect;
+import resinresin.wars.packet.PacketTeams;
 import resinresin.wars.registry.WarsItems;
 
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-
 public class WarsPlayerEventHandler {
-	
-	
+
 	public static int redPlayers = 0;
 	public static int greenPlayers = 0;
 	public static int bluePlayers = 0;
 	public static int yellowPlayers = 0;
-	
-	
+
+	public static int killStreak;
+	public static int totalKills;
+
 	@SubscribeEvent
 	public void PlayerLoggedInEvent(PlayerLoggedInEvent event) {
+
+		try {
+			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");
+			InputStream in = targetURL.openStream();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+			String dona;
+			while ((dona = reader.readLine()) != null) {
+				dona = dona.trim();
+				// toLowerCase().
+				Warsmod.donators.add(dona);
+			}
+			in.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		if (event.player instanceof EntityPlayerMP) {
 
@@ -63,51 +77,27 @@ public class WarsPlayerEventHandler {
 
 			Warsmod.proxy.totalKills(event.player);
 
-			ByteArrayDataOutput out = ByteStreams.newDataOutput();
-			out.writeInt(event.player.getEntityData().getInteger("warsmod_killstreak"));
-			Packet packet = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 0, out.toByteArray());
-			PacketDispatcher.sendPacketToPlayer(packet, (Player) player);
+			totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
+			killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
 
-			ByteArrayDataOutput out2 = ByteStreams.newDataOutput();
-			int warsmod_totalKill = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
+			Warsmod.network.sendTo(new PacketKills(totalKills, killStreak), (EntityPlayerMP) event.player);
 
-			out2.writeInt(warsmod_totalKill);
-			Packet packet2 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 3, out2.toByteArray());
-			PacketDispatcher.sendPacketToPlayer(packet2, (Player) event.player);
+			Warsmod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
 
-			event.player.openGui(Warsmod.instance, 3, event.player.worldObj, 0, 0, 0);
+			
 
 			WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
 			if (playerBoots == null) {
 				if (savedWarsData.editMode.editModeToggle == false) {
 
-					ByteArrayDataOutput out7 = ByteStreams.newDataOutput();
-					out7.writeByte(1);
-					Packet packet7 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 10, out7.toByteArray());
-					PacketDispatcher.sendPacketToPlayer(packet7, event.player);
+					
+					event.player.openGui(Warsmod.instance, 3, event.player.worldObj, 0, 0, 0);
+					
+					Warsmod.network.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
+
 				}
 			}
-
-			ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
-			out3.writeByte(redPlayers);
-			Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 6, out3.toByteArray());
-			PacketDispatcher.sendPacketToAllPlayers(packet3);
-
-			ByteArrayDataOutput out4 = ByteStreams.newDataOutput();
-			out4.writeByte(greenPlayers);
-			Packet packet4 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 7, out4.toByteArray());
-			PacketDispatcher.sendPacketToAllPlayers(packet4);
-
-			ByteArrayDataOutput out5 = ByteStreams.newDataOutput();
-			out5.writeByte(bluePlayers);
-			Packet packet5 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 8, out5.toByteArray());
-			PacketDispatcher.sendPacketToAllPlayers(packet5);
-
-			ByteArrayDataOutput out6 = ByteStreams.newDataOutput();
-			out6.writeByte(yellowPlayers);
-			Packet packet6 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 9, out6.toByteArray());
-			PacketDispatcher.sendPacketToAllPlayers(packet6);
 
 		}
 
@@ -118,26 +108,8 @@ public class WarsPlayerEventHandler {
 		return MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 	}
 
-	
-	
 	@SubscribeEvent
 	public void PlayerRespawnEvent(PlayerRespawnEvent event) {
-
-		try {
-			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");
-			InputStream in = targetURL.openStream();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-			String dona;
-			while ((dona = reader.readLine()) != null) {
-				dona = dona.trim();
-				// toLowerCase().
-				Warsmod.donators.add(dona);
-			}
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
@@ -160,50 +132,21 @@ public class WarsPlayerEventHandler {
 			}
 
 		}
-		
-		//sends the
 
-		player.getEntityData().setInteger("warsmod_killstreak", 0);
+		totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
+		killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
 
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeInt(player.getEntityData().getInteger("warsmod_killstreak"));
-		Packet packet = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 0, out.toByteArray());
-		PacketDispatcher.sendPacketToPlayer(packet, (Player) player);
+		Warsmod.network.sendTo(new PacketKills(totalKills, killStreak), (EntityPlayerMP) event.player);
 
-		ByteArrayDataOutput out2 = ByteStreams.newDataOutput();
-		int warsmod_totalKill = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
+		Warsmod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
 
-		out2.writeInt(warsmod_totalKill);
-		Packet packet2 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 3, out2.toByteArray());
-		PacketDispatcher.sendPacketToPlayer(packet2, (Player) player);
-
-		ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
-		out3.writeByte(redPlayers);
-		Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 6, out3.toByteArray());
-		PacketDispatcher.sendPacketToAllPlayers(packet3);
-
-		ByteArrayDataOutput out4 = ByteStreams.newDataOutput();
-		out4.writeByte(greenPlayers);
-		Packet packet4 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 7, out4.toByteArray());
-		PacketDispatcher.sendPacketToAllPlayers(packet4);
-
-		ByteArrayDataOutput out5 = ByteStreams.newDataOutput();
-		out5.writeByte(bluePlayers);
-		Packet packet5 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 8, out5.toByteArray());
-		PacketDispatcher.sendPacketToAllPlayers(packet5);
-
-		ByteArrayDataOutput out6 = ByteStreams.newDataOutput();
-		out6.writeByte(yellowPlayers);
-		Packet packet6 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 9, out6.toByteArray());
-		PacketDispatcher.sendPacketToAllPlayers(packet6);
-
-		WarsSavedData savedWarsData = WarsSavedData.get(player.worldObj);
+		WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 		if (savedWarsData.editMode.editModeToggle == false) {
 
-			ByteArrayDataOutput out7 = ByteStreams.newDataOutput();
-			out7.writeByte(1);
-			Packet packet7 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 10, out7.toByteArray());
-			PacketDispatcher.sendPacketToPlayer(packet7, (Player) player);
+
+			event.player.openGui(Warsmod.instance, 3, event.player.worldObj, 0, 0, 0);
+			
+			Warsmod.network.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
 		}
 
 	}
@@ -238,27 +181,7 @@ public class WarsPlayerEventHandler {
 
 		}
 
-		
-		//These packets send the amount of player on each team, basically the same as above but on request
-		ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
-		out3.writeByte(redPlayers);
-		Packet packet3 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 6, out3.toByteArray());
-		PacketDispatcher.sendPacketToPlayer(packet3, (Player) player);
-
-		ByteArrayDataOutput out4 = ByteStreams.newDataOutput();
-		out4.writeByte(greenPlayers);
-		Packet packet4 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 7, out4.toByteArray());
-		PacketDispatcher.sendPacketToPlayer(packet4, (Player) player);
-
-		ByteArrayDataOutput out5 = ByteStreams.newDataOutput();
-		out5.writeByte(bluePlayers);
-		Packet packet5 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 8, out5.toByteArray());
-		PacketDispatcher.sendPacketToPlayer(packet5, (Player) player);
-
-		ByteArrayDataOutput out6 = ByteStreams.newDataOutput();
-		out6.writeByte(yellowPlayers);
-		Packet packet6 = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 9, out6.toByteArray());
-		PacketDispatcher.sendPacketToPlayer(packet6, (Player) player);
+		Warsmod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) player);
 
 	}
 

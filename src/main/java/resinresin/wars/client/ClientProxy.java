@@ -28,8 +28,15 @@ import resinresin.wars.handlers.WarsTickEventHandler;
 public class ClientProxy extends CommonProxy {
 
 	public static KeyBinding toggleHUD;
-	
-	public static boolean guiVisible = true; 
+
+	public static boolean guiVisible = true;
+
+	public static int totalKills;
+	public static int killStreak;
+	public static int redPlayers;
+	public static int bluePlayers;
+	public static int greenPlayers;
+	public static int yellowPlayers;
 
 	@SuppressWarnings("rawtypes")
 	public static List donators;
@@ -39,7 +46,7 @@ public class ClientProxy extends CommonProxy {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void registerRenderInformation() {
-		
+
 		donators = new ArrayList<String>();
 
 		try {
@@ -62,20 +69,17 @@ public class ClientProxy extends CommonProxy {
 		// Side.CLIENT);
 		WarsTickEventHandler clienttickhandler = new WarsTickEventHandler();
 		MinecraftForge.EVENT_BUS.register(clienttickhandler);
-		
+
 		WarsKeyEventHandler clientkeyhandler = new WarsKeyEventHandler();
 		MinecraftForge.EVENT_BUS.register(clientkeyhandler);
-		
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed());
 
-		
-	    toggleHUD = new KeyBinding("key.toggleHUD", Keyboard.KEY_B, "key.categories.warsmod");
+		toggleHUD = new KeyBinding("key.toggleHUD", Keyboard.KEY_B, "key.categories.warsmod");
 		ClientRegistry.registerKeyBinding(toggleHUD);
 
-		
-		//Automatically adds official server to servers list
-		//TODO turn this into a button 
+		// Automatically adds official server to servers list
+		// TODO turn this into a button
 		ServerList list = new ServerList(Minecraft.getMinecraft());
 		list.loadServerList();
 		boolean found = false;
@@ -91,56 +95,25 @@ public class ClientProxy extends CommonProxy {
 
 		}
 		list.saveServerList();
-		
+
 	}
 
-	public static int killstreak;
-
 	@Override
-	public void handleKillstreak(int killstreak) {
+	public void handleKillData(int totalKills, int killStreak) {
 
-		ClientProxy.killstreak = killstreak;
+		ClientProxy.totalKills = totalKills;
+		ClientProxy.killStreak = killStreak;
+
 	}
 
-	public static int warsmod_totalKill;
-
 	@Override
-	public void handleTotalKill(int warsmod_totalKill) {
-
-		ClientProxy.warsmod_totalKill = warsmod_totalKill;
-	}
-
-	public static int redPlayers;
-
-	@Override
-	public void handleRedPlayers(int redPlayers) {
+	public void handleTeams(int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
 
 		ClientProxy.redPlayers = redPlayers;
-
-	}
-
-	public static int bluePlayers;
-
-	@Override
-	public void handleBluePlayers(int bluePlayers) {
-
-		ClientProxy.bluePlayers = bluePlayers;
-
-	}
-
-	public static int greenPlayers;
-
-	@Override
-	public void handleGreenPlayers(int greenPlayers) {
-
 		ClientProxy.greenPlayers = greenPlayers;
-	}
-
-	public static int yellowPlayers;
-
-	@Override
-	public void handleYellowPlayers(int yellowPlayers) {
+		ClientProxy.bluePlayers = bluePlayers;
 		ClientProxy.yellowPlayers = yellowPlayers;
+
 	}
 
 	public void closeOpenGui() {

@@ -19,13 +19,7 @@ public class WarsPacketHandler implements ITinyPacketHandler {
 		EntityPlayer player = handler.getPlayer();
 
 		switch (mapData.uniqueID) { 
-		case 0:
-			
-			//Packet is used for current amount of kills a player has in this lifetime. it is sent to the player to render on the killstreak HUD
-			int killstreak = in.readInt();
-			Warsmod.proxy.handleKillstreak(killstreak);
 
-			break;
 		case 1:
 			
 			//Packet is received from the player to tell server which class they selected on the class selection GUI
@@ -33,62 +27,13 @@ public class WarsPacketHandler implements ITinyPacketHandler {
 			new ClassSelected(player, classSelected);
 			break;
 
-		case 3:
-			
-			//The total number of kills is sent for rendering on the class selector as players need certain amounts of kills for each class
-			//Should probably be sent in same packet as killstreak as a KillData packet or something.
-			int warsmod_totalKill = in.readInt();
-			Warsmod.proxy.handleTotalKill(warsmod_totalKill);
-
-			break;
 		case 4:
 			//Packet is received when player chooses Donator class. Should be combined with the other class select packet
 			new DonatorClassSelected(player);
 
 			break;
-		case 5:
-			
-			//Packet is received when player chooses a team in order to add them to a list of player in that team. 
-			int teamSelected = in.readUnsignedByte();
-			new TeamSelected(player, teamSelected, redPlayers, greenPlayers, bluePlayers, yellowPlayers);
 
-			break;
-		case 6:
-			
-			//Sends total number of red team player to client for rendering on pie chart showing number of player in each team
-			redPlayers = in.readUnsignedByte();
-			Warsmod.proxy.handleRedPlayers(redPlayers);
 
-			break;
-		case 7:
-			
-			//Sends total number of green team player to client for rendering on pie chart showing number of player in each team
-			greenPlayers = in.readUnsignedByte();
-			Warsmod.proxy.handleGreenPlayers(greenPlayers);
-
-			break;
-		case 8:
-			
-			//Sends total number of blue team player to client for rendering on pie chart showing number of player in each team
-			bluePlayers = in.readUnsignedByte();
-			Warsmod.proxy.handleBluePlayers(bluePlayers);
-
-			break;
-		case 9:
-			
-			//Sends total number of yellow team player to client for rendering on pie chart showing number of player in each team
-			yellowPlayers = in.readUnsignedByte();
-			Warsmod.proxy.handleYellowPlayers(yellowPlayers);
-
-			break;
-		case 10:
-			
-			//
-			
-			EntityPlayer player3 = handler.getPlayer();
-			player3.openGui(Warsmod.instance, 3, player3.worldObj, 0, 0, 0);
-
-			break;
 		case 11:
 			
 			//Packet received from one of the structure spawn gui's

@@ -20,14 +20,19 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 import resinresin.wars.WorldGen.WarsWorldGenerator;
 import resinresin.wars.entities.EntityPTNTPrimed;
 import resinresin.wars.handlers.GuiHandler;
 import resinresin.wars.handlers.WarsEventHandler;
 import resinresin.wars.handlers.WarsPlayerEventHandler;
 import resinresin.wars.handlers.WarsTickEventHandler;
+import resinresin.wars.packet.PacketKills;
+import resinresin.wars.packet.PacketOpenTeamSelect;
+import resinresin.wars.packet.PacketTeams;
 import resinresin.wars.registry.CraftingRecipes;
 import resinresin.wars.registry.WarsBlocks;
 import resinresin.wars.registry.WarsDungeonChests;
@@ -41,6 +46,7 @@ import resinresin.wars.tabs.WarsItemsTab;
 public class Warsmod {
 
 	public static CommonProxy proxy;
+	public static SimpleNetworkWrapper network;
 
 	public static Warsmod instance;
 	public static Configuration conf;
@@ -64,6 +70,12 @@ public class Warsmod {
 		// Create Config
 		conf = new Configuration(evt.getSuggestedConfigurationFile());
 		conf.load();
+		
+		network = NetworkRegistry.INSTANCE.newSimpleChannel("WarsChannel");
+		
+	    network.registerMessage(PacketKills.Handler.class, PacketKills.class, 0, Side.CLIENT);
+	    network.registerMessage(PacketTeams.Handler.class, PacketTeams.class, 1, Side.CLIENT);
+	    network.registerMessage(PacketOpenTeamSelect.Handler.class, PacketOpenTeamSelect.class, 2, Side.CLIENT);
 
 		doSand = conf.get(Configuration.CATEGORY_GENERAL, "Generate Sink Sand", true).getBoolean(true);
 

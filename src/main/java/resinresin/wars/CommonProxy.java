@@ -23,26 +23,10 @@ public class CommonProxy implements IGuiHandler { // WILL NOT WORK WITHOUT THIS
 		return null;
 	}
 
-	public void handleKillstreak(int killstreak) {
+	public void handleKillData(int totalKills, int killStreak) {
 	}
 
-	public void handleTotalKill(int warsmod_totalKill) {
-
-	}
-
-	public void handleRedPlayers(int redPlayers) {
-
-	}
-
-	public void handleBluePlayers(int bluePlayers) {
-
-	}
-
-	public void handleGreenPlayers(int greenPlayers) {
-
-	}
-
-	public void handleYellowPlayers(int yellowPlayers) {
+	public void handleTeams(int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
 
 	}
 
