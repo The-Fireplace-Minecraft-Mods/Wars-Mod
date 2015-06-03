@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -18,7 +17,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -62,7 +60,6 @@ public class Warsmod {
 	@SuppressWarnings("unchecked")
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt) {
-		ModMetadata metadata = evt.getModMetadata();
 
 		// Create Config
 		conf = new Configuration(evt.getSuggestedConfigurationFile());

@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "warsmod": "warsmod",
+  "name": "Warsmod",
+  "description": "The wars mod adds hundreds of epic structures, tools for server creators and everything you need to set up the greatest battle arena ever.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "updateUrl": ""https://dl.dropboxusercontent.com/u/104023161/WarsModUpdates.txt"",
+  "authorList": ["Resinresin"],
+  "credits": "DigitKid, AcezMadness, HeavenlyBlade, diesieben07",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
