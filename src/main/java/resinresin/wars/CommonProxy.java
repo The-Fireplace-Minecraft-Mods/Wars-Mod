@@ -11,11 +11,6 @@ public class CommonProxy implements IGuiHandler { // WILL NOT WORK WITHOUT THIS
 		// Does nothing serverside, only for client
 	}
 
-	public void capesInit() {
-
-		// Does nothing serverside, only for client
-	}
-
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		// TODO Auto-generated method stub
