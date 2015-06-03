@@ -11,7 +11,7 @@ import resinresin.wars.Blocks.BlockBluePlate;
 import resinresin.wars.Blocks.BlockBooster;
 import resinresin.wars.Blocks.BlockBounce;
 import resinresin.wars.Blocks.BlockBounceLow;
-import resinresin.wars.Blocks.BlockCastleGreen;
+import resinresin.wars.Blocks.BlockCastleSelector;
 import resinresin.wars.Blocks.BlockClassSelectorDonator;
 import resinresin.wars.Blocks.BlockCorner;
 import resinresin.wars.Blocks.BlockCottage;
@@ -129,8 +129,7 @@ public class WarsBlocks {
 
 	public static void createBlocks() {
 
-		
-		//Basic Blocks Used in worldgen 
+		// Basic Blocks Used in worldgen
 		deadDirt = new BlockDeadDirt().setUnlocalizedName("deadDirt").setHardness(0.5F).setStepSound(Block.soundTypeGrass);
 		ancientOre = new BlockAncientOre().setHardness(3F).setUnlocalizedName("ancientOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		ancientBlock = new BlockAncientBlock().setHardness(5F).setUnlocalizedName("ancientBlock").setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
@@ -139,8 +138,8 @@ public class WarsBlocks {
 		decayOre = new BlockDecayOre().setHardness(3F).setUnlocalizedName("decayOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		naturalOre = new BlockNaturalOre().setHardness(3F).setUnlocalizedName("naturalOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		sinkSand = new BlockSinkSand().setUnlocalizedName("sinkSand").setBlockUnbreakable().setHardness(6.9F).setStepSound(Block.soundTypeStone);
-		
-		//Utility Blocks
+
+		// Utility Blocks
 		bounceBlockLow = new BlockBounceLow().setBlockUnbreakable().setUnlocalizedName("bounceLow").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		bounceBlock = new BlockBounce().setBlockUnbreakable().setUnlocalizedName("bounceHigh").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		boostBlock = new BlockBooster().setBlockUnbreakable().setUnlocalizedName("booster").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -158,19 +157,19 @@ public class WarsBlocks {
 		teleporterBlock3 = new BlockTeleporter3().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv3");
 		teleporterBlock4 = new BlockTeleporter4().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv4");
 		setSpawn = new BlockSetSpawn().setUnlocalizedName("spawnSetter").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		
-		//Selectors
-		castleSelector = new BlockCastleGreen().setUnlocalizedName("castleSelector").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+
+		// Selectors
+		castleSelector = new BlockCastleSelector().setUnlocalizedName("castleSelector").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		spleefSelector = new BlockSelectorSpleef().setBlockUnbreakable().setUnlocalizedName("spleefSelector").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		buildingSelector = new BlockSelectorBuildings().setBlockUnbreakable().setUnlocalizedName("buildingSelector").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		gamesSelector = new BlockSelectorGames().setBlockUnbreakable().setUnlocalizedName("gamesSelector").setStepSound(Block.soundTypeStone);
 		classSelect = new BlockSelectorBasic().setBlockUnbreakable().setUnlocalizedName("classSelector").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		classSelectDonator = new BlockClassSelectorDonator().setBlockUnbreakable().setUnlocalizedName("classSelectorDonator").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		
-		//Class Blocks
+
+		// Class Blocks
 		playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
-		
-		//Individual Structure Blocks
+
+		// Individual Structure Blocks
 		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		cottage = new BlockCottage().setUnlocalizedName("cottage").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		wall = new BlockWall().setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -179,14 +178,14 @@ public class WarsBlocks {
 		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("Road").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		tower = new BlockTower().setBlockUnbreakable().setUnlocalizedName("tower").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		wallEnd = new BlockWallEnd().setBlockUnbreakable().setUnlocalizedName("wallEnd").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		
-		//War Game Blocks
+
+		// War Game Blocks
 		redPlate = new BlockRedPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("redPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		bluePlate = new BlockBluePlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("bluePlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		greenPlate = new BlockGreenPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("greenPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		yellowPlate = new BlockYellowPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("yellowPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 
-		//Game Blocks
+		// Game Blocks
 		nSpleefS = new BlockNetherSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNetherSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		nSpleefM = new BlockNetherSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefNetherMedium").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		pSpleefS = new BlockNaturalSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNaturalSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -199,57 +198,60 @@ public class WarsBlocks {
 		hgLv1reset = new BlockHungerGamesLv1Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		hgLv2start = new BlockHungerGamesLv2Start().setUnlocalizedName("startHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		hgLv2reset = new BlockHungerGamesLv2Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		
-//		/*LanguageRegistry.addName(buildingSelector, "Selector - Buildings");
-//		LanguageRegistry.addName(spleefSelector, "Selector - Spleef");
-//		LanguageRegistry.addName(castleSelector, "Selector - Setup");
-//		LanguageRegistry.addName(controlRed, "Control Of Fire");
-//		LanguageRegistry.addName(controlGreen, "Control Of Life");
-//		LanguageRegistry.addName(controlBlue, "Control Of Water");
-//		LanguageRegistry.addName(controlYellow, "Control Of Decay");
-//		LanguageRegistry.addName(ancientOre, "Ancient Ore");
-//		LanguageRegistry.addName(boostBlock, "Booster");
-//		LanguageRegistry.addName(bounceBlock, "Bouncer -high-");
-//		LanguageRegistry.addName(sumBlock, "Summoner");
-//		LanguageRegistry.addName(insChest1, "Hunger Games Chest -LV1-");
-//		LanguageRegistry.addName(insChest3, "Hunger Games Chest -LV3-");
-//		LanguageRegistry.addName(warChest, "War Chest");
-//		LanguageRegistry.addName(gamesSelector, "Selector - MiniGames");
-//		LanguageRegistry.addName(hill, "A Small Aesthestic Hill");
-//		LanguageRegistry.addName(hgLv1start, "Do Not Use This!");
-//		LanguageRegistry.addName(insChest2, "Hunger Games Chest -Lv2-");
-//		LanguageRegistry.addName(insChest4, "Hunger Games Chest -Lv4-");
-//		LanguageRegistry.addName(bounceBlockLow, "Bouncer -low-");
-//		LanguageRegistry.addName(deadDirt, "Dead Dirt");
-//		LanguageRegistry.addName(cottage, "Community Creation : Pylickuz's Cottage");
-//		LanguageRegistry.addName(teleporterBlock, "\u00a79Teleporter MK1");
-//		LanguageRegistry.addName(teleporterBlock2, "\u00a75Teleporter MK2");
-//		LanguageRegistry.addName(teleporterBlock3, "\u00a76Teleporter MK3");
-//		LanguageRegistry.addName(teleporterBlock4, "\u00a73Teleporter MK4");
-//		LanguageRegistry.addName(ancientBlock, "\u00a73Ancient Block");
-//		LanguageRegistry.addName(presentBox, "Present Box");
-//		LanguageRegistry.addName(spleefStone, "Spleef Stone");
-//		LanguageRegistry.addName(badBlock, "Doom Block");
-//		LanguageRegistry.addName(sinkSand, "Sink Sand");
-//		LanguageRegistry.addName(fireOre, "Firernite Ore");
-//		LanguageRegistry.addName(waterOre, "Waternate Ore");
-//		LanguageRegistry.addName(decayOre, "Decayenate Ore");
-//		LanguageRegistry.addName(naturalOre, "Natralite Ore");
-//		LanguageRegistry.addName(playerTNT, "Tech Player TNT");
-//		LanguageRegistry.addName(setSpawn, "World Spawn Setter");
-//		LanguageRegistry.addName(classSelect, "Class Selector");
-//		LanguageRegistry.addName(classSelectDonator, "Donator Class Selector");
-//		LanguageRegistry.addName(wallNS, "Wall Piece Side");
-//		LanguageRegistry.addName(corner1, "Wall Piece Corner");
-//		LanguageRegistry.addName(lamp, "Small Lamp");
-//		LanguageRegistry.addName(nostalHouse, "Easter Egg : My very first minecraft house (Made in 1.7.3 :D)");
-//		LanguageRegistry.addName(roadPiece, "Road Creator");
-//		LanguageRegistry.addName(tower, "Tower");
-//		LanguageRegistry.addName(wallEnd, "Wall Piece End");
-//		LanguageRegistry.addName(redPlate, "Red Team Pressure Plate");
-//		LanguageRegistry.addName(bluePlate, "Blue Team Pressure Plate");
-//		LanguageRegistry.addName(yellowPlate, "Yellow Team Pressure Plate");
-//		LanguageRegistry.addName(greenPlate, "Green Team Pressure Plate");*/
+
+		// /*LanguageRegistry.addName(buildingSelector, "Selector - Buildings");
+		// LanguageRegistry.addName(spleefSelector, "Selector - Spleef");
+		// LanguageRegistry.addName(castleSelector, "Selector - Setup");
+		// LanguageRegistry.addName(controlRed, "Control Of Fire");
+		// LanguageRegistry.addName(controlGreen, "Control Of Life");
+		// LanguageRegistry.addName(controlBlue, "Control Of Water");
+		// LanguageRegistry.addName(controlYellow, "Control Of Decay");
+		// LanguageRegistry.addName(ancientOre, "Ancient Ore");
+		// LanguageRegistry.addName(boostBlock, "Booster");
+		// LanguageRegistry.addName(bounceBlock, "Bouncer -high-");
+		// LanguageRegistry.addName(sumBlock, "Summoner");
+		// LanguageRegistry.addName(insChest1, "Hunger Games Chest -LV1-");
+		// LanguageRegistry.addName(insChest3, "Hunger Games Chest -LV3-");
+		// LanguageRegistry.addName(warChest, "War Chest");
+		// LanguageRegistry.addName(gamesSelector, "Selector - MiniGames");
+		// LanguageRegistry.addName(hill, "A Small Aesthestic Hill");
+		// LanguageRegistry.addName(hgLv1start, "Do Not Use This!");
+		// LanguageRegistry.addName(insChest2, "Hunger Games Chest -Lv2-");
+		// LanguageRegistry.addName(insChest4, "Hunger Games Chest -Lv4-");
+		// LanguageRegistry.addName(bounceBlockLow, "Bouncer -low-");
+		// LanguageRegistry.addName(deadDirt, "Dead Dirt");
+		// LanguageRegistry.addName(cottage,
+		// "Community Creation : Pylickuz's Cottage");
+		// LanguageRegistry.addName(teleporterBlock, "\u00a79Teleporter MK1");
+		// LanguageRegistry.addName(teleporterBlock2, "\u00a75Teleporter MK2");
+		// LanguageRegistry.addName(teleporterBlock3, "\u00a76Teleporter MK3");
+		// LanguageRegistry.addName(teleporterBlock4, "\u00a73Teleporter MK4");
+		// LanguageRegistry.addName(ancientBlock, "\u00a73Ancient Block");
+		// LanguageRegistry.addName(presentBox, "Present Box");
+		// LanguageRegistry.addName(spleefStone, "Spleef Stone");
+		// LanguageRegistry.addName(badBlock, "Doom Block");
+		// LanguageRegistry.addName(sinkSand, "Sink Sand");
+		// LanguageRegistry.addName(fireOre, "Firernite Ore");
+		// LanguageRegistry.addName(waterOre, "Waternate Ore");
+		// LanguageRegistry.addName(decayOre, "Decayenate Ore");
+		// LanguageRegistry.addName(naturalOre, "Natralite Ore");
+		// LanguageRegistry.addName(playerTNT, "Tech Player TNT");
+		// LanguageRegistry.addName(setSpawn, "World Spawn Setter");
+		// LanguageRegistry.addName(classSelect, "Class Selector");
+		// LanguageRegistry.addName(classSelectDonator,
+		// "Donator Class Selector");
+		// LanguageRegistry.addName(wallNS, "Wall Piece Side");
+		// LanguageRegistry.addName(corner1, "Wall Piece Corner");
+		// LanguageRegistry.addName(lamp, "Small Lamp");
+		// LanguageRegistry.addName(nostalHouse,
+		// "Easter Egg : My very first minecraft house (Made in 1.7.3 :D)");
+		// LanguageRegistry.addName(roadPiece, "Road Creator");
+		// LanguageRegistry.addName(tower, "Tower");
+		// LanguageRegistry.addName(wallEnd, "Wall Piece End");
+		// LanguageRegistry.addName(redPlate, "Red Team Pressure Plate");
+		// LanguageRegistry.addName(bluePlate, "Blue Team Pressure Plate");
+		// LanguageRegistry.addName(yellowPlate, "Yellow Team Pressure Plate");
+		// LanguageRegistry.addName(greenPlate, "Green Team Pressure Plate");*/
 
 		GameRegistry.registerBlock(buildingSelector, "buildingSelector");
 		GameRegistry.registerBlock(spleefSelector, "spleefSelector");

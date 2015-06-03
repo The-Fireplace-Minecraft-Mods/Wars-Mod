@@ -1,14 +1,16 @@
 package resinresin.wars.command;
 
 import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import resinresin.wars.data.WarsSavedData;
 
 public class CommandRedBase extends CommandBase {
 
 	@Override
-	public String getCommandName() {
+	public String getName() {
 		return "setRedBase"; // Name of the command e.g "/Test", "/Command"
 	}
 
@@ -17,21 +19,26 @@ public class CommandRedBase extends CommandBase {
         return 0;
     }
 
+    @Override
+	public int getRequiredPermissionLevel() {
+		return 4;
+	}
+
 
 	@Override
-	public void processCommand(ICommandSender var1, String[] var2) {
+	public void execute(ICommandSender sender, String[] args) throws CommandException {
 
-		EntityPlayer player1 = (EntityPlayer) var1;
+		EntityPlayer player1 = (EntityPlayer) sender;
 		WarsSavedData savedData = WarsSavedData.get(player1.worldObj);
 
-		if (var1 instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) var1;
+		if (sender instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) sender;
 
 			savedData.teamRed.baseX = (int) player.posX;
 			savedData.teamRed.baseY = (int) player.posY;
 			savedData.teamRed.baseZ = (int) player.posZ;
 			savedData.markDirty();
-			player.addChatMessage("Red Team Base Set To: " + savedData.teamRed.baseX + " " + savedData.teamRed.baseY + " " + savedData.teamRed.baseZ);
+			player.addChatMessage(new ChatComponentText("Red Team Base Set To: " + savedData.teamRed.baseX + " " + savedData.teamRed.baseY + " " + savedData.teamRed.baseZ));
 
 		}
 

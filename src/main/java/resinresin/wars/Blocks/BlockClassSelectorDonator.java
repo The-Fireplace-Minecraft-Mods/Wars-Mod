@@ -1,6 +1,7 @@
 package resinresin.wars.Blocks;
 
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +12,7 @@ import net.minecraft.world.World;
 import resinresin.wars.Warsmod;
 import resinresin.wars.tileentities.TileEntityClassSelectDonator;
 
-public class BlockClassSelectorDonator extends BlockContainer {
+public class BlockClassSelectorDonator extends BlockContainer implements ITileEntityProvider {
 
 	public BlockClassSelectorDonator() {
 		super(Material.iron);
@@ -27,11 +28,6 @@ public class BlockClassSelectorDonator extends BlockContainer {
 			return false;
 		}
 		player.openGui(Warsmod.instance, 2, world, pos.getX(), pos.getY(), pos.getZ());
-		return true;
-	}
-
-	@Override
-	public boolean hasTileEntity(int meta) {
 		return true;
 	}
 

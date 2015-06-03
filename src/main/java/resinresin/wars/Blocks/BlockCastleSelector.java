@@ -1,6 +1,7 @@
 package resinresin.wars.Blocks;
 
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,12 +10,11 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.Warsmod;
-import resinresin.wars.WorldGen.resinresinLoader;
 import resinresin.wars.tileentities.TileEntityBasicStructures;
 
-public class BlockCastleGreen extends BlockContainer {
+public class BlockCastleSelector extends BlockContainer implements ITileEntityProvider {
 
-	public BlockCastleGreen() {
+	public BlockCastleSelector() {
 		super(Material.iron);
 		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
@@ -30,12 +30,6 @@ public class BlockCastleGreen extends BlockContainer {
 		player.openGui(Warsmod.instance, 4, world, pos.getX(), pos.getY(), pos.getZ());
 		return true;
 	}
-
-	@Override
-	public boolean hasTileEntity(int meta) {
-		return true;
-	}
-
 	
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {

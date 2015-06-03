@@ -1,14 +1,16 @@
 package resinresin.wars.command;
 
 import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import resinresin.wars.data.WarsSavedData;
 
 public class CommandEditMode extends CommandBase {
 
 	@Override
-	public String getCommandName() {
+	public String getName() {
 		return "toggleEditMode"; // Name of the command e.g "/Test", "/Command"
 	}
 
@@ -16,15 +18,20 @@ public class CommandEditMode extends CommandBase {
     public int compareTo(Object o) {
         return 0;
     }
-
     @Override
-	public void processCommand(ICommandSender var1, String[] var2) {
+	public int getRequiredPermissionLevel() {
+		return 4;
+	}
 
-		EntityPlayer player1 = (EntityPlayer) var1;
+
+	@Override
+	public void execute(ICommandSender sender, String[] args) throws CommandException {
+
+		EntityPlayer player1 = (EntityPlayer) sender;
 		WarsSavedData savedData = WarsSavedData.get(player1.worldObj);
 
-		if (var1 instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) var1;
+		if (sender instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) sender;
 			int a = savedData.teamRed.baseX;
 			int b = savedData.teamRed.baseY;
 			int c = savedData.teamRed.baseZ;
@@ -42,16 +49,16 @@ public class CommandEditMode extends CommandBase {
 			int l = savedData.teamYellow.baseZ;
 
 			if (a == 0 && b == 0 && c == 0) {
-				player.addChatMessage("Red Base Spawn Not Set!");
+				player.addChatMessage(new ChatComponentText("Red Base Spawn Not Set!"));
 
 			} else if (d == 0 && e == 0 && f == 0) {
-				player.addChatMessage("Green Base Spawn Not Set!");
+				player.addChatMessage(new ChatComponentText("Green Base Spawn Not Set!"));
 
 			} else if (g == 0 && h == 0 && i == 0) {
-				player.addChatMessage("Blue Base Spawn Not Set!");
+				player.addChatMessage(new ChatComponentText("Blue Base Spawn Not Set!"));
 
 			} else if (j == 0 && k == 0 && l == 0) {
-				player.addChatMessage("Yellow Base Spawn Not Set!");
+				player.addChatMessage(new ChatComponentText("Yellow Base Spawn Not Set!"));
 
 			}
 
@@ -59,7 +66,7 @@ public class CommandEditMode extends CommandBase {
 
 				savedData.editMode.editModeToggle = !savedData.editMode.editModeToggle;
 				savedData.markDirty();
-				player.addChatMessage("Toggled edit mode to: " + savedData.editMode.editModeToggle);
+				player.addChatMessage(new ChatComponentText("Toggled edit mode to: " + savedData.editMode.editModeToggle));
 
 			}
 
