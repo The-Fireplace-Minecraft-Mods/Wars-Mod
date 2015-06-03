@@ -11,6 +11,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
@@ -126,7 +127,7 @@ public class ItemArcherBow extends Item {
 		}
 
 		if (par3EntityPlayer instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(par3EntityPlayer, resinresin.wars.registry.WarsItems.archerArmor)) {
-			par3EntityPlayer.addChatMessage("\u00a74DONT CHEAT! \u00a72Wear The Archer Armour (which you must put on in survival)");
+			par3EntityPlayer.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Archer Armour (which you must put on in survival)"));
 
 		} else if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Items.arrow)) {
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
@@ -139,6 +140,7 @@ public class ItemArcherBow extends Item {
 	 * Return the enchantability factor of the item, most of the time is based
 	 * on material.
 	 */
+	@Override
 	public int getItemEnchantability() {
 		return 1;
 	}

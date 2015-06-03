@@ -12,6 +12,7 @@ import net.minecraft.entity.projectile.EntityWitherSkull;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -74,8 +75,8 @@ public class ItemChaosSword extends Item {
 						cooldown = 40;
 					}
 				}
-			} else if (!Warsmod.donators.contains(par3EntityPlayer.username)) {
-				par3EntityPlayer.addChatMessage("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com");
+			} else if (!Warsmod.donators.contains(par3EntityPlayer.getName())) {
+				par3EntityPlayer.addChatMessage(new ChatComponentText("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com"));
 
 			}
 		}
@@ -85,14 +86,14 @@ public class ItemChaosSword extends Item {
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
 		if (player instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.chaosArmor)) {
-			player.addChatMessage("\u00a74DONT CHEAT! \u00a72Wear The Chaos Armour (which you must put on in survival)");
+			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Chaos Armour (which you must put on in survival"));
 
 			stack.stackSize = 0;
 		}
 
 		else if (!Warsmod.donators.contains(player.getName())) {
 			stack.stackSize = 0;
-			player.addChatMessage("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com");
+			player.addChatMessage(new ChatComponentText("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com"));
 
 		}
 
@@ -103,30 +104,36 @@ public class ItemChaosSword extends Item {
 	 * Returns the strength of the stack against a given block. 1.0F base,
 	 * (Quality+1)*2 if correct blocktype, 1.5F if sword
 	 */
+	
+	@Override
 	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
-		return par2Block.blockID != WarsBlocks.sumBlock.blockID ? 0.9F : 15F;
+		return par2Block != WarsBlocks.sumBlock ? 0.9F : 15F;
 	}
 
+	
+	@Override
 	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.block;
+		return EnumAction.BLOCK;
 	}
 
 	@SideOnly(Side.CLIENT)
-	// Makes it render nicely
+	@Override
 	public boolean isFull3D() {
 		return true;
 	}
 
 	// The max use time of the action
+	@Override
 	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 72000;
 	}
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
 	public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", (double)this.weaponDamage, 0));
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", (double)this.weaponDamage, 0));
         return multimap;
     }
 
