@@ -36,13 +36,8 @@ public class BlockSinkSand extends Block {
 	}
 	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(World par1World, BlockPos pos , IBlockState state) {
 		return null;
-	}
-
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
 	}
 
 }

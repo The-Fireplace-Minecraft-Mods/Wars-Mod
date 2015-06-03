@@ -1,26 +1,26 @@
 package resinresin.wars.tileentities;
 
-import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatMessageComponent;
+import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class TileEntityHungerGames extends TileEntity implements IUpdatePlayerListBox {
 
-	private static final int TICKS_IN_30_SECONDS = 600; // figure that out
-	private static final int TICKS_IN_50_SECONDS = 1000; // figure that out
-	private static final int TICKS_IN_55_SECONDS = 1100; // figure that out
-	private static final int TICKS_IN_56_SECONDS = 1120; // figure that out
-	private static final int TICKS_IN_57_SECONDS = 1140; // figure that out
-	private static final int TICKS_IN_58_SECONDS = 1160; // figure that out
-	private static final int TICKS_IN_59_SECONDS = 1180; // figure that out
-	private static final int TICKS_IN_1_MINUTE = 1200; // figure that out
-	private static final int TICKS_WHEN_EVERYTHING_IS_DONE = 1300; // figure
-																	// that out
+	private static final int TICKS_IN_30_SECONDS = 600;
+	private static final int TICKS_IN_50_SECONDS = 1000; 
+	private static final int TICKS_IN_55_SECONDS = 1100; 
+	private static final int TICKS_IN_56_SECONDS = 1120; 
+	private static final int TICKS_IN_57_SECONDS = 1140;
+	private static final int TICKS_IN_58_SECONDS = 1160;
+	private static final int TICKS_IN_59_SECONDS = 1180; 
+	private static final int TICKS_IN_1_MINUTE = 1200;
+	private static final int TICKS_WHEN_EVERYTHING_IS_DONE = 1300; 
+																	
 	public boolean shouldTick = false;
 	public int tickCount = 0;
 	resinresinLoader hgSStarted = new resinresinLoader("hgSStarted.resinresin");
@@ -75,19 +75,19 @@ public class TileEntityHungerGames extends TileEntity implements IUpdatePlayerLi
 
 			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a72HUNGER GAMES SMALL HAS STARTED GO GO GO "));
 
-			worldObj.createExplosion(null, xCoord + 0, yCoord + 3, zCoord - 5, 0.0F, shouldTick);
-			worldObj.setBlock(xCoord + 0, yCoord - 0, zCoord - 0, 0, 2, 2);
+			worldObj.createExplosion(null, pos.getX() + 0, pos.getY() + 3, pos.getZ() - 5, 0.0F, shouldTick);
+			Warsmod.generateBlock(worldObj, pos.getX() + 0, pos.getY() - 0, pos.getZ() - 0, Blocks.air);
 
-			hgSStarted.generate(worldObj, xCoord - 9, yCoord - 2, zCoord - 16, false);
-			worldObj.setBlock(xCoord + 1, yCoord + 1, zCoord - 7, WarsBlocks.insChest3.blockID, 2, 2);
-			worldObj.setBlock(xCoord - 1, yCoord + 1, zCoord - 7, WarsBlocks.insChest3.blockID, 2, 2);
-			worldObj.setBlock(xCoord + 0, yCoord + 1, zCoord - 6, WarsBlocks.insChest3.blockID, 2, 2);
-			worldObj.setBlock(xCoord - 0, yCoord + 1, zCoord - 8, WarsBlocks.insChest3.blockID, 2, 2);
+			hgSStarted.generate(worldObj, pos.getX() - 9, pos.getY() - 2, pos.getZ() - 16, false);
+			Warsmod.generateBlock(worldObj, pos.getX() + 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
+			Warsmod.generateBlock(worldObj, pos.getX() - 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
+			Warsmod.generateBlock(worldObj, pos.getX() + 0, pos.getY() + 1, pos.getZ() - 6, WarsBlocks.insChest3);
+			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 1, pos.getZ() - 8, WarsBlocks.insChest3);
 
-			worldObj.setBlock(xCoord - 0, yCoord + 2, zCoord - 7, Block.workbench.blockID, 2, 2);
-			worldObj.setBlock(xCoord - 0, yCoord + 1, zCoord - 7, Block.stoneBrick.blockID, 2, 2);
-			worldObj.setBlock(xCoord - 0, yCoord + 0, zCoord - 7, WarsBlocks.hgLv1reset.blockID, 2, 2);
-			worldObj.setBlock(xCoord - 0, yCoord + 16, zCoord - 7, WarsBlocks.hgTeleMain.blockID, 2, 2);
+			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 2, pos.getZ() - 7, Blocks.crafting_table);
+			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 1, pos.getZ() - 7, Blocks.stonebrick);
+			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 0, pos.getZ() - 7, WarsBlocks.hgLv1reset);
+			//Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 16, pos.getZ() - 7, WarsBlocks.hgTeleMain);
 
 		}
 
