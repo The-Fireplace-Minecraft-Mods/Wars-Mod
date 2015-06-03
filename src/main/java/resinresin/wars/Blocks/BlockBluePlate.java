@@ -3,37 +3,42 @@ package resinresin.wars.Blocks;
 import java.util.Iterator;
 import java.util.List;
 
-import resinresin.wars.registry.WarsItems;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import resinresin.wars.registry.WarsItems;
 
 public class BlockBluePlate extends BlockPressurePlate {
 
-	protected BlockBluePlate(Material material, Sensitivity sensitivity) {
-		super(material, sensitivity);
+	public BlockBluePlate(Material material, Sensitivity sens) {
+		super(material, sens);
 
 	}
 
-	@Override
-	protected void updateState(World world, BlockPos pos, IBlockState state, int oldRedstoneStrength) {
+	@SuppressWarnings("rawtypes")
+	private void setStateIfMobInteractsWithPlate(World world, BlockPos pos, IBlockState state, int oldRedstoneStrength) {
 
 		int j = this.computeRedstoneStrength(world, pos);
 		boolean flag = oldRedstoneStrength > 0;
 		boolean flag1 = j > 0;
+
+		List var8 = null;
 		float var7 = 0.125F;
 
-		if (oldRedstoneStrength != j) {
-			@SuppressWarnings("rawtypes")
-			List var8 = null;
-			var8 = world.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getCollisionBoundingBox().getAABB((double) ((float) pos.getX() + var7), (double) pos.getY(), (double) ((float) pos.getZ() + var7), (double) ((float) (pos.getX() + 1) - var7), (double) pos.getY() + 0.25D, (double) ((float) (pos.getZ() + 1) - var7)));
+		BlockPos posMin = new BlockPos(pos.getX() + var7, pos.getY(), pos.getZ() + var7);
+		BlockPos posMax = new BlockPos(pos.getX() + 1 - var7, pos.getY() + 0.25D, pos.getZ() + 1 - var7);
 
+		AxisAlignedBB boundingBox = new AxisAlignedBB(posMin, posMax);
+		var8 = world.getEntitiesWithinAABB(EntityPlayer.class, boundingBox);
+
+		if (oldRedstoneStrength != j) {
 			if (!var8.isEmpty()) {
-				@SuppressWarnings("rawtypes")
 				Iterator var9 = var8.iterator();
 
 				while (var9.hasNext()) {
@@ -42,7 +47,7 @@ public class BlockBluePlate extends BlockPressurePlate {
 					if (!var10.doesEntityNotTriggerPressurePlate()) {
 
 						ItemStack boots = var10.inventory.armorItemInSlot(0);
-						if (boots != null && boots.itemID == WarsItems.blueBoots.itemID) {
+						if (boots != null && boots.getItem() == WarsItems.blueBoots) {
 
 							state = this.setRedstoneStrength(state, j);
 							world.setBlockState(pos, state, 2);
@@ -64,6 +69,18 @@ public class BlockBluePlate extends BlockPressurePlate {
 
 		if (flag1) {
 			world.scheduleUpdate(pos, this, this.tickRate(world));
+		}
+	}
+
+	@Override
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entityIn) {
+		if (!world.isRemote) {
+
+			int i = this.getRedstoneStrength(state);
+			if (i == 0) {
+				this.setStateIfMobInteractsWithPlate(world, pos, state, i);
+			}
+
 		}
 	}
 

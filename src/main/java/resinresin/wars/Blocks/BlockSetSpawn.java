@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.Warsmod;
@@ -42,7 +43,7 @@ public class BlockSetSpawn extends Block {
 
 			Minecraft mc = Minecraft.getMinecraft();
 
-			mc.thePlayer.addChatMessage("World Spawn Set To" + "  " + i + "  " + j + "  " + k);
+			mc.thePlayer.addChatMessage(new ChatComponentText("World Spawn Set To" + "  " + i + "  " + j + "  " + k));
 
 		}
 		Warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);

@@ -1,6 +1,7 @@
 package resinresin.wars.Blocks;
 
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +12,7 @@ import net.minecraft.world.World;
 import resinresin.wars.Warsmod;
 import resinresin.wars.tileentities.TileEntitySpleefStructures;
 
-public class BlockSelectorSpleef extends BlockContainer {
+public class BlockSelectorSpleef extends BlockContainer implements ITileEntityProvider {
 
 	public BlockSelectorSpleef() {
 		super(Material.iron);
@@ -31,11 +32,6 @@ public class BlockSelectorSpleef extends BlockContainer {
 			return false;
 		}
 		player.openGui(Warsmod.instance, 5, world, x, y, z);
-		return true;
-	}
-
-	@Override
-	public boolean hasTileEntity(int meta) {
 		return true;
 	}
 

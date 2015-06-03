@@ -1,6 +1,7 @@
 package resinresin.wars.registry;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import resinresin.wars.Blocks.BlockAncientBlock;
@@ -180,10 +181,10 @@ public class WarsBlocks {
 		wallEnd = new BlockWallEnd().setBlockUnbreakable().setUnlocalizedName("wallEnd").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		
 		//War Game Blocks
-		redPlate = new BlockRedPlate("wool_colored_red", Material.rock, EnumMobType.mobs).setUnlocalizedName("redPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		bluePlate = new BlockBluePlate("wool_colored_blue", Material.rock, EnumMobType.mobs).setUnlocalizedName("bluePlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		greenPlate = new BlockGreenPlate("wool_colored_green", Material.rock, EnumMobType.mobs).setUnlocalizedName("greenPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		yellowPlate = new BlockYellowPlate("wool_colored_yellow", Material.rock, EnumMobType.mobs).setUnlocalizedName("yellowPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
+		redPlate = new BlockRedPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("redPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
+		bluePlate = new BlockBluePlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("bluePlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
+		greenPlate = new BlockGreenPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("greenPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
+		yellowPlate = new BlockYellowPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("yellowPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 
 		//Game Blocks
 		nSpleefS = new BlockNetherSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNetherSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);

@@ -1,6 +1,7 @@
 package resinresin.wars.Blocks;
 
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +12,7 @@ import net.minecraft.world.World;
 import resinresin.wars.Warsmod;
 import resinresin.wars.tileentities.TileEntityGameStructures;
 
-public class BlockSelectorGames extends BlockContainer {
+public class BlockSelectorGames extends BlockContainer implements ITileEntityProvider {
 
 	public BlockSelectorGames() {
 		super(Material.iron);
@@ -33,29 +34,10 @@ public class BlockSelectorGames extends BlockContainer {
 		return true;
 	}
 
-	@Override
-	public boolean hasTileEntity(int meta) {
-		return true;
-	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityGameStructures();
 	}
-
-	// resinresinLoader chestParkour = new
-	// resinresinLoader("chestParkour.resinresin");
-	// public boolean onBlockActivated(World par1World, int i, int j, int k,
-	// EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float
-	// par9)
-	// {
-	//
-	//
-	// chestParkour.generate(par1World, i - 7, j - 0, k - 7, true);
-	// chestParkour.generate(par1World, i - 7, j - 0, k - 7, true);
-	// return blockConstructorCalled;
-	//
-	//
-	// }
 
 }
