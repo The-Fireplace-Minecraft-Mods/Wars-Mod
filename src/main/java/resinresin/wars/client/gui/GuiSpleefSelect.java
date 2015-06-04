@@ -121,16 +121,16 @@ public class GuiSpleefSelect extends GuiScreen {
 
 	protected void actionPerformed(GuiButton guibutton) {
 		// id is the id you give your button
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeByte(guibutton.id);
-
-		out.writeInt(x);
-
-		out.writeInt(y);
-
-		out.writeInt(z);
-
-		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 12, out.toByteArray()));
+//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+//		out.writeByte(guibutton.id);
+//
+//		out.writeInt(x);
+//
+//		out.writeInt(y);
+//
+//		out.writeInt(z);
+//
+//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 12, out.toByteArray()));
 
 		switch (guibutton.id) {
 		case 1:

@@ -8,20 +8,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.lwjgl.input.Keyboard;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.ServerList;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import org.lwjgl.input.Keyboard;
+
 import resinresin.wars.CommonProxy;
 import resinresin.wars.client.gui.GuiTeamSelect;
-import resinresin.wars.entities.EntityPTNTPrimed;
 import resinresin.wars.handlers.WarsTickEventHandler;
 
 @SideOnly(Side.CLIENT)
@@ -73,7 +72,7 @@ public class ClientProxy extends CommonProxy {
 		WarsKeyEventHandler clientkeyhandler = new WarsKeyEventHandler();
 		MinecraftForge.EVENT_BUS.register(clientkeyhandler);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed());
+		//RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed());
 
 		toggleHUD = new KeyBinding("key.toggleHUD", Keyboard.KEY_B, "key.categories.warsmod");
 		ClientRegistry.registerKeyBinding(toggleHUD);

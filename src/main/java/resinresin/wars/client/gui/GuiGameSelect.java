@@ -13,8 +13,6 @@ import resinresin.wars.Warsmod;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
-import cpw.mods.fml.common.network.PacketDispatcher;
-
 public class GuiGameSelect extends GuiScreen {
 
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/gameBuildings.png");
@@ -38,15 +36,15 @@ public class GuiGameSelect extends GuiScreen {
 	public GuiGameSelect(EntityPlayer player, TileEntity tile) {
 		// the container is instanciated and passed to the superclass for
 		// handling
-		this.x = tile.xCoord;
-		this.y = tile.yCoord;
-		this.z = tile.zCoord;
+		this.x = tile.getPos().getX();
+		this.y = tile.getPos().getY();
+		this.z = tile.getPos().getZ();
 
 	}
 
 	@Override
 	protected void keyTyped(char par1, int par2) {
-		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.keyCode) {
+		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
 			this.mc.thePlayer.closeScreen();
 		}
 	}
@@ -137,7 +135,7 @@ public class GuiGameSelect extends GuiScreen {
 
 		out.writeInt(z);
 
-		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 14, out.toByteArray()));
+		//PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 14, out.toByteArray()));
 
 		switch (guibutton.id) {
 		case 1:

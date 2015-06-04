@@ -1,7 +1,9 @@
 package resinresin.wars.client.gui;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -83,7 +85,7 @@ public class GuiClassSelect extends GuiScreen {
 
 		drawString(fontRendererObj, talkTo, posX + 40, posY + 148, colorsHex[colorIndex]);
 
-		func_110423_a(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.thePlayer);
+		drawEntityOnScreen(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.thePlayer);
 
 		super.drawScreen(x, y, f);
 	}
@@ -112,48 +114,52 @@ public class GuiClassSelect extends GuiScreen {
 
 	}
 
-	public static void func_110423_a(int par0, int par1, int par2, float par3, float par4, EntityLivingBase par5EntityLivingBase) {
-		GL11.glEnable(GL11.GL_COLOR_MATERIAL);
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float) par0, (float) par1, 50.0F);
-		GL11.glScalef((float) (-par2), (float) par2, (float) par2);
-		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-		float f2 = par5EntityLivingBase.renderYawOffset;
-		float f3 = par5EntityLivingBase.rotationYaw;
-		float f4 = par5EntityLivingBase.rotationPitch;
-		float f5 = par5EntityLivingBase.prevRotationYawHead;
-		float f6 = par5EntityLivingBase.rotationYawHead;
-		GL11.glRotatef(135.0F, 0.0F, 1.0F, 0.0F);
-		RenderHelper.enableStandardItemLighting();
-		GL11.glRotatef(-135.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(-((float) Math.atan((double) (par4 / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
-		par5EntityLivingBase.renderYawOffset = (float) Math.atan((double) (par3 / 40.0F)) * 20.0F;
-		par5EntityLivingBase.rotationYaw = (float) Math.atan((double) (par3 / 40.0F)) * 40.0F;
-		par5EntityLivingBase.rotationPitch = -((float) Math.atan((double) (par4 / 40.0F))) * 20.0F;
-		par5EntityLivingBase.rotationYawHead = par5EntityLivingBase.rotationYaw;
-		par5EntityLivingBase.prevRotationYawHead = par5EntityLivingBase.rotationYaw;
-		GL11.glTranslatef(0.0F, par5EntityLivingBase.yOffset, 0.0F);
-		RenderManager.instance.playerViewY = 180.0F;
-		RenderManager.instance.renderEntityWithPosYaw(par5EntityLivingBase, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
-		par5EntityLivingBase.renderYawOffset = f2;
-		par5EntityLivingBase.rotationYaw = f3;
-		par5EntityLivingBase.rotationPitch = f4;
-		par5EntityLivingBase.prevRotationYawHead = f5;
-		par5EntityLivingBase.rotationYawHead = f6;
-		GL11.glPopMatrix();
-		RenderHelper.disableStandardItemLighting();
-		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
-		OpenGlHelper.setActiveTexture(OpenGlHelper.lightmapTexUnit);
-		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		OpenGlHelper.setActiveTexture(OpenGlHelper.defaultTexUnit);
-	}
+    public static void drawEntityOnScreen(int p_147046_0_, int p_147046_1_, int p_147046_2_, float p_147046_3_, float p_147046_4_, EntityLivingBase p_147046_5_)
+    {
+        GlStateManager.enableColorMaterial();
+        GlStateManager.pushMatrix();
+        GlStateManager.translate((float)p_147046_0_, (float)p_147046_1_, 50.0F);
+        GlStateManager.scale((float)(-p_147046_2_), (float)p_147046_2_, (float)p_147046_2_);
+        GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
+        float f2 = p_147046_5_.renderYawOffset;
+        float f3 = p_147046_5_.rotationYaw;
+        float f4 = p_147046_5_.rotationPitch;
+        float f5 = p_147046_5_.prevRotationYawHead;
+        float f6 = p_147046_5_.rotationYawHead;
+        GlStateManager.rotate(135.0F, 0.0F, 1.0F, 0.0F);
+        RenderHelper.enableStandardItemLighting();
+        GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
+        GlStateManager.rotate(-((float)Math.atan((double)(p_147046_4_ / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
+        p_147046_5_.renderYawOffset = (float)Math.atan((double)(p_147046_3_ / 40.0F)) * 20.0F;
+        p_147046_5_.rotationYaw = (float)Math.atan((double)(p_147046_3_ / 40.0F)) * 40.0F;
+        p_147046_5_.rotationPitch = -((float)Math.atan((double)(p_147046_4_ / 40.0F))) * 20.0F;
+        p_147046_5_.rotationYawHead = p_147046_5_.rotationYaw;
+        p_147046_5_.prevRotationYawHead = p_147046_5_.rotationYaw;
+        GlStateManager.translate(0.0F, 0.0F, 0.0F);
+        RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
+        rendermanager.setPlayerViewY(180.0F);
+        rendermanager.setRenderShadow(false);
+        rendermanager.renderEntityWithPosYaw(p_147046_5_, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
+        rendermanager.setRenderShadow(true);
+        p_147046_5_.renderYawOffset = f2;
+        p_147046_5_.rotationYaw = f3;
+        p_147046_5_.rotationPitch = f4;
+        p_147046_5_.prevRotationYawHead = f5;
+        p_147046_5_.rotationYawHead = f6;
+        GlStateManager.popMatrix();
+        RenderHelper.disableStandardItemLighting();
+        GlStateManager.disableRescaleNormal();
+        GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
+        GlStateManager.disableTexture2D();
+        GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
+    }
 
 	protected void actionPerformed(GuiButton guibutton) {
 		// id is the id you give your button
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeByte(guibutton.id);
-		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 1, out.toByteArray()));
-		int currentKills = ClientProxy.warsmod_totalKill;
+//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+//		out.writeByte(guibutton.id);
+//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 1, out.toByteArray()));
+     	int currentKills = ClientProxy.totalKills;
 
 		switch (guibutton.id) {
 		case 1:
@@ -168,7 +174,7 @@ public class GuiClassSelect extends GuiScreen {
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (25 - ClientProxy.warsmod_totalKill) + " More Needed)";
+				talkTo = "Not Enough Kills!" + " (" + (25 - ClientProxy.totalKills) + " More Needed)";
 			}
 			break;
 		case 3:
@@ -178,7 +184,7 @@ public class GuiClassSelect extends GuiScreen {
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (50 - ClientProxy.warsmod_totalKill) + " More Needed)";
+				talkTo = "Not Enough Kills!" + " (" + (50 - ClientProxy.totalKills) + " More Needed)";
 			}
 			break;
 		case 4:
@@ -188,7 +194,7 @@ public class GuiClassSelect extends GuiScreen {
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (100 - ClientProxy.warsmod_totalKill) + " More Needed)";
+				talkTo = "Not Enough Kills!" + " (" + (100 - ClientProxy.totalKills) + " More Needed)";
 			}
 			break;
 		case 5:
@@ -198,7 +204,7 @@ public class GuiClassSelect extends GuiScreen {
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (200 - ClientProxy.warsmod_totalKill) + " More Needed)";
+				talkTo = "Not Enough Kills!" + " (" + (200 - ClientProxy.totalKills) + " More Needed)";
 			}
 			break;
 		case 6:
@@ -208,7 +214,7 @@ public class GuiClassSelect extends GuiScreen {
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (400 - ClientProxy.warsmod_totalKill) + " More Needed)";
+				talkTo = "Not Enough Kills!" + " (" + (400 - ClientProxy.totalKills) + " More Needed)";
 			}
 			break;
 		}

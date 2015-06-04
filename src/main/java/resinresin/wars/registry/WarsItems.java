@@ -15,7 +15,6 @@ import resinresin.wars.Items.ItemAdminWandWeb;
 import resinresin.wars.Items.ItemAncientEmblem;
 import resinresin.wars.Items.ItemAncientGem;
 import resinresin.wars.Items.ItemAntidote;
-import resinresin.wars.Items.ItemArcherBow;
 import resinresin.wars.Items.ItemArmorMod;
 import resinresin.wars.Items.ItemBattleBurgur;
 import resinresin.wars.Items.ItemChaosSword;
@@ -123,7 +122,7 @@ public abstract class WarsItems {
 		guardSword = new ItemGuardSword().setUnlocalizedName("GuardSword").setCreativeTab(Warsmod.tabWarsClasses);
 		knightSword = new ItemKnightSword().setUnlocalizedName("KnightSword").setCreativeTab(Warsmod.tabWarsClasses);
 		healerStaff = new ItemWizardStaff().setUnlocalizedName("WizardStaff").setCreativeTab(Warsmod.tabWarsClasses);
-		bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(Warsmod.tabWarsClasses);
+//	bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(Warsmod.tabWarsClasses);
 		techSpanner = new ItemTechSpanner().setUnlocalizedName("TechSpanner").setCreativeTab(Warsmod.tabWarsClasses);
 		meleeDagger = new ItemMeleeDagger().setUnlocalizedName("Dagger").setCreativeTab(Warsmod.tabWarsClasses);
 		chaosSword = new ItemChaosSword().setUnlocalizedName("ChaosSword").setCreativeTab(Warsmod.tabWarsClasses);

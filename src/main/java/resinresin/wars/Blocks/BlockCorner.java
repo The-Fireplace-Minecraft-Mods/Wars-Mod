@@ -14,11 +14,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.Warsmod;
 import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.registry.WarsBlocks;
 
 public class BlockCorner extends BlockStairs {
 
-	public BlockCorner() {
-		super();
+	public BlockCorner(IBlockState state) {
+		super(state);
 
 		setCreativeTab(Warsmod.tabWarsBlocks);
 
@@ -30,10 +31,9 @@ public class BlockCorner extends BlockStairs {
 	resinresinLoader corner4 = new resinresinLoader("corner370.resinresin");
 
 	
-	@Override
-	private boolean isBlockStairsDirection(IBlockAccess par1IBlockAccess, BlockPos pos, int par5) {
-		int i1 = par1IBlockAccess.getBlockId(par2, par3, par4);
-		return isBlockStairsID(i1) && par1IBlockAccess.getBlockMetadata(par2, par3, par4) == par5;
+	private boolean isBlockStairsDirection(IBlockAccess par1IBlockAccess, BlockPos pos, IBlockState par5) {
+		Block i1 = par1IBlockAccess.getBlockState(pos).getBlock();
+		return isBlockStairs(i1) && par1IBlockAccess.getBlockState(pos) == par5;
 	}
 
 	
@@ -45,22 +45,22 @@ public class BlockCorner extends BlockStairs {
 		int j = pos.getX();
 		int k = pos.getX();
 		
-		if (this.isBlockStairsDirection(world, i, j, k, 1)) {
+		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(1))) {
 
 			corner1.generate(world, i - 7, j - 0, k - 7, true);
 			corner1.generate(world, i - 7, j - 0, k - 7, true);
 		}
-		if (this.isBlockStairsDirection(world, i, j, k, 3)) {
+		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(3))) {
 
 			corner2.generate(world, i - 0, j - 0, k - 7, true);
 			corner2.generate(world, i - 0, j - 0, k - 7, true);
 		}
-		if (this.isBlockStairsDirection(world, i, j, k, 0)) {
+		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(0))) {
 
 			corner3.generate(world, i - 0, j - 0, k - 0, true);
 			corner3.generate(world, i - 0, j - 0, k - 0, true);
 		}
-		if (this.isBlockStairsDirection(world, i, j, k, 2)) {
+		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(2))) {
 
 			corner4.generate(world, i - 7, j - 0, k - 0, true);
 			corner4.generate(world, i - 7, j - 0, k - 0, true);

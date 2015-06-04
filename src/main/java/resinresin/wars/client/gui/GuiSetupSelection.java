@@ -122,16 +122,16 @@ public class GuiSetupSelection extends GuiScreen {
 
 	protected void actionPerformed(GuiButton guibutton) {
 		// id is the id you give your button
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeByte(guibutton.id);
-
-		out.writeInt(x);
-
-		out.writeInt(y);
-
-		out.writeInt(z);
-
-		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 11, out.toByteArray()));
+//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+//		out.writeByte(guibutton.id);
+//
+//		out.writeInt(x);
+//
+//		out.writeInt(y);
+//
+//		out.writeInt(z);
+//
+//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 11, out.toByteArray()));
 
 		switch (guibutton.id) {
 		case 1:

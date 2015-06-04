@@ -1,18 +1,53 @@
 package resinresin.wars.handlers;
 
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.registry.WarsItems;
 
 public class TeamSelected {
+	
+	public static int redPlayers = 0;
+	public static int greenPlayers = 0;
+	public static int bluePlayers = 0;
+	public static int yellowPlayers = 0;
+
 
 	
 	//this class handles what happens depending on what team the player selects
-	public TeamSelected(EntityPlayer player, int teamSelected, int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
+	public TeamSelected(EntityPlayer player, int teamSelected) {
 		WarsSavedData savedData = WarsSavedData.get(player.worldObj);
+		
+		if (player instanceof EntityPlayerMP) {
+
+			for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+
+				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
+
+				if (playerBoots != null) {
+
+					if (playerBoots == WarsItems.redBoots) {
+						redPlayers++;
+					}
+					if (playerBoots == WarsItems.blueBoots) {
+						bluePlayers++;
+					}
+					if (playerBoots == WarsItems.greenBoots) {
+						greenPlayers++;
+					}
+					if (playerBoots == WarsItems.yellowBoots) {
+						yellowPlayers++;
+					}
+				}
+
+			}
+		}
 
 		switch (teamSelected) {
 		case 1:

@@ -1,6 +1,7 @@
 package resinresin.wars.registry;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -26,7 +27,6 @@ import resinresin.wars.Blocks.BlockInstantChestLv3;
 import resinresin.wars.Blocks.BlockInstantChestLv4;
 import resinresin.wars.Blocks.BlockLamp;
 import resinresin.wars.Blocks.BlockNaturalOre;
-import resinresin.wars.Blocks.BlockPlayerTNT;
 import resinresin.wars.Blocks.BlockPresentBox;
 import resinresin.wars.Blocks.BlockRedPlate;
 import resinresin.wars.Blocks.BlockRoadPiece;
@@ -167,13 +167,13 @@ public class WarsBlocks {
 		classSelectDonator = new BlockClassSelectorDonator().setBlockUnbreakable().setUnlocalizedName("classSelectorDonator").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 
 		// Class Blocks
-		playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
+		//playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
 
 		// Individual Structure Blocks
 		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		cottage = new BlockCottage().setUnlocalizedName("cottage").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		wall = new BlockWall().setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		corner = new BlockCorner().setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		wall = new BlockWall(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		corner = new BlockCorner(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		lamp = new BlockLamp().setBlockUnbreakable().setUnlocalizedName("lamp").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("Road").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		tower = new BlockTower().setBlockUnbreakable().setUnlocalizedName("tower").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -291,8 +291,8 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(setSpawn, "setSpawn");
 		GameRegistry.registerBlock(classSelect, "classSelect");
 		GameRegistry.registerBlock(classSelectDonator, "classSelectDonator");
-		GameRegistry.registerBlock(wall, "wallNS");
-		GameRegistry.registerBlock(corner, "corner1");
+		//GameRegistry.registerBlock(wall, "wallNS");
+		//GameRegistry.registerBlock(corner, "corner1");
 		GameRegistry.registerBlock(lamp, "lamp");
 		GameRegistry.registerBlock(nostalHouse, "nostalHouse");
 		GameRegistry.registerBlock(roadPiece, "roadPiece");
@@ -302,7 +302,7 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(bluePlate, "bluePlate");
 		GameRegistry.registerBlock(yellowPlate, "yellowPlate");
 		GameRegistry.registerBlock(greenPlate, "greenPlate");
-		GameRegistry.registerBlock(playerTNT, "ItemPTNTBlock.class");
+		//GameRegistry.registerBlock(playerTNT, "ItemPTNTBlock.class");
 	}
 
 }

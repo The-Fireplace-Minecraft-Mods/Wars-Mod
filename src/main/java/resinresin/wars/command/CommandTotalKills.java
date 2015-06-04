@@ -5,8 +5,10 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.Packet;
 import resinresin.wars.Warsmod;
+import resinresin.wars.packet.PacketKills;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
@@ -40,11 +42,7 @@ public class CommandTotalKills extends CommandBase {
 
 		((EntityPlayer) sender).getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_totalKill", warsmod_totalKill);
 
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeInt(warsmod_totalKill);
-		Packet packet = PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 3, out.toByteArray());
-		PacketDispatcher.sendPacketToPlayer(packet, (Player) player);
-
+		Warsmod.network.sendTo(new PacketKills(warsmod_totalKill, warsmod_totalKill), (EntityPlayerMP) sender);
 	}
 
 	@Override
