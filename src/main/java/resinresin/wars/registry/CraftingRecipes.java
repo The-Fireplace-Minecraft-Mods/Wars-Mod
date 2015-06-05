@@ -21,11 +21,11 @@ public final class CraftingRecipes {
 		GameRegistry.addShapelessRecipe(new ItemStack(WarsItems.longBannana, 10), new Object[] { WarsItems.ancientGem, Items.carrot });
 		GameRegistry.addShapelessRecipe(new ItemStack(WarsItems.workWaffel, 1), new Object[] { Items.bread, Items.porkchop });
 		GameRegistry.addShapelessRecipe(new ItemStack(WarsItems.shadowFlesh, 10), new Object[] { Items.rotten_flesh, Items.ender_pearl });
-		GameRegistry.addShapelessRecipe(new ItemStack(WarsItems.warCheese, 3), new Object[] { Items.milk_bucket, WarsItems.meleeDagger });
+		GameRegistry.addShapelessRecipe(new ItemStack(WarsItems.warCheese, 3), new Object[] { Items.milk_bucket, WarsItems.dagger });
 		GameRegistry.addShapelessRecipe(new ItemStack(WarsItems.battleBurger, 1), new Object[] { Items.bread, Items.porkchop });
 		GameRegistry.addShapelessRecipe(new ItemStack(WarsItems.workWaffel, 1), new Object[] { Items.potato, Items.sugar });
 		GameRegistry.addShapelessRecipe(new ItemStack(WarsItems.magicPotato, 3), new Object[] { Items.potato, WarsItems.ancientGem });
-		GameRegistry.addRecipe(new ItemStack(WarsItems.healerStaff, 1), new Object[] { " % ", " # ", " # ", Character.valueOf('#'), Items.stick, Character.valueOf('@'), Items.diamond, Character.valueOf('%'), new ItemStack(WarsItems.ancientGem, 1, -1) });
+		GameRegistry.addRecipe(new ItemStack(WarsItems.wizardStaff, 1), new Object[] { " % ", " # ", " # ", Character.valueOf('#'), Items.stick, Character.valueOf('@'), Items.diamond, Character.valueOf('%'), new ItemStack(WarsItems.ancientGem, 1, -1) });
 		GameRegistry.addRecipe(new ItemStack(WarsItems.guardSword, 1), new Object[] { " @ ", " % ", " # ", Character.valueOf('#'), Items.stick, Character.valueOf('@'), Items.iron_ingot, Character.valueOf('%'), new ItemStack(WarsItems.ancientGem, 1, -1) });
 		GameRegistry.addRecipe(new ItemStack(WarsItems.knightSword, 1), new Object[] { " @ ", " % ", " # ", Character.valueOf('#'), Items.stick, Character.valueOf('@'), Items.diamond, Character.valueOf('%'), new ItemStack(WarsItems.ancientGem, 1, -1) });
 		GameRegistry.addRecipe(new ItemStack(WarsItems.scoutBlade, 1), new Object[] { " @ ", " % ", " # ", Character.valueOf('#'), Items.stick, Character.valueOf('@'), Items.ender_pearl, Character.valueOf('%'), new ItemStack(WarsItems.ancientGem, 1, -1) });

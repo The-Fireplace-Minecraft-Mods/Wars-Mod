@@ -138,22 +138,22 @@ public class WarsBlocks {
 		sinkSand = new BlockSinkSand().setUnlocalizedName("sinkSand").setBlockUnbreakable().setHardness(6.9F).setStepSound(Block.soundTypeStone);
 		
 		// Utility Blocks
-		bounceBlockLow = new BlockBounceLow().setBlockUnbreakable().setUnlocalizedName("bounceLow").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		bounceBlock = new BlockBounce().setBlockUnbreakable().setUnlocalizedName("bounceHigh").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		boostBlock = new BlockBooster().setBlockUnbreakable().setUnlocalizedName("booster").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		sumBlock = new BlockSummoner().setUnlocalizedName("summoner").setHardness(0.5F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		badBlock = new BlockBadBlock().setUnlocalizedName("doomBlock").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		bounceBlockLow = new BlockBounceLow().setBlockUnbreakable().setUnlocalizedName("bounceBlockLow").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		bounceBlock = new BlockBounce().setBlockUnbreakable().setUnlocalizedName("bounceBlock").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		boostBlock = new BlockBooster().setBlockUnbreakable().setUnlocalizedName("boostBlock").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		sumBlock = new BlockSummoner().setUnlocalizedName("sumBlock").setHardness(0.5F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		badBlock = new BlockBadBlock().setUnlocalizedName("badBlock").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		presentBox = new BlockPresentBox().setHardness(5F).setUnlocalizedName("presentBox").setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		spleefStone = new BlockSpleefStone().setHardness(5F).setUnlocalizedName("spleefStone").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest1 = new BlockInstantChestLv1().setBlockUnbreakable().setUnlocalizedName("hgBoxLv1").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest2 = new BlockInstantChestLv2().setUnlocalizedName("hgBoxLv2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest3 = new BlockInstantChestLv3().setBlockUnbreakable().setUnlocalizedName("hgBoxLv3").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest4 = new BlockInstantChestLv4().setUnlocalizedName("hgBoxLv4").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
+		insChest1 = new BlockInstantChestLv1().setBlockUnbreakable().setUnlocalizedName("insChest1").setResistance(6000000F).setStepSound(Block.soundTypeStone);
+		insChest2 = new BlockInstantChestLv2().setUnlocalizedName("insChest2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
+		insChest3 = new BlockInstantChestLv3().setBlockUnbreakable().setUnlocalizedName("insChest3").setResistance(6000000F).setStepSound(Block.soundTypeStone);
+		insChest4 = new BlockInstantChestLv4().setUnlocalizedName("insChest4").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		warChest = new BlockWarChest().setBlockUnbreakable().setBlockUnbreakable().setUnlocalizedName("warChest").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		teleporterBlock = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv1");
-		teleporterBlock2 = new BlockTeleporter2().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv2");
-		teleporterBlock3 = new BlockTeleporter3().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv3");
-		teleporterBlock4 = new BlockTeleporter4().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv4");
+		teleporterBlock = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock");
+		teleporterBlock2 = new BlockTeleporter2().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock2");
+		teleporterBlock3 = new BlockTeleporter3().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock3");
+		teleporterBlock4 = new BlockTeleporter4().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock4");
 		
 		// Selectors
 		castleSelector = new BlockCastleSelector().setUnlocalizedName("castleSelector").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -172,7 +172,7 @@ public class WarsBlocks {
 		//wall = new BlockWall(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		//corner = new BlockCorner(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		lamp = new BlockLamp().setBlockUnbreakable().setUnlocalizedName("lamp").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("Road").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("roadPiece").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		tower = new BlockTower().setBlockUnbreakable().setUnlocalizedName("tower").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		wallEnd = new BlockWallEnd().setBlockUnbreakable().setUnlocalizedName("wallEnd").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 
@@ -268,7 +268,7 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(gamesSelector, "gamesSelector");
 		GameRegistry.registerBlock(hill, "hill");
 		GameRegistry.registerBlock(hgLv1start, "hgLv1start");
-		GameRegistry.registerBlock(insChest2, "inschest2");
+		GameRegistry.registerBlock(insChest2, "insChest2");
 		GameRegistry.registerBlock(insChest4, "insChest4");
 		GameRegistry.registerBlock(bounceBlockLow, "bounceBlockLow");
 		GameRegistry.registerBlock(deadDirt, "deadDirt");
@@ -309,6 +309,8 @@ public class WarsBlocks {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(decayOre), 0, new ModelResourceLocation("warsmod:decayOre", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(naturalOre), 0, new ModelResourceLocation("warsmod:naturalOre", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(sinkSand), 0, new ModelResourceLocation("warsmod:sinkSand", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(boostBlock), 0, new ModelResourceLocation("warsmod:boostBlock", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(bounceBlock), 0, new ModelResourceLocation("warsmod:bounceBlock", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(bounceBlockLow), 0, new ModelResourceLocation("warsmod:bounceBlockLow", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(sumBlock), 0, new ModelResourceLocation("warsmod:sumBlock", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(badBlock), 0, new ModelResourceLocation("warsmod:badBlock", "inventory"));
@@ -320,9 +322,22 @@ public class WarsBlocks {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(insChest4), 0, new ModelResourceLocation("warsmod:insChest4", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(warChest), 0, new ModelResourceLocation("warsmod:warChest", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(teleporterBlock), 0, new ModelResourceLocation("warsmod:teleporterBlock", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(spleefStone), 0, new ModelResourceLocation("warsmod:spleefStone", "inventory"));
-		
-		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(teleporterBlock2), 0, new ModelResourceLocation("warsmod:teleporterBlock2", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(teleporterBlock3), 0, new ModelResourceLocation("warsmod:teleporterBlock3", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(teleporterBlock4), 0, new ModelResourceLocation("warsmod:teleporterBlock4", "inventory"));
+	
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(castleSelector), 0, new ModelResourceLocation("warsmod:castleSelector", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(spleefSelector), 0, new ModelResourceLocation("warsmod:spleefSelector", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(buildingSelector), 0, new ModelResourceLocation("warsmod:buildingSelector", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(gamesSelector), 0, new ModelResourceLocation("warsmod:gamesSelector", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(classSelect), 0, new ModelResourceLocation("warsmod:classSelect", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(classSelectDonator), 0, new ModelResourceLocation("warsmod:classSelectDonator", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(hill), 0, new ModelResourceLocation("warsmod:hill", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(cottage), 0, new ModelResourceLocation("warsmod:cottage", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(lamp), 0, new ModelResourceLocation("warsmod:lamp", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(roadPiece), 0, new ModelResourceLocation("warsmod:roadPiece", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(tower), 0, new ModelResourceLocation("warsmod:tower", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(wallEnd), 0, new ModelResourceLocation("warsmod:wallEnd", "inventory"));
 		
 	}
 

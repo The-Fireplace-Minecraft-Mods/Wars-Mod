@@ -66,9 +66,9 @@ public class ClassSelected {
 				player.inventory.armorInventory[2] = itemstack9;
 				ItemStack itemstack10 = new ItemStack(WarsItems.healerLegs, 1);
 				player.inventory.armorInventory[1] = itemstack10;
-				ItemStack itemstack11 = new ItemStack(WarsItems.healerStaff, 1);
+				ItemStack itemstack11 = new ItemStack(WarsItems.wizardStaff, 1);
 				player.inventory.setInventorySlotContents(0, itemstack11);
-				ItemStack itemstack12 = new ItemStack(WarsItems.meleeDagger, 1);
+				ItemStack itemstack12 = new ItemStack(WarsItems.dagger, 1);
 				player.inventory.setInventorySlotContents(1, itemstack12);
 
 				((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -89,7 +89,7 @@ public class ClassSelected {
 				player.inventory.armorInventory[1] = itemstack15;
 				ItemStack itemstack16 = new ItemStack(WarsItems.scoutBlade, 1);
 				player.inventory.setInventorySlotContents(0, itemstack16);
-				ItemStack itemstack17 = new ItemStack(WarsItems.meleeDagger, 1);
+				ItemStack itemstack17 = new ItemStack(WarsItems.dagger, 1);
 				player.inventory.setInventorySlotContents(1, itemstack17);
 
 				((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
@@ -109,7 +109,7 @@ public class ClassSelected {
 				player.inventory.armorInventory[1] = itemstack20;
 				ItemStack itemstack21 = new ItemStack(WarsItems.bowArcher, 1);
 				player.inventory.setInventorySlotContents(0, itemstack21);
-				ItemStack itemstack22 = new ItemStack(WarsItems.meleeDagger, 1);
+				ItemStack itemstack22 = new ItemStack(WarsItems.dagger, 1);
 				player.inventory.setInventorySlotContents(1, itemstack22);
 				ItemStack itemstack23 = new ItemStack(Items.arrow, 1);
 				player.inventory.setInventorySlotContents(2, itemstack23);
