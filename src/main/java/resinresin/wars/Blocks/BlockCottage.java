@@ -25,8 +25,8 @@ public class BlockCottage extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		Warsmod.generateBlock(world, i + 4, j + 2, k - 2, Blocks.stone);
 
@@ -40,6 +40,8 @@ public class BlockCottage extends Block {
 		cottage.generate(world, i - 5, j - 1, k - 6, false);
 
 		Warsmod.generateBlock(world, i - 0, j + 0, k + 0, Blocks.air);
+		
+		System.out.print("BlockClicked");
 
 		return false;
 

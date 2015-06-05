@@ -1,4 +1,4 @@
-//Created by resinresin. Copyright resinresin and the wars mod
+
 package resinresin.wars.WorldGen;
 
 import java.io.InputStream;
@@ -46,6 +46,10 @@ public class resinresinLoader {
 	}
 
 	public void generate(World world, int posX, int posY, int posZ, boolean spawnairblocks) {
+		
+		System.out.print("StructureShouldBeSpawned");
+		
+		
 		try {
 			int xnum = 0;
 			int ynum = 0;
@@ -54,6 +58,8 @@ public class resinresinLoader {
 			for (int i = 0; i < blocks.length; i++) {
 				int blockId = UnsignedBytes.toInt(blocks[i]);
 				if (((blocks[i] != 0) && (!spawnairblocks)) || (spawnairblocks == true)) {
+					
+					
 					
 					BlockPos position = new BlockPos(posX + xnum, posY + ynum, posZ + znum);
 					world.setBlockState(position, Block.getBlockById(blockId).getStateFromMeta(datablocks[i]));

@@ -27,8 +27,8 @@ public class BlockPresentBox extends Block {
 		if (!world.isRemote) {
 			
 			int i = pos.getX();
-			int j = pos.getX();
-			int k = pos.getX();
+			int j = pos.getY();
+			int k = pos.getZ();
 
 			Warsmod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.chest);
 			TileEntityChest chest2 = new TileEntityChest();

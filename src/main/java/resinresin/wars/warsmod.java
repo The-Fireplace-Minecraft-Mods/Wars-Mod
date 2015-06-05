@@ -139,7 +139,7 @@ public class Warsmod {
 		//EntityRegistry.registerGlobalEntityID(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT);
 		//EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT, Warsmod.instance, 16, 1, false);
 
-		proxy.registerRenderInformation();
+		//proxy.registerRenderInformation();
 		conf.save();
 	}
 

@@ -1,9 +1,11 @@
 package resinresin.wars.registry;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import resinresin.wars.Blocks.BlockAncientBlock;
 import resinresin.wars.Blocks.BlockAncientOre;
@@ -14,7 +16,6 @@ import resinresin.wars.Blocks.BlockBounce;
 import resinresin.wars.Blocks.BlockBounceLow;
 import resinresin.wars.Blocks.BlockCastleSelector;
 import resinresin.wars.Blocks.BlockClassSelectorDonator;
-import resinresin.wars.Blocks.BlockCorner;
 import resinresin.wars.Blocks.BlockCottage;
 import resinresin.wars.Blocks.BlockDeadDirt;
 import resinresin.wars.Blocks.BlockDecayOre;
@@ -34,7 +35,6 @@ import resinresin.wars.Blocks.BlockSelectorBasic;
 import resinresin.wars.Blocks.BlockSelectorBuildings;
 import resinresin.wars.Blocks.BlockSelectorGames;
 import resinresin.wars.Blocks.BlockSelectorSpleef;
-import resinresin.wars.Blocks.BlockSetSpawn;
 import resinresin.wars.Blocks.BlockSinkSand;
 import resinresin.wars.Blocks.BlockSpleefStone;
 import resinresin.wars.Blocks.BlockSummoner;
@@ -43,7 +43,6 @@ import resinresin.wars.Blocks.BlockTeleporter2;
 import resinresin.wars.Blocks.BlockTeleporter3;
 import resinresin.wars.Blocks.BlockTeleporter4;
 import resinresin.wars.Blocks.BlockTower;
-import resinresin.wars.Blocks.BlockWall;
 import resinresin.wars.Blocks.BlockWallEnd;
 import resinresin.wars.Blocks.BlockWarChest;
 import resinresin.wars.Blocks.BlockWaterOre;
@@ -111,7 +110,6 @@ public class WarsBlocks {
 	public static Block teleporterBlock2;
 	public static Block teleporterBlock;
 	public static Block playerTNT;
-	public static Block setSpawn;
 	public static Block wall;
 	public static Block corner;
 	public static Block lamp;
@@ -138,7 +136,7 @@ public class WarsBlocks {
 		decayOre = new BlockDecayOre().setHardness(3F).setUnlocalizedName("decayOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		naturalOre = new BlockNaturalOre().setHardness(3F).setUnlocalizedName("naturalOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		sinkSand = new BlockSinkSand().setUnlocalizedName("sinkSand").setBlockUnbreakable().setHardness(6.9F).setStepSound(Block.soundTypeStone);
-
+		
 		// Utility Blocks
 		bounceBlockLow = new BlockBounceLow().setBlockUnbreakable().setUnlocalizedName("bounceLow").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		bounceBlock = new BlockBounce().setBlockUnbreakable().setUnlocalizedName("bounceHigh").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -156,8 +154,7 @@ public class WarsBlocks {
 		teleporterBlock2 = new BlockTeleporter2().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv2");
 		teleporterBlock3 = new BlockTeleporter3().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv3");
 		teleporterBlock4 = new BlockTeleporter4().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleLv4");
-		setSpawn = new BlockSetSpawn().setUnlocalizedName("spawnSetter").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-
+		
 		// Selectors
 		castleSelector = new BlockCastleSelector().setUnlocalizedName("castleSelector").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		spleefSelector = new BlockSelectorSpleef().setBlockUnbreakable().setUnlocalizedName("spleefSelector").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -172,8 +169,8 @@ public class WarsBlocks {
 		// Individual Structure Blocks
 		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		cottage = new BlockCottage().setUnlocalizedName("cottage").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		wall = new BlockWall(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		corner = new BlockCorner(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		//wall = new BlockWall(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		//corner = new BlockCorner(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		lamp = new BlockLamp().setBlockUnbreakable().setUnlocalizedName("lamp").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("Road").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		tower = new BlockTower().setBlockUnbreakable().setUnlocalizedName("tower").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -185,6 +182,10 @@ public class WarsBlocks {
 		greenPlate = new BlockGreenPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("greenPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		yellowPlate = new BlockYellowPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("yellowPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 
+		
+		//json files go to here
+		
+		
 		// Game Blocks
 		nSpleefS = new BlockNetherSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNetherSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		nSpleefM = new BlockNetherSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefNetherMedium").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -198,6 +199,7 @@ public class WarsBlocks {
 		hgLv1reset = new BlockHungerGamesLv1Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		hgLv2start = new BlockHungerGamesLv2Start().setUnlocalizedName("startHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		hgLv2reset = new BlockHungerGamesLv2Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+
 
 		// /*LanguageRegistry.addName(buildingSelector, "Selector - Buildings");
 		// LanguageRegistry.addName(spleefSelector, "Selector - Spleef");
@@ -256,10 +258,6 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(buildingSelector, "buildingSelector");
 		GameRegistry.registerBlock(spleefSelector, "spleefSelector");
 		GameRegistry.registerBlock(castleSelector, "castleSelector");
-		GameRegistry.registerBlock(controlRed, "controlRed");
-		GameRegistry.registerBlock(controlGreen, "controlGreen");
-		GameRegistry.registerBlock(controlBlue, "controlBlue");
-		GameRegistry.registerBlock(controlYellow, "controlYellow");
 		GameRegistry.registerBlock(ancientOre, "ancientOre");
 		GameRegistry.registerBlock(boostBlock, "boostBlock");
 		GameRegistry.registerBlock(bounceBlock, "bounceBlock");
@@ -288,13 +286,11 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(waterOre, "waterOre");
 		GameRegistry.registerBlock(decayOre, "decayOre");
 		GameRegistry.registerBlock(naturalOre, "naturalOre");
-		GameRegistry.registerBlock(setSpawn, "setSpawn");
 		GameRegistry.registerBlock(classSelect, "classSelect");
 		GameRegistry.registerBlock(classSelectDonator, "classSelectDonator");
 		//GameRegistry.registerBlock(wall, "wallNS");
 		//GameRegistry.registerBlock(corner, "corner1");
 		GameRegistry.registerBlock(lamp, "lamp");
-		GameRegistry.registerBlock(nostalHouse, "nostalHouse");
 		GameRegistry.registerBlock(roadPiece, "roadPiece");
 		GameRegistry.registerBlock(tower, "tower");
 		GameRegistry.registerBlock(wallEnd, "wallEnd");
@@ -303,6 +299,31 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(yellowPlate, "yellowPlate");
 		GameRegistry.registerBlock(greenPlate, "greenPlate");
 		//GameRegistry.registerBlock(playerTNT, "ItemPTNTBlock.class");
+		
+	
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(deadDirt), 0, new ModelResourceLocation("warsmod:deadDirt", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(ancientOre), 0, new ModelResourceLocation("warsmod:ancientOre", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(ancientBlock), 0, new ModelResourceLocation("warsmod:ancientBlock", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(fireOre), 0, new ModelResourceLocation("warsmod:fireOre", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(waterOre), 0, new ModelResourceLocation("warsmod:waterOre", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(decayOre), 0, new ModelResourceLocation("warsmod:decayOre", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(naturalOre), 0, new ModelResourceLocation("warsmod:naturalOre", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(sinkSand), 0, new ModelResourceLocation("warsmod:sinkSand", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(bounceBlockLow), 0, new ModelResourceLocation("warsmod:bounceBlockLow", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(sumBlock), 0, new ModelResourceLocation("warsmod:sumBlock", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(badBlock), 0, new ModelResourceLocation("warsmod:badBlock", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(presentBox), 0, new ModelResourceLocation("warsmod:presentBox", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(spleefStone), 0, new ModelResourceLocation("warsmod:spleefStone", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(insChest1), 0, new ModelResourceLocation("warsmod:insChest1", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(insChest2), 0, new ModelResourceLocation("warsmod:insChest2", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(insChest3), 0, new ModelResourceLocation("warsmod:insChest3", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(insChest4), 0, new ModelResourceLocation("warsmod:insChest4", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(warChest), 0, new ModelResourceLocation("warsmod:warChest", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(teleporterBlock), 0, new ModelResourceLocation("warsmod:teleporterBlock", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(spleefStone), 0, new ModelResourceLocation("warsmod:spleefStone", "inventory"));
+		
+		
+		
 	}
 
 }

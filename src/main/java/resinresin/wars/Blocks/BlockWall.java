@@ -36,8 +36,8 @@ public class BlockWall extends BlockStairs {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 
 		if (this.isBlockStairsDirection(world, pos, WarsBlocks.wall.getStateFromMeta(2)) || this.isBlockStairsDirection(world, pos, WarsBlocks.wall.getStateFromMeta(3))) {
 			wallNS.generate(world, i - 2, j - 0, k - 4, true);

@@ -26,8 +26,8 @@ public class BlockWallEnd extends Block {
 
 		
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		
 		wallEnd.generate(world, i - 7, j - 1, k - 6, false);

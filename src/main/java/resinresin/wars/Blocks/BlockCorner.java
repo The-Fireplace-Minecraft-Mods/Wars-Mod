@@ -42,8 +42,8 @@ public class BlockCorner extends BlockStairs {
 
 		
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(1))) {
 

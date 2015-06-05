@@ -1,9 +1,12 @@
 package resinresin.wars.registry;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import resinresin.wars.Warsmod;
 import resinresin.wars.Items.ItemAdminWandBall;
 import resinresin.wars.Items.ItemAdminWandLava;
@@ -165,6 +168,11 @@ public abstract class WarsItems {
 		aWandLight = new ItemAdminWandLight().setUnlocalizedName("AdminFire");
 		massMeal = new ItemMassMeal().setUnlocalizedName("MassMeal");
 		antidote = new ItemAntidote().setUnlocalizedName("Antidote");
+		
+		GameRegistry.registerItem(ancientGem, "ancientGem");
+		
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientGem, 0, new ModelResourceLocation("warsmod:ancientGem", "inventory"));
 
 //		LanguageRegistry.addName(ancientGem, "Ancient Gem");
 //		LanguageRegistry.addName(ancientEmblem, "Ancient Emblem");
