@@ -12,12 +12,12 @@ import net.minecraft.world.biome.BiomeGenPlains;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import resinresin.wars.Warsmod;
+import resinresin.wars.config.ConfigValues;
 import resinresin.wars.registry.WarsBlocks;
 
 public class WarsWorldGenerator implements IWorldGenerator {
 
-	
+
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 
@@ -27,16 +27,17 @@ public class WarsWorldGenerator implements IWorldGenerator {
 			generateNether(world, random, chunkX * 16, chunkZ * 16);
 		case 0:
 			generateSurface(world, random, chunkX * 16, chunkZ * 16);
-
+		default:
+			break;
 		}
 	}
 
-	
+
 	public void generateSurface(World world, Random random, int blockX, int blockZ) {
-		
-		
+
+
 		BlockPos position = new BlockPos(blockX, blockZ, blockZ);
-		
+
 		BiomeGenBase biomegenbase = world.getBiomeGenForCoords(position);
 
 		if (biomegenbase instanceof BiomeGenPlains || biomegenbase instanceof BiomeGenForest) {
@@ -62,7 +63,7 @@ public class WarsWorldGenerator implements IWorldGenerator {
 				int Xcoord = blockX + random.nextInt(16);
 				int Ycoord = random.nextInt(50);
 				int Zcoord = blockZ + random.nextInt(16);
-				
+
 				BlockPos decayPos = new BlockPos(Xcoord, Ycoord, Zcoord);
 				(new WorldGenMinable(WarsBlocks.decayOre.getDefaultState(), 10)).generate(world, random, decayPos);
 
@@ -75,9 +76,9 @@ public class WarsWorldGenerator implements IWorldGenerator {
 				int Xcoord = blockX + random.nextInt(16);
 				int Ycoord = random.nextInt(50);
 				int Zcoord = blockZ + random.nextInt(16);
-				
+
 				BlockPos naturalPos = new BlockPos(Xcoord, Ycoord, Zcoord);
-				
+
 				(new WorldGenMinable(WarsBlocks.naturalOre.getDefaultState(), 10)).generate(world, random, naturalPos);
 			}
 		}
@@ -88,31 +89,31 @@ public class WarsWorldGenerator implements IWorldGenerator {
 				int Xcoord = blockX + random.nextInt(16);
 				int Ycoord = random.nextInt(50);
 				int Zcoord = blockZ + random.nextInt(16);
-				
+
 				BlockPos waterPos = new BlockPos(Xcoord, Ycoord, Zcoord);
 				(new WorldGenMinable(WarsBlocks.waterOre.getDefaultState(), 10)).generate(world, random, waterPos);
 			}
 		}
 
-		if (Warsmod.doSand == true) {
-		if (biomegenbase instanceof BiomeGenDesert) {
+		if (ConfigValues.DOSAND) {
+			if (biomegenbase instanceof BiomeGenDesert) {
 
-			for (int i = 0; i < 100; i++) {
-				int Xcoord = blockX + random.nextInt(16);
-				int Ycoord = random.nextInt(90);
-				int Zcoord = blockZ + random.nextInt(16);
-				
-				BlockPos sandPos = new BlockPos(Xcoord, Ycoord, Zcoord);
-				(new WorldGenSand(WarsBlocks.sinkSand, 10)).generate(world, random, sandPos);
+				for (int i = 0; i < 100; i++) {
+					int Xcoord = blockX + random.nextInt(16);
+					int Ycoord = random.nextInt(90);
+					int Zcoord = blockZ + random.nextInt(16);
+
+					BlockPos sandPos = new BlockPos(Xcoord, Ycoord, Zcoord);
+					(new WorldGenSand(WarsBlocks.sinkSand, 10)).generate(world, random, sandPos);
+				}
 			}
-		}
 		}
 
 		for (int i = 0; i < 7; i++) {
 			int Xcoord = blockX + random.nextInt(16);
 			int Ycoord = random.nextInt(40);
 			int Zcoord = blockZ + random.nextInt(16);
-			
+
 			BlockPos ancientPos = new BlockPos(Xcoord, Ycoord, Zcoord);
 			(new WorldGenMinable(WarsBlocks.ancientOre.getDefaultState(), 5)).generate(world, random, ancientPos);
 
@@ -120,14 +121,14 @@ public class WarsWorldGenerator implements IWorldGenerator {
 
 	}
 
-	
+
 	public void generateNether(World world, Random random, int blockX, int blockZ) {
 
 		for (int i = 0; i < 7; i++) {
 			int Xcoord = blockX + random.nextInt(16);
 			int Ycoord = random.nextInt(100);
 			int Zcoord = blockZ + random.nextInt(16);
-			
+
 			BlockPos firePos = new BlockPos(Xcoord, Ycoord, Zcoord);
 			(new WorldGenNetherMineable(WarsBlocks.fireOre.getDefaultState(), 20)).generate(world, random, firePos);
 		}

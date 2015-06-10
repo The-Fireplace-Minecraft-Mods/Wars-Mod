@@ -8,17 +8,17 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WarsMod;
+import resinresin.wars.WorldGen.ResinresinLoader;
 
 public class BlockWallEnd extends Block {
 
 	public BlockWallEnd() {
 		super(Material.iron);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	resinresinLoader wallEnd = new resinresinLoader("wallEnd.resinresin");
+	ResinresinLoader wallEnd = new ResinresinLoader("wallEnd.resinresin");
 
 	
 	@Override
@@ -33,7 +33,7 @@ public class BlockWallEnd extends Block {
 		wallEnd.generate(world, i - 7, j - 1, k - 6, false);
 		wallEnd.generate(world, i - 7, j - 1, k - 6, false);
 
-		Warsmod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
+		WarsMod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
 		
 		return false;
 

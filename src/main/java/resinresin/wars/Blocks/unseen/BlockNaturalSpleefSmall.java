@@ -8,7 +8,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockNaturalSpleefSmall extends Block {
@@ -17,7 +17,7 @@ public class BlockNaturalSpleefSmall extends Block {
 		super(Material.iron);
 	}
 
-	resinresinLoader pSpleef = new resinresinLoader("pSpleef.resinresin");
+	ResinresinLoader pSpleef = new ResinresinLoader("pSpleef.resinresin");
 
 	
 	@Override

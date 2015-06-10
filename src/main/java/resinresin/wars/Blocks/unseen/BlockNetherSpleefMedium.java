@@ -9,7 +9,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockNetherSpleefMedium extends Block {
@@ -22,7 +22,7 @@ public class BlockNetherSpleefMedium extends Block {
 	 * Called when the block is clicked by a player. Args: x, y, z, entityPlayer
 	 */
 
-	resinresinLoader nSpleefM = new resinresinLoader("nSpleefM.resinresin");
+	ResinresinLoader nSpleefM = new ResinresinLoader("nSpleefM.resinresin");
 
 	
 	@Override

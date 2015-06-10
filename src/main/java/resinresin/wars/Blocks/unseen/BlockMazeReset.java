@@ -9,7 +9,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockMazeReset extends Block {
@@ -19,7 +19,7 @@ public class BlockMazeReset extends Block {
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	resinresinLoader mazeRace = new resinresinLoader("mazeRace.resinresin");
+	ResinresinLoader mazeRace = new ResinresinLoader("mazeRace.resinresin");
 
 	
 	@Override

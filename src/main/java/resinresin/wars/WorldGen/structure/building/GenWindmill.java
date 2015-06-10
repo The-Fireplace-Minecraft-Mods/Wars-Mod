@@ -3,12 +3,12 @@ package resinresin.wars.WorldGen.structure.building;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 
 public class GenWindmill {
 
 	public GenWindmill(EntityPlayer player, int i, int j, int k) {
-		resinresinLoader windmill = new resinresinLoader("windmill.resinresin");
+		ResinresinLoader windmill = new ResinresinLoader("windmill.resinresin");
 
 		windmill.generate(player.worldObj, i - 6, j - 1, k - 8, false);
 		windmill.generate(player.worldObj, i - 6, j - 1, k - 8, false);

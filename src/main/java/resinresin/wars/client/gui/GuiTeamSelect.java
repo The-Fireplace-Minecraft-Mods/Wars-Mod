@@ -4,7 +4,12 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import resinresin.wars.client.ClientProxy;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class GuiTeamSelect extends GuiScreen {
 
 	public String[] colors = new String[] { "red", "blue", "green", "purple", "black" };
@@ -22,11 +27,12 @@ public class GuiTeamSelect extends GuiScreen {
 	public String yellowText = "\u00a76Yellow " + "(" + ClientProxy.yellowPlayers + ")";
 
 	public GuiTeamSelect(EntityPlayer player) {
-		// the container is instanciated and passed to the superclass for
+		// the container is instantiated and passed to the superclass for
 		// handling
 
 	}
 
+	@Override
 	protected void keyTyped(char par1, int par2) {
 	}
 
@@ -39,15 +45,15 @@ public class GuiTeamSelect extends GuiScreen {
 	/** The Y size of the inventory window in pixels. */
 	protected int ySize = 166;
 
-	int guiLeft = (this.width - this.xSize) / 2;
-	int guiTop = (this.height - this.ySize) / 2;
+	int guiLeft = (width - xSize) / 2;
+	int guiTop = (height - ySize) / 2;
 
 	@Override
 	public void drawScreen(int x, int y, float f) {
 		drawDefaultBackground();
 
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 
 		drawString(fontRendererObj, title, posX + 20, posY + 30, colorsHex[colorIndex]);
 
@@ -66,8 +72,9 @@ public class GuiTeamSelect extends GuiScreen {
 		super.drawScreen(x, y, f);
 	}
 
+	@Override
 	public void drawDefaultBackground() {
-		this.drawWorldBackground(0);
+		drawWorldBackground(0);
 	}
 
 	@Override
@@ -82,8 +89,8 @@ public class GuiTeamSelect extends GuiScreen {
 		PieChartRendering.buildEntries();
 		// make buttons
 
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
 
 		buttonList.add(new GuiButton(1, posX + 0, posY + 54, 52, 20, redText));
@@ -96,6 +103,7 @@ public class GuiTeamSelect extends GuiScreen {
 
 	}
 
+	@Override
 	protected void actionPerformed(GuiButton guibutton) {
 
 		switch (guibutton.id) {
@@ -150,7 +158,7 @@ public class GuiTeamSelect extends GuiScreen {
 			break;
 		case 5:
 
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 
 			break;
 		case 6:
@@ -160,8 +168,10 @@ public class GuiTeamSelect extends GuiScreen {
 			blueText = "\u00a79Blue " + "(" + ClientProxy.bluePlayers + ")";
 			yellowText = "\u00a76Yellow " + "(" + ClientProxy.yellowPlayers + ")";
 
-			this.buttonList.clear();
-			this.initGui();
+			buttonList.clear();
+			initGui();
+		default:
+			break;
 		}
 
 	}

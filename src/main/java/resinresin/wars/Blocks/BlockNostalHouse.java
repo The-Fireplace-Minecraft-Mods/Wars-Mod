@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 
 public class BlockNostalHouse extends Block {
 
@@ -15,7 +15,7 @@ public class BlockNostalHouse extends Block {
 		super(Material.iron);
 	}
 
-	resinresinLoader nosHouse = new resinresinLoader("nostalHouse.resinresin");
+	ResinresinLoader nosHouse = new ResinresinLoader("nostalHouse.resinresin");
 
 	
 	@Override

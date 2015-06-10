@@ -5,8 +5,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
-import resinresin.wars.Warsmod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WarsMod;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class TileEntityHungerGames extends TileEntity implements IUpdatePlayerListBox {
@@ -23,7 +23,7 @@ public class TileEntityHungerGames extends TileEntity implements IUpdatePlayerLi
 																	
 	public boolean shouldTick = false;
 	public int tickCount = 0;
-	resinresinLoader hgSStarted = new resinresinLoader("hgSStarted.resinresin");
+	ResinresinLoader hgSStarted = new ResinresinLoader("hgSStarted.resinresin");
 
 	@Override
 	public void update() {
@@ -76,18 +76,18 @@ public class TileEntityHungerGames extends TileEntity implements IUpdatePlayerLi
 			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a72HUNGER GAMES SMALL HAS STARTED GO GO GO "));
 
 			worldObj.createExplosion(null, pos.getX() + 0, pos.getY() + 3, pos.getZ() - 5, 0.0F, shouldTick);
-			Warsmod.generateBlock(worldObj, pos.getX() + 0, pos.getY() - 0, pos.getZ() - 0, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() + 0, pos.getY() - 0, pos.getZ() - 0, Blocks.air);
 
 			hgSStarted.generate(worldObj, pos.getX() - 9, pos.getY() - 2, pos.getZ() - 16, false);
-			Warsmod.generateBlock(worldObj, pos.getX() + 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() + 0, pos.getY() + 1, pos.getZ() - 6, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 1, pos.getZ() - 8, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() + 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() + 0, pos.getY() + 1, pos.getZ() - 6, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 1, pos.getZ() - 8, WarsBlocks.insChest3);
 
-			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 2, pos.getZ() - 7, Blocks.crafting_table);
-			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 1, pos.getZ() - 7, Blocks.stonebrick);
-			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 0, pos.getZ() - 7, WarsBlocks.hgLv1reset);
-			//Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 16, pos.getZ() - 7, WarsBlocks.hgTeleMain);
+			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 2, pos.getZ() - 7, Blocks.crafting_table);
+			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 1, pos.getZ() - 7, Blocks.stonebrick);
+			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 0, pos.getZ() - 7, WarsBlocks.hgLv1reset);
+			//WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 16, pos.getZ() - 7, WarsBlocks.hgTeleMain);
 
 		}
 

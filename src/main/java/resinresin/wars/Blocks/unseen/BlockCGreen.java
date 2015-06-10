@@ -9,7 +9,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockCGreen extends Block {
@@ -18,7 +18,7 @@ public class BlockCGreen extends Block {
 		super(Material.iron);
 	}
 
-	resinresinLoader controlGreen = new resinresinLoader("controlGreen.resinresin");
+	ResinresinLoader controlGreen = new ResinresinLoader("controlGreen.resinresin");
 
 	
 	@Override

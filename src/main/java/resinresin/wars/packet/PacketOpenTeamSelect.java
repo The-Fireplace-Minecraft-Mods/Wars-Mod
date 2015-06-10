@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 
 public class PacketOpenTeamSelect implements IMessage {
     
@@ -35,7 +35,7 @@ public class PacketOpenTeamSelect implements IMessage {
         public IMessage onMessage(PacketOpenTeamSelect message, MessageContext ctx) {
             System.out.println(String.format("Received %s from %s", message.openTeamSelect, ctx.getServerHandler().playerEntity.getDisplayName()));
 			
-            ctx.getServerHandler().playerEntity.openGui(Warsmod.instance, 3, ctx.getServerHandler().playerEntity.worldObj, 0, 0, 0);
+            ctx.getServerHandler().playerEntity.openGui(WarsMod.instance, 3, ctx.getServerHandler().playerEntity.worldObj, 0, 0, 0);
             
             return null; // no response in this case
             

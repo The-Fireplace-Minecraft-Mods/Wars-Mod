@@ -15,7 +15,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.packet.PacketKills;
 import resinresin.wars.packet.PacketOpenTeamSelect;
@@ -33,7 +33,7 @@ public class WarsPlayerEventHandler {
 	public static int totalKills;
 
 	@SubscribeEvent
-	public void PlayerLoggedInEvent(PlayerLoggedInEvent event) {
+	public void playerLoggedInEvent(PlayerLoggedInEvent event) {
 
 		try {
 			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");
@@ -43,7 +43,7 @@ public class WarsPlayerEventHandler {
 			while ((dona = reader.readLine()) != null) {
 				dona = dona.trim();
 				// toLowerCase().
-				Warsmod.donators.add(dona);
+				WarsMod.donators.add(dona);
 			}
 			in.close();
 		} catch (IOException e) {
@@ -75,26 +75,26 @@ public class WarsPlayerEventHandler {
 
 			}
 
-			Warsmod.proxy.totalKills(event.player);
+			WarsMod.proxy.totalKills(event.player);
 
 			totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 			killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
 
-			Warsmod.network.sendTo(new PacketKills(totalKills, killStreak), (EntityPlayerMP) event.player);
+			WarsMod.network.sendTo(new PacketKills(totalKills, killStreak), (EntityPlayerMP) event.player);
 
-			Warsmod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
+			WarsMod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
 
-			
+
 
 			WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
 			if (playerBoots == null) {
 				if (savedWarsData.editMode.editModeToggle == false) {
 
-					
-					event.player.openGui(Warsmod.instance, 3, event.player.worldObj, 0, 0, 0);
-					
-					Warsmod.network.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
+
+					event.player.openGui(WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
+
+					WarsMod.network.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
 
 				}
 			}
@@ -109,7 +109,7 @@ public class WarsPlayerEventHandler {
 	}
 
 	@SubscribeEvent
-	public void PlayerRespawnEvent(PlayerRespawnEvent event) {
+	public void playerRespawnEvent(PlayerRespawnEvent event) {
 
 		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
@@ -136,17 +136,17 @@ public class WarsPlayerEventHandler {
 		totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 		killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
 
-		Warsmod.network.sendTo(new PacketKills(totalKills, killStreak), (EntityPlayerMP) event.player);
+		WarsMod.network.sendTo(new PacketKills(totalKills, killStreak), (EntityPlayerMP) event.player);
 
-		Warsmod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
+		WarsMod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
 
 		WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 		if (savedWarsData.editMode.editModeToggle == false) {
 
 
-			event.player.openGui(Warsmod.instance, 3, event.player.worldObj, 0, 0, 0);
-			
-			Warsmod.network.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
+			event.player.openGui(WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
+
+			WarsMod.network.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
 		}
 
 	}
@@ -181,7 +181,7 @@ public class WarsPlayerEventHandler {
 
 		}
 
-		Warsmod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) player);
+		WarsMod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) player);
 
 	}
 

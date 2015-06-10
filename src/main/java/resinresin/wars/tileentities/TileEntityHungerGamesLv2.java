@@ -5,8 +5,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
-import resinresin.wars.Warsmod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WarsMod;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class TileEntityHungerGamesLv2 extends TileEntity implements IUpdatePlayerListBox {
@@ -23,7 +23,7 @@ public class TileEntityHungerGamesLv2 extends TileEntity implements IUpdatePlaye
 																	
 	public boolean shouldTick = false;
 	public int tickCount = 0;
-	resinresinLoader hgLStarted = new resinresinLoader("hgLStarted.resinresin");
+	ResinresinLoader hgLStarted = new ResinresinLoader("hgLStarted.resinresin");
 
 	@Override
 	public void update() {
@@ -93,37 +93,37 @@ public class TileEntityHungerGamesLv2 extends TileEntity implements IUpdatePlaye
 			worldObj.createExplosion(null, pos.getX() - 19, pos.getY() + 1, pos.getZ() - 0, 0.0F, shouldTick);
 			worldObj.createExplosion(null, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 0, 0.0F, shouldTick);
 
-			Warsmod.generateBlock(worldObj, pos.getX() + 0, pos.getY() - 0, pos.getZ() - 0, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() + 0, pos.getY() - 0, pos.getZ() - 0, Blocks.air);
 
-			Warsmod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 0, pos.getZ() - 0, Blocks.glass);
+			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 0, pos.getZ() - 0, Blocks.glass);
 
 			hgLStarted.generate(worldObj, pos.getX() - 40, pos.getY() - 0, pos.getZ() - 22, false);
 
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 4, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 4, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 23, pos.getY() + 0, pos.getZ() + 0, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 15, pos.getY() + 0, pos.getZ() + 0, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 4, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 4, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 23, pos.getY() + 0, pos.getZ() + 0, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 15, pos.getY() + 0, pos.getZ() + 0, Blocks.air);
 
-			Warsmod.generateBlock(worldObj, pos.getX() - 18, pos.getY() + 0, pos.getZ() - 0, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 20, pos.getY() + 0, pos.getZ() - 0, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 1, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 1, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 5, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 5, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 24, pos.getY() + 0, pos.getZ() + 0, Blocks.air);
-			Warsmod.generateBlock(worldObj, pos.getX() - 14, pos.getY() + 0, pos.getZ() + 1, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 18, pos.getY() + 0, pos.getZ() - 0, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 20, pos.getY() + 0, pos.getZ() - 0, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 1, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 1, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 5, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 5, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 24, pos.getY() + 0, pos.getZ() + 0, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 14, pos.getY() + 0, pos.getZ() + 1, Blocks.air);
 
-			Warsmod.generateBlock(worldObj, pos.getX() - 18, pos.getY() + 0, pos.getZ() - 0, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 20, pos.getY() + 0, pos.getZ() - 0, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 1, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 1, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 4, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 4, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 23, pos.getY() + 0, pos.getZ() + 0, WarsBlocks.insChest3);
-			Warsmod.generateBlock(worldObj, pos.getX() - 15, pos.getY() + 0, pos.getZ() + 0, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 18, pos.getY() + 0, pos.getZ() - 0, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 20, pos.getY() + 0, pos.getZ() - 0, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 1, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 1, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() + 4, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 0, pos.getZ() - 4, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 23, pos.getY() + 0, pos.getZ() + 0, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX() - 15, pos.getY() + 0, pos.getZ() + 0, WarsBlocks.insChest3);
 
-			//Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 27, pos.getZ() - 0, WarsBlocks.hgTelebM);
-			Warsmod.generateBlock(worldObj, pos.getX() - 19, pos.getY() - 1, pos.getZ() - 0, WarsBlocks.hgLv2reset);
+			//WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() + 27, pos.getZ() - 0, WarsBlocks.hgTelebM);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY() - 1, pos.getZ() - 0, WarsBlocks.hgLv2reset);
 			
 		}
 

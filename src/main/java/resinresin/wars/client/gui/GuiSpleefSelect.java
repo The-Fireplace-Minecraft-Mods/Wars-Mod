@@ -8,12 +8,12 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
-
-import resinresin.wars.Warsmod;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class GuiSpleefSelect extends GuiScreen {
 
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/spleefBuildings.png");
@@ -30,18 +30,18 @@ public class GuiSpleefSelect extends GuiScreen {
 	public String sizeHeight = "";
 	public String sizeArea = "";
 
-	public BlockPos blockPos; 
+	public BlockPos blockPos;
 
 	public GuiSpleefSelect(EntityPlayer player, TileEntity tile) {
-		// the container is instanciated and passed to the superclass for
+		// the container is instantiated and passed to the superclass for
 		// handling
-		this.blockPos = tile.getPos();
+		blockPos = tile.getPos();
 	}
 
 	@Override
 	protected void keyTyped(char par1, int par2) {
-		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+		if (par2 == 1 || par2 == mc.gameSettings.keyBindInventory.getKeyCode()) {
+			mc.thePlayer.closeScreen();
 		}
 	}
 
@@ -60,20 +60,20 @@ public class GuiSpleefSelect extends GuiScreen {
 	/** The Y size of the inventory window in pixels. */
 	protected int ySize = 166;
 
-	int guiLeft = (this.width - this.xSize) / 2;
-	int guiTop = (this.height - this.ySize) / 2;
+	int guiLeft = (width - xSize) / 2;
+	int guiTop = (height - ySize) / 2;
 
 	@Override
 	public void drawScreen(int x, int y, float f) {
 		drawDefaultBackground();
 
-		this.mc.renderEngine.bindTexture(textureLocation);
+		mc.renderEngine.bindTexture(textureLocation);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		drawTexturedModalRect(posX, posY, 0, 0, xSizeOfTexture, ySizeOfTexture);
 
-		this.mc.renderEngine.bindTexture(textureLocation2);
+		mc.renderEngine.bindTexture(textureLocation2);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		drawTexturedModalRect(posX + 250, posY + 15, 0, 0, xSizeOfTexture2, ySizeOfTexture2);
 
@@ -98,8 +98,8 @@ public class GuiSpleefSelect extends GuiScreen {
 		super.initGui();
 		// make buttons
 
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
 		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, "Generate"));
 		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, "Generate"));
@@ -119,37 +119,38 @@ public class GuiSpleefSelect extends GuiScreen {
 
 	}
 
+	@Override
 	protected void actionPerformed(GuiButton guibutton) {
 		// id is the id you give your button
-//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-//		out.writeByte(guibutton.id);
-//
-//		out.writeInt(x);
-//
-//		out.writeInt(y);
-//
-//		out.writeInt(z);
-//
-//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 12, out.toByteArray()));
+		//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+		//		out.writeByte(guibutton.id);
+		//
+		//		out.writeInt(x);
+		//
+		//		out.writeInt(y);
+		//
+		//		out.writeInt(z);
+		//
+		//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 12, out.toByteArray()));
 
 		switch (guibutton.id) {
 		case 1:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 		case 2:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 		case 3:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 		case 4:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 		case 5:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 		case 6:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 
 		case 7:
@@ -188,10 +189,12 @@ public class GuiSpleefSelect extends GuiScreen {
 			sizeArea = "Area: " + "22x22";
 			sizeHeight = "Height: " + "20";
 			break;
+		default:
+			break;
 		}
 
 		// Packet code here
-		// PacketDispatcher.sendPacketToServer(packet); //send packet
+		PacketDispatcher.sendPacketToServer(packet); //send packet
 	}
 
 }

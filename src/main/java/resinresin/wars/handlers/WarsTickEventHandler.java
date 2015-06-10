@@ -16,7 +16,7 @@ import resinresin.wars.Items.ItemArmorMod;
 public class WarsTickEventHandler {
 
 	@SubscribeEvent
-	public void TickEvent(TickEvent.PlayerTickEvent event) {
+	public void tickEvent(TickEvent.PlayerTickEvent event) {
 
 		EntityPlayer player = event.player;
 		if (ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.knightArmor)) {
@@ -34,7 +34,7 @@ public class WarsTickEventHandler {
 			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 10 * 1, 0));
 
 		}
-		
+
 		if ((ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.archerArmor)) || (ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.techArmor)) || (ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.chaosArmor)) || (ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.knightArmor)) || (ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.healerArmor))
 				|| (ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.guardArmor)) || (ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.scoutArmor))) {
 			ItemStack boots = player.inventory.armorItemInSlot(0);

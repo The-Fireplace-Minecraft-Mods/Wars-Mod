@@ -22,14 +22,14 @@ public class BlockInstantChestLv4 extends Block {
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	
+
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
 		int j = pos.getY();
 		int k = pos.getZ();
-		
+
 		WarsMod.generateBlock(world, i + 0, j + 0, k + 0, Blocks.chest);
 		TileEntityChest chest2 = new TileEntityChest();
 
@@ -79,22 +79,19 @@ public class BlockInstantChestLv4 extends Block {
 
 			if (num == 11) {
 				chest2.setInventorySlotContents(slot, new ItemStack(Items.golden_apple));
-
-				if (num == 12) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
-
-				}
-				if (num == 13) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
-
-				}
-				if (num == 14) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.diamond));
-
-				}
+			}
+			if (num == 12) {
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
 
 			}
+			if (num == 13) {
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
 
+			}
+			if (num == 14) {
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.diamond));
+
+			}
 		}
 		return false;
 	}

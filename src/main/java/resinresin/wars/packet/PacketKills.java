@@ -1,6 +1,6 @@
 package resinresin.wars.packet;
 
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -37,7 +37,7 @@ public class PacketKills implements IMessage {
         public IMessage onMessage(PacketKills message, MessageContext ctx) {
             System.out.println(String.format("Received %s from %s", message.killStreak, ctx.getServerHandler().playerEntity.getDisplayName()));
 			
-            Warsmod.proxy.handleKillData(message.totalKills, message.killStreak);
+            WarsMod.proxy.handleKillData(message.totalKills, message.killStreak);
             
             
             return null; // no response in this case

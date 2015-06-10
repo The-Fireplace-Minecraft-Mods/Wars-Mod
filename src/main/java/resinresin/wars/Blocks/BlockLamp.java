@@ -8,7 +8,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 
 public class BlockLamp extends Block {
 
@@ -17,7 +17,7 @@ public class BlockLamp extends Block {
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	resinresinLoader lamp = new resinresinLoader("lamp.resinresin");
+	ResinresinLoader lamp = new ResinresinLoader("lamp.resinresin");
 
 	
 	@Override

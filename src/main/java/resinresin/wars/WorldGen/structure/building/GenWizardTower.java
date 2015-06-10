@@ -3,12 +3,12 @@ package resinresin.wars.WorldGen.structure.building;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 
 public class GenWizardTower {
 
 	public GenWizardTower(EntityPlayer player, int i, int j, int k) {
-		resinresinLoader wizardTower = new resinresinLoader("wizardTower.resinresin");
+		ResinresinLoader wizardTower = new ResinresinLoader("wizardTower.resinresin");
 
 		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k + 1, Blocks.stone);
 		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k - 1, Blocks.stone);

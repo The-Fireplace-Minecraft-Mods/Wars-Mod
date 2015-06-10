@@ -10,16 +10,17 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
-import resinresin.wars.Warsmod;
 import resinresin.wars.client.ClientProxy;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class GuiClassSelect extends GuiScreen {
 
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/classSelection.png");
@@ -28,18 +29,18 @@ public class GuiClassSelect extends GuiScreen {
 	public int[] colorsHex = new int[] { 0xFF0000, 0x0000FF, 0x006400, 0x6A5ACD, 0x000000 };
 	public int colorIndex = 0;
 
-	public String talkTo = "Be In Survival When Using This GUI!";
+	public String talkTo = StatCollector.translateToLocal("classselect.survival");
 
 	public GuiClassSelect(EntityPlayer player) {
-		// the container is instanciated and passed to the superclass for
+		// the container is instantiated and passed to the superclass for
 		// handling
 
 	}
 
 	@Override
 	protected void keyTyped(char par1, int par2) {
-		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+		if (par2 == 1 || par2 == mc.gameSettings.keyBindInventory.getKeyCode()) {
+			mc.thePlayer.closeScreen();
 		}
 	}
 
@@ -70,22 +71,22 @@ public class GuiClassSelect extends GuiScreen {
 	/** The Y size of the inventory window in pixels. */
 	protected int ySize = 166;
 
-	int guiLeft = (this.width - this.xSize) / 2;
-	int guiTop = (this.height - this.ySize) / 2;
+	int guiLeft = (width - xSize) / 2;
+	int guiTop = (height - ySize) / 2;
 
 	@Override
 	public void drawScreen(int x, int y, float f) {
 		drawDefaultBackground();
 
-		this.mc.renderEngine.bindTexture(textureLocation);
+		mc.renderEngine.bindTexture(textureLocation);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		drawTexturedModalRect(posX, posY, 0, 0, xSizeOfTexture, ySizeOfTexture);
 
 		drawString(fontRendererObj, talkTo, posX + 40, posY + 148, colorsHex[colorIndex]);
 
-		drawEntityOnScreen(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.thePlayer);
+		drawEntityOnScreen(posX + 10, posY + 60, 30, (float) (posX + 51) - xSizeOfTexture, (float) (posY + 75 - 50) - ySizeOfTexture, mc.thePlayer);
 
 		super.drawScreen(x, y, f);
 	}
@@ -101,8 +102,8 @@ public class GuiClassSelect extends GuiScreen {
 		super.initGui();
 		// make buttons
 
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
 		buttonList.add(new GuiButton(1, posX + 24, posY + 54, 52, 12, "Guard"));
 		buttonList.add(new GuiButton(2, posX + 100, posY + 54, 52, 12, "Knight"));
@@ -114,52 +115,53 @@ public class GuiClassSelect extends GuiScreen {
 
 	}
 
-    public static void drawEntityOnScreen(int p_147046_0_, int p_147046_1_, int p_147046_2_, float p_147046_3_, float p_147046_4_, EntityLivingBase p_147046_5_)
-    {
-        GlStateManager.enableColorMaterial();
-        GlStateManager.pushMatrix();
-        GlStateManager.translate((float)p_147046_0_, (float)p_147046_1_, 50.0F);
-        GlStateManager.scale((float)(-p_147046_2_), (float)p_147046_2_, (float)p_147046_2_);
-        GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
-        float f2 = p_147046_5_.renderYawOffset;
-        float f3 = p_147046_5_.rotationYaw;
-        float f4 = p_147046_5_.rotationPitch;
-        float f5 = p_147046_5_.prevRotationYawHead;
-        float f6 = p_147046_5_.rotationYawHead;
-        GlStateManager.rotate(135.0F, 0.0F, 1.0F, 0.0F);
-        RenderHelper.enableStandardItemLighting();
-        GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
-        GlStateManager.rotate(-((float)Math.atan((double)(p_147046_4_ / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
-        p_147046_5_.renderYawOffset = (float)Math.atan((double)(p_147046_3_ / 40.0F)) * 20.0F;
-        p_147046_5_.rotationYaw = (float)Math.atan((double)(p_147046_3_ / 40.0F)) * 40.0F;
-        p_147046_5_.rotationPitch = -((float)Math.atan((double)(p_147046_4_ / 40.0F))) * 20.0F;
-        p_147046_5_.rotationYawHead = p_147046_5_.rotationYaw;
-        p_147046_5_.prevRotationYawHead = p_147046_5_.rotationYaw;
-        GlStateManager.translate(0.0F, 0.0F, 0.0F);
-        RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
-        rendermanager.setPlayerViewY(180.0F);
-        rendermanager.setRenderShadow(false);
-        rendermanager.renderEntityWithPosYaw(p_147046_5_, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
-        rendermanager.setRenderShadow(true);
-        p_147046_5_.renderYawOffset = f2;
-        p_147046_5_.rotationYaw = f3;
-        p_147046_5_.rotationPitch = f4;
-        p_147046_5_.prevRotationYawHead = f5;
-        p_147046_5_.rotationYawHead = f6;
-        GlStateManager.popMatrix();
-        RenderHelper.disableStandardItemLighting();
-        GlStateManager.disableRescaleNormal();
-        GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
-        GlStateManager.disableTexture2D();
-        GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
-    }
+	public static void drawEntityOnScreen(int p_147046_0_, int p_147046_1_, int p_147046_2_, float p_147046_3_, float p_147046_4_, EntityLivingBase p_147046_5_)
+	{
+		GlStateManager.enableColorMaterial();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(p_147046_0_, p_147046_1_, 50.0F);
+		GlStateManager.scale((-p_147046_2_), p_147046_2_, p_147046_2_);
+		GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
+		float f2 = p_147046_5_.renderYawOffset;
+		float f3 = p_147046_5_.rotationYaw;
+		float f4 = p_147046_5_.rotationPitch;
+		float f5 = p_147046_5_.prevRotationYawHead;
+		float f6 = p_147046_5_.rotationYawHead;
+		GlStateManager.rotate(135.0F, 0.0F, 1.0F, 0.0F);
+		RenderHelper.enableStandardItemLighting();
+		GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
+		GlStateManager.rotate(-((float)Math.atan(p_147046_4_ / 40.0F)) * 20.0F, 1.0F, 0.0F, 0.0F);
+		p_147046_5_.renderYawOffset = (float)Math.atan(p_147046_3_ / 40.0F) * 20.0F;
+		p_147046_5_.rotationYaw = (float)Math.atan(p_147046_3_ / 40.0F) * 40.0F;
+		p_147046_5_.rotationPitch = -((float)Math.atan(p_147046_4_ / 40.0F)) * 20.0F;
+		p_147046_5_.rotationYawHead = p_147046_5_.rotationYaw;
+		p_147046_5_.prevRotationYawHead = p_147046_5_.rotationYaw;
+		GlStateManager.translate(0.0F, 0.0F, 0.0F);
+		RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
+		rendermanager.setPlayerViewY(180.0F);
+		rendermanager.setRenderShadow(false);
+		rendermanager.renderEntityWithPosYaw(p_147046_5_, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
+		rendermanager.setRenderShadow(true);
+		p_147046_5_.renderYawOffset = f2;
+		p_147046_5_.rotationYaw = f3;
+		p_147046_5_.rotationPitch = f4;
+		p_147046_5_.prevRotationYawHead = f5;
+		p_147046_5_.rotationYawHead = f6;
+		GlStateManager.popMatrix();
+		RenderHelper.disableStandardItemLighting();
+		GlStateManager.disableRescaleNormal();
+		GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
+		GlStateManager.disableTexture2D();
+		GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
+	}
 
+	@Override
 	protected void actionPerformed(GuiButton guibutton) {
 		// id is the id you give your button
-//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-//		out.writeByte(guibutton.id);
-//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 1, out.toByteArray()));
-     	int currentKills = ClientProxy.totalKills;
+		//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+		//		out.writeByte(guibutton.id);
+		//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 1, out.toByteArray()));
+		int currentKills = ClientProxy.totalKills;
 
 		switch (guibutton.id) {
 		case 1:

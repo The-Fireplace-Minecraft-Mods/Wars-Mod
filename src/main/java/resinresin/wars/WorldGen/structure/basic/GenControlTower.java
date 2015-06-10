@@ -1,7 +1,7 @@
 package resinresin.wars.WorldGen.structure.basic;
 
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +9,7 @@ import net.minecraft.init.Blocks;
 
 public class GenControlTower {
 
-	resinresinLoader controlMain = new resinresinLoader("controlMain.resinresin");
+	ResinresinLoader controlMain = new ResinresinLoader("controlMain.resinresin");
 
 	public GenControlTower(EntityPlayer player, int i, int j, int k) {
 		controlMain.generate(player.worldObj, i + -1, j - 0, k + -1, true);

@@ -140,7 +140,8 @@ public class ClassSelected {
 				((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
 
 			}
-
+		default:
+			break;
 		}
 	}
 }

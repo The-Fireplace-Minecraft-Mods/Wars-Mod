@@ -3,12 +3,12 @@ package resinresin.wars.WorldGen.structure.building;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 
 public class GenKnightHut {
 
 	public GenKnightHut(EntityPlayer player, int i, int j, int k) {
-		resinresinLoader knightHut = new resinresinLoader("knightHut.resinresin");
+		ResinresinLoader knightHut = new ResinresinLoader("knightHut.resinresin");
 
 		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k + 2, Blocks.stone);
 		WarsMod.generateBlock(player.worldObj, i - 2, j + 1, k + 2, Blocks.stone);

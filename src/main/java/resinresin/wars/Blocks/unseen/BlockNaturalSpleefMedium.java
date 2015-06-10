@@ -10,7 +10,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockNaturalSpleefMedium extends Block {
@@ -19,7 +19,7 @@ public class BlockNaturalSpleefMedium extends Block {
 		super(Material.iron);
 	}
 
-	resinresinLoader pSpleefM = new resinresinLoader("pSpleefM.resinresin");
+	ResinresinLoader pSpleefM = new ResinresinLoader("pSpleefM.resinresin");
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {

@@ -28,7 +28,7 @@ public class BlockInstantChestLv1 extends Block {
 		int i = pos.getX();
 		int j = pos.getY();
 		int k = pos.getZ();
-		
+
 		WarsMod.generateBlock(world, i + 0, j + 0, k + 0, Blocks.chest);
 		TileEntityChest chest2 = new TileEntityChest();
 
@@ -136,29 +136,23 @@ public class BlockInstantChestLv1 extends Block {
 			}
 			if (num == 26) {
 				chest2.setInventorySlotContents(slot, new ItemStack(Items.wooden_sword));
-
 			}
 			if (num == 27) {
 				chest2.setInventorySlotContents(slot, new ItemStack(Items.flint));
+			}
+			if (num == 28) {
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_helmet));
+			}
+			if (num == 29) {
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_chestplate));
+			}
 
-				if (num == 28) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_helmet));
+			if (num == 30) {
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_leggings));
+			}
 
-				}
-				if (num == 29) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_chestplate));
-
-				}
-
-				if (num == 30) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_leggings));
-
-				}
-
-				if (num == 31) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_boots));
-
-				}
+			if (num == 31) {
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_boots));
 			}
 		}
 		return false;

@@ -9,7 +9,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 
 public class BlockTower extends Block {
 
@@ -18,7 +18,7 @@ public class BlockTower extends Block {
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	resinresinLoader Tower = new resinresinLoader("tower.resinresin");
+	ResinresinLoader tower = new ResinresinLoader("tower.resinresin");
 
 	
 	@Override
@@ -29,8 +29,8 @@ public class BlockTower extends Block {
 		int k = pos.getZ();
 		
 		
-		Tower.generate(world, i - 4, j - 1, k - 4, false);
-		Tower.generate(world, i - 4, j - 1, k - 4, false);
+		tower.generate(world, i - 4, j - 1, k - 4, false);
+		tower.generate(world, i - 4, j - 1, k - 4, false);
 
 		WarsMod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
 		

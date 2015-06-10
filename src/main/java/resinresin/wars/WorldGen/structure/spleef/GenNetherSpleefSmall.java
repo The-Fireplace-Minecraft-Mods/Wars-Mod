@@ -2,13 +2,13 @@ package resinresin.wars.WorldGen.structure.spleef;
 
 import net.minecraft.entity.player.EntityPlayer;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class GenNetherSpleefSmall {
 
 	public GenNetherSpleefSmall(EntityPlayer player, int i, int j, int k) {
-		resinresinLoader nSpleef = new resinresinLoader("nSpleef.resinresin");
+		ResinresinLoader nSpleef = new ResinresinLoader("nSpleef.resinresin");
 
 		nSpleef.generate(player.worldObj, i + -8, j - 0, k + -1, false);
 		WarsMod.generateBlock(player.worldObj, i + 0, j + 3, k + 5, WarsBlocks.spleefStone);

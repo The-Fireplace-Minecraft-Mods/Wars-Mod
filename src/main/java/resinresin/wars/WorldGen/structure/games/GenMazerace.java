@@ -3,13 +3,13 @@ package resinresin.wars.WorldGen.structure.games;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class GenMazerace {
 
 	public GenMazerace(EntityPlayer player, int i, int j, int k) {
-		resinresinLoader mazeRace = new resinresinLoader("mazeRace.resinresin");
+		ResinresinLoader mazeRace = new ResinresinLoader("mazeRace.resinresin");
 
 		mazeRace.generate(player.worldObj, i - 21, j - 4, k - 19, true);
 		WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k + 0, Blocks.air);

@@ -11,14 +11,14 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
 
 public class GenDungeonLarge extends WorldGenerator {
 	public GenDungeonLarge() {
 	}
 
-	resinresinLoader dungL = new resinresinLoader("dungL.resinresin");
+	ResinresinLoader dungL = new ResinresinLoader("dungL.resinresin");
 
 	private String pickMobSpawner(Random par1Random) {
 		int var2 = par1Random.nextInt(4);
@@ -27,13 +27,13 @@ public class GenDungeonLarge extends WorldGenerator {
 
 	@Override
 	public boolean generate(World world, Random rand, BlockPos pos) {
-		
-		Block grass = Blocks.grass; 
+
+		Block grass = Blocks.grass;
 
 		int i = pos.getX();
 		int j = pos.getX();
 		int k = pos.getX();
-		
+
 		BlockPos posCheck1 = new BlockPos(i, j + 1, k);
 		BlockPos posCheck2 = new BlockPos(i + 7, j, k);
 		BlockPos posCheck3 = new BlockPos(i + 7, j, k + 7);
@@ -41,23 +41,23 @@ public class GenDungeonLarge extends WorldGenerator {
 		BlockPos posCheck5 = new BlockPos(i + 7, j + 1, k);
 		BlockPos posCheck6 = new BlockPos(i + 7, j + 1, k + 7);
 		BlockPos posCheck7 = new BlockPos(i, j + 1, k + 7);
-		
-		if (world.getBlockState(pos) != grass || world.getBlockState(posCheck1) != grass || world.getBlockState(posCheck2) != grass || world.getBlockState(posCheck3) != grass || world.getBlockState(posCheck4) != grass || world.getBlockState(posCheck5) != grass || world.getBlockState(posCheck6) != grass || world.getBlockState(posCheck7) != grass) {
+
+		if (world.getBlockState(pos).getBlock() != grass || world.getBlockState(posCheck1).getBlock() != grass || world.getBlockState(posCheck2).getBlock() != grass || world.getBlockState(posCheck3).getBlock() != grass || world.getBlockState(posCheck4).getBlock() != grass || world.getBlockState(posCheck5).getBlock() != grass || world.getBlockState(posCheck6).getBlock() != grass || world.getBlockState(posCheck7).getBlock() != grass) {
 			return false;
 		}
 
 		dungL.generate(world, i + 0, j - 40, k + 0, true);
-		
-		Warsmod.generateBlock(world, i + 5, j - 40, k + 12, Blocks.mob_spawner);
+
+		WarsMod.generateBlock(world, i + 5, j - 40, k + 12, Blocks.mob_spawner);
 		BlockPos spawnerPos1 = new BlockPos(i + 5, j - 40, k + 12);
 		TileEntityMobSpawner var19 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos1);
 		if (var19 != null) {
-			var19.getSpawnerBaseLogic().setEntityName(this.pickMobSpawner(rand));
+			var19.getSpawnerBaseLogic().setEntityName(pickMobSpawner(rand));
 		} else {
 			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
 		}
-		
-		Warsmod.generateBlock(world, i + 19, j - 40, k + 12, Blocks.mob_spawner);
+
+		WarsMod.generateBlock(world, i + 19, j - 40, k + 12, Blocks.mob_spawner);
 		BlockPos spawnerPos2 = new BlockPos(i + 19, j - 40, k + 12);
 		TileEntityMobSpawner var20 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos2);
 		if (var20 != null) {
@@ -65,26 +65,26 @@ public class GenDungeonLarge extends WorldGenerator {
 		} else {
 			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
 		}
-		
-		Warsmod.generateBlock(world, i + 12, j - 40, k + 19, Blocks.mob_spawner);
+
+		WarsMod.generateBlock(world, i + 12, j - 40, k + 19, Blocks.mob_spawner);
 		BlockPos spawnerPos3 = new BlockPos(i + 12, j - 40, k + 19);
 		TileEntityMobSpawner var21 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos3);
 		if (var21 != null) {
-			var21.getSpawnerBaseLogic().setEntityName(this.pickMobSpawner(rand));
-		} else {
-			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
-		}
-		
-		Warsmod.generateBlock(world, i + 12, j - 40, k + 5, Blocks.mob_spawner);
-		BlockPos spawnerPos4 = new BlockPos(i + 12, j - 40, k + 5);
-		TileEntityMobSpawner var22 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos4);
-		if (var22 != null) {
-			var22.getSpawnerBaseLogic().setEntityName(this.pickMobSpawner(rand));
+			var21.getSpawnerBaseLogic().setEntityName(pickMobSpawner(rand));
 		} else {
 			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
 		}
 
-		Warsmod.generateBlock(world, i + 12, j - 37, k + 12, Blocks.chest);
+		WarsMod.generateBlock(world, i + 12, j - 40, k + 5, Blocks.mob_spawner);
+		BlockPos spawnerPos4 = new BlockPos(i + 12, j - 40, k + 5);
+		TileEntityMobSpawner var22 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos4);
+		if (var22 != null) {
+			var22.getSpawnerBaseLogic().setEntityName(pickMobSpawner(rand));
+		} else {
+			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
+		}
+
+		WarsMod.generateBlock(world, i + 12, j - 37, k + 12, Blocks.chest);
 		BlockPos chestPos1 = new BlockPos(i + 12, j - 37, k + 12);
 		TileEntityChest chest2 = new TileEntityChest();
 		world.setTileEntity(chestPos1, chest2);

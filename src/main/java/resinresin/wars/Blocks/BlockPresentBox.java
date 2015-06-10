@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
 
 public class BlockPresentBox extends Block {
@@ -19,7 +19,7 @@ public class BlockPresentBox extends Block {
 	public BlockPresentBox() {
 		super(Material.iron);
 		this.setTickRandomly(true);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class BlockPresentBox extends Block {
 			int j = pos.getY();
 			int k = pos.getZ();
 
-			Warsmod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.chest);
+			WarsMod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.chest);
 			TileEntityChest chest2 = new TileEntityChest();
 
 			
@@ -116,8 +116,8 @@ public class BlockPresentBox extends Block {
 
 				}
 
-				Warsmod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.stone);
-				Warsmod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.air);
+				WarsMod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.stone);
+				WarsMod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.air);
 
 			}
 			return;

@@ -9,7 +9,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockCRed extends Block {
@@ -19,7 +19,7 @@ public class BlockCRed extends Block {
 
 	}
 
-	resinresinLoader controlRed = new resinresinLoader("controlRed.resinresin");
+	ResinresinLoader controlRed = new ResinresinLoader("controlRed.resinresin");
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
