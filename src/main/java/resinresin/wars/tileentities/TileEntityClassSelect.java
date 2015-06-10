@@ -66,16 +66,17 @@ public class TileEntityClassSelect extends TileEntity implements IInventory {
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		return worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
+		return worldObj.getTileEntity(pos) == this && player.getDistanceSq(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) < 64;
 	}
+
 
 	@Override
 	public void readFromNBT(NBTTagCompound tagCompound) {
 		super.readFromNBT(tagCompound);
 
-		NBTTagList tagList = tagCompound.getTagList("Inventory");
+		NBTTagList tagList = tagCompound.getTagList("Inventory", 3);
 		for (int i = 0; i < tagList.tagCount(); i++) {
-			NBTTagCompound tag = (NBTTagCompound) tagList.tagAt(i);
+			NBTTagCompound tag = (NBTTagCompound) tagList.get(i);
 			byte slot = tag.getByte("Slot");
 			if (slot >= 0 && slot < inv.length) {
 				inv[slot] = ItemStack.loadItemStackFromNBT(tag);
@@ -100,33 +101,39 @@ public class TileEntityClassSelect extends TileEntity implements IInventory {
 		tagCompound.setTag("Inventory", itemList);
 	}
 
-	@Override
-	public String getName() {
-		return "tco.tileentitytiny";
-	}
+
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
+	public String getName() {
+		
+		return "tco.tileentitytiny";
+	}
+
+	@Override
 	public boolean hasCustomName() {
+		
 		return false;
 	}
 
 	@Override
 	public IChatComponent getDisplayName() {
+		
 		return null;
 	}
 
 	@Override
 	public void openInventory(EntityPlayer player) {
+		
 	}
 
 	@Override
 	public void closeInventory(EntityPlayer player) {
+		
 	}
 
 	@Override
@@ -136,6 +143,7 @@ public class TileEntityClassSelect extends TileEntity implements IInventory {
 
 	@Override
 	public void setField(int id, int value) {
+		
 	}
 
 	@Override
@@ -145,6 +153,7 @@ public class TileEntityClassSelect extends TileEntity implements IInventory {
 
 	@Override
 	public void clear() {
+		
 	}
 
 }

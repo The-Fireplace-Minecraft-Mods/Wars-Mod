@@ -3,7 +3,7 @@ package resinresin.wars.container;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.WarsMod;
+import resinresin.wars.Warsmod;
 
 public enum GuiType {
 	GUIBUTTON;
@@ -22,7 +22,7 @@ public enum GuiType {
 
 	@SideOnly(Side.SERVER)
 	public void open(EntityPlayer player, int x, int y, int z) {
-		player.openGui(WarsMod.instance, ordinal(), player.worldObj, x, y, z);
+		player.openGui(Warsmod.instance, ordinal(), player.worldObj, x, y, z);
 
 	}
 

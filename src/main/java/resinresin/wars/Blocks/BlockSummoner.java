@@ -28,8 +28,8 @@ public class BlockSummoner extends Block {
 			Random random = new Random();
 			
 			int i = pos.getX();
-			int j = pos.getX();
-			int k = pos.getX();
+			int j = pos.getY();
+			int k = pos.getZ();
 
 			int num = random.nextInt(7);
 

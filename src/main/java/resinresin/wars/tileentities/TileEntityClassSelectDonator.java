@@ -66,16 +66,24 @@ public class TileEntityClassSelectDonator extends TileEntity implements IInvento
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		return worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
+		return worldObj.getTileEntity(pos) == this && player.getDistanceSq(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5) < 64;
+	}
+
+	@Override
+	public void openInventory(EntityPlayer player) {
+	}
+
+	@Override
+	public void closeInventory(EntityPlayer player) {
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound tagCompound) {
 		super.readFromNBT(tagCompound);
 
-		NBTTagList tagList = tagCompound.getTagList("Inventory");
+		NBTTagList tagList = tagCompound.getTagList("Inventory", 3);
 		for (int i = 0; i < tagList.tagCount(); i++) {
-			NBTTagCompound tag = (NBTTagCompound) tagList.tagAt(i);
+			NBTTagCompound tag = (NBTTagCompound) tagList.get(i);
 			byte slot = tag.getByte("Slot");
 			if (slot >= 0 && slot < inv.length) {
 				inv[slot] = ItemStack.loadItemStackFromNBT(tag);
@@ -113,38 +121,38 @@ public class TileEntityClassSelectDonator extends TileEntity implements IInvento
 
 	@Override
 	public boolean hasCustomName() {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public IChatComponent getDisplayName() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void openInventory(EntityPlayer player) {
-	}
-
-	@Override
-	public void closeInventory(EntityPlayer player) {
-	}
-
-	@Override
 	public int getField(int id) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void setField(int id, int value) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public int getFieldCount() {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void clear() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -5,81 +5,82 @@ import java.util.List;
 
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import resinresin.wars.registry.WarsItems;
 
 public class BlockBluePlate extends BlockPressurePlate {
 
-	/** The mob type that can trigger this pressure plate. */
-	@SuppressWarnings("unused")
-	private static EnumMobType triggerMobType;
+	public BlockBluePlate(Material material, Sensitivity sens) {
+		super(material, sens);
 
-	@SuppressWarnings("static-access")
-	public BlockBluePlate(int par1, String par2Str, Material par3Material, EnumMobType par4EnumMobType) {
-		super(par1, par2Str, Material.iron, EnumMobType.players);
-		triggerMobType = par4EnumMobType;
 	}
 
-	private void setStateIfMobInteractsWithPlate(World par1World, int par2, int par3, int par4) {
+	@SuppressWarnings("rawtypes")
+	private void setStateIfMobInteractsWithPlate(World world, BlockPos pos, IBlockState state, int oldRedstoneStrength) {
 
-		boolean var5 = par1World.getBlockMetadata(par2, par3, par4) == 1;
-		boolean var6 = false;
-		float var7 = 0.125F;
-		@SuppressWarnings("rawtypes")
+		int j = this.computeRedstoneStrength(world, pos);
+		boolean flag = oldRedstoneStrength > 0;
+		boolean flag1 = j > 0;
+
 		List var8 = null;
-		var8 = par1World.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getAABBPool().getAABB((double) (par2 + var7), (double) par3, (double) (par4 + var7), (double) (par2 + 1 - var7), par3 + 0.25D, (double) (par4 + 1 - var7)));
+		float var7 = 0.125F;
 
-		if (!var8.isEmpty()) {
-			@SuppressWarnings("rawtypes")
-			Iterator var9 = var8.iterator();
+		BlockPos posMin = new BlockPos(pos.getX() + var7, pos.getY(), pos.getZ() + var7);
+		BlockPos posMax = new BlockPos(pos.getX() + 1 - var7, pos.getY() + 0.25D, pos.getZ() + 1 - var7);
 
-			while (var9.hasNext()) {
-				EntityPlayer var10 = (EntityPlayer) var9.next();
+		AxisAlignedBB boundingBox = new AxisAlignedBB(posMin, posMax);
+		var8 = world.getEntitiesWithinAABB(EntityPlayer.class, boundingBox);
 
-				if (!var10.doesEntityNotTriggerPressurePlate()) {
+		if (oldRedstoneStrength != j) {
+			if (!var8.isEmpty()) {
+				Iterator var9 = var8.iterator();
 
-					ItemStack boots = var10.inventory.armorItemInSlot(0);
-					if (boots != null && boots.itemID == WarsItems.blueBoots.itemID) {
+				while (var9.hasNext()) {
+					EntityPlayer var10 = (EntityPlayer) var9.next();
 
-						var6 = true;
-						break;
+					if (!var10.doesEntityNotTriggerPressurePlate()) {
 
+						ItemStack boots = var10.inventory.armorItemInSlot(0);
+						if (boots != null && boots.getItem() == WarsItems.blueBoots) {
+
+							state = this.setRedstoneStrength(state, j);
+							world.setBlockState(pos, state, 2);
+							this.updateNeighbors(world, pos);
+							world.markBlockRangeForRenderUpdate(pos, pos);
+
+						}
 					}
 				}
 			}
+
 		}
 
-		if (var6 && !var5) {
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 1, 2);
-			par1World.notifyBlocksOfNeighborChange(par2, par3, par4, blockID);
-			par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, blockID);
-			par1World.markBlockRangeForRenderUpdate(par2, par3, par4, par2, par3, par4);
-			par1World.playSoundEffect(par2 + 0.5D, par3 + 0.1D, par4 + 0.5D, "random.click", 0.3F, 0.6F);
+		if (!flag1 && flag) {
+			world.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
+		} else if (flag1 && !flag) {
+			world.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.1D, (double) pos.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
 		}
 
-		if (!var6 && var5) {
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 2);
-			par1World.notifyBlocksOfNeighborChange(par2, par3, par4, blockID);
-			par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, blockID);
-			par1World.markBlockRangeForRenderUpdate(par2, par3, par4, par2, par3, par4);
-			par1World.playSoundEffect(par2 + 0.5D, par3 + 0.1D, par4 + 0.5D, "random.click", 0.3F, 0.5F);
-		}
-
-		if (var6) {
-			par1World.scheduleBlockUpdate(par2, par3, par4, blockID, tickRate(par1World));
+		if (flag1) {
+			world.scheduleUpdate(pos, this, this.tickRate(world));
 		}
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity) {
-		if (!par1World.isRemote) {
-			if (par1World.getBlockMetadata(par2, par3, par4) != 1) {
-				setStateIfMobInteractsWithPlate(par1World, par2, par3, par4);
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entityIn) {
+		if (!world.isRemote) {
+
+			int i = this.getRedstoneStrength(state);
+			if (i == 0) {
+				this.setStateIfMobInteractsWithPlate(world, pos, state, i);
 			}
+
 		}
 	}
 

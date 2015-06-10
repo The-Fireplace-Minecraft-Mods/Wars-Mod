@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import resinresin.wars.WarsMod;
+import resinresin.wars.Warsmod;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
@@ -121,16 +121,16 @@ public class GuiSpleefSelect extends GuiScreen {
 
 	protected void actionPerformed(GuiButton guibutton) {
 		// id is the id you give your button
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeByte(guibutton.id);
-
-		out.writeInt(x);
-
-		out.writeInt(y);
-
-		out.writeInt(z);
-
-		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 12, out.toByteArray()));
+//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+//		out.writeByte(guibutton.id);
+//
+//		out.writeInt(x);
+//
+//		out.writeInt(y);
+//
+//		out.writeInt(z);
+//
+//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 12, out.toByteArray()));
 
 		switch (guibutton.id) {
 		case 1:

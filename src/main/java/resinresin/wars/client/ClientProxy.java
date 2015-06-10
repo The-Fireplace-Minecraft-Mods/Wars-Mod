@@ -11,17 +11,31 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.ServerList;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import org.lwjgl.input.Keyboard;
+
 import resinresin.wars.CommonProxy;
 import resinresin.wars.client.gui.GuiTeamSelect;
-import resinresin.wars.entities.EntityPTNTPrimed;
+import resinresin.wars.handlers.WarsTickEventHandler;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 
-	public static WarsKeyHandler wkh = new WarsKeyHandler();
+	public static KeyBinding toggleHUD;
+
+	public static boolean guiVisible = true;
+
+	public static int totalKills;
+	public static int killStreak;
+	public static int redPlayers;
+	public static int bluePlayers;
+	public static int greenPlayers;
+	public static int yellowPlayers;
 
 	@SuppressWarnings("rawtypes")
 	public static List donators;
@@ -30,9 +44,8 @@ public class ClientProxy extends CommonProxy {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void registerRenderInformation() // This is why you needed the server
-											// side
-	{
+	public void registerRenderInformation() {
+
 		donators = new ArrayList<String>();
 
 		try {
@@ -51,12 +64,21 @@ public class ClientProxy extends CommonProxy {
 			e.printStackTrace();
 		}
 
-		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
+		// TickRegistry.registerTickHandler(new ClientTickEventHandler(),
+		// Side.CLIENT);
+		WarsTickEventHandler clienttickhandler = new WarsTickEventHandler();
+		MinecraftForge.EVENT_BUS.register(clienttickhandler);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed());
+		WarsKeyEventHandler clientkeyhandler = new WarsKeyEventHandler();
+		MinecraftForge.EVENT_BUS.register(clientkeyhandler);
 
-		KeyBindingRegistry.registerKeyBinding(wkh);
+		//RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed());
 
+		toggleHUD = new KeyBinding("key.toggleHUD", Keyboard.KEY_B, "key.categories.warsmod");
+		ClientRegistry.registerKeyBinding(toggleHUD);
+
+		// Automatically adds official server to servers list
+		// TODO turn this into a button
 		ServerList list = new ServerList(Minecraft.getMinecraft());
 		list.loadServerList();
 		boolean found = false;
@@ -72,55 +94,25 @@ public class ClientProxy extends CommonProxy {
 
 		}
 		list.saveServerList();
+
 	}
 
-	public static int killstreak;
-
 	@Override
-	public void handleKillstreak(int killstreak) {
+	public void handleKillData(int totalKills, int killStreak) {
 
-		ClientProxy.killstreak = killstreak;
+		ClientProxy.totalKills = totalKills;
+		ClientProxy.killStreak = killStreak;
+
 	}
 
-	public static int warsmod_totalKill;
-
 	@Override
-	public void handleTotalKill(int warsmod_totalKill) {
-
-		ClientProxy.warsmod_totalKill = warsmod_totalKill;
-	}
-
-	public static int redPlayers;
-
-	@Override
-	public void handleRedPlayers(int redPlayers) {
+	public void handleTeams(int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
 
 		ClientProxy.redPlayers = redPlayers;
-
-	}
-
-	public static int bluePlayers;
-
-	@Override
-	public void handleBluePlayers(int bluePlayers) {
-
-		ClientProxy.bluePlayers = bluePlayers;
-
-	}
-
-	public static int greenPlayers;
-
-	@Override
-	public void handleGreenPlayers(int greenPlayers) {
-
 		ClientProxy.greenPlayers = greenPlayers;
-	}
-
-	public static int yellowPlayers;
-
-	@Override
-	public void handleYellowPlayers(int yellowPlayers) {
+		ClientProxy.bluePlayers = bluePlayers;
 		ClientProxy.yellowPlayers = yellowPlayers;
+
 	}
 
 	public void closeOpenGui() {

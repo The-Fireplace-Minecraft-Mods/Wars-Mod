@@ -1,9 +1,8 @@
 tile.ancientBlock.name=Ancient Block
-tile.tutorialBlock.nether.name=Nether Tutorial Block
+tile.tutorialBlock.name=Nether Tutorial Block
 tile.portalTutorialBlock.name=Portal Tutorial Block
  
 item.tutorialItem.first.name=First Tutorial Item
 item.tutorialItem.second.name=Second Tutorial Item
  
 entity.yourname_modname.tutorial mob.name=Tutorial Mob
-- See more at: http://www.wuppy29.com/minecraft/modding-tutorials/wuppys-minecraft-forge-modding-tutorials-for-1-7-updating-1-6-to-1-7-part-2-names/#sthash.zs1a5MZq.dpuf

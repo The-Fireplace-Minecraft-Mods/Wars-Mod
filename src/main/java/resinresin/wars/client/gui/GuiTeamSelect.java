@@ -3,17 +3,8 @@ package resinresin.wars.client.gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import resinresin.wars.WarsMod;
 import resinresin.wars.client.ClientProxy;
 
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-/**
- *
- * @author resinresin
- * @author The_Fireplace
- *
- */
 public class GuiTeamSelect extends GuiScreen {
 
 	public String[] colors = new String[] { "red", "blue", "green", "purple", "black" };
@@ -36,7 +27,6 @@ public class GuiTeamSelect extends GuiScreen {
 
 	}
 
-	@Override
 	protected void keyTyped(char par1, int par2) {
 	}
 
@@ -49,15 +39,15 @@ public class GuiTeamSelect extends GuiScreen {
 	/** The Y size of the inventory window in pixels. */
 	protected int ySize = 166;
 
-	int guiLeft = (width - xSize) / 2;
-	int guiTop = (height - ySize) / 2;
+	int guiLeft = (this.width - this.xSize) / 2;
+	int guiTop = (this.height - this.ySize) / 2;
 
 	@Override
 	public void drawScreen(int x, int y, float f) {
 		drawDefaultBackground();
 
-		int posX = (width - xSizeOfTexture) / 2;
-		int posY = (height - ySizeOfTexture) / 2;
+		int posX = (this.width - xSizeOfTexture) / 2;
+		int posY = (this.height - ySizeOfTexture) / 2;
 
 		drawString(fontRendererObj, title, posX + 20, posY + 30, colorsHex[colorIndex]);
 
@@ -76,9 +66,8 @@ public class GuiTeamSelect extends GuiScreen {
 		super.drawScreen(x, y, f);
 	}
 
-	@Override
 	public void drawDefaultBackground() {
-		drawWorldBackground(0);
+		this.drawWorldBackground(0);
 	}
 
 	@Override
@@ -93,8 +82,8 @@ public class GuiTeamSelect extends GuiScreen {
 		PieChartRendering.buildEntries();
 		// make buttons
 
-		int posX = (width - xSizeOfTexture) / 2;
-		int posY = (height - ySizeOfTexture) / 2;
+		int posX = (this.width - xSizeOfTexture) / 2;
+		int posY = (this.height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
 
 		buttonList.add(new GuiButton(1, posX + 0, posY + 54, 52, 20, redText));
@@ -107,18 +96,10 @@ public class GuiTeamSelect extends GuiScreen {
 
 	}
 
-	@Override
 	protected void actionPerformed(GuiButton guibutton) {
-		// id is the id you give your button
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeByte(guibutton.id);
-		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 5, out.toByteArray()));
 
 		switch (guibutton.id) {
 		case 1:
-			ByteArrayDataOutput out5 = ByteStreams.newDataOutput();
-			out5.writeByte(1);
-			PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 15, out5.toByteArray()));
 
 			if (ClientProxy.redPlayers > ClientProxy.greenPlayers && ClientProxy.redPlayers > ClientProxy.yellowPlayers && ClientProxy.redPlayers > ClientProxy.bluePlayers) {
 
@@ -132,9 +113,6 @@ public class GuiTeamSelect extends GuiScreen {
 
 			break;
 		case 2:
-			ByteArrayDataOutput out2 = ByteStreams.newDataOutput();
-			out2.writeByte(1);
-			PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 15, out2.toByteArray()));
 
 			if (ClientProxy.greenPlayers > ClientProxy.redPlayers && ClientProxy.greenPlayers > ClientProxy.yellowPlayers && ClientProxy.greenPlayers > ClientProxy.bluePlayers) {
 
@@ -146,9 +124,6 @@ public class GuiTeamSelect extends GuiScreen {
 
 			break;
 		case 3:
-			ByteArrayDataOutput out3 = ByteStreams.newDataOutput();
-			out3.writeByte(3);
-			PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 15, out3.toByteArray()));
 
 			if (ClientProxy.bluePlayers > ClientProxy.redPlayers && ClientProxy.bluePlayers > ClientProxy.yellowPlayers && ClientProxy.bluePlayers > ClientProxy.greenPlayers) {
 
@@ -162,9 +137,6 @@ public class GuiTeamSelect extends GuiScreen {
 
 			break;
 		case 4:
-			ByteArrayDataOutput out4 = ByteStreams.newDataOutput();
-			out4.writeByte(1);
-			PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 15, out4.toByteArray()));
 
 			if (ClientProxy.yellowPlayers > ClientProxy.greenPlayers && ClientProxy.yellowPlayers > ClientProxy.redPlayers && ClientProxy.yellowPlayers > ClientProxy.bluePlayers) {
 
@@ -178,7 +150,7 @@ public class GuiTeamSelect extends GuiScreen {
 			break;
 		case 5:
 
-			mc.thePlayer.closeScreen();
+			this.mc.thePlayer.closeScreen();
 
 			break;
 		case 6:
@@ -188,16 +160,10 @@ public class GuiTeamSelect extends GuiScreen {
 			blueText = "\u00a79Blue " + "(" + ClientProxy.bluePlayers + ")";
 			yellowText = "\u00a76Yellow " + "(" + ClientProxy.yellowPlayers + ")";
 
-			ByteArrayDataOutput out1 = ByteStreams.newDataOutput();
-			out1.writeByte(1);
-			PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 15, out1.toByteArray()));
-
-			buttonList.clear();
-			initGui();
+			this.buttonList.clear();
+			this.initGui();
 		}
 
-		// Packet code here
-		// PacketDispatcher.sendPacketToServer(packet); //send packet
 	}
 
 }

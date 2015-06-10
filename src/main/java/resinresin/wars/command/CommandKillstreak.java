@@ -1,13 +1,15 @@
 package resinresin.wars.command;
 
 import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 
 public class CommandKillstreak extends CommandBase {
 
 	@Override
-	public String getCommandName() {
+	public String getName() {
 		return "mykills"; // Name of the command e.g "/Test", "/Command"
 	}
 
@@ -16,16 +18,21 @@ public class CommandKillstreak extends CommandBase {
         return 0;
     }
 
+    @Override
+	public int getRequiredPermissionLevel() {
+		return 4;
+	}
+
 
 	@Override
-	public void processCommand(ICommandSender var1, String[] var2) {
+	public void execute(ICommandSender sender, String[] args) throws CommandException {
 
-		if (var1 instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) var1;
+		if (sender instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) sender;
 
 			int killForPlayer = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 
-			player.addChatMessage("" + killForPlayer);
+			player.addChatMessage(new ChatComponentText("" + killForPlayer));
 
 		}
 

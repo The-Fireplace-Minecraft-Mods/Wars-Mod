@@ -1,47 +1,48 @@
 package resinresin.wars.command;
 
+import ibxm.Player;
 import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.network.packet.Packet;
-import resinresin.wars.WarsMod;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.network.Packet;
+import resinresin.wars.Warsmod;
+import resinresin.wars.packet.PacketKills;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
-import cpw.mods.fml.common.network.PacketDispatcher;
-import cpw.mods.fml.common.network.Player;
-
 public class CommandTotalKills extends CommandBase {
 
 	@Override
-	public String getCommandName() {
+	public String getName() {
 		return "unlockall"; // Name of the command e.g "/Test", "/Command"
 	}
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
-
+	@Override
+	public int compareTo(Object o) {
+		return 0;
+	}
 
 	@Override
-	public void processCommand(ICommandSender var1, String[] var2) {
-		EntityPlayer player = (EntityPlayer) var1;
+	public int getRequiredPermissionLevel() {
+		return 4;
+	}
+
+	@Override
+	public void execute(ICommandSender sender, String[] args) throws CommandException {
+		EntityPlayer player = (EntityPlayer) sender;
 
 		player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_totalKill", 400);
 
-		int warsmod_totalKill = ((EntityPlayer) var1).getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
+		int warsmod_totalKill = ((EntityPlayer) sender).getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 
 		warsmod_totalKill = 1000;
 
-		((EntityPlayer) var1).getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_totalKill", warsmod_totalKill);
+		((EntityPlayer) sender).getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_totalKill", warsmod_totalKill);
 
-		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		out.writeInt(warsmod_totalKill);
-		Packet packet = PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 3, out.toByteArray());
-		PacketDispatcher.sendPacketToPlayer(packet, (Player) player);
-
+		Warsmod.network.sendTo(new PacketKills(warsmod_totalKill, warsmod_totalKill), (EntityPlayerMP) sender);
 	}
 
 	@Override

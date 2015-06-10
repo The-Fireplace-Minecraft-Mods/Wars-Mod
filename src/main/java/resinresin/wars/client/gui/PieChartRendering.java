@@ -9,6 +9,7 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.WorldRenderer;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -185,6 +186,7 @@ public final class PieChartRendering {
 		GL11.glPopMatrix();
 	}
 
+	
 	private static void drawGradientRect(int par1, int par2, float z, int par3, int par4, int par5, int par6) {
 		float var7 = (par5 >> 24 & 255) / 255.0F;
 		float var8 = (par5 >> 16 & 255) / 255.0F;
@@ -199,15 +201,15 @@ public final class PieChartRendering {
 		GL11.glDisable(GL11.GL_ALPHA_TEST);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
-		Tessellator var15 = Tessellator.getInstance();
-		var15.startDrawingQuads();
-		var15.setColorRGBA_F(var8, var9, var10, var7);
-		var15.addVertex(par3, par2, z);
-		var15.addVertex(par1, par2, z);
-		var15.setColorRGBA_F(var12, var13, var14, var11);
-		var15.addVertex(par1, par4, z);
-		var15.addVertex(par3, par4, z);
-		var15.draw();
+		WorldRenderer worldRenderer = Tessellator.getInstance().getWorldRenderer();
+		worldRenderer.startDrawingQuads();
+		worldRenderer.setColorRGBA_F(var8, var9, var10, var7);
+		worldRenderer.addVertex(par3, par2, z);
+		worldRenderer.addVertex(par1, par2, z);
+		worldRenderer.setColorRGBA_F(var12, var13, var14, var11);
+		worldRenderer.addVertex(par1, par4, z);
+		worldRenderer.addVertex(par3, par4, z);
+		Tessellator.getInstance().draw();
 		GL11.glShadeModel(GL11.GL_FLAT);
 		GL11.glDisable(GL11.GL_BLEND);
 		GL11.glEnable(GL11.GL_ALPHA_TEST);

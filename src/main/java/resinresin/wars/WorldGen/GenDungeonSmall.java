@@ -3,6 +3,7 @@ package resinresin.wars.WorldGen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
@@ -10,6 +11,7 @@ import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import resinresin.wars.Warsmod;
 import resinresin.wars.registry.WarsItems;
 
 public class GenDungeonSmall extends WorldGenerator {
@@ -18,27 +20,40 @@ public class GenDungeonSmall extends WorldGenerator {
 
 	resinresinLoader dungS = new resinresinLoader("dungS.resinresin");
 
-	@Override
 	public boolean generate(World world, Random rand, BlockPos pos) {
-		int bID = 2; /*
-		 * 2 is the block id for grass, so the structure going to
-		 * spawn on grass
-		 */
-		if (world.getBlockId(i, j, k) != bID || world.getBlockId(i, j + 1, k) != 0 || world.getBlockId(i + 7, j, k) != bID || world.getBlockId(i + 7, j, k + 7) != bID || world.getBlockId(i, j, k + 7) != bID || world.getBlockId(i + 7, j + 1, k) != 0 || world.getBlockId(i + 7, j + 1, k + 7) != 0 || world.getBlockId(i, j + 1, k + 7) != 0) {
+		
+		Block grass = Blocks.grass; 
+
+		int i = pos.getX();
+		int j = pos.getX();
+		int k = pos.getX();
+					
+		BlockPos posCheck1 = new BlockPos(i, j + 1, k);
+		BlockPos posCheck2 = new BlockPos(i + 7, j, k);
+		BlockPos posCheck3 = new BlockPos(i + 7, j, k + 7);
+		BlockPos posCheck4 = new BlockPos(i, j, k + 7);
+		BlockPos posCheck5 = new BlockPos(i + 7, j + 1, k);
+		BlockPos posCheck6 = new BlockPos(i + 7, j + 1, k + 7);
+		BlockPos posCheck7 = new BlockPos(i, j + 1, k + 7);
+		
+		if (world.getBlockState(pos) != grass || world.getBlockState(posCheck1) != grass || world.getBlockState(posCheck2) != grass || world.getBlockState(posCheck3) != grass || world.getBlockState(posCheck4) != grass || world.getBlockState(posCheck5) != grass || world.getBlockState(posCheck6) != grass || world.getBlockState(posCheck7) != grass) {
 			return false;
 		}
 
 		dungS.generate(world, i + 0, j - 55, k + 0, true);
 
-		world.setBlock(i + 3, j - 53, k + 3, Block.mobSpawner.blockID, 2, 2);
-		TileEntityMobSpawner var19 = (TileEntityMobSpawner) world.getBlockTileEntity(i + 3, j - 53, k + 3);
+		Warsmod.generateBlock(world, i + 3, j - 53, k + 3, Blocks.mob_spawner);
+		BlockPos spawnerPos = new BlockPos(i + 3, j - 53, k + 3);
+		TileEntityMobSpawner var19 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos);
 		if (var19 != null) {
-			var19.getSpawnerLogic().setMobID(pickMobSpawner(rand));
+			var19.getSpawnerBaseLogic().setEntityName("Blaze");
 		}
 
-		world.setBlock(i + 3, j - 52, k + 3, Block.chest.blockID, 2, 2);
+		Warsmod.generateBlock(world, i + 3, j - 52, k + 3, Blocks.chest);
 		TileEntityChest chest2 = new TileEntityChest();
-		world.setBlockTileEntity(i + 3, j - 52, k + 3, chest2);
+		BlockPos chestPos = new BlockPos(i + 3, j - 52, k + 3);
+		world.setTileEntity(chestPos, chest2);
+		
 		Random random = new Random();
 		for (int slot = 0; slot < chest2.getSizeInventory(); slot++) {
 			int num = random.nextInt(80);
@@ -93,9 +108,5 @@ public class GenDungeonSmall extends WorldGenerator {
 		return true;
 	}
 
-	private String pickMobSpawner(Random par1Random) {
-		int var2 = par1Random.nextInt(4);
-		return var2 == 0 ? "Blaze" : (var2 == 1 ? "Blaze" : (var2 == 2 ? "Blaze" : (var2 == 3 ? "Blaze" : "")));
-	}
 
 }

@@ -12,14 +12,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
-import resinresin.wars.WarsMod;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import resinresin.wars.Warsmod;
 import resinresin.wars.registry.WarsBlocks;
 
 import com.google.common.collect.Multimap;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemKnightSword extends Item {
 
@@ -27,7 +27,7 @@ public class ItemKnightSword extends Item {
 
 	public ItemKnightSword() {
 		super();
-		this.setCreativeTab(WarsMod.tabWarsClasses);
+		this.setCreativeTab(Warsmod.tabWarsClasses);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(300);
 		this.weaponDamage = 4F;
@@ -41,7 +41,7 @@ public class ItemKnightSword extends Item {
     
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 		if (player instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.knightArmor)) {
-			player.addChatMessage("\u00a74DONT CHEAT! \u00a72Wear The Knight Armour (which you must put on in survival)");
+			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Knight Armour (which you must put on in survival)"));
 			stack.stackSize = 0;
 
 		}
@@ -64,11 +64,11 @@ public class ItemKnightSword extends Item {
 	 * (Quality+1)*2 if correct blocktype, 1.5F if sword
 	 */
 	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
-		return par2Block.blockID != WarsBlocks.sumBlock.blockID ? 0.9F : 15F;
+		return par2Block != WarsBlocks.sumBlock ? 0.9F : 15F;
 	}
 
 	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.block;
+		return EnumAction.BLOCK;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -91,7 +91,7 @@ public class ItemKnightSword extends Item {
 	public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", (double)this.weaponDamage, 0));
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", (double)this.weaponDamage, 0));
         return multimap;
     }
 }

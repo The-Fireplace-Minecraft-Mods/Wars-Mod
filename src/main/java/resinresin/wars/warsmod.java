@@ -12,8 +12,10 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.StatCollector;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -22,10 +24,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import resinresin.wars.WorldGen.BiomeGenExtremeBattlefield;
 import resinresin.wars.WorldGen.BiomeGenWasteland;
@@ -35,6 +39,18 @@ import resinresin.wars.entities.EntityPTNTPrimed;
 import resinresin.wars.events.FMLEvents;
 import resinresin.wars.events.ForgeEvents;
 import resinresin.wars.handlers.GuiHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import resinresin.wars.WorldGen.WarsWorldGenerator;
+import resinresin.wars.handlers.GuiHandler;
+import resinresin.wars.handlers.WarsEventHandler;
+import resinresin.wars.handlers.WarsPlayerEventHandler;
+import resinresin.wars.handlers.WarsTickEventHandler;
+import resinresin.wars.packet.PacketClassSelected;
+import resinresin.wars.packet.PacketKills;
+import resinresin.wars.packet.PacketOpenTeamSelect;
+import resinresin.wars.packet.PacketSpawnStructure;
+import resinresin.wars.packet.PacketTeamSelected;
+import resinresin.wars.packet.PacketTeams;
 import resinresin.wars.registry.CraftingRecipes;
 import resinresin.wars.registry.WarsBlocks;
 import resinresin.wars.registry.WarsDungeonChests;
@@ -58,6 +74,7 @@ public class WarsMod {
 
 	@SidedProxy(clientSide = "resinresin.wars.client.ClientProxy", serverSide = "resinresin.wars.CommonProxy")
 	public static CommonProxy proxy;
+	public static SimpleNetworkWrapper network;
 
 	public static List donators;
 	public static final CreativeTabs tabWarsBlocks = new WarsBlocksTab("tabWarsItems");
@@ -90,7 +107,19 @@ public class WarsMod {
 		syncConfig();
 		WarsBlocks.createBlocks();
 		WarsItems.createItems();
+		
+		network = NetworkRegistry.INSTANCE.newSimpleChannel("WarsChannel");
+		
+		network.registerMessage(PacketSpawnStructure.Handler.class, PacketSpawnStructure.class, 0, Side.SERVER);
+		network.registerMessage(PacketTeamSelected.Handler.class, PacketTeamSelected.class, 1, Side.SERVER);
+		network.registerMessage(PacketClassSelected.Handler.class, PacketClassSelected.class, 2, Side.SERVER);
+		
+		
+	    network.registerMessage(PacketKills.Handler.class, PacketKills.class, 3, Side.CLIENT);
+	    network.registerMessage(PacketTeams.Handler.class, PacketTeams.class, 4, Side.CLIENT);
+	    network.registerMessage(PacketOpenTeamSelect.Handler.class, PacketOpenTeamSelect.class, 5, Side.CLIENT);
 
+		// Donation Handling
 		donators = new ArrayList<String>();
 		try {
 			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");
@@ -105,16 +134,23 @@ public class WarsMod {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//proxy.capesInit();
 	}
+
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void InitiateModWars(FMLInitializationEvent initEvent) {
+		// Register Recipes
 		CraftingRecipes.registerRecipes();
+		// Dungeon Chest Item Hooks
 		WarsDungeonChests.doDungeonChestHooks();
+
+		// Add TileEntities
 		WarsTileEntities.createTileEntities();
 
 		FMLCommonHandler.instance().bus().register(new FMLEvents());
 		MinecraftForge.EVENT_BUS.register(new ForgeEvents());
+		MinecraftForge.EVENT_BUS.register(new WarsEventHandler());
+		MinecraftForge.EVENT_BUS.register(new WarsPlayerEventHandler());
+		MinecraftForge.EVENT_BUS.register(new WarsTickEventHandler());
 
 		GameRegistry.registerWorldGenerator(new WarsWorldGenerator(), 0);
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
@@ -127,16 +163,25 @@ public class WarsMod {
 			GameRegistry.addBiome(waste);
 			GameRegistry.addBiome(EXbattlefield);
 		}
-		//TODO: remove global entity ID
-		int entityIdPTNT = EntityRegistry.findGlobalUniqueEntityId();
-		EntityRegistry.registerGlobalEntityID(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT);
-		EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT, WarsMod.instance, 16, 1, false);//Nothing should use an update rate of 1, look at TNT for the correct frequency
-
-		proxy.registerRenderInformation();
+		// Register PTNT Entity (here still as there is only one)
+		//int entityIdPTNT = EntityRegistry.findGlobalUniqueEntityId();
+		//EntityRegistry.registerGlobalEntityID(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT);
+		//EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT, Warsmod.instance, 16, 1, false);
 	}
 
+	// Used to help with 1.8 update (replaces setBlock)
 	public static void generateBlock(World par1World, int i, int j, int k, Block block) {
+
 		BlockPos position = new BlockPos(i, j, k);
 		par1World.setBlockState(position, block.getDefaultState());
+
+	}
+	
+	// Used to help with 1.8 update (replaces setBlock)
+	public static void generateBlockWithMeta(World par1World, int i, int j, int k, IBlockState state) {
+
+		BlockPos position = new BlockPos(i, j, k);
+		par1World.setBlockState(position, state);
+
 	}
 }

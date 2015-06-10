@@ -2,8 +2,8 @@ package resinresin.wars.handlers;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import resinresin.wars.WorldGen.structure.basic.GenBlueCastle;
 import resinresin.wars.WorldGen.structure.basic.GenControlTower;
 import resinresin.wars.WorldGen.structure.basic.GenGlassDome;
@@ -31,6 +31,8 @@ import resinresin.wars.WorldGen.structure.spleef.GenNetherSpleefSmall;
 
 public class StructureSpawning {
 
+	
+	//handles what structure should be spawned based on what packet was received. There are 6 structure per GUI over 4 GUI's
 	public StructureSpawning(EntityPlayer player, int type, int structure, int i, int j, int k) {
 
 		switch (type) {
@@ -38,7 +40,7 @@ public class StructureSpawning {
 		case 1:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (MinecraftServer.getServerConfigurationManager(playerMP.mcServer).isPlayerOpped(playerMP.username)) {
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands((playerMP).getGameProfile())) {
 
 					switch (structure) {
 
@@ -75,7 +77,7 @@ public class StructureSpawning {
 
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (MinecraftServer.getServerConfigurationManager(playerMP.mcServer).isPlayerOpped(playerMP.username)) {
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands((playerMP).getGameProfile())) {
 
 					switch (structure) {
 
@@ -112,7 +114,7 @@ public class StructureSpawning {
 		case 3:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (MinecraftServer.getServerConfigurationManager(playerMP.mcServer).isPlayerOpped(playerMP.username)) {
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands((playerMP).getGameProfile())) {
 
 					switch (structure) {
 
@@ -147,7 +149,7 @@ public class StructureSpawning {
 		case 4:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (MinecraftServer.getServerConfigurationManager(playerMP.mcServer).isPlayerOpped(playerMP.username)) {
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands((playerMP).getGameProfile())) {
 
 					switch (structure) {
 

@@ -5,36 +5,39 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import resinresin.wars.WarsMod;
+import resinresin.wars.Warsmod;
 import resinresin.wars.registry.WarsItems;
-/**
- *
- * @author resinresin
- * @author The_Fireplace
- *
- */
+
 public class BlockPresentBox extends Block {
 
 	public BlockPresentBox() {
 		super(Material.iron);
-		setTickRandomly(true);
-		setCreativeTab(WarsMod.tabWarsBlocks);
+		this.setTickRandomly(true);
+		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
-
 	@Override
-	public void updateTick(World par1World, BlockPos pos, IBlockState state, Random par5Random) {
-		if (!par1World.isRemote) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+		if (!world.isRemote) {
+			
+			int i = pos.getX();
+			int j = pos.getY();
+			int k = pos.getZ();
 
-			par1World.setBlock(i + 0, j + 1, k + 0, Block.chest.blockID, 2, 2);
+			Warsmod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.chest);
 			TileEntityChest chest2 = new TileEntityChest();
 
-			par1World.setBlockTileEntity(i + 0, j + 1, k + 0, chest2);
+			
+			BlockPos chestPos = new BlockPos(i, j + 1, k);
+			
+			world.setTileEntity(chestPos, chest2);
+			
 
 			Random random = new Random();
 
@@ -113,8 +116,8 @@ public class BlockPresentBox extends Block {
 
 				}
 
-				par1World.setBlock(i + 0, j + 1, k + 0, Block.stone.blockID, 2, 2);
-				par1World.setBlock(i + 0, j + 1, k + 0, 0, 2, 2);
+				Warsmod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.stone);
+				Warsmod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.air);
 
 			}
 			return;
