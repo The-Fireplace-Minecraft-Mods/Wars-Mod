@@ -12,9 +12,12 @@ import resinresin.wars.WarsMod;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-
-import cpw.mods.fml.common.network.PacketDispatcher;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class GuiGameSelect extends GuiScreen {
 
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/gameBuildings.png");
@@ -38,16 +41,16 @@ public class GuiGameSelect extends GuiScreen {
 	public GuiGameSelect(EntityPlayer player, TileEntity tile) {
 		// the container is instanciated and passed to the superclass for
 		// handling
-		this.x = tile.xCoord;
-		this.y = tile.yCoord;
-		this.z = tile.zCoord;
+		x = tile.getPos().getX();
+		y = tile.getPos().getY();
+		z = tile.getPos().getZ();
 
 	}
 
 	@Override
 	protected void keyTyped(char par1, int par2) {
-		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.keyCode) {
-			this.mc.thePlayer.closeScreen();
+		if (par2 == 1 || par2 == mc.gameSettings.keyBindInventory.getKeyCode()) {
+			mc.thePlayer.closeScreen();
 		}
 	}
 
@@ -66,29 +69,29 @@ public class GuiGameSelect extends GuiScreen {
 	/** The Y size of the inventory window in pixels. */
 	protected int ySize = 166;
 
-	int guiLeft = (this.width - this.xSize) / 2;
-	int guiTop = (this.height - this.ySize) / 2;
+	int guiLeft = (width - xSize) / 2;
+	int guiTop = (height - ySize) / 2;
 
 	@Override
 	public void drawScreen(int x, int y, float f) {
 		drawDefaultBackground();
 
-		this.mc.renderEngine.bindTexture(textureLocation);
+		mc.renderEngine.bindTexture(textureLocation);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		drawTexturedModalRect(posX, posY, 0, 0, xSizeOfTexture, ySizeOfTexture);
 
-		this.mc.renderEngine.bindTexture(textureLocation2);
+		mc.renderEngine.bindTexture(textureLocation2);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		drawTexturedModalRect(posX + 250, posY + 15, 0, 0, xSizeOfTexture2, ySizeOfTexture2);
 
-		drawString(fontRenderer, title, posX + 252, posY + 20, 0x6A5ACD);
+		drawString(fontRendererObj, title, posX + 252, posY + 20, 0x6A5ACD);
 
-		drawString(fontRenderer, sizeHeight, posX + 254, posY + 130, 0xFF6600);
-		drawString(fontRenderer, sizeArea, posX + 254, posY + 140, 0xFF6600);
+		drawString(fontRendererObj, sizeHeight, posX + 254, posY + 130, 0xFF6600);
+		drawString(fontRendererObj, sizeArea, posX + 254, posY + 140, 0xFF6600);
 
-		fontRenderer.drawSplitString(info, posX + 252, posY + 30, 80, 7);
+		fontRendererObj.drawSplitString(info, posX + 252, posY + 30, 80, 7);
 
 		super.drawScreen(x, y, f);
 	}
@@ -104,8 +107,8 @@ public class GuiGameSelect extends GuiScreen {
 		super.initGui();
 		// make buttons
 
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
 		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, "Generate"));
 		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, "Generate"));
@@ -141,26 +144,26 @@ public class GuiGameSelect extends GuiScreen {
 
 		switch (guibutton.id) {
 		case 1:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 
 		case 2:
 
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 
 			break;
 
 		case 3:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 		case 4:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 		case 5:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 		case 6:
-			this.mc.thePlayer.closeScreen();
+			mc.thePlayer.closeScreen();
 			break;
 
 		case 7:

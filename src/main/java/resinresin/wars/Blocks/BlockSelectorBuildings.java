@@ -10,7 +10,12 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.tileentities.TileEntityBuildingStructures;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class BlockSelectorBuildings extends BlockContainer {
 
 	public BlockSelectorBuildings() {
@@ -18,14 +23,14 @@ public class BlockSelectorBuildings extends BlockContainer {
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	
+
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int x = pos.getX();
 		int y = pos.getX();
 		int z = pos.getX();
-		
+
 		TileEntity tile_entity = world.getTileEntity(pos);
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
@@ -35,7 +40,7 @@ public class BlockSelectorBuildings extends BlockContainer {
 	}
 
 	@Override
-	public boolean hasTileEntity(int meta) {
+	public boolean hasTileEntity() {
 		return true;
 	}
 
@@ -44,16 +49,16 @@ public class BlockSelectorBuildings extends BlockContainer {
 		return new TileEntityBuildingStructures();
 	}
 
-	// resinresinLoader guardHut = new resinresinLoader("guardHut.resinresin");
-	// public boolean onBlockActivated(World par1World, int i, int j, int k,
-	// EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float
-	// par9)
-	// {
-	//
-	//
-	// guardHut.generate(par1World, i - 2, j - 4, k - 2, true);
-	// return blockConstructorCalled;
-	//
-	//
-	// }
+	/* resinresinLoader guardHut = new resinresinLoader("guardHut.resinresin");
+	 public boolean onBlockActivated(World par1World, int i, int j, int k,
+	 EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float
+	 par9)
+	 {
+
+
+	 guardHut.generate(par1World, i - 2, j - 4, k - 2, true);
+	 return blockConstructorCalled;
+
+
+	}*/
 }

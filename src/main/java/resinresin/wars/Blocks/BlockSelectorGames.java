@@ -10,7 +10,12 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.tileentities.TileEntityGameStructures;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class BlockSelectorGames extends BlockContainer {
 
 	public BlockSelectorGames() {
@@ -24,7 +29,7 @@ public class BlockSelectorGames extends BlockContainer {
 		int x = pos.getX();
 		int y = pos.getX();
 		int z = pos.getX();
-		
+
 		TileEntity tile_entity = world.getTileEntity(pos);
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
@@ -34,7 +39,7 @@ public class BlockSelectorGames extends BlockContainer {
 	}
 
 	@Override
-	public boolean hasTileEntity(int meta) {
+	public boolean hasTileEntity() {
 		return true;
 	}
 
@@ -43,19 +48,19 @@ public class BlockSelectorGames extends BlockContainer {
 		return new TileEntityGameStructures();
 	}
 
-	// resinresinLoader chestParkour = new
-	// resinresinLoader("chestParkour.resinresin");
-	// public boolean onBlockActivated(World par1World, int i, int j, int k,
-	// EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float
-	// par9)
-	// {
-	//
-	//
-	// chestParkour.generate(par1World, i - 7, j - 0, k - 7, true);
-	// chestParkour.generate(par1World, i - 7, j - 0, k - 7, true);
-	// return blockConstructorCalled;
-	//
-	//
-	// }
+	/* resinresinLoader chestParkour = new
+	 resinresinLoader("chestParkour.resinresin");
+	 public boolean onBlockActivated(World par1World, int i, int j, int k,
+	 EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float
+	 par9)
+	 {
+
+
+	 chestParkour.generate(par1World, i - 7, j - 0, k - 7, true);
+	 chestParkour.generate(par1World, i - 7, j - 0, k - 7, true);
+	 return blockConstructorCalled;
+
+
+	 }*/
 
 }

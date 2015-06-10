@@ -1,9 +1,9 @@
 package resinresin.wars.container;
 
-import resinresin.wars.WarsMod;
 import net.minecraft.entity.player.EntityPlayer;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import resinresin.wars.WarsMod;
 
 public enum GuiType {
 	GUIBUTTON;

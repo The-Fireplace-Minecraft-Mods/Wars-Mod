@@ -10,7 +10,12 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.tileentities.TileEntityClassSelectDonator;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class BlockClassSelectorDonator extends BlockContainer {
 
 	public BlockClassSelectorDonator() {
@@ -18,10 +23,10 @@ public class BlockClassSelectorDonator extends BlockContainer {
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	
+
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
-		
+
 		TileEntity tile_entity = world.getTileEntity(pos);
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
@@ -31,7 +36,7 @@ public class BlockClassSelectorDonator extends BlockContainer {
 	}
 
 	@Override
-	public boolean hasTileEntity(int meta) {
+	public boolean hasTileEntity() {
 		return true;
 	}
 

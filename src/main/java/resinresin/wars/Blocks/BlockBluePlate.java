@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import net.minecraft.block.BlockPressurePlate;
-import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,7 +21,7 @@ public class BlockBluePlate extends BlockPressurePlate {
 	@SuppressWarnings("static-access")
 	public BlockBluePlate(int par1, String par2Str, Material par3Material, EnumMobType par4EnumMobType) {
 		super(par1, par2Str, Material.iron, EnumMobType.players);
-		this.triggerMobType = par4EnumMobType;
+		triggerMobType = par4EnumMobType;
 	}
 
 	private void setStateIfMobInteractsWithPlate(World par1World, int par2, int par3, int par4) {
@@ -32,7 +31,7 @@ public class BlockBluePlate extends BlockPressurePlate {
 		float var7 = 0.125F;
 		@SuppressWarnings("rawtypes")
 		List var8 = null;
-		var8 = par1World.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getAABBPool().getAABB((double) ((float) par2 + var7), (double) par3, (double) ((float) par4 + var7), (double) ((float) (par2 + 1) - var7), (double) par3 + 0.25D, (double) ((float) (par4 + 1) - var7)));
+		var8 = par1World.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getAABBPool().getAABB((double) (par2 + var7), (double) par3, (double) (par4 + var7), (double) (par2 + 1 - var7), par3 + 0.25D, (double) (par4 + 1 - var7)));
 
 		if (!var8.isEmpty()) {
 			@SuppressWarnings("rawtypes")
@@ -56,22 +55,22 @@ public class BlockBluePlate extends BlockPressurePlate {
 
 		if (var6 && !var5) {
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 1, 2);
-			par1World.notifyBlocksOfNeighborChange(par2, par3, par4, this.blockID);
-			par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, this.blockID);
+			par1World.notifyBlocksOfNeighborChange(par2, par3, par4, blockID);
+			par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, blockID);
 			par1World.markBlockRangeForRenderUpdate(par2, par3, par4, par2, par3, par4);
-			par1World.playSoundEffect((double) par2 + 0.5D, (double) par3 + 0.1D, (double) par4 + 0.5D, "random.click", 0.3F, 0.6F);
+			par1World.playSoundEffect(par2 + 0.5D, par3 + 0.1D, par4 + 0.5D, "random.click", 0.3F, 0.6F);
 		}
 
 		if (!var6 && var5) {
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 2);
-			par1World.notifyBlocksOfNeighborChange(par2, par3, par4, this.blockID);
-			par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, this.blockID);
+			par1World.notifyBlocksOfNeighborChange(par2, par3, par4, blockID);
+			par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, blockID);
 			par1World.markBlockRangeForRenderUpdate(par2, par3, par4, par2, par3, par4);
-			par1World.playSoundEffect((double) par2 + 0.5D, (double) par3 + 0.1D, (double) par4 + 0.5D, "random.click", 0.3F, 0.5F);
+			par1World.playSoundEffect(par2 + 0.5D, par3 + 0.1D, par4 + 0.5D, "random.click", 0.3F, 0.5F);
 		}
 
 		if (var6) {
-			par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, this.tickRate(par1World));
+			par1World.scheduleBlockUpdate(par2, par3, par4, blockID, tickRate(par1World));
 		}
 	}
 
@@ -79,7 +78,7 @@ public class BlockBluePlate extends BlockPressurePlate {
 	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity) {
 		if (!par1World.isRemote) {
 			if (par1World.getBlockMetadata(par2, par3, par4) != 1) {
-				this.setStateIfMobInteractsWithPlate(par1World, par2, par3, par4);
+				setStateIfMobInteractsWithPlate(par1World, par2, par3, par4);
 			}
 		}
 	}

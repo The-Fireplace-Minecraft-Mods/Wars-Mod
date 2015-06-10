@@ -3,7 +3,7 @@
   "modid": "warsmod",
   "name": "Wars Mod",
   "description": "The wars mod adds hundreds of epic structures :P",
-  "version": "6.3",
+  "version": "2.0.0.1",
   "mcversion": "1.8",
   "url": "",
   "updateUrl": "https://dl.dropboxusercontent.com/u/104023161/WarsModUpdates.txt",
@@ -11,6 +11,7 @@
   "credits": "",
   "logoFile": "https://dl.dropboxusercontent.com/u/104023161/Questology%20banner%202.png",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [],
+  "requiredMods": []
 }
 ]

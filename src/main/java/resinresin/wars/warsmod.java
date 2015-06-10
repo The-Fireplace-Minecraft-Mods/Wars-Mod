@@ -54,7 +54,7 @@ public class WarsMod {
 
 	public static final String MODID = "warsmod";
 	public static final String MODNAME = "Wars Mod";
-	public static final String VERSION = "6.3";
+	public static final String VERSION = "2.0.0.1";
 
 	@SidedProxy(clientSide = "resinresin.wars.client.ClientProxy", serverSide = "resinresin.wars.CommonProxy")
 	public static CommonProxy proxy;
@@ -63,8 +63,6 @@ public class WarsMod {
 	public static final CreativeTabs tabWarsBlocks = new WarsBlocksTab("tabWarsItems");
 	public static final CreativeTabs tabWarsItems = new WarsItemsTab("tabWarsBlocks");
 	public static final CreativeTabs tabWarsClasses = new WarsClassesTab("tabWarsClasses");
-	public boolean doBiomes;
-	public static boolean doSand;
 
 	public static Configuration config;
 	public static Property DOBIOMES_PROPERTY;
@@ -122,7 +120,7 @@ public class WarsMod {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 
 		worldGen = new WarsWorldGenerator();
-		if (doBiomes == true) {
+		if (ConfigValues.DOBIOMES) {
 			waste = (new BiomeGenWasteland(25));
 			EXbattlefield = (new BiomeGenExtremeBattlefield(26));
 

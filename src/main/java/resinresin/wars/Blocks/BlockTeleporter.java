@@ -28,13 +28,13 @@ public class BlockTeleporter extends Block {
 		int x = pos.getX();
 		int y = pos.getX();
 		int z = pos.getX();
-		
+
 		if (!world.isRemote) {
 			int distance = -1;
 			TileEntity foundTileEntity = null;
 			TileEntity thisTileEntity = world.getTileEntity(pos);
 			for (TileEntity tileEntity : (List<TileEntity>) world.loadedTileEntityList) {
-				if (tileEntity != thisTileEntity && world.getBlock(tileEntity.xCoord, tileEntity.yCoord, tileEntity.zCoord) == block) {
+				if (tileEntity != thisTileEntity && world.getBlock(tileEntity.getPos(), tileEntity.yCoord, tileEntity.zCoord) == block) {
 					int thisDistance = ((TileEntityTeleporter) tileEntity).getDistanceTo(x, y, z);
 					if (thisDistance <= 50000 && (distance < 0 || distance > thisDistance)) {
 						foundTileEntity = tileEntity;

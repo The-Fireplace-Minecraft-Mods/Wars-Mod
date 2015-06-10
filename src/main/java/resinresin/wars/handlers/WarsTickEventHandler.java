@@ -2,25 +2,25 @@ package resinresin.wars.handlers;
 
 import java.util.Random;
 
-import resinresin.wars.Items.ItemArmorMod;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import resinresin.wars.Items.ItemArmorMod;
 
 public class WarsTickEventHandler {
-	
-	
-	
+
+
+
 	@SubscribeEvent
 	public void TickEvent(TickEvent event) {
-		
-		
+
+
 		if (type.contains(PLAYER)) {
 			EntityPlayer player = (EntityPlayer) tickData[0];
 			if (ItemArmorMod.fullEquiped(player, resinresin.wars.registry.WarsItems.knightArmor)) {
@@ -55,7 +55,7 @@ public class WarsTickEventHandler {
 					int num = random.nextInt(50);
 
 					if (num == 1) {
-						player.addChatMessage("\u00a73WEAR TEAM BOOTS TO USE CLASS!");
+						player.addChatMessage(new ChatComponentText("\u00a73WEAR TEAM BOOTS TO USE CLASS!"));
 
 					}
 
@@ -99,8 +99,8 @@ public class WarsTickEventHandler {
 			}
 
 		}
-		
-		
+
+
 	}
-	
+
 }

@@ -3,20 +3,24 @@ package resinresin.wars.Items;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ISpecialArmor;
 import resinresin.wars.registry.WarsItems;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
-	public EnumArmorMaterial material;
+	public ArmorMaterial material;
 
-	public ItemArmorMod(int i, ArmorMaterial armormaterial, int type, int texture) {
-		super(i, enumarmormaterial, 0, type);
-		material = enumarmormaterial;
+	public ItemArmorMod(ArmorMaterial armormaterial, int type, int texture) {
+		super(armormaterial, 0, type);
+		material = armormaterial;
 
 	}
 
@@ -125,7 +129,7 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 		return null;
 	}
 
-	public static boolean fullEquiped(EntityPlayer player, EnumArmorMaterial material) {
+	public static boolean fullEquiped(EntityPlayer player, ArmorMaterial material) {
 		return (player != null && player.inventory != null && material != null && player.inventory.getStackInSlot(39) != null && (player.inventory.getStackInSlot(39).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(39).getItem()).material == material && player.inventory.getStackInSlot(37) != null
 				&& (player.inventory.getStackInSlot(37).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(37).getItem()).material == material && player.inventory.getStackInSlot(38) != null && (player.inventory.getStackInSlot(38).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(38).getItem()).material == material);
 
@@ -133,7 +137,7 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
 	@Override
 	public int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot) {
-		if (fullEquiped(player, this.material) && slot == 0) {
+		if (fullEquiped(player, material) && slot == 0) {
 			return 20;
 		} else {
 			return 0;

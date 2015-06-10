@@ -4,25 +4,31 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class BlockPresentBox extends Block {
 
 	public BlockPresentBox() {
 		super(Material.iron);
-		this.setTickRandomly(true);
+		setTickRandomly(true);
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	
+
 	@Override
-	public void updateTick(World par1World, int i, int j, int k, Random par5Random) {
+	public void updateTick(World par1World, BlockPos pos, IBlockState state, Random par5Random) {
 		if (!par1World.isRemote) {
 
 			par1World.setBlock(i + 0, j + 1, k + 0, Block.chest.blockID, 2, 2);

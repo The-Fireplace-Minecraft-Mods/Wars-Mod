@@ -3,22 +3,26 @@ package resinresin.wars.tileentities;
 import net.minecraft.block.Block;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatMessageComponent;
 import resinresin.wars.WorldGen.resinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class TileEntityHungerGames extends TileEntity {
 
-	private static final int TICKS_IN_30_SECONDS = 600; // figure that out
-	private static final int TICKS_IN_50_SECONDS = 1000; // figure that out
-	private static final int TICKS_IN_55_SECONDS = 1100; // figure that out
-	private static final int TICKS_IN_56_SECONDS = 1120; // figure that out
-	private static final int TICKS_IN_57_SECONDS = 1140; // figure that out
-	private static final int TICKS_IN_58_SECONDS = 1160; // figure that out
-	private static final int TICKS_IN_59_SECONDS = 1180; // figure that out
-	private static final int TICKS_IN_1_MINUTE = 1200; // figure that out
-	private static final int TICKS_WHEN_EVERYTHING_IS_DONE = 1300; // figure
-																	// that out
+	private static final int TICKS_IN_30_SECONDS = 30*20; // figure that out
+	private static final int TICKS_IN_50_SECONDS = 50*20; // figure that out
+	private static final int TICKS_IN_55_SECONDS = 55*20; // figure that out
+	private static final int TICKS_IN_56_SECONDS = 56*20; // figure that out
+	private static final int TICKS_IN_57_SECONDS = 57*20; // figure that out
+	private static final int TICKS_IN_58_SECONDS = 58*20; // figure that out
+	private static final int TICKS_IN_59_SECONDS = 59*20; // figure that out
+	private static final int TICKS_IN_1_MINUTE = 60*20; // figure that out
+	private static final int TICKS_WHEN_EVERYTHING_IS_DONE = 1300; //what is there to figure out? Simple math, if not experience tell how many ticks per second. What more is there to figure out?
+
 	public boolean shouldTick = false;
 	public int tickCount = 0;
 	resinresinLoader hgSStarted = new resinresinLoader("hgSStarted.resinresin");

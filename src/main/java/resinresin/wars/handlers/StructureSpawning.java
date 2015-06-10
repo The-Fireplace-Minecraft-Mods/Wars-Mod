@@ -1,5 +1,9 @@
 package resinresin.wars.handlers;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
 import resinresin.wars.WorldGen.structure.basic.GenBlueCastle;
 import resinresin.wars.WorldGen.structure.basic.GenControlTower;
 import resinresin.wars.WorldGen.structure.basic.GenGlassDome;
@@ -24,9 +28,6 @@ import resinresin.wars.WorldGen.structure.spleef.GenNaturalSpleefMedium;
 import resinresin.wars.WorldGen.structure.spleef.GenNaturalSpleefSmall;
 import resinresin.wars.WorldGen.structure.spleef.GenNetherSpleefMedium;
 import resinresin.wars.WorldGen.structure.spleef.GenNetherSpleefSmall;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.server.MinecraftServer;
 
 public class StructureSpawning {
 
@@ -65,7 +66,7 @@ public class StructureSpawning {
 
 				} else {
 
-					player.addChatMessage("\u00a75\u00a7lYou need to be op / have cheats enabled!");
+					player.addChatMessage(new ChatComponentText("\u00a75\u00a7lYou need to be op / have cheats enabled!"));
 				}
 			}
 
@@ -102,7 +103,7 @@ public class StructureSpawning {
 
 				} else {
 
-					player.addChatMessage("\u00a75\u00a7lYou need to be op / have cheats enabled!");
+					player.addChatMessage(new ChatComponentText("\u00a75\u00a7lYou need to be op / have cheats enabled!"));
 				}
 			}
 
@@ -139,7 +140,7 @@ public class StructureSpawning {
 
 				} else {
 
-					player.addChatMessage("\u00a75\u00a7lYou need to be op / have cheats enabled!");
+					player.addChatMessage(new ChatComponentText("\u00a75\u00a7lYou need to be op / have cheats enabled!"));
 				}
 			}
 			break;
@@ -174,7 +175,7 @@ public class StructureSpawning {
 
 				} else {
 
-					player.addChatMessage("\u00a75\u00a7lYou need to be op / have cheats enabled!");
+					player.addChatMessage(new ChatComponentText("\u00a75\u00a7lYou need to be op / have cheats enabled!"));
 				}
 			}
 			break;

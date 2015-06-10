@@ -4,10 +4,10 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import resinresin.wars.registry.WarsItems;
@@ -18,11 +18,12 @@ public class GenDungeonSmall extends WorldGenerator {
 
 	resinresinLoader dungS = new resinresinLoader("dungS.resinresin");
 
-	public boolean generate(World world, Random rand, int i, int j, int k) {
+	@Override
+	public boolean generate(World world, Random rand, BlockPos pos) {
 		int bID = 2; /*
-					 * 2 is the block id for grass, so the structure going to
-					 * spawn on grass
-					 */
+		 * 2 is the block id for grass, so the structure going to
+		 * spawn on grass
+		 */
 		if (world.getBlockId(i, j, k) != bID || world.getBlockId(i, j + 1, k) != 0 || world.getBlockId(i + 7, j, k) != bID || world.getBlockId(i + 7, j, k + 7) != bID || world.getBlockId(i, j, k + 7) != bID || world.getBlockId(i + 7, j + 1, k) != 0 || world.getBlockId(i + 7, j + 1, k + 7) != 0 || world.getBlockId(i, j + 1, k + 7) != 0) {
 			return false;
 		}
@@ -32,7 +33,7 @@ public class GenDungeonSmall extends WorldGenerator {
 		world.setBlock(i + 3, j - 53, k + 3, Block.mobSpawner.blockID, 2, 2);
 		TileEntityMobSpawner var19 = (TileEntityMobSpawner) world.getBlockTileEntity(i + 3, j - 53, k + 3);
 		if (var19 != null) {
-			var19.getSpawnerLogic().setMobID(this.pickMobSpawner(rand));
+			var19.getSpawnerLogic().setMobID(pickMobSpawner(rand));
 		}
 
 		world.setBlock(i + 3, j - 52, k + 3, Block.chest.blockID, 2, 2);

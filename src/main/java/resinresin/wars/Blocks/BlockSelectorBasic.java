@@ -14,7 +14,12 @@ import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
 import resinresin.wars.tileentities.TileEntityClassSelect;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class BlockSelectorBasic extends BlockContainer {
 
 	public BlockSelectorBasic() {
@@ -22,9 +27,9 @@ public class BlockSelectorBasic extends BlockContainer {
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
-	@Override 
+	@Override
 	public Item getItemDropped(IBlockState state, Random random, int j) {
-    	return WarsItems.ancientGem;
+		return WarsItems.ancientGem;
 	}
 
 	@Override
@@ -39,7 +44,7 @@ public class BlockSelectorBasic extends BlockContainer {
 		int x = pos.getX();
 		int y = pos.getX();
 		int z = pos.getX();
-		
+
 		TileEntity tile_entity = world.getTileEntity(pos);
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
@@ -49,7 +54,7 @@ public class BlockSelectorBasic extends BlockContainer {
 	}
 
 	@Override
-	public boolean hasTileEntity(int meta) {
+	public boolean hasTileEntity() {
 		return true;
 	}
 

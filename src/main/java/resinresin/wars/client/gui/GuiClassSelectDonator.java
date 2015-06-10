@@ -21,7 +21,12 @@ import resinresin.wars.client.ClientProxy;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-
+/**
+ *
+ * @author resinresin
+ * @author The_Fireplace
+ *
+ */
 public class GuiClassSelectDonator extends GuiScreen {
 
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/classSelectionDonator.png");
@@ -41,8 +46,8 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 	@Override
 	protected void keyTyped(char par1, int par2) {
-		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.keyCode) {
-			this.mc.thePlayer.closeScreen();
+		if (par2 == 1 || par2 == mc.gameSettings.keyBindInventory.getKeyCode()) {
+			mc.thePlayer.closeScreen();
 		}
 	}
 
@@ -56,17 +61,17 @@ public class GuiClassSelectDonator extends GuiScreen {
 	public void drawScreen(int x, int y, float f) {
 		drawDefaultBackground();
 
-		this.mc.renderEngine.bindTexture(textureLocation);
+		mc.renderEngine.bindTexture(textureLocation);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		drawTexturedModalRect(posX, posY, 0, 0, xSizeOfTexture, ySizeOfTexture);
 
 		drawString(fontRendererObj, talkTo, posX + 40, posY + 148, colorsHex[colorIndex]);
 
 		drawString(fontRendererObj, info, posX + 25, posY + 30, 0x6A5ACD);
 
-		func_110423_a(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.thePlayer);
+		func_110423_a(posX + 10, posY + 60, 30, (float) (posX + 51) - xSizeOfTexture, (float) (posY + 75 - 50) - ySizeOfTexture, mc.thePlayer);
 
 		super.drawScreen(x, y, f);
 	}
@@ -82,8 +87,8 @@ public class GuiClassSelectDonator extends GuiScreen {
 		super.initGui();
 		// make buttons
 
-		int posX = (this.width - xSizeOfTexture) / 2;
-		int posY = (this.height - ySizeOfTexture) / 2;
+		int posX = (width - xSizeOfTexture) / 2;
+		int posY = (height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
 		buttonList.add(new GuiButton(1, posX + 15, posY + 90, 70, 12, "ChaosWarrior"));
 		buttonList.add(new GuiButton(2, posX + 100, posY + 90, 52, 12, "EnderMan"));
@@ -96,8 +101,8 @@ public class GuiClassSelectDonator extends GuiScreen {
 	public static void func_110423_a(int par0, int par1, int par2, float par3, float par4, EntityLivingBase par5EntityLivingBase) {
 		GL11.glEnable(GL11.GL_COLOR_MATERIAL);
 		GL11.glPushMatrix();
-		GL11.glTranslatef((float) par0, (float) par1, 50.0F);
-		GL11.glScalef((float) (-par2), (float) par2, (float) par2);
+		GL11.glTranslatef(par0, par1, 50.0F);
+		GL11.glScalef((-par2), par2, par2);
 		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
 		float f2 = par5EntityLivingBase.renderYawOffset;
 		float f3 = par5EntityLivingBase.rotationYaw;
@@ -107,10 +112,10 @@ public class GuiClassSelectDonator extends GuiScreen {
 		GL11.glRotatef(135.0F, 0.0F, 1.0F, 0.0F);
 		RenderHelper.enableStandardItemLighting();
 		GL11.glRotatef(-135.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(-((float) Math.atan((double) (par4 / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
-		par5EntityLivingBase.renderYawOffset = (float) Math.atan((double) (par3 / 40.0F)) * 20.0F;
-		par5EntityLivingBase.rotationYaw = (float) Math.atan((double) (par3 / 40.0F)) * 40.0F;
-		par5EntityLivingBase.rotationPitch = -((float) Math.atan((double) (par4 / 40.0F))) * 20.0F;
+		GL11.glRotatef(-((float) Math.atan(par4 / 40.0F)) * 20.0F, 1.0F, 0.0F, 0.0F);
+		par5EntityLivingBase.renderYawOffset = (float) Math.atan(par3 / 40.0F) * 20.0F;
+		par5EntityLivingBase.rotationYaw = (float) Math.atan(par3 / 40.0F) * 40.0F;
+		par5EntityLivingBase.rotationPitch = -((float) Math.atan(par4 / 40.0F)) * 20.0F;
 		par5EntityLivingBase.rotationYawHead = par5EntityLivingBase.rotationYaw;
 		par5EntityLivingBase.prevRotationYawHead = par5EntityLivingBase.rotationYaw;
 		GL11.glTranslatef(0.0F, par5EntityLivingBase.yOffset, 0.0F);
@@ -131,15 +136,16 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 
 
+	@Override
 	protected void actionPerformed(GuiButton guibutton) {
 		// id is the id you give your button
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeByte(guibutton.id);
 		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(WarsMod.instance, (short) 4, out.toByteArray()));
-	
+
 		switch (guibutton.id) {
 		case 1:
-			if (ClientProxy.donators.contains(this.mc.thePlayer.getName())) {
+			if (ClientProxy.donators.contains(mc.thePlayer.getName())) {
 				colorIndex = 2;
 				talkTo = "ChaosWarrior Selected";
 			} else {
@@ -173,7 +179,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 		}
 
 		// Packet code here
-		// PacketDispatcher.sendPacketToServer(packet); //send packet
+		PacketDispatcher.sendPacketToServer(packet); //send packet
 	}
 
 	@SuppressWarnings("unchecked")

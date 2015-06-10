@@ -3,6 +3,7 @@ package resinresin.wars.command;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import resinresin.wars.data.WarsSavedData;
 
 public class CommandBlueBase extends CommandBase {
@@ -30,19 +31,19 @@ public class CommandBlueBase extends CommandBase {
 			savedData.teamBlue.baseY = (int) player.posY;
 			savedData.teamBlue.baseZ = (int) player.posZ;
 			savedData.markDirty();
-			player.addChatMessage("Blue Team Base Set To: " + savedData.teamBlue.baseX + " " + savedData.teamBlue.baseY + " " + savedData.teamBlue.baseZ);
+			player.addChatMessage(new ChatComponentText("Blue Team Base Set To: " + savedData.teamBlue.baseX + " " + savedData.teamBlue.baseY + " " + savedData.teamBlue.baseZ));
 
 		}
 
 	}
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
+	@Override
+	public int compareTo(Object o) {
+		return 0;
+	}
 
 
-    @Override
+	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
 		// TODO Auto-generated method stub
 		return null;

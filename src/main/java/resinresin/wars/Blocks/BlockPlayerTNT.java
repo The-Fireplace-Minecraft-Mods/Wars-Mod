@@ -9,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.Items.ItemArmorMod;
@@ -26,7 +25,7 @@ public class BlockPlayerTNT extends Block {
 	}
 
 	@Override
-	public boolean hasTileEntity(int metadata) {
+	public boolean hasTileEntity() {
 		return true;
 	}
 
@@ -62,6 +61,7 @@ public class BlockPlayerTNT extends Block {
 	/**
 	 * Returns the quantity of items to drop on block destruction.
 	 */
+	@Override
 	public int quantityDropped(Random par1Random) {
 		return 0;
 	}
@@ -71,7 +71,7 @@ public class BlockPlayerTNT extends Block {
 	 */
 	public void onBlockDestroyedByExplosion(World par1World, int par2, int par3, int par4) {
 		if (!par1World.isRemote) {
-			EntityPTNTPrimed var5 = new EntityPTNTPrimed(par1World, (double) ((float) par2 + 0.5F), (double) ((float) par3 + 0.5F), (double) ((float) par4 + 0.5F));
+			EntityPTNTPrimed var5 = new EntityPTNTPrimed(par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F);
 			var5.fuse = par1World.rand.nextInt(var5.fuse / 4) + var5.fuse / 8;
 			par1World.spawnEntityInWorld(var5);
 		}
@@ -84,7 +84,7 @@ public class BlockPlayerTNT extends Block {
 	public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) {
 		if (!par1World.isRemote) {
 			if ((par5 & 1) == 1) {
-				EntityPTNTPrimed var6 = new EntityPTNTPrimed(par1World, (double) ((float) par2 + 0.5F), (double) ((float) par3 + 0.5F), (double) ((float) par4 + 0.5F));
+				EntityPTNTPrimed var6 = new EntityPTNTPrimed(par1World, par2 + 0.5F, par3 + 0.5F, par4 + 0.5F);
 				par1World.spawnEntityInWorld(var6);
 				par1World.playSoundAtEntity(var6, "random.fuse", 1.0F, 1.0F);
 			}
@@ -121,23 +121,4 @@ public class BlockPlayerTNT extends Block {
 			}
 		}
 	}
-
-	/**
-	 * Return whether this block can drop from an explosion.
-	 */
-	public boolean canDropFromExplosion(Explosion par1Explosion) {
-		return false;
-	}
-
-	@SideOnly(Side.CLIENT)
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.blockIcon = par1IconRegister.registerIcon("warsmod:PTNTFront");
-		this.blockTop = par1IconRegister.registerIcon("warsmod:PTNTTop");
-		this.blockBase = par1IconRegister.registerIcon("warsmod:PTNTBase");
-	}
-
 }

@@ -1,21 +1,22 @@
 package resinresin.wars.events;
 
 import ibxm.Player;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
+
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 /**
  * @author resinresin
  * @author The_Fireplace
@@ -32,9 +33,9 @@ public class ForgeEvents {
 
 				ItemStack attackerBoots = attacker.inventory.armorItemInSlot(0);
 				ItemStack damageeBoots = damagee.inventory.armorItemInSlot(0);
-				if (attackerBoots != null && damageeBoots != null && attackerBoots.itemID == damageeBoots.itemID) {
-					int id = damageeBoots.itemID;
-					if (id == WarsItems.redBoots.itemID || id == WarsItems.greenBoots.itemID || id == WarsItems.blueBoots.itemID || id == WarsItems.yellowBoots.itemID) {
+				if (attackerBoots != null && damageeBoots != null && attackerBoots == damageeBoots) {
+					Item id = damageeBoots.getItem();
+					if (id == WarsItems.redBoots || id == WarsItems.greenBoots || id == WarsItems.blueBoots || id == WarsItems.yellowBoots) {
 						evt.setCanceled(true);
 
 					}
@@ -43,7 +44,7 @@ public class ForgeEvents {
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent evt) {
 
@@ -79,68 +80,68 @@ public class ForgeEvents {
 
 				switch (lostkills) {
 				case 2:
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lDouble Kill! \u00a72Unlocked Protection");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lDouble Kill! \u00a72Unlocked Protection"));
 					break;
 				case 3: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lTriple Kill! \u00a72Unlocked Water Breathing");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lTriple Kill! \u00a72Unlocked Water Breathing"));
 					break;
 				}
 				case 4: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lMultiKill! \u00a72Unlocked Jump Boost");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lMultiKill! \u00a72Unlocked Jump Boost"));
 					break;
 				}
 				case 5: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lLike A Boss!");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lLike A Boss!"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText(player.getName() + " " + "\u00a73Now Has" + " \u00a75" + "5" + " \u00a73" + "Kills"));
 					break;
 				}
 				case 8: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lRunning Riot! \u00a72Unlocked Night Vision");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lRunning Riot! \u00a72Unlocked Night Vision"));
 					break;
 				}
 				case 10: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lUnBeatable!");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lUnBeatable!"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "10" + " \u00a73" + "Kills"));
 					break;
 				}
 				case 12: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lKilltacular! \u00a72Unlocked Damage Boost");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lKilltacular! \u00a72Unlocked Damage Boost"));
 					break;
 				}
 				case 15: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lMass Murder!");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lMass Murder!"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "15" + " \u00a73" + "Kills"));
 					break;
 				}
 				case 20: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lWar Crimes! \u00a72Unlocked Protection Lv2");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lWar Crimes! \u00a72Unlocked Protection Lv2"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "20" + " \u00a73" + "Kills"));
 					break;
 				}
 				case 25: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lExtinctionist!");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lExtinctionist!"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "25" + " \u00a73" + "Kills"));
 					break;
 				}
 				case 30: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lGenocide! \u00a72Unlocked Mega Damage Booster");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lGenocide! \u00a72Unlocked Mega Damage Booster"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "30" + " \u00a73" + "Kills"));
 					break;
 				}
 				case 35: {
-					((EntityPlayer) source.getEntity()).addChatMessage("\u00a75\u00a7lPlanet Crusher!");
+					((EntityPlayer) source.getEntity()).addChatMessage(new ChatComponentText("\u00a75\u00a7lPlanet Crusher!"));
 					EntityPlayerMP player = (EntityPlayerMP) source.getEntity();
 
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(ChatMessageComponent.createFromText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "35" + " \u00a73" + "Kills And Is Off The Scale Now OMG"));
