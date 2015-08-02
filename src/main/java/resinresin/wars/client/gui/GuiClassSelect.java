@@ -12,13 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
-import resinresin.wars.Warsmod;
 import resinresin.wars.client.ClientProxy;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
 
 public class GuiClassSelect extends GuiScreen {
 
@@ -31,8 +26,6 @@ public class GuiClassSelect extends GuiScreen {
 	public String talkTo = "Be In Survival When Using This GUI!";
 
 	public GuiClassSelect(EntityPlayer player) {
-		// the container is instanciated and passed to the superclass for
-		// handling
 
 	}
 

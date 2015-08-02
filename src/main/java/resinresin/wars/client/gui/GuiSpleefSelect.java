@@ -9,11 +9,6 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import resinresin.wars.Warsmod;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-
 public class GuiSpleefSelect extends GuiScreen {
 
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/spleefBuildings.png");
@@ -33,9 +28,7 @@ public class GuiSpleefSelect extends GuiScreen {
 	public BlockPos blockPos; 
 
 	public GuiSpleefSelect(EntityPlayer player, TileEntity tile) {
-		// the container is instanciated and passed to the superclass for
-		// handling
-		this.blockPos = tile.getPos();
+		
 	}
 
 	@Override

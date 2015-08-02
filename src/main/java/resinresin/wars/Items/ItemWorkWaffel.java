@@ -16,15 +16,18 @@ public class ItemWorkWaffel extends ItemFood {
 		this.setMaxStackSize(3);
 	}
 
-	public ItemStack onEaten(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
+	
+	@Override 
+	public ItemStack onItemUseFinish(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
 		entityPlayer.getFoodStats().addStats(this, itemStack);
 		world.playSoundAtEntity(entityPlayer, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
 		itemStack.stackSize--;
 
 		entityPlayer.addPotionEffect(new PotionEffect(Potion.heal.id, 10 * 15, 6));
 		entityPlayer.addPotionEffect(new PotionEffect(Potion.wither.id, 10 * 20, 6));
-
+		
 		return itemStack;
+
 	}
 
 	@SideOnly(Side.CLIENT)

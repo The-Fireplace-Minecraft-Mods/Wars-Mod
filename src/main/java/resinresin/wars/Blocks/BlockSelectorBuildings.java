@@ -32,9 +32,16 @@ public class BlockSelectorBuildings extends BlockContainer implements ITileEntit
 			return false;
 		}
 		player.openGui(Warsmod.instance, 6, world, x, y, z);
+		
+		
 		return true;
 	}
 
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return true;
+	}
+	
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityBuildingStructures();

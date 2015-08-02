@@ -2,7 +2,6 @@ package resinresin.wars.client.gui;
 
 import java.awt.Desktop;
 import java.net.URL;
-import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -16,13 +15,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
-import resinresin.wars.Warsmod;
 import resinresin.wars.client.ClientProxy;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
 
 public class GuiClassSelectDonator extends GuiScreen {
 
@@ -36,8 +30,6 @@ public class GuiClassSelectDonator extends GuiScreen {
 	public String info = "Donations Can Take Some Time To Process!!";
 
 	public GuiClassSelectDonator(EntityPlayer player) {
-		// the container is instanciated and passed to the superclass for
-		// handling
 
 	}
 

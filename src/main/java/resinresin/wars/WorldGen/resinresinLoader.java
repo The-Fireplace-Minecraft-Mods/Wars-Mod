@@ -47,9 +47,6 @@ public class resinresinLoader {
 
 	public void generate(World world, int posX, int posY, int posZ, boolean spawnairblocks) {
 		
-		System.out.print("StructureShouldBeSpawned");
-		
-		
 		try {
 			int xnum = 0;
 			int ynum = 0;

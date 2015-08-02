@@ -22,8 +22,6 @@ public class GuiTeamSelect extends GuiScreen {
 	public String yellowText = "\u00a76Yellow " + "(" + ClientProxy.yellowPlayers + ")";
 
 	public GuiTeamSelect(EntityPlayer player) {
-		// the container is instanciated and passed to the superclass for
-		// handling
 
 	}
 

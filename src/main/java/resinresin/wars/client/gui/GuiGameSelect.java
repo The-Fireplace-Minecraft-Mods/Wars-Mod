@@ -8,8 +8,6 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import resinresin.wars.Warsmod;
-
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
@@ -34,11 +32,6 @@ public class GuiGameSelect extends GuiScreen {
 	public int z = 0;
 
 	public GuiGameSelect(EntityPlayer player, TileEntity tile) {
-		// the container is instanciated and passed to the superclass for
-		// handling
-		this.x = tile.getPos().getX();
-		this.y = tile.getPos().getY();
-		this.z = tile.getPos().getZ();
 
 	}
 

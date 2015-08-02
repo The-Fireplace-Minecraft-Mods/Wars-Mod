@@ -35,7 +35,7 @@ public class BlockWallEnd extends Block {
 
 		Warsmod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
 		
-		return false;
+		return true;
 
 	}
 

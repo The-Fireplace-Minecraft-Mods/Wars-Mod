@@ -7,13 +7,13 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.Warsmod;
 import resinresin.wars.Items.ItemAdminWandBall;
-import resinresin.wars.Items.ItemAdminWandLava;
 import resinresin.wars.Items.ItemAdminWandLight;
 import resinresin.wars.Items.ItemAdminWandStone;
 import resinresin.wars.Items.ItemAdminWandTNT;
-import resinresin.wars.Items.ItemAdminWandWater;
 import resinresin.wars.Items.ItemAdminWandWeb;
 import resinresin.wars.Items.ItemAncientEmblem;
 import resinresin.wars.Items.ItemAncientGem;
@@ -27,7 +27,6 @@ import resinresin.wars.Items.ItemGuardSword;
 import resinresin.wars.Items.ItemKnightSword;
 import resinresin.wars.Items.ItemLongRangeBananna;
 import resinresin.wars.Items.ItemMagicPotato;
-import resinresin.wars.Items.ItemMassMeal;
 import resinresin.wars.Items.ItemMeleeDagger;
 import resinresin.wars.Items.ItemNaturalGem;
 import resinresin.wars.Items.ItemScoutsDagger;
@@ -101,13 +100,10 @@ public abstract class WarsItems {
 	public static Item naturalGem;
 	public static Item aWandTNT;
 	public static Item aWandBall;
-	public static Item aWandWater;
-	public static Item aWandLava;
 	public static Item aWandStone;
 	public static Item aWandWeb;
 	public static Item aWandLight;
 	public static Item chaosBoots;
-	public static Item massMeal;
 	public static Item antidote;
 	
 	public static void createItems() {
@@ -161,12 +157,9 @@ public abstract class WarsItems {
 		naturalGem = new ItemNaturalGem().setUnlocalizedName("naturalGem");
 		aWandTNT = new ItemAdminWandTNT().setUnlocalizedName("aWandTNT");
 		aWandBall = new ItemAdminWandBall().setUnlocalizedName("aWandBall");
-		aWandWater = new ItemAdminWandWater().setUnlocalizedName("aWandWater");
-		aWandLava = new ItemAdminWandLava().setUnlocalizedName("aWandLava");
 		aWandStone = new ItemAdminWandStone().setUnlocalizedName("aWandStone");
 		aWandWeb = new ItemAdminWandWeb().setUnlocalizedName("aWandWeb");
 		aWandLight = new ItemAdminWandLight().setUnlocalizedName("aWandLight");
-		massMeal = new ItemMassMeal().setUnlocalizedName("massMeal");
 		antidote = new ItemAntidote().setUnlocalizedName("antidote");
 		
 		GameRegistry.registerItem(ancientGem, "ancientGem");
@@ -214,71 +207,12 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(naturalGem, "naturalGem");
 		GameRegistry.registerItem(aWandTNT, "aWandTNT");
 		GameRegistry.registerItem(aWandBall, "aWandBall");
-		GameRegistry.registerItem(aWandWater, "aWandWater");
-		GameRegistry.registerItem(aWandLava, "aWandLava");
 		GameRegistry.registerItem(aWandStone, "aWandStone");
 		GameRegistry.registerItem(aWandWeb, "aWandWeb");
 		GameRegistry.registerItem(aWandLight, "aWandLight");
 		GameRegistry.registerItem(chaosBoots, "chaosBoots");
-		GameRegistry.registerItem(massMeal, "massMeal");
 		GameRegistry.registerItem(antidote, "antidote");
 		
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientGem, 0, new ModelResourceLocation("warsmod:ancientGem", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientEmblem, 0, new ModelResourceLocation("warsmod:ancientEmblem", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(magicPotato, 0, new ModelResourceLocation("warsmod:magicPotato", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(shadowFlesh, 0, new ModelResourceLocation("warsmod:shadowFlesh", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(warCheese, 0, new ModelResourceLocation("warsmod:warCheese", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(battleBurger, 0, new ModelResourceLocation("warsmod:battleBurger", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(longBannana, 0, new ModelResourceLocation("warsmod:longBannana", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(workWaffel, 0, new ModelResourceLocation("warsmod:workWaffel", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(scoutBlade, 0, new ModelResourceLocation("warsmod:scoutBlade", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(guardSword, 0, new ModelResourceLocation("warsmod:guardSword", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knightSword, 0, new ModelResourceLocation("warsmod:knightSword", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(wizardStaff, 0, new ModelResourceLocation("warsmod:wizardStaff", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(techSpanner, 0, new ModelResourceLocation("warsmod:techSpanner", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(dagger, 0, new ModelResourceLocation("warsmod:dagger", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosSword, 0, new ModelResourceLocation("warsmod:chaosSword", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(scoutHelm, 0, new ModelResourceLocation("warsmod:scoutHelm", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(scoutPlate, 0, new ModelResourceLocation("warsmod:scoutPlate", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(scoutLegs, 0, new ModelResourceLocation("warsmod:scoutLegs", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(techHelm, 0, new ModelResourceLocation("warsmod:techHelm", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(techPlate, 0, new ModelResourceLocation("warsmod:techPlate", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(techLegs, 0, new ModelResourceLocation("warsmod:techLegs", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(healerHelm, 0, new ModelResourceLocation("warsmod:healerHelm", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(healerPlate, 0, new ModelResourceLocation("warsmod:healerPlate", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(healerLegs, 0, new ModelResourceLocation("warsmod:healerLegs", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(archerHelm, 0, new ModelResourceLocation("warsmod:archerHelm", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(archerPlate, 0, new ModelResourceLocation("warsmod:archerPlate", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(archerLegs, 0, new ModelResourceLocation("warsmod:archerLegs", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knightHelm, 0, new ModelResourceLocation("warsmod:knightHelm", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knightPlate, 0, new ModelResourceLocation("warsmod:knightPlate", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knightLegs, 0, new ModelResourceLocation("warsmod:knightLegs", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(guardHelm, 0, new ModelResourceLocation("warsmod:guardHelm", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(guardPlate, 0, new ModelResourceLocation("warsmod:guardPlate", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(guardLegs, 0, new ModelResourceLocation("warsmod:guardLegs", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosHelm, 0, new ModelResourceLocation("warsmod:chaosHelm", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosPlate, 0, new ModelResourceLocation("warsmod:chaosPlate", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosLegs, 0, new ModelResourceLocation("warsmod:chaosLegs", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(redBoots, 0, new ModelResourceLocation("warsmod:redBoots", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(greenBoots, 0, new ModelResourceLocation("warsmod:greenBoots", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(yellowBoots, 0, new ModelResourceLocation("warsmod:yellowBoots", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(blueBoots, 0, new ModelResourceLocation("warsmod:blueBoots", "inventory"));
-		
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(waterGem, 0, new ModelResourceLocation("warsmod:waterGem", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(fireGem, 0, new ModelResourceLocation("warsmod:fireGem", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(decayGem, 0, new ModelResourceLocation("warsmod:decayGem", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(naturalGem, 0, new ModelResourceLocation("warsmod:naturalGem", "inventory"));
-
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandTNT, 0, new ModelResourceLocation("warsmod:aWandTNT", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandBall, 0, new ModelResourceLocation("warsmod:aWandBall", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandWater, 0, new ModelResourceLocation("warsmod:aWandWater", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandLava, 0, new ModelResourceLocation("warsmod:aWandLava", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandStone, 0, new ModelResourceLocation("warsmod:aWandStone", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandWeb, 0, new ModelResourceLocation("warsmod:aWandWeb", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandLight, 0, new ModelResourceLocation("warsmod:aWandLight", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosBoots, 0, new ModelResourceLocation("warsmod:chaosBoots", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(massMeal, 0, new ModelResourceLocation("warsmod:massMeal", "inventory"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(antidote, 0, new ModelResourceLocation("warsmod:antidote", "inventory"));
 
 
 //		LanguageRegistry.addName(ancientGem, "Ancient Gem");
@@ -337,6 +271,67 @@ public abstract class WarsItems {
 //		LanguageRegistry.addName(bowArcher, "\u00a72Archer Bow");
 //		LanguageRegistry.addName(chaosSword, "\u00a75Chaos Sword");
 		
+		registerItemRenders();
+		
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public static void registerItemRenders() {
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientGem, 0, new ModelResourceLocation("warsmod:ancientGem", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientEmblem, 0, new ModelResourceLocation("warsmod:ancientEmblem", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(magicPotato, 0, new ModelResourceLocation("warsmod:magicPotato", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(shadowFlesh, 0, new ModelResourceLocation("warsmod:shadowFlesh", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(warCheese, 0, new ModelResourceLocation("warsmod:warCheese", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(battleBurger, 0, new ModelResourceLocation("warsmod:battleBurger", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(longBannana, 0, new ModelResourceLocation("warsmod:longBannana", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(workWaffel, 0, new ModelResourceLocation("warsmod:workWaffel", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(scoutBlade, 0, new ModelResourceLocation("warsmod:scoutBlade", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(guardSword, 0, new ModelResourceLocation("warsmod:guardSword", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knightSword, 0, new ModelResourceLocation("warsmod:knightSword", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(wizardStaff, 0, new ModelResourceLocation("warsmod:wizardStaff", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(techSpanner, 0, new ModelResourceLocation("warsmod:techSpanner", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(dagger, 0, new ModelResourceLocation("warsmod:dagger", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosSword, 0, new ModelResourceLocation("warsmod:chaosSword", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(scoutHelm, 0, new ModelResourceLocation("warsmod:scoutHelm", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(scoutPlate, 0, new ModelResourceLocation("warsmod:scoutPlate", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(scoutLegs, 0, new ModelResourceLocation("warsmod:scoutLegs", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(techHelm, 0, new ModelResourceLocation("warsmod:techHelm", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(techPlate, 0, new ModelResourceLocation("warsmod:techPlate", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(techLegs, 0, new ModelResourceLocation("warsmod:techLegs", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(healerHelm, 0, new ModelResourceLocation("warsmod:healerHelm", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(healerPlate, 0, new ModelResourceLocation("warsmod:healerPlate", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(healerLegs, 0, new ModelResourceLocation("warsmod:healerLegs", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(archerHelm, 0, new ModelResourceLocation("warsmod:archerHelm", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(archerPlate, 0, new ModelResourceLocation("warsmod:archerPlate", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(archerLegs, 0, new ModelResourceLocation("warsmod:archerLegs", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knightHelm, 0, new ModelResourceLocation("warsmod:knightHelm", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knightPlate, 0, new ModelResourceLocation("warsmod:knightPlate", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(knightLegs, 0, new ModelResourceLocation("warsmod:knightLegs", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(guardHelm, 0, new ModelResourceLocation("warsmod:guardHelm", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(guardPlate, 0, new ModelResourceLocation("warsmod:guardPlate", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(guardLegs, 0, new ModelResourceLocation("warsmod:guardLegs", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosHelm, 0, new ModelResourceLocation("warsmod:chaosHelm", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosPlate, 0, new ModelResourceLocation("warsmod:chaosPlate", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosLegs, 0, new ModelResourceLocation("warsmod:chaosLegs", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(redBoots, 0, new ModelResourceLocation("warsmod:redBoots", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(greenBoots, 0, new ModelResourceLocation("warsmod:greenBoots", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(yellowBoots, 0, new ModelResourceLocation("warsmod:yellowBoots", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(blueBoots, 0, new ModelResourceLocation("warsmod:blueBoots", "inventory"));
+		
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(waterGem, 0, new ModelResourceLocation("warsmod:waterGem", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(fireGem, 0, new ModelResourceLocation("warsmod:fireGem", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(decayGem, 0, new ModelResourceLocation("warsmod:decayGem", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(naturalGem, 0, new ModelResourceLocation("warsmod:naturalGem", "inventory"));
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandTNT, 0, new ModelResourceLocation("warsmod:aWandTNT", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandBall, 0, new ModelResourceLocation("warsmod:aWandBall", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandStone, 0, new ModelResourceLocation("warsmod:aWandStone", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandWeb, 0, new ModelResourceLocation("warsmod:aWandWeb", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandLight, 0, new ModelResourceLocation("warsmod:aWandLight", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosBoots, 0, new ModelResourceLocation("warsmod:chaosBoots", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(antidote, 0, new ModelResourceLocation("warsmod:antidote", "inventory"));
+
 		
 	}
 	

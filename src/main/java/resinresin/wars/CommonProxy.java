@@ -5,10 +5,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
-public class CommonProxy implements IGuiHandler { // WILL NOT WORK WITHOUT THIS
+public class CommonProxy implements IGuiHandler { 
 
 	public void registerRenderInformation() {
-		// Does nothing serverside, only for client
+		
+		System.out.println("RegisterRenderInfo called");
+
+		
 	}
 
 	@Override

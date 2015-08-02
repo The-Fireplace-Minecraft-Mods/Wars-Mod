@@ -94,12 +94,18 @@ public class ClientProxy extends CommonProxy {
 
 		}
 		list.saveServerList();
+		
+		
+		
+
 
 	}
 
 	@Override
 	public void handleKillData(int totalKills, int killStreak) {
 
+		
+		System.out.println("This was actually sent");
 		ClientProxy.totalKills = totalKills;
 		ClientProxy.killStreak = killStreak;
 

@@ -43,7 +43,7 @@ public class BlockCottage extends Block {
 		
 		System.out.print("BlockClicked");
 
-		return false;
+		return true;
 
 	}
 }

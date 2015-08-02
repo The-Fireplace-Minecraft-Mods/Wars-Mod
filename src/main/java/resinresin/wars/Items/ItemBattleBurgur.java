@@ -16,7 +16,9 @@ public class ItemBattleBurgur extends ItemFood {
 		this.setMaxStackSize(3);
 	}
 
-	public ItemStack onEaten(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
+	
+	@Override
+	public ItemStack onItemUseFinish(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
 		entityPlayer.getFoodStats().addStats(this, itemStack);
 		world.playSoundAtEntity(entityPlayer, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
 		itemStack.stackSize--;

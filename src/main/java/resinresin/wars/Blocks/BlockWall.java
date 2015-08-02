@@ -47,7 +47,7 @@ public class BlockWall extends BlockStairs {
 			wallWE.generate(world, i - 4, j - 0, k - 2, true);
 		}
 
-		return false;
+		return true;
 
 	}
 

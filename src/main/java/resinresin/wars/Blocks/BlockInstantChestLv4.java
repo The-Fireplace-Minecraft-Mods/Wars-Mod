@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -22,81 +23,85 @@ public class BlockInstantChestLv4 extends Block {
 		setCreativeTab(Warsmod.tabWarsBlocks);
 	}
 
-	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
-		int i = pos.getX();
-		int j = pos.getY();
-		int k = pos.getZ();
-		
-		Warsmod.generateBlock(world, i + 0, j + 0, k + 0, Blocks.chest);
-		TileEntityChest chest2 = new TileEntityChest();
+		if (!world.isRemote) {
 
-		world.setTileEntity(pos, chest2);
+			int i = pos.getX();
+			int j = pos.getY();
+			int k = pos.getZ();
 
-		Random random = new Random();
+			Warsmod.generateBlock(world, i, j, k, Blocks.chest);
 
-		for (int slot = 0; slot < chest2.getSizeInventory(); slot++) {
+			TileEntity chestTile = world.getTileEntity(pos);
 
-			int num = random.nextInt(99);
+			if (chestTile instanceof TileEntityChest) {
 
-			if (num == 1) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.diamond));
+				Random random = new Random();
 
-			}
-			if (num == 2) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.iron_ingot));
+				for (int slot = 0; slot < 27; slot++) {
 
-			}
+					int num = random.nextInt(99);
 
-			if (num == 5) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
+					if (num == 1) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond));
 
-			}
+					}
+					if (num == 2) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.iron_ingot));
 
-			if (num == 6) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.bow));
+					}
 
-			}
-			if (num == 7) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.arrow, 3));
+					if (num == 5) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
 
-			}
-			if (num == 8) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.diamond_boots));
+					}
 
-			}
-			if (num == 9) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.diamond_helmet));
+					if (num == 6) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.bow));
 
-			}
+					}
+					if (num == 7) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.arrow, 3));
 
-			if (num == 10) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.stick));
+					}
+					if (num == 8) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond_boots));
 
-			}
+					}
+					if (num == 9) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond_helmet));
 
-			if (num == 11) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.golden_apple));
+					}
 
-				if (num == 12) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
+					if (num == 10) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.stick));
+
+					}
+
+					if (num == 11) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.golden_apple));
+
+						if (num == 12) {
+							((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
+
+						}
+						if (num == 13) {
+							((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
+
+						}
+						if (num == 14) {
+							((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond));
+
+						}
+
+					}
 
 				}
-				if (num == 13) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
-
-				}
-				if (num == 14) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.diamond));
-
-				}
-
 			}
-
 		}
-		return false;
+		return true;
 	}
 
 }

@@ -23,12 +23,14 @@ public class GuiHandler implements IGuiHandler {
 
 		return null;
 	}
-	
+
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+
+		System.out.println("This worked");
 		
 		BlockPos position = new BlockPos(x, y, z);
-		
+
 		switch (id) {
 
 		case 1:
@@ -36,20 +38,16 @@ public class GuiHandler implements IGuiHandler {
 		case 2:
 			return new GuiClassSelectDonator(player);
 		case 3:
-
 			return new GuiTeamSelect(player);
-
 		case 4:
-			
-	
 			return new GuiSetupSelection(player, (TileEntityBasicStructures) world.getTileEntity(position));
-
 		case 5:
 			return new GuiSpleefSelect(player, (TileEntitySpleefStructures) world.getTileEntity(position));
-
 		case 6:
+			
+			System.out.println("This actually happened");
+			
 			return new GuiBuildingSelect(player, (TileEntityBuildingStructures) world.getTileEntity(position));
-
 		case 7:
 			return new GuiGameSelect(player, (TileEntityGameStructures) world.getTileEntity(position));
 

@@ -28,7 +28,7 @@ public class BlockLamp extends Block {
 		int k = pos.getZ();
 		
 		lamp.generate(world, i - 1, j - 0, k - 1, false);
-		return false;
+		return true;
 
 	}
 

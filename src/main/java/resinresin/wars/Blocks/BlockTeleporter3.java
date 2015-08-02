@@ -27,18 +27,15 @@ public class BlockTeleporter3 extends Block implements ITileEntityProvider {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
-		int x = pos.getX();
-		int y = pos.getY();
-		int z = pos.getZ();
-
 		if (!world.isRemote) {
 			int distance = -1;
 			TileEntity foundTileEntity = null;
 			TileEntity thisTileEntity = world.getTileEntity(pos);
 			for (TileEntity tileEntity : (List<TileEntity>) world.loadedTileEntityList) {
-				if (tileEntity != thisTileEntity && world.getBlockState(tileEntity.getPos()) == WarsBlocks.teleporterBlock3) {
-					int thisDistance = ((TileEntityTeleporter) tileEntity).getDistanceTo(x, y, z);
-					if (thisDistance <= 50000 && (distance < 0 || distance > thisDistance)) {
+				BlockPos position = new BlockPos(tileEntity.getPos().getX(), tileEntity.getPos().getY(), tileEntity.getPos().getZ());
+				if (tileEntity != thisTileEntity && world.getBlockState(position).getBlock() == state.getBlock()) {
+					int thisDistance = ((TileEntityTeleporter) tileEntity).getDistanceTo(pos.getX(), pos.getY(), pos.getZ());
+					if (thisDistance <= 55000 && (distance < 0 || distance > thisDistance)) {
 						foundTileEntity = tileEntity;
 						distance = thisDistance;
 					}
@@ -46,12 +43,16 @@ public class BlockTeleporter3 extends Block implements ITileEntityProvider {
 			}
 			if (foundTileEntity != null) {
 				world.playSoundAtEntity(player, "mob.endermen.portal", 1, 1);
-
 				player.setPositionAndUpdate(foundTileEntity.getPos().getX() + 0.5, foundTileEntity.getPos().getY() + 1.2, foundTileEntity.getPos().getZ() + 0.5);
-				player.attackEntityFrom(DamageSource.fall, 3);
+				player.attackEntityFrom(DamageSource.fall, 2);
 				world.playSoundAtEntity(player, "mob.endermen.portal", 1, 1);
 			}
 		}
+		return true;
+	}
+
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
 		return true;
 	}
 
@@ -60,6 +61,5 @@ public class BlockTeleporter3 extends Block implements ITileEntityProvider {
 
 		return new TileEntityTeleporter();
 	}
-
 
 }

@@ -84,7 +84,7 @@ public class WarsPlayerEventHandler {
 
 			Warsmod.network.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
 
-			
+			System.out.println("Ok so this worked");
 
 			WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
@@ -111,6 +111,9 @@ public class WarsPlayerEventHandler {
 	@SubscribeEvent
 	public void PlayerRespawnEvent(PlayerRespawnEvent event) {
 
+		System.out.println("Ok so this worked");
+		
+		
 		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
 			Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);

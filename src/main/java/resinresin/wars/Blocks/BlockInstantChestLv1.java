@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -25,143 +26,151 @@ public class BlockInstantChestLv1 extends Block {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
-		int i = pos.getX();
-		int j = pos.getY();
-		int k = pos.getZ();
-		
-		Warsmod.generateBlock(world, i + 0, j + 0, k + 0, Blocks.chest);
-		TileEntityChest chest2 = new TileEntityChest();
+		if (!world.isRemote) {
 
-		world.setTileEntity(pos, chest2);
+			int i = pos.getX();
+			int j = pos.getY();
+			int k = pos.getZ();
 
-		Random random = new Random();
+			Warsmod.generateBlock(world, i, j, k, Blocks.chest);
 
-		for (int slot = 0; slot < chest2.getSizeInventory(); slot++) {
+			TileEntity chestTile = world.getTileEntity(pos);
 
-			int num = random.nextInt(160);
+			if (chestTile instanceof TileEntityChest) {
 
-			if (num == 1) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_helmet));
+				Random random = new Random();
 
-			}
-			if (num == 2) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_chestplate));
+				for (int slot = 0; slot < 27; slot++) {
 
-			}
+					int num = random.nextInt(160);
 
-			if (num == 5) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_leggings));
+					if (num == 1) {
 
-			}
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.leather_helmet));
 
-			if (num == 6) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_boots));
+					}
+					if (num == 2) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.leather_chestplate));
 
-			}
-			if (num == 7) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.apple));
+					}
 
-			}
-			if (num == 8) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.porkchop));
+					if (num == 5) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.leather_leggings));
 
-			}
-			if (num == 9) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.bone));
+					}
 
-			}
-			if (num == 10) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.book));
+					if (num == 6) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.leather_boots));
 
-			}
-			if (num == 11) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.feather));
+					}
+					if (num == 7) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.apple));
 
-			}
-			if (num == 12) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.string));
+					}
+					if (num == 8) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.porkchop));
 
-			}
-			if (num == 13) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.bowl));
+					}
+					if (num == 9) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.bone));
 
-			}
-			if (num == 14) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.arrow));
+					}
+					if (num == 10) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.book));
 
-			}
-			if (num == 15) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.coal));
+					}
+					if (num == 11) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.feather));
 
-			}
-			if (num == 16) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.bread));
+					}
+					if (num == 12) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.string));
 
-			}
-			if (num == 17) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Blocks.red_mushroom));
+					}
+					if (num == 13) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.bowl));
 
-			}
-			if (num == 18) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Blocks.torch));
+					}
+					if (num == 14) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.arrow));
 
-			}
-			if (num == 19) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.rotten_flesh));
+					}
+					if (num == 15) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.coal));
 
-			}
-			if (num == 20) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.spider_eye));
+					}
+					if (num == 16) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.bread));
 
-			}
-			if (num == 21) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.stick));
+					}
+					if (num == 17) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Blocks.red_mushroom));
 
-			}
-			if (num == 22) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.fish));
+					}
+					if (num == 18) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Blocks.torch));
 
-			}
-			if (num == 23) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.chicken));
+					}
+					if (num == 19) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.rotten_flesh));
 
-			}
-			if (num == 24) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.porkchop));
+					}
+					if (num == 20) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.spider_eye));
 
-			}
-			if (num == 25) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.wooden_axe));
+					}
+					if (num == 21) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.stick));
 
-			}
-			if (num == 26) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.wooden_sword));
+					}
+					if (num == 22) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.fish));
 
-			}
-			if (num == 27) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.flint));
+					}
+					if (num == 23) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.chicken));
 
-				if (num == 28) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_helmet));
+					}
+					if (num == 24) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.porkchop));
 
-				}
-				if (num == 29) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_chestplate));
+					}
+					if (num == 25) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.wooden_axe));
 
-				}
+					}
+					if (num == 26) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.wooden_sword));
 
-				if (num == 30) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_leggings));
+					}
+					if (num == 27) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.flint));
+					}
 
-				}
+					if (num == 28) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.leather_helmet));
 
-				if (num == 31) {
-					chest2.setInventorySlotContents(slot, new ItemStack(Items.leather_boots));
+					}
+					if (num == 29) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.leather_chestplate));
+
+					}
+
+					if (num == 30) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.leather_leggings));
+
+					}
+
+					if (num == 31) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.leather_boots));
+
+					}
 
 				}
 			}
 		}
-		return false;
+
+		return true;
 	}
 
 }

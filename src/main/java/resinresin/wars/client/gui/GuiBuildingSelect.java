@@ -3,6 +3,7 @@ package resinresin.wars.client.gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
@@ -10,9 +11,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import resinresin.wars.Warsmod;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
+import resinresin.wars.packet.PacketKills;
+import resinresin.wars.packet.PacketSpawnStructure;
 
 public class GuiBuildingSelect extends GuiScreen {
 
@@ -31,12 +31,17 @@ public class GuiBuildingSelect extends GuiScreen {
 	public String sizeArea = "";
 
 	public BlockPos blockPos; 
+	
+	public int x = 0;
+	public int y = 0;
+	public int z = 0;
 
 	public GuiBuildingSelect(EntityPlayer player, TileEntity tile) {
-		// the container is instanciated and passed to the superclass for
-		// handling
-		this.blockPos = tile.getPos();
-
+		
+		this.x = tile.getPos().getX();
+		this.y = tile.getPos().getY();
+		this.z = tile.getPos().getZ();
+		
 	}
 
 	@Override
@@ -133,6 +138,9 @@ public class GuiBuildingSelect extends GuiScreen {
 //
 //		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 13, out.toByteArray()));
 
+		Warsmod.network.sendToServer(new PacketSpawnStructure(guibutton.id, x, y, z, 1));
+
+		
 		switch (guibutton.id) {
 		case 1:
 			this.mc.thePlayer.closeScreen();

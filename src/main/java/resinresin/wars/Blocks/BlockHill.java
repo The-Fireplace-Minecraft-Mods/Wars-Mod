@@ -28,7 +28,7 @@ public class BlockHill extends Block {
 		int k = pos.getZ();
 		
 		hill.generate(world, i - 10, j - 6, k - 10, false);
-		return false;
+		return true;
 
 	}
 

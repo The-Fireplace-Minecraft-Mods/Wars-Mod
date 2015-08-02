@@ -17,6 +17,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -46,10 +48,15 @@ import resinresin.wars.tabs.WarsItemsTab;
 @Mod(modid = "warsmod", name = "Wars Mod", version = "7")
 public class Warsmod {
 
+	
+	@SidedProxy(clientSide = "resinresin.wars.client.ClientProxy", serverSide = "resinresin.wars.CommonProxy")
 	public static CommonProxy proxy;
 	public static SimpleNetworkWrapper network;
 
+	@Instance("warsmod")
 	public static Warsmod instance;
+	
+	
 	public static Configuration conf;
 
 	@SuppressWarnings("rawtypes")
@@ -126,6 +133,7 @@ public class Warsmod {
 		MinecraftForge.EVENT_BUS.register(mainhandler);
 		MinecraftForge.EVENT_BUS.register(playerhandler);
 		MinecraftForge.EVENT_BUS.register(tickhandler);
+		
 		MinecraftForge.EVENT_BUS.register(this);
 
 		// Register World Generator
@@ -138,8 +146,10 @@ public class Warsmod {
 		//int entityIdPTNT = EntityRegistry.findGlobalUniqueEntityId();
 		//EntityRegistry.registerGlobalEntityID(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT);
 		//EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", entityIdPTNT, Warsmod.instance, 16, 1, false);
-
-		//proxy.registerRenderInformation();
+		
+		proxy.registerRenderInformation();
+		
+		
 		conf.save();
 	}
 

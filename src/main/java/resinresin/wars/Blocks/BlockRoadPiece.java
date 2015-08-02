@@ -30,7 +30,7 @@ public class BlockRoadPiece extends Block {
 		
 		Warsmod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
 		road.generate(world, i - 0, j - 1, k - 0, true);
-		return false;
+		return true;
 
 	}
 

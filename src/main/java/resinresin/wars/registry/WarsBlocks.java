@@ -7,6 +7,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.Blocks.BlockAncientBlock;
 import resinresin.wars.Blocks.BlockAncientOre;
 import resinresin.wars.Blocks.BlockBadBlock;
@@ -300,7 +302,15 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(greenPlate, "greenPlate");
 		//GameRegistry.registerBlock(playerTNT, "ItemPTNTBlock.class");
 		
+		registerItemRenders();
+		
+
+		
+	}
 	
+	@SideOnly(Side.CLIENT)
+	public static void registerItemRenders() {
+		
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(deadDirt), 0, new ModelResourceLocation("warsmod:deadDirt", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(ancientOre), 0, new ModelResourceLocation("warsmod:ancientOre", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(ancientBlock), 0, new ModelResourceLocation("warsmod:ancientBlock", "inventory"));
@@ -338,6 +348,8 @@ public class WarsBlocks {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(roadPiece), 0, new ModelResourceLocation("warsmod:roadPiece", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(tower), 0, new ModelResourceLocation("warsmod:tower", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(wallEnd), 0, new ModelResourceLocation("warsmod:wallEnd", "inventory"));
+		
+		
 		
 	}
 

@@ -52,6 +52,7 @@ public class PacketSpawnStructure implements IMessage {
             System.out.println(String.format("Received %s from %s", message.x, ctx.getServerHandler().playerEntity.getDisplayName()));
 			
        
+            System.out.println("this got called (packet recieved)");
 			new StructureSpawning(ctx.getServerHandler().playerEntity, message.type, message.button, message.x, message.y, message.z);
             
             return null; // no response in this case
