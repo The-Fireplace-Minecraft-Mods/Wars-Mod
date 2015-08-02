@@ -12,8 +12,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.Warsmod;
-import resinresin.wars.WorldGen.resinresinLoader;
+import resinresin.wars.WarsMod;
+import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockCorner extends BlockStairs {
@@ -21,14 +21,14 @@ public class BlockCorner extends BlockStairs {
 	public BlockCorner(IBlockState state) {
 		super(state);
 
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 
 	}
 
-	resinresinLoader corner1 = new resinresinLoader("corner0.resinresin");
-	resinresinLoader corner2 = new resinresinLoader("corner90.resinresin");
-	resinresinLoader corner3 = new resinresinLoader("corner180.resinresin");
-	resinresinLoader corner4 = new resinresinLoader("corner370.resinresin");
+	ResinresinLoader corner1 = new ResinresinLoader("corner0.resinresin");
+	ResinresinLoader corner2 = new ResinresinLoader("corner90.resinresin");
+	ResinresinLoader corner3 = new ResinresinLoader("corner180.resinresin");
+	ResinresinLoader corner4 = new ResinresinLoader("corner370.resinresin");
 
 	
 	private boolean isBlockStairsDirection(IBlockAccess par1IBlockAccess, BlockPos pos, IBlockState par5) {

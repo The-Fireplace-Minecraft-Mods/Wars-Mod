@@ -1,6 +1,6 @@
 package resinresin.wars.packet;
 
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -46,7 +46,7 @@ public class PacketTeams implements IMessage {
         public IMessage onMessage(PacketTeams message, MessageContext ctx) {
             System.out.println(String.format("Received %s from %s", message.redPlayers, ctx.getServerHandler().playerEntity.getDisplayName()));
 			
-            Warsmod.proxy.handleTeams(message.redPlayers, message.greenPlayers, message.bluePlayers, message.yellowPlayers);
+            WarsMod.proxy.handleTeams(message.redPlayers, message.greenPlayers, message.bluePlayers, message.yellowPlayers);
             
             
             return null; // no response in this case

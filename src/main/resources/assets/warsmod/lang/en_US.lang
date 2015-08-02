@@ -6,3 +6,5 @@ item.tutorialItem.first.name=First Tutorial Item
 item.tutorialItem.second.name=Second Tutorial Item
  
 entity.yourname_modname.tutorial mob.name=Tutorial Mob
+
+classselect.survival=Be In Survival When Using This GUI!

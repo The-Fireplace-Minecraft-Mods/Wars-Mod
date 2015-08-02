@@ -1,13 +1,4 @@
-package resinresin.wars.handlers;
-
-import ibxm.Player;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.List;
+package resinresin.wars.events;
 
 import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
@@ -15,7 +6,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.Packet;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EntityDamageSource;
@@ -24,9 +14,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.command.CommandBlueBase;
 import resinresin.wars.command.CommandChaosSpawn;
 import resinresin.wars.command.CommandEditMode;
@@ -35,15 +23,10 @@ import resinresin.wars.command.CommandKillstreak;
 import resinresin.wars.command.CommandRedBase;
 import resinresin.wars.command.CommandTotalKills;
 import resinresin.wars.command.CommandYellowBase;
-import resinresin.wars.data.WarsSavedData;
 import resinresin.wars.packet.PacketKills;
-import resinresin.wars.packet.PacketTeams;
 import resinresin.wars.registry.WarsItems;
 
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-
-public class WarsEventHandler {
+public class ForgeEvents {
 
 	@EventHandler
 	public void serverStart(FMLServerStartingEvent event) {
@@ -183,6 +166,8 @@ public class WarsEventHandler {
 					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "35" + " \u00a73" + "Kills And Is Off The Scale Now OMG"));
 					break;
 				}
+				default:
+					break;
 				}
 
 				warsmod_totalKill = source.getEntity().getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
@@ -190,7 +175,7 @@ public class WarsEventHandler {
 				int totalKills = source.getEntity().getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 				warsmod_totalKill = source.getEntity().getEntityData().getInteger("warsmod_killstreak");
 
-				Warsmod.network.sendTo(new PacketKills(totalKills, warsmod_totalKill), (EntityPlayerMP) source.getEntity());
+				WarsMod.network.sendTo(new PacketKills(totalKills, warsmod_totalKill), (EntityPlayerMP) source.getEntity());
 
 			}
 		}

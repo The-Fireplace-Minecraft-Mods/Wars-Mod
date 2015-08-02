@@ -39,19 +39,18 @@ public class CommandBlueBase extends CommandBase {
 
 	}
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
+	@Override
+	public int compareTo(Object o) {
+		return 0;
+	}
 
 
-    @Override
+	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	
+
 
 }

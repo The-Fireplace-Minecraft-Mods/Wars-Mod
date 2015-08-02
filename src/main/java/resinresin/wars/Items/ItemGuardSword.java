@@ -13,7 +13,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsBlocks;
 
 import com.google.common.collect.Multimap;
@@ -24,7 +24,7 @@ public class ItemGuardSword extends Item {
 
 	public ItemGuardSword() {
 		super();
-		this.setCreativeTab(Warsmod.tabWarsClasses);
+		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(300);
 		this.weaponDamage = 3F;

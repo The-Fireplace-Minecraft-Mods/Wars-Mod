@@ -36,15 +36,14 @@ public class CommonProxy implements IGuiHandler {
 	public void closeOpenGui() {
 	}
 
-	@SuppressWarnings("unused")
 	public void totalKills(EntityPlayer player) {
 
 		NBTTagCompound playerNbt = player.getEntityData();
 		if (!playerNbt.hasKey(EntityPlayer.PERSISTED_NBT_TAG)) {
 			playerNbt.setTag(EntityPlayer.PERSISTED_NBT_TAG, new NBTTagCompound());
 		}
-		NBTTagCompound persisted = playerNbt.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
-
+		//NBTTagCompound persisted = playerNbt.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
+		//What was the point of storing that?
 	}
 
 	public void redTeamBase(EntityPlayer player) {

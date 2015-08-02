@@ -20,7 +20,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
 
 import resinresin.wars.CommonProxy;
-import resinresin.wars.client.gui.GuiTeamSelect;
 import resinresin.wars.handlers.WarsTickEventHandler;
 
 @SideOnly(Side.CLIENT)
@@ -40,7 +39,7 @@ public class ClientProxy extends CommonProxy {
 	@SuppressWarnings("rawtypes")
 	public static List donators;
 
-	protected GuiTeamSelect teamSelected;
+	//protected GuiTeamSelect teamSelected;//This is not used
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -121,6 +120,7 @@ public class ClientProxy extends CommonProxy {
 
 	}
 
+	@Override
 	public void closeOpenGui() {
 
 	}

@@ -1,16 +1,17 @@
 [
 {
-  "warsmod": "warsmod",
-  "name": "Warsmod",
+  "modid": "warsmod",
+  "name": "Wars Mod",
   "description": "The wars mod adds hundreds of epic structures, tools for server creators and everything you need to set up the greatest battle arena ever.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "version": "2.0.0.1",
+  "mcversion": "1.8",
   "url": "",
-  "updateUrl": ""https://dl.dropboxusercontent.com/u/104023161/WarsModUpdates.txt"",
-  "authorList": ["Resinresin"],
+  "updateUrl": "https://dl.dropboxusercontent.com/u/104023161/WarsModUpdates.txt",
+  "authorList": ["Resinresin","The_Fireplace"],
   "credits": "DigitKid, AcezMadness, HeavenlyBlade, diesieben07",
-  "logoFile": "",
+  "logoFile": "https://dl.dropboxusercontent.com/u/104023161/Questology%20banner%202.png",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [],
+  "requiredMods": []
 }
 ]

@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 import com.google.common.primitives.UnsignedBytes;
 
-public class resinresinLoader {
+public class ResinresinLoader {
 
 	public byte[] blocks;
 	public byte[] datablocks;
@@ -20,7 +20,7 @@ public class resinresinLoader {
 	public short height;
 	public short[] sizes;
 
-	public resinresinLoader(String path) {
+	public ResinresinLoader(String path) {
 		blocks = null;
 		datablocks = null;
 		width = 0;
@@ -31,7 +31,7 @@ public class resinresinLoader {
 
 	public void loadResinresin(String path) {
 		try {
-			InputStream inputstream = resinresinLoader.class.getResourceAsStream("/assets/warsmod/structures/" + path);
+			InputStream inputstream = ResinresinLoader.class.getResourceAsStream("/assets/warsmod/structures/" + path);
 			NBTTagCompound nbt = CompressedStreamTools.readCompressed(inputstream);
 
 			blocks = nbt.getByteArray("Blocks");
