@@ -10,7 +10,10 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.command.ICommandManager;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -23,11 +26,20 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import resinresin.wars.WorldGen.WarsWorldGenerator;
+import resinresin.wars.command.CommandBlueBase;
+import resinresin.wars.command.CommandChaosSpawn;
+import resinresin.wars.command.CommandEditMode;
+import resinresin.wars.command.CommandGreenBase;
+import resinresin.wars.command.CommandKillstreak;
+import resinresin.wars.command.CommandRedBase;
+import resinresin.wars.command.CommandTotalKills;
+import resinresin.wars.command.CommandYellowBase;
 import resinresin.wars.config.ConfigValues;
 import resinresin.wars.events.FMLEvents;
 import resinresin.wars.events.ForgeEvents;
@@ -121,6 +133,24 @@ public class WarsMod {
 		proxy.registerRenderInformation();
 
 		config.save();
+	}
+
+	@EventHandler
+	public void serverStart(FMLServerStartingEvent event) {
+
+		MinecraftServer server = MinecraftServer.getServer();
+		ICommandManager command = server.getCommandManager();
+
+		ServerCommandManager serverCommand = ((ServerCommandManager) command);
+
+		serverCommand.registerCommand(new CommandKillstreak());
+		serverCommand.registerCommand(new CommandTotalKills());
+		serverCommand.registerCommand(new CommandRedBase());
+		serverCommand.registerCommand(new CommandGreenBase());
+		serverCommand.registerCommand(new CommandBlueBase());
+		serverCommand.registerCommand(new CommandYellowBase());
+		serverCommand.registerCommand(new CommandChaosSpawn());
+		serverCommand.registerCommand(new CommandEditMode());
 	}
 
 	/**
