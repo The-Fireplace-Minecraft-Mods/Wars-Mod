@@ -12,15 +12,14 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
-import resinresin.wars.registry.WarsBlocks;
+import resinresin.wars.WarsMod;
 import resinresin.wars.tileentities.TileEntityTeleporter;
 
 public class BlockTeleporter2 extends Block implements ITileEntityProvider {
 
 	public BlockTeleporter2() {
 		super(Material.iron);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -34,7 +33,7 @@ public class BlockTeleporter2 extends Block implements ITileEntityProvider {
 			for (TileEntity tileEntity : (List<TileEntity>) world.loadedTileEntityList) {
 				BlockPos position = new BlockPos(tileEntity.getPos().getX(), tileEntity.getPos().getY(), tileEntity.getPos().getZ());
 				if (tileEntity != thisTileEntity && world.getBlockState(position).getBlock() == state.getBlock()) {
-						int thisDistance = ((TileEntityTeleporter) tileEntity).getDistanceTo(pos.getX(), pos.getY(), pos.getZ());
+					int thisDistance = ((TileEntityTeleporter) tileEntity).getDistanceTo(pos.getX(), pos.getY(), pos.getZ());
 					if (thisDistance <= 55000 && (distance < 0 || distance > thisDistance)) {
 						foundTileEntity = tileEntity;
 						distance = thisDistance;

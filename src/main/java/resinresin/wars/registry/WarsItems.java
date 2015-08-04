@@ -9,7 +9,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.Items.ItemAdminWandBall;
 import resinresin.wars.Items.ItemAdminWandLight;
 import resinresin.wars.Items.ItemAdminWandStone;
@@ -40,7 +40,7 @@ import resinresin.wars.Items.ItemWorkWaffel;
 
 public abstract class WarsItems {
 
-	
+
 	public static ArmorMaterial scoutArmor = EnumHelper.addArmorMaterial("SCOUT", null, -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial guardArmor = EnumHelper.addArmorMaterial("GUARD", null, -1, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial healerArmor = EnumHelper.addArmorMaterial("HEALER", null, -1, new int[] { 0, 0, 0, 0 }, 30);
@@ -105,52 +105,52 @@ public abstract class WarsItems {
 	public static Item aWandLight;
 	public static Item chaosBoots;
 	public static Item antidote;
-	
+
 	public static void createItems() {
 
-		
+
 		ancientGem = new ItemAncientGem().setUnlocalizedName("ancientGem");
-		ancientEmblem = new ItemAncientEmblem().setUnlocalizedName("ancientEmblem").setCreativeTab(Warsmod.tabWarsItems);
-		magicPotato = new ItemMagicPotato(3).setUnlocalizedName("magicPotato").setCreativeTab(Warsmod.tabWarsItems);
-		shadowFlesh = new ItemShadowFlesh(3).setUnlocalizedName("shadowFlesh").setCreativeTab(Warsmod.tabWarsItems);
-		warCheese = new ItemWarCheese(3).setUnlocalizedName("warCheese").setCreativeTab(Warsmod.tabWarsItems);
-		battleBurger = new ItemBattleBurgur(0).setUnlocalizedName("battleBurger").setCreativeTab(Warsmod.tabWarsItems);
-		longBannana = new ItemLongRangeBananna(4).setUnlocalizedName("longRangeBanana").setCreativeTab(Warsmod.tabWarsItems);
-		workWaffel = new ItemWorkWaffel(0).setUnlocalizedName("workWaffel").setCreativeTab(Warsmod.tabWarsItems);
-		scoutBlade = new ItemScoutsDagger().setUnlocalizedName("scoutSword").setCreativeTab(Warsmod.tabWarsClasses);
-		guardSword = new ItemGuardSword().setUnlocalizedName("guardSword").setCreativeTab(Warsmod.tabWarsClasses);
-		knightSword = new ItemKnightSword().setUnlocalizedName("knightSword").setCreativeTab(Warsmod.tabWarsClasses);
-		wizardStaff = new ItemWizardStaff().setUnlocalizedName("wizardStaff").setCreativeTab(Warsmod.tabWarsClasses);
-//	bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(Warsmod.tabWarsClasses);
-		techSpanner = new ItemTechSpanner().setUnlocalizedName("techSpanner").setCreativeTab(Warsmod.tabWarsClasses);
-		dagger = new ItemMeleeDagger().setUnlocalizedName("dagger").setCreativeTab(Warsmod.tabWarsClasses);
-		chaosSword = new ItemChaosSword().setUnlocalizedName("chaosSword").setCreativeTab(Warsmod.tabWarsClasses);
-		scoutHelm = new ItemArmorMod(scoutArmor, 0, 0).setUnlocalizedName("scoutHelm").setCreativeTab(Warsmod.tabWarsClasses);
-		scoutPlate = new ItemArmorMod(scoutArmor, 1, 1).setUnlocalizedName("scoutChest").setCreativeTab(Warsmod.tabWarsClasses);
-		scoutLegs = new ItemArmorMod(scoutArmor, 2, 2).setUnlocalizedName("scoutLegs").setCreativeTab(Warsmod.tabWarsClasses);
-		techHelm = new ItemArmorMod(techArmor, 0, 0).setUnlocalizedName("techHelm").setCreativeTab(Warsmod.tabWarsClasses);
-		techPlate = new ItemArmorMod(techArmor, 1, 1).setUnlocalizedName("techChest").setCreativeTab(Warsmod.tabWarsClasses);
-		techLegs = new ItemArmorMod(techArmor, 2, 2).setUnlocalizedName("techLegs").setCreativeTab(Warsmod.tabWarsClasses);
-		healerHelm = new ItemArmorMod(healerArmor, 0, 0).setUnlocalizedName("healerHelm").setCreativeTab(Warsmod.tabWarsClasses);
-		healerPlate = new ItemArmorMod(healerArmor, 1, 1).setUnlocalizedName("healerChest").setCreativeTab(Warsmod.tabWarsClasses);
-		healerLegs = new ItemArmorMod(healerArmor, 2, 2).setUnlocalizedName("healerLegs").setCreativeTab(Warsmod.tabWarsClasses);
-		archerHelm = new ItemArmorMod(archerArmor, 0, 0).setUnlocalizedName("archerHelm").setCreativeTab(Warsmod.tabWarsClasses);
-		archerPlate = new ItemArmorMod(archerArmor, 1, 1).setUnlocalizedName("archerChest").setCreativeTab(Warsmod.tabWarsClasses);
-		archerLegs = new ItemArmorMod(archerArmor, 2, 2).setUnlocalizedName("archerLegs").setCreativeTab(Warsmod.tabWarsClasses);
-		knightHelm = new ItemArmorMod(knightArmor, 0, 0).setUnlocalizedName("knightHelm").setCreativeTab(Warsmod.tabWarsClasses);
-		knightPlate = new ItemArmorMod(knightArmor, 1, 1).setUnlocalizedName("knightChest").setCreativeTab(Warsmod.tabWarsClasses);
-		knightLegs = new ItemArmorMod(knightArmor, 2, 2).setUnlocalizedName("knightLegs").setCreativeTab(Warsmod.tabWarsClasses);
-		guardHelm = new ItemArmorMod(guardArmor, 0, 0).setUnlocalizedName("guardHelm").setCreativeTab(Warsmod.tabWarsClasses);
-		guardPlate = new ItemArmorMod(guardArmor, 1, 1).setUnlocalizedName("guardChest").setCreativeTab(Warsmod.tabWarsClasses);
-		guardLegs = new ItemArmorMod(guardArmor, 2, 2).setUnlocalizedName("guardLegs").setCreativeTab(Warsmod.tabWarsClasses);
-		chaosHelm = new ItemArmorMod(chaosArmor, 0, 0).setUnlocalizedName("chaosHelm").setCreativeTab(Warsmod.tabWarsClasses);
-		chaosPlate = new ItemArmorMod(chaosArmor, 1, 1).setUnlocalizedName("chaosChest").setCreativeTab(Warsmod.tabWarsClasses);
-		chaosLegs = new ItemArmorMod(chaosArmor, 2, 2).setUnlocalizedName("chaosLegs").setCreativeTab(Warsmod.tabWarsClasses);
-		redBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("redBoots").setCreativeTab(Warsmod.tabWarsClasses);
-		greenBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("greenBoots").setCreativeTab(Warsmod.tabWarsClasses);
-		yellowBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("yellowBoots").setCreativeTab(Warsmod.tabWarsClasses);
-		blueBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("blueBoots").setCreativeTab(Warsmod.tabWarsClasses);
-		chaosBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("chaosBoots").setCreativeTab(Warsmod.tabWarsClasses);
+		ancientEmblem = new ItemAncientEmblem().setUnlocalizedName("ancientEmblem").setCreativeTab(WarsMod.tabWarsItems);
+		magicPotato = new ItemMagicPotato(3).setUnlocalizedName("magicPotato").setCreativeTab(WarsMod.tabWarsItems);
+		shadowFlesh = new ItemShadowFlesh(3).setUnlocalizedName("shadowFlesh").setCreativeTab(WarsMod.tabWarsItems);
+		warCheese = new ItemWarCheese(3).setUnlocalizedName("warCheese").setCreativeTab(WarsMod.tabWarsItems);
+		battleBurger = new ItemBattleBurgur(0).setUnlocalizedName("battleBurger").setCreativeTab(WarsMod.tabWarsItems);
+		longBannana = new ItemLongRangeBananna(4).setUnlocalizedName("longRangeBanana").setCreativeTab(WarsMod.tabWarsItems);
+		workWaffel = new ItemWorkWaffel(0).setUnlocalizedName("workWaffel").setCreativeTab(WarsMod.tabWarsItems);
+		scoutBlade = new ItemScoutsDagger().setUnlocalizedName("scoutSword").setCreativeTab(WarsMod.tabWarsClasses);
+		guardSword = new ItemGuardSword().setUnlocalizedName("guardSword").setCreativeTab(WarsMod.tabWarsClasses);
+		knightSword = new ItemKnightSword().setUnlocalizedName("knightSword").setCreativeTab(WarsMod.tabWarsClasses);
+		wizardStaff = new ItemWizardStaff().setUnlocalizedName("wizardStaff").setCreativeTab(WarsMod.tabWarsClasses);
+		//	bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(WarsMod.tabWarsClasses);
+		techSpanner = new ItemTechSpanner().setUnlocalizedName("techSpanner").setCreativeTab(WarsMod.tabWarsClasses);
+		dagger = new ItemMeleeDagger().setUnlocalizedName("dagger").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosSword = new ItemChaosSword().setUnlocalizedName("chaosSword").setCreativeTab(WarsMod.tabWarsClasses);
+		scoutHelm = new ItemArmorMod(scoutArmor, 0, 0).setUnlocalizedName("scoutHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		scoutPlate = new ItemArmorMod(scoutArmor, 1, 1).setUnlocalizedName("scoutChest").setCreativeTab(WarsMod.tabWarsClasses);
+		scoutLegs = new ItemArmorMod(scoutArmor, 2, 2).setUnlocalizedName("scoutLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		techHelm = new ItemArmorMod(techArmor, 0, 0).setUnlocalizedName("techHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		techPlate = new ItemArmorMod(techArmor, 1, 1).setUnlocalizedName("techChest").setCreativeTab(WarsMod.tabWarsClasses);
+		techLegs = new ItemArmorMod(techArmor, 2, 2).setUnlocalizedName("techLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		healerHelm = new ItemArmorMod(healerArmor, 0, 0).setUnlocalizedName("healerHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		healerPlate = new ItemArmorMod(healerArmor, 1, 1).setUnlocalizedName("healerChest").setCreativeTab(WarsMod.tabWarsClasses);
+		healerLegs = new ItemArmorMod(healerArmor, 2, 2).setUnlocalizedName("healerLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		archerHelm = new ItemArmorMod(archerArmor, 0, 0).setUnlocalizedName("archerHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		archerPlate = new ItemArmorMod(archerArmor, 1, 1).setUnlocalizedName("archerChest").setCreativeTab(WarsMod.tabWarsClasses);
+		archerLegs = new ItemArmorMod(archerArmor, 2, 2).setUnlocalizedName("archerLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		knightHelm = new ItemArmorMod(knightArmor, 0, 0).setUnlocalizedName("knightHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		knightPlate = new ItemArmorMod(knightArmor, 1, 1).setUnlocalizedName("knightChest").setCreativeTab(WarsMod.tabWarsClasses);
+		knightLegs = new ItemArmorMod(knightArmor, 2, 2).setUnlocalizedName("knightLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		guardHelm = new ItemArmorMod(guardArmor, 0, 0).setUnlocalizedName("guardHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		guardPlate = new ItemArmorMod(guardArmor, 1, 1).setUnlocalizedName("guardChest").setCreativeTab(WarsMod.tabWarsClasses);
+		guardLegs = new ItemArmorMod(guardArmor, 2, 2).setUnlocalizedName("guardLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosHelm = new ItemArmorMod(chaosArmor, 0, 0).setUnlocalizedName("chaosHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosPlate = new ItemArmorMod(chaosArmor, 1, 1).setUnlocalizedName("chaosChest").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosLegs = new ItemArmorMod(chaosArmor, 2, 2).setUnlocalizedName("chaosLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		redBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("redBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		greenBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("greenBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		yellowBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("yellowBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		blueBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("blueBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("chaosBoots").setCreativeTab(WarsMod.tabWarsClasses);
 		waterGem = new ItemWaterGem().setUnlocalizedName("waterGem");
 		fireGem = new ItemFireGem().setUnlocalizedName("fireGem");
 		decayGem = new ItemDecayGem().setUnlocalizedName("decayGem");
@@ -161,7 +161,7 @@ public abstract class WarsItems {
 		aWandWeb = new ItemAdminWandWeb().setUnlocalizedName("aWandWeb");
 		aWandLight = new ItemAdminWandLight().setUnlocalizedName("aWandLight");
 		antidote = new ItemAntidote().setUnlocalizedName("antidote");
-		
+
 		GameRegistry.registerItem(ancientGem, "ancientGem");
 		GameRegistry.registerItem(ancientEmblem, "ancientEmblem");
 		GameRegistry.registerItem(magicPotato, "magicPotato");
@@ -212,72 +212,69 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(aWandLight, "aWandLight");
 		GameRegistry.registerItem(chaosBoots, "chaosBoots");
 		GameRegistry.registerItem(antidote, "antidote");
-		
 
 
-//		LanguageRegistry.addName(ancientGem, "Ancient Gem");
-//		LanguageRegistry.addName(ancientEmblem, "Ancient Emblem");
-//		LanguageRegistry.addName(scoutHelm, "\u00a78Scout Hood");
-//		LanguageRegistry.addName(scoutPlate, "\u00a78Scout Tunic");
-//		LanguageRegistry.addName(scoutLegs, "\u00a78Scout Leggings");
-//		LanguageRegistry.addName(archerHelm, "\u00a72Archer Hood");
-//		LanguageRegistry.addName(archerPlate, "\u00a72Archer Tunic");
-//		LanguageRegistry.addName(archerLegs, "\u00a72Archer Leggings");
-//		LanguageRegistry.addName(guardHelm, "\u00a76Guard Helm");
-//		LanguageRegistry.addName(guardPlate, "\u00a76Guard Chestplate");
-//		LanguageRegistry.addName(guardLegs, "\u00a76Guard Trousers");
-//		LanguageRegistry.addName(healerHelm, "\u00a75Healer Hood");
-//		LanguageRegistry.addName(healerPlate, "\u00a75Healer Cloak");
-//		LanguageRegistry.addName(healerLegs, "\u00a75Healer Leggings");
-//		LanguageRegistry.addName(techHelm, "\u00a79Tech Helmet");
-//		LanguageRegistry.addName(techPlate, "\u00a79Tech Dungerees");
-//		LanguageRegistry.addName(techLegs, "\u00a79Tech Trousers");
-//		LanguageRegistry.addName(knightHelm, "\u00a74Knight Helm");
-//		LanguageRegistry.addName(knightPlate, "\u00a74Knight Chestplate");
-//		LanguageRegistry.addName(knightLegs, "\u00a74Knight Leggings");
-//		LanguageRegistry.addName(chaosHelm, "\u00a75Chaos Warrior Helm");
-//		LanguageRegistry.addName(chaosPlate, "\u00a75Chaos Warrior Chestplate");
-//		LanguageRegistry.addName(chaosLegs, "\u00a75Chaos Warrior Leggings");
-//		LanguageRegistry.addName(blueBoots, "\u00a79Blue Team Boots");
-//		LanguageRegistry.addName(redBoots, "\u00a74Red Team Boots");
-//		LanguageRegistry.addName(greenBoots, "\u00a72Green Team Boots");
-//		LanguageRegistry.addName(yellowBoots, "\u00a76Yellow Team Boots");
-//		LanguageRegistry.addName(chaosBoots, "\u00a75Chaos Boots");
-//		LanguageRegistry.addName(scoutBlade, "\u00a78Scout Blade");
-//		LanguageRegistry.addName(knightSword, "\u00a74Knight Sword");
-//		LanguageRegistry.addName(guardSword, "\u00a76Guard Sword");
-//		LanguageRegistry.addName(healerStaff, "\u00a75Healers Staff");
-//		LanguageRegistry.addName(magicPotato, "Magical Potato -healer-");
-//		LanguageRegistry.addName(workWaffel, "Work Waffel -tech-");
-//		LanguageRegistry.addName(battleBurger, "Battle Burger -guard-");
-//		LanguageRegistry.addName(warCheese, "War Cheese -knight-");
-//		LanguageRegistry.addName(shadowFlesh, "Shadow Flesh -scout-");
-//		LanguageRegistry.addName(longBannana, "Long Range Bananna -archer-");
-//		LanguageRegistry.addName(fireGem, "\u00a74Fireite Gem");
-//		LanguageRegistry.addName(waterGem, "\u00a79Wateite Gem");
-//		LanguageRegistry.addName(decayGem, "\u00a76Decanite Gem");
-//		LanguageRegistry.addName(naturalGem, "\u00a72Natrite Gem");
-//		LanguageRegistry.addName(aWandBall, "Admin Wand - Fireballs");
-//		LanguageRegistry.addName(aWandLight, "Admin Wand - Smiting");
-//		LanguageRegistry.addName(aWandStone, "Admin Wand - Stone Thrower");
-//		LanguageRegistry.addName(aWandLava, "Admin Wand - Lava");
-//		LanguageRegistry.addName(aWandWater, "Admin Wand - Water");
-//		LanguageRegistry.addName(aWandWeb, "Admin Wand - Web Thrower");
-//		LanguageRegistry.addName(aWandTNT, "Admin Wand - TNT");
-//		LanguageRegistry.addName(massMeal, "Mass Bone Meal");
-//		LanguageRegistry.addName(antidote, "Antidote");
-//		LanguageRegistry.addName(techSpanner, "\u00a79Tech Spanner");
-//		LanguageRegistry.addName(meleeDagger, "Melee Dagger");
-//		LanguageRegistry.addName(bowArcher, "\u00a72Archer Bow");
-//		LanguageRegistry.addName(chaosSword, "\u00a75Chaos Sword");
-		
-		registerItemRenders();
-		
+
+		//		LanguageRegistry.addName(ancientGem, "Ancient Gem");
+		//		LanguageRegistry.addName(ancientEmblem, "Ancient Emblem");
+		//		LanguageRegistry.addName(scoutHelm, "\u00a78Scout Hood");
+		//		LanguageRegistry.addName(scoutPlate, "\u00a78Scout Tunic");
+		//		LanguageRegistry.addName(scoutLegs, "\u00a78Scout Leggings");
+		//		LanguageRegistry.addName(archerHelm, "\u00a72Archer Hood");
+		//		LanguageRegistry.addName(archerPlate, "\u00a72Archer Tunic");
+		//		LanguageRegistry.addName(archerLegs, "\u00a72Archer Leggings");
+		//		LanguageRegistry.addName(guardHelm, "\u00a76Guard Helm");
+		//		LanguageRegistry.addName(guardPlate, "\u00a76Guard Chestplate");
+		//		LanguageRegistry.addName(guardLegs, "\u00a76Guard Trousers");
+		//		LanguageRegistry.addName(healerHelm, "\u00a75Healer Hood");
+		//		LanguageRegistry.addName(healerPlate, "\u00a75Healer Cloak");
+		//		LanguageRegistry.addName(healerLegs, "\u00a75Healer Leggings");
+		//		LanguageRegistry.addName(techHelm, "\u00a79Tech Helmet");
+		//		LanguageRegistry.addName(techPlate, "\u00a79Tech Dungerees");
+		//		LanguageRegistry.addName(techLegs, "\u00a79Tech Trousers");
+		//		LanguageRegistry.addName(knightHelm, "\u00a74Knight Helm");
+		//		LanguageRegistry.addName(knightPlate, "\u00a74Knight Chestplate");
+		//		LanguageRegistry.addName(knightLegs, "\u00a74Knight Leggings");
+		//		LanguageRegistry.addName(chaosHelm, "\u00a75Chaos Warrior Helm");
+		//		LanguageRegistry.addName(chaosPlate, "\u00a75Chaos Warrior Chestplate");
+		//		LanguageRegistry.addName(chaosLegs, "\u00a75Chaos Warrior Leggings");
+		//		LanguageRegistry.addName(blueBoots, "\u00a79Blue Team Boots");
+		//		LanguageRegistry.addName(redBoots, "\u00a74Red Team Boots");
+		//		LanguageRegistry.addName(greenBoots, "\u00a72Green Team Boots");
+		//		LanguageRegistry.addName(yellowBoots, "\u00a76Yellow Team Boots");
+		//		LanguageRegistry.addName(chaosBoots, "\u00a75Chaos Boots");
+		//		LanguageRegistry.addName(scoutBlade, "\u00a78Scout Blade");
+		//		LanguageRegistry.addName(knightSword, "\u00a74Knight Sword");
+		//		LanguageRegistry.addName(guardSword, "\u00a76Guard Sword");
+		//		LanguageRegistry.addName(healerStaff, "\u00a75Healers Staff");
+		//		LanguageRegistry.addName(magicPotato, "Magical Potato -healer-");
+		//		LanguageRegistry.addName(workWaffel, "Work Waffel -tech-");
+		//		LanguageRegistry.addName(battleBurger, "Battle Burger -guard-");
+		//		LanguageRegistry.addName(warCheese, "War Cheese -knight-");
+		//		LanguageRegistry.addName(shadowFlesh, "Shadow Flesh -scout-");
+		//		LanguageRegistry.addName(longBannana, "Long Range Bananna -archer-");
+		//		LanguageRegistry.addName(fireGem, "\u00a74Fireite Gem");
+		//		LanguageRegistry.addName(waterGem, "\u00a79Wateite Gem");
+		//		LanguageRegistry.addName(decayGem, "\u00a76Decanite Gem");
+		//		LanguageRegistry.addName(naturalGem, "\u00a72Natrite Gem");
+		//		LanguageRegistry.addName(aWandBall, "Admin Wand - Fireballs");
+		//		LanguageRegistry.addName(aWandLight, "Admin Wand - Smiting");
+		//		LanguageRegistry.addName(aWandStone, "Admin Wand - Stone Thrower");
+		//		LanguageRegistry.addName(aWandLava, "Admin Wand - Lava");
+		//		LanguageRegistry.addName(aWandWater, "Admin Wand - Water");
+		//		LanguageRegistry.addName(aWandWeb, "Admin Wand - Web Thrower");
+		//		LanguageRegistry.addName(aWandTNT, "Admin Wand - TNT");
+		//		LanguageRegistry.addName(massMeal, "Mass Bone Meal");
+		//		LanguageRegistry.addName(antidote, "Antidote");
+		//		LanguageRegistry.addName(techSpanner, "\u00a79Tech Spanner");
+		//		LanguageRegistry.addName(meleeDagger, "Melee Dagger");
+		//		LanguageRegistry.addName(bowArcher, "\u00a72Archer Bow");
+		//		LanguageRegistry.addName(chaosSword, "\u00a75Chaos Sword");
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders() {
-		
+
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientGem, 0, new ModelResourceLocation("warsmod:ancientGem", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientEmblem, 0, new ModelResourceLocation("warsmod:ancientEmblem", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(magicPotato, 0, new ModelResourceLocation("warsmod:magicPotato", "inventory"));
@@ -318,7 +315,7 @@ public abstract class WarsItems {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(greenBoots, 0, new ModelResourceLocation("warsmod:greenBoots", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(yellowBoots, 0, new ModelResourceLocation("warsmod:yellowBoots", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(blueBoots, 0, new ModelResourceLocation("warsmod:blueBoots", "inventory"));
-		
+
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(waterGem, 0, new ModelResourceLocation("warsmod:waterGem", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(fireGem, 0, new ModelResourceLocation("warsmod:fireGem", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(decayGem, 0, new ModelResourceLocation("warsmod:decayGem", "inventory"));
@@ -332,9 +329,9 @@ public abstract class WarsItems {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosBoots, 0, new ModelResourceLocation("warsmod:chaosBoots", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(antidote, 0, new ModelResourceLocation("warsmod:antidote", "inventory"));
 
-		
-	}
-	
 
-	
+	}
+
+
+
 }

@@ -30,13 +30,7 @@ public class BlockSelectorBuildings extends BlockContainer {
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
 		}
-<<<<<<< HEAD
-		player.openGui(Warsmod.instance, 6, world, x, y, z);
-		
-		
-=======
 		player.openGui(WarsMod.instance, 6, world, x, y, z);
->>>>>>> origin/master
 		return true;
 	}
 
@@ -44,7 +38,7 @@ public class BlockSelectorBuildings extends BlockContainer {
 	public boolean hasTileEntity(IBlockState state) {
 		return true;
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityBuildingStructures();

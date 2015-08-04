@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.lwjgl.input.Keyboard;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.ServerList;
@@ -16,11 +18,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import org.lwjgl.input.Keyboard;
-
 import resinresin.wars.CommonProxy;
 import resinresin.wars.handlers.WarsTickEventHandler;
+import resinresin.wars.registry.WarsBlocks;
+import resinresin.wars.registry.WarsItems;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -44,7 +45,8 @@ public class ClientProxy extends CommonProxy {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void registerRenderInformation() {
-
+		WarsBlocks.registerItemRenders();
+		WarsItems.registerItemRenders();
 		donators = new ArrayList<String>();
 
 		try {
@@ -59,17 +61,13 @@ public class ClientProxy extends CommonProxy {
 			}
 			in.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		// TickRegistry.registerTickHandler(new ClientTickEventHandler(),
 		// Side.CLIENT);
-		WarsTickEventHandler clienttickhandler = new WarsTickEventHandler();
-		MinecraftForge.EVENT_BUS.register(clienttickhandler);
-
-		WarsKeyEventHandler clientkeyhandler = new WarsKeyEventHandler();
-		MinecraftForge.EVENT_BUS.register(clientkeyhandler);
+		MinecraftForge.EVENT_BUS.register(new WarsTickEventHandler());
+		MinecraftForge.EVENT_BUS.register(new WarsKeyEventHandler());
 
 		//RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed());
 
@@ -90,34 +88,23 @@ public class ClientProxy extends CommonProxy {
 		}
 		if (!found) {
 			list.addServerData(new ServerData("Wars Mod Battle Server", "108.170.23.98:63293"));
-
 		}
 		list.saveServerList();
-		
-		
-		
-
-
 	}
 
 	@Override
 	public void handleKillData(int totalKills, int killStreak) {
-
-		
 		System.out.println("This was actually sent");
 		ClientProxy.totalKills = totalKills;
 		ClientProxy.killStreak = killStreak;
-
 	}
 
 	@Override
 	public void handleTeams(int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
-
 		ClientProxy.redPlayers = redPlayers;
 		ClientProxy.greenPlayers = greenPlayers;
 		ClientProxy.bluePlayers = bluePlayers;
 		ClientProxy.yellowPlayers = yellowPlayers;
-
 	}
 
 	@Override

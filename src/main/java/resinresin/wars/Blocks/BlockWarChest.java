@@ -14,14 +14,14 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import resinresin.wars.Warsmod;
+import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
 
 public class BlockWarChest extends Block {
 
 	public BlockWarChest() {
 		super(Material.iron);
-		setCreativeTab(Warsmod.tabWarsBlocks);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class BlockWarChest extends Block {
 			int j = pos.getY();
 			int k = pos.getZ();
 
-			Warsmod.generateBlock(world, i, j, k, Blocks.chest);
+			WarsMod.generateBlock(world, i, j, k, Blocks.chest);
 
 			TileEntity chestTile = world.getTileEntity(pos);
 

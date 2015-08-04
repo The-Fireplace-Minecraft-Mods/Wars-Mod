@@ -11,24 +11,18 @@ import resinresin.wars.client.gui.GuiGameSelect;
 import resinresin.wars.client.gui.GuiSetupSelection;
 import resinresin.wars.client.gui.GuiSpleefSelect;
 import resinresin.wars.client.gui.GuiTeamSelect;
-import resinresin.wars.tileentities.TileEntityBasicStructures;
-import resinresin.wars.tileentities.TileEntityBuildingStructures;
-import resinresin.wars.tileentities.TileEntityGameStructures;
-import resinresin.wars.tileentities.TileEntitySpleefStructures;
 
 public class GuiHandler implements IGuiHandler {
 	// returns an instance of the Container you made earlier
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-
 		return null;
 	}
 
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-
 		System.out.println("This worked");
-		
+
 		BlockPos position = new BlockPos(x, y, z);
 
 		switch (id) {
@@ -40,16 +34,16 @@ public class GuiHandler implements IGuiHandler {
 		case 3:
 			return new GuiTeamSelect(player);
 		case 4:
-			return new GuiSetupSelection(player, (TileEntityBasicStructures) world.getTileEntity(position));
+			return new GuiSetupSelection(player, world.getTileEntity(position));
 		case 5:
-			return new GuiSpleefSelect(player, (TileEntitySpleefStructures) world.getTileEntity(position));
+			return new GuiSpleefSelect(player, world.getTileEntity(position));
 		case 6:
-			
+
 			System.out.println("This actually happened");
-			
-			return new GuiBuildingSelect(player, (TileEntityBuildingStructures) world.getTileEntity(position));
+
+			return new GuiBuildingSelect(player, world.getTileEntity(position));
 		case 7:
-			return new GuiGameSelect(player, (TileEntityGameStructures) world.getTileEntity(position));
+			return new GuiGameSelect(player, world.getTileEntity(position));
 
 		}
 

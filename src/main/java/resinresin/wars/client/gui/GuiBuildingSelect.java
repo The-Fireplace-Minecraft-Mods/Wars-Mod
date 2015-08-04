@@ -1,17 +1,14 @@
 package resinresin.wars.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
-import resinresin.wars.Warsmod;
-import resinresin.wars.packet.PacketKills;
+import resinresin.wars.WarsMod;
 import resinresin.wars.packet.PacketSpawnStructure;
 
 public class GuiBuildingSelect extends GuiScreen {
@@ -30,18 +27,18 @@ public class GuiBuildingSelect extends GuiScreen {
 	public String sizeHeight = "";
 	public String sizeArea = "";
 
-	public BlockPos blockPos; 
-	
+	public BlockPos blockPos;
+
 	public int x = 0;
 	public int y = 0;
 	public int z = 0;
 
 	public GuiBuildingSelect(EntityPlayer player, TileEntity tile) {
-		
+
 		this.x = tile.getPos().getX();
 		this.y = tile.getPos().getY();
 		this.z = tile.getPos().getZ();
-		
+
 	}
 
 	@Override
@@ -125,22 +122,23 @@ public class GuiBuildingSelect extends GuiScreen {
 
 	}
 
+	@Override
 	protected void actionPerformed(GuiButton guibutton) {
 		// id is the id you give your button
-//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-//		out.writeByte(guibutton.id);
-//
-//		out.writeInt(x);
-//
-//		out.writeInt(y);
-//
-//		out.writeInt(z);
-//
-//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 13, out.toByteArray()));
+		//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+		//		out.writeByte(guibutton.id);
+		//
+		//		out.writeInt(x);
+		//
+		//		out.writeInt(y);
+		//
+		//		out.writeInt(z);
+		//
+		//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 13, out.toByteArray()));
 
-		Warsmod.network.sendToServer(new PacketSpawnStructure(guibutton.id, x, y, z, 1));
+		WarsMod.network.sendToServer(new PacketSpawnStructure(guibutton.id, x, y, z, 1));
 
-		
+
 		switch (guibutton.id) {
 		case 1:
 			this.mc.thePlayer.closeScreen();
