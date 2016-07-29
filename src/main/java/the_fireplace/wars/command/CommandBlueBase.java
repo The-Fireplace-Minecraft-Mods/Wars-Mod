@@ -33,7 +33,7 @@ public class CommandBlueBase extends CommandBase {
 			savedData.teamBlue.baseY = (int) player.posY;
 			savedData.teamBlue.baseZ = (int) player.posZ;
 			savedData.markDirty();
-			player.addChatMessage(new ChatComponentText("Blue Team Base Set To: " + savedData.teamBlue.baseX + " " + savedData.teamBlue.baseY + " " + savedData.teamBlue.baseZ));
+			player.addChatMessage(new ChatComponentText("Blue Team Base Set To: " + savedData.teamBlue.baseX + ", " + savedData.teamBlue.baseY + ", " + savedData.teamBlue.baseZ));
 
 		}
 

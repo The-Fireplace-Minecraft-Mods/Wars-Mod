@@ -33,7 +33,7 @@ public class CommandChaosSpawn extends CommandBase {
 			savedData.teamChaos.baseY = (int) player.posY;
 			savedData.teamChaos.baseZ = (int) player.posZ;
 			savedData.markDirty();
-			player.addChatMessage(new ChatComponentText("Chaos Base Set To: " + savedData.teamChaos.baseX + " " + savedData.teamChaos.baseY + " " + savedData.teamChaos.baseZ));
+			player.addChatMessage(new ChatComponentText("Chaos Base Set To: " + savedData.teamChaos.baseX + ", " + savedData.teamChaos.baseY + ", " + savedData.teamChaos.baseZ));
 
 		}
 

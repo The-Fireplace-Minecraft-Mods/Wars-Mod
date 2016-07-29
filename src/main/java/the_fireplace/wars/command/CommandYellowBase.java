@@ -38,7 +38,7 @@ public class CommandYellowBase extends CommandBase {
 			savedData.teamYellow.baseY = (int) player.posY;
 			savedData.teamYellow.baseZ = (int) player.posZ;
 			savedData.markDirty();
-			player.addChatMessage(new ChatComponentText("Yellow Team Base Set To: " + savedData.teamYellow.baseX + " " + savedData.teamYellow.baseY + " " + savedData.teamYellow.baseZ));
+			player.addChatMessage(new ChatComponentText("Yellow Team Base Set To: " + savedData.teamYellow.baseX + ", " + savedData.teamYellow.baseY + ", " + savedData.teamYellow.baseZ));
 
 		}
 

@@ -3,7 +3,6 @@ package the_fireplace.wars.client.gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -28,8 +27,8 @@ public class GuiSetupSelection extends GuiScreen {
 
 	public BlockPos blockPos;
 	
-	public GuiSetupSelection(EntityPlayer player, TileEntity tile) {
-		blockPos = tile.getPos();
+	public GuiSetupSelection(EntityPlayer player, BlockPos pos) {
+		blockPos = pos;
 	}
 
 	@Override

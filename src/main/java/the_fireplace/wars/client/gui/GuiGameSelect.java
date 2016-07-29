@@ -1,15 +1,13 @@
 package the_fireplace.wars.client.gui;
 
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
 
 public class GuiGameSelect extends GuiScreen {
 
@@ -31,8 +29,13 @@ public class GuiGameSelect extends GuiScreen {
 	public int y = 0;
 	public int z = 0;
 
-	public GuiGameSelect(EntityPlayer player, TileEntity tile) {
+	BlockPos blockPos;
 
+	public GuiGameSelect(EntityPlayer player, BlockPos pos) {
+		blockPos = pos;
+		x = pos.getX();
+		y = pos.getY();
+		z = pos.getZ();
 	}
 
 	@Override

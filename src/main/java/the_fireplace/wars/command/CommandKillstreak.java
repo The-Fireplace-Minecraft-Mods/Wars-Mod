@@ -32,7 +32,7 @@ public class CommandKillstreak extends CommandBase {
 
 			int killForPlayer = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 
-			player.addChatMessage(new ChatComponentText("" + killForPlayer));
+			player.addChatMessage(new ChatComponentText("Your kills: " + killForPlayer));
 
 		}
 
