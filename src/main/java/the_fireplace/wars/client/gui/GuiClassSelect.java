@@ -10,10 +10,10 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
 import the_fireplace.wars.client.ClientProxy;
+import the_fireplace.wars.network.PacketClassSelected;
+import the_fireplace.wars.network.PacketDispatcher;
 
 public class GuiClassSelect extends GuiScreen {
 
@@ -148,10 +148,6 @@ public class GuiClassSelect extends GuiScreen {
     }
 
 	protected void actionPerformed(GuiButton guibutton) {
-		// id is the id you give your button
-//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-//		out.writeByte(guibutton.id);
-//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 1, out.toByteArray()));
      	int currentKills = ClientProxy.totalKills;
 
 		switch (guibutton.id) {
@@ -213,7 +209,9 @@ public class GuiClassSelect extends GuiScreen {
 		}
 
 		// Packet code here
-		// PacketDispatcher.sendPacketToServer(packet); //send packet
+		if(guibutton.id > 0 && guibutton.id < 7){
+			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, 1));
+		}
 	}
 
 }

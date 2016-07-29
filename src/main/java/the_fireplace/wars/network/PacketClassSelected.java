@@ -37,7 +37,7 @@ public class PacketClassSelected implements IMessage {
 
 		@Override
 		public IMessage handleServerMessage(EntityPlayer player, PacketClassSelected message, MessageContext ctx) {
-			System.out.println(String.format("Received %s from %s", message.classSelected, player.getDisplayName()));
+			System.out.println(String.format("Received %s from %s", message.classSelected, player.getDisplayName().getUnformattedText()));
 
 			if (message.donator == 1) {
 				new ClassSelected(player, message.classSelected);

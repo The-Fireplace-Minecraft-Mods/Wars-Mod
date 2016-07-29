@@ -50,7 +50,7 @@ public class PacketSpawnStructure implements IMessage {
         
         @Override
         public IMessage handleServerMessage(EntityPlayer player, PacketSpawnStructure message, MessageContext ctx) {
-            System.out.println(String.format("Received %s from %s", message.x, player.getDisplayName()));
+            System.out.println(String.format("Received %s from %s", message.x, player.getDisplayName().getUnformattedText()));
 
             System.out.println("this got called (packet recieved)");
 			new StructureSpawning(player, message.type, message.button, message.x, message.y, message.z);

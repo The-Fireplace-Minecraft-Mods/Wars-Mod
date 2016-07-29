@@ -1,8 +1,5 @@
 package the_fireplace.wars.client.gui;
 
-import java.awt.Desktop;
-import java.net.URL;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -13,10 +10,13 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
 import the_fireplace.wars.client.ClientProxy;
+import the_fireplace.wars.network.PacketClassSelected;
+import the_fireplace.wars.network.PacketDispatcher;
+
+import java.awt.*;
+import java.net.URL;
 
 public class GuiClassSelectDonator extends GuiScreen {
 
@@ -130,11 +130,6 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 
 	protected void actionPerformed(GuiButton guibutton) {
-		// id is the id you give your button
-//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-//		out.writeByte(guibutton.id);
-//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 4, out.toByteArray()));
-//	
 		switch (guibutton.id) {
 		case 1:
 			if (ClientProxy.donators.contains(this.mc.thePlayer.getName())) {
@@ -171,7 +166,9 @@ public class GuiClassSelectDonator extends GuiScreen {
 		}
 
 		// Packet code here
-		// PacketDispatcher.sendPacketToServer(packet); //send packet
+		if(guibutton.id > 0 && guibutton.id < 2){
+			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, 0));
+		}
 	}
 
 

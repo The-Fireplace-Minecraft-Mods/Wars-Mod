@@ -123,9 +123,6 @@ public class GuiBuildingSelect extends GuiScreen {
 
 	@Override
 	protected void actionPerformed(GuiButton guibutton) {
-		PacketDispatcher.sendToServer(new PacketSpawnStructure(guibutton.id, x, y, z, 1));
-
-
 		switch (guibutton.id) {
 		case 1:
 			this.mc.thePlayer.closeScreen();
@@ -185,7 +182,9 @@ public class GuiBuildingSelect extends GuiScreen {
 		}
 
 		// Packet code here
-		// PacketDispatcher.sendPacketToServer(packet); //send packet
+		if(guibutton.id > 0 && guibutton.id < 7){
+			PacketDispatcher.sendToServer(new PacketSpawnStructure(guibutton.id, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 3));
+		}
 	}
 
 }

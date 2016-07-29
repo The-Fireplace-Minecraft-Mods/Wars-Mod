@@ -19,7 +19,6 @@ public class GenControlTower {
 			WarsMod.generateBlock(player.worldObj, i + 1, j - 0, k + 0, WarsBlocks.controlBlue);
 			WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k + -1, WarsBlocks.controlRed);
 			WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k + 1, WarsBlocks.controlGreen);
-
 		}
 
 		{

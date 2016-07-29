@@ -1,15 +1,14 @@
 
 package the_fireplace.wars.worldgen;
 
-import java.io.InputStream;
-
+import com.google.common.primitives.UnsignedBytes;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-import com.google.common.primitives.UnsignedBytes;
+import java.io.InputStream;
 
 public class ResinresinLoader {
 
@@ -54,7 +53,7 @@ public class ResinresinLoader {
 
 			for (int i = 0; i < blocks.length; i++) {
 				int blockId = UnsignedBytes.toInt(blocks[i]);
-				if (((blocks[i] != 0) && (!spawnairblocks)) || (spawnairblocks == true)) {
+				if ((blocks[i] != 0 && !spawnairblocks) || spawnairblocks) {
 					
 					
 					

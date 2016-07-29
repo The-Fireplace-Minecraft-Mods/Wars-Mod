@@ -33,7 +33,7 @@ public class PacketOpenTeamSelect implements IMessage {
         
         @Override
         public IMessage handleClientMessage(EntityPlayer player, PacketOpenTeamSelect message, MessageContext ctx) {
-            System.out.println(String.format("Received %s from %s", message.openTeamSelect, player.getDisplayName()));
+            System.out.println(String.format("Received %s from %s", message.openTeamSelect, player.getDisplayName().getUnformattedText()));
 			
             player.openGui(WarsMod.instance, 3, player.worldObj, 0, 0, 0);
             

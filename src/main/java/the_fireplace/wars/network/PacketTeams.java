@@ -44,7 +44,7 @@ public class PacketTeams implements IMessage {
         
         @Override
         public IMessage handleClientMessage(EntityPlayer player, PacketTeams message, MessageContext ctx) {
-            System.out.println(String.format("Received %s from %s", message.redPlayers, player.getDisplayName()));
+            System.out.println(String.format("Received %s from %s", message.redPlayers, player.getDisplayName().getUnformattedText()));
 			
             WarsMod.proxy.handleTeams(message.redPlayers, message.greenPlayers, message.bluePlayers, message.yellowPlayers);
 

@@ -35,7 +35,7 @@ public class PacketKills implements IMessage {
         
         @Override
         public IMessage handleClientMessage(EntityPlayer player, PacketKills message, MessageContext ctx) {
-            System.out.println(String.format("Received %s from %s", message.killStreak, player.getDisplayName()));
+            System.out.println(String.format("Received %s from %s", message.killStreak, player.getDisplayName().getUnformattedText()));
 			
             WarsMod.proxy.handleKillData(message.totalKills, message.killStreak);
 
