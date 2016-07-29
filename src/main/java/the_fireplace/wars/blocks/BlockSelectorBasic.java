@@ -9,6 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.registry.WarsItems;
 import the_fireplace.wars.tileentities.TileEntityClassSelect;
@@ -43,7 +44,7 @@ public class BlockSelectorBasic extends BlockContainer {
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
 		}
-		player.openGui(WarsMod.instance, 1, world, x, y, z);
+		FMLNetworkHandler.openGui(player, WarsMod.instance, 1, world, x, y, z);
 		return true;
 	}
 

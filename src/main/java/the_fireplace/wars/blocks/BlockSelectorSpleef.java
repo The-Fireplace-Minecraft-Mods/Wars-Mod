@@ -8,6 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.tileentities.TileEntitySpleefStructures;
 
@@ -34,7 +35,7 @@ public class BlockSelectorSpleef extends BlockContainer {
 		if (tile_entity == null || player.isSneaking()) {
 			return false;
 		}
-		player.openGui(WarsMod.instance, 5, world, x, y, z);
+		FMLNetworkHandler.openGui(player, WarsMod.instance, 5, world, x, y, z);
 		return true;
 	}
 

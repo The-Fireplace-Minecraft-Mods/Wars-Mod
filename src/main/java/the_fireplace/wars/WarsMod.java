@@ -105,17 +105,11 @@ public class WarsMod {
 		serverCommand.registerCommand(new CommandEditMode());
 	}
 
-	/**
-	 * Used to help with 1.8 update (replaces setBlock)
-	 */
 	public static void generateBlock(World par1World, int i, int j, int k, Block block) {
 		BlockPos position = new BlockPos(i, j, k);
 		par1World.setBlockState(position, block.getDefaultState());
 	}
 
-	/**
-	 * Used to help with 1.8 update (replaces setBlock)
-	 */
 	public static void generateBlockWithMeta(World par1World, int i, int j, int k, IBlockState state) {
 		BlockPos position = new BlockPos(i, j, k);
 		par1World.setBlockState(position, state);

@@ -190,10 +190,10 @@ public class WarsBlocks {
 		hgLv2reset = new BlockHungerGamesLv2Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 
 		//Control Blocks
-		controlBlue = new BlockCBlue().setUnlocalizedName("controlBlue");
-		controlYellow = new BlockCYellow().setUnlocalizedName("controlYellow");
-		controlGreen = new BlockCGreen().setUnlocalizedName("controlGreen");
-		controlRed = new BlockCRed().setUnlocalizedName("controlRed");
+		controlBlue = new BlockCBlue().setUnlocalizedName("ControlBlue");
+		controlYellow = new BlockCYellow().setUnlocalizedName("ControlYellow");
+		controlGreen = new BlockCGreen().setUnlocalizedName("ControlGreen");
+		controlRed = new BlockCRed().setUnlocalizedName("ControlRed");
 
 		// /*LanguageRegistry.addName(buildingSelector, "Selector - Buildings");
 		// LanguageRegistry.addName(spleefSelector, "Selector - Spleef");
@@ -293,10 +293,10 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(yellowPlate, "yellowPlate");
 		GameRegistry.registerBlock(greenPlate, "greenPlate");
 		//GameRegistry.registerBlock(playerTNT, "ItemPTNTBlock.class");
-		GameRegistry.registerBlock(controlBlue, "controlBlue");
-		GameRegistry.registerBlock(controlYellow, "controlYellow");
-		GameRegistry.registerBlock(controlRed, "controlRed");
-		GameRegistry.registerBlock(controlGreen, "controlGreen");
+		GameRegistry.registerBlock(controlBlue, "ControlBlue");
+		GameRegistry.registerBlock(controlYellow, "ControlYellow");
+		GameRegistry.registerBlock(controlRed, "ControlRed");
+		GameRegistry.registerBlock(controlGreen, "ControlGreen");
 	}
 
 	@SideOnly(Side.CLIENT)
