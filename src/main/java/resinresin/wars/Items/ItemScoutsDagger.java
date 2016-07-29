@@ -1,4 +1,4 @@
-package resinresin.wars.Items;
+package resinresin.wars.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;

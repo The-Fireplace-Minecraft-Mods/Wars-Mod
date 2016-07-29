@@ -1,19 +1,17 @@
-package resinresin.wars.WorldGen;
-
-import java.util.Random;
+package resinresin.wars.worldgen;
 
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenDesert;
 import net.minecraft.world.biome.BiomeGenForest;
 import net.minecraft.world.biome.BiomeGenOcean;
 import net.minecraft.world.biome.BiomeGenPlains;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import resinresin.wars.config.ConfigValues;
 import resinresin.wars.registry.WarsBlocks;
+
+import java.util.Random;
 
 public class WarsWorldGenerator implements IWorldGenerator {
 
@@ -92,20 +90,6 @@ public class WarsWorldGenerator implements IWorldGenerator {
 
 				BlockPos waterPos = new BlockPos(Xcoord, Ycoord, Zcoord);
 				(new WorldGenMinable(WarsBlocks.waterOre.getDefaultState(), 10)).generate(world, random, waterPos);
-			}
-		}
-
-		if (ConfigValues.DOSAND) {
-			if (biomegenbase instanceof BiomeGenDesert) {
-
-				for (int i = 0; i < 100; i++) {
-					int Xcoord = blockX + random.nextInt(16);
-					int Ycoord = random.nextInt(90);
-					int Zcoord = blockZ + random.nextInt(16);
-
-					BlockPos sandPos = new BlockPos(Xcoord, Ycoord, Zcoord);
-					(new WorldGenSand(WarsBlocks.sinkSand, 10)).generate(world, random, sandPos);
-				}
 			}
 		}
 

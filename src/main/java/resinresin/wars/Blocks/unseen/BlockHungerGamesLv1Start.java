@@ -1,4 +1,4 @@
-package resinresin.wars.Blocks.unseen;
+package resinresin.wars.blocks.unseen;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

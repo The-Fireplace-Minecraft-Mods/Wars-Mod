@@ -1,4 +1,4 @@
-package resinresin.wars.Blocks;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -16,6 +16,12 @@ public class BlockSelectorGames extends BlockContainer {
 	public BlockSelectorGames() {
 		super(Material.iron);
 		setCreativeTab(WarsMod.tabWarsBlocks);
+	}
+
+	@Override
+	public int getRenderType()
+	{
+		return 3;
 	}
 
 	@Override

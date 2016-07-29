@@ -1,4 +1,4 @@
-package resinresin.wars.Blocks;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -11,13 +11,17 @@ import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.tileentities.TileEntityBasicStructures;
 
-public class BlockCastleSelector extends BlockContainer {//the superclass implements ITileEntityProvider, so this one doesn't have to.
+public class BlockCastleSelector extends BlockContainer {
 
 	public BlockCastleSelector() {
 		super(Material.iron);
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
-
+	@Override
+	public int getRenderType()
+	{
+		return 3;
+	}
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
@@ -34,6 +38,5 @@ public class BlockCastleSelector extends BlockContainer {//the superclass implem
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TileEntityBasicStructures();
 	}
-
 
 }

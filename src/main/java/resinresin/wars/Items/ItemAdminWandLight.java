@@ -1,4 +1,4 @@
-package resinresin.wars.Items;
+package resinresin.wars.items;
 
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,4 +1,4 @@
-package resinresin.wars.Blocks.unseen;
+package resinresin.wars.blocks.unseen;
 
 
 import net.minecraft.block.Block;
@@ -10,7 +10,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.ResinresinLoader;
+import resinresin.wars.worldgen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockNaturalSpleefMedium extends Block {

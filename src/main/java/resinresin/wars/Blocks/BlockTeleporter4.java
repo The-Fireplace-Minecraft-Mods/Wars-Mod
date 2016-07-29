@@ -1,6 +1,4 @@
-package resinresin.wars.Blocks;
-
-import java.util.List;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -14,6 +12,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.tileentities.TileEntityTeleporter;
+
+import java.util.List;
 
 public class BlockTeleporter4 extends Block implements ITileEntityProvider {
 

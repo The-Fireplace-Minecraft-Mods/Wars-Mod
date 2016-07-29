@@ -1,4 +1,4 @@
-package resinresin.wars.Blocks;
+package resinresin.wars.blocks;
 
 import javax.swing.Icon;
 
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.ResinresinLoader;
+import resinresin.wars.worldgen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class BlockWall extends BlockStairs {

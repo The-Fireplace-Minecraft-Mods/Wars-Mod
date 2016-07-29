@@ -1,4 +1,4 @@
-package resinresin.wars.Items;
+package resinresin.wars.items;
 
 import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.entity.player.EntityPlayer;

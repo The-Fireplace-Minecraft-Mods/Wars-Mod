@@ -1,8 +1,8 @@
-package resinresin.wars.WorldGen.structure.spleef;
+package resinresin.wars.worldgen.structure.spleef;
 
 import net.minecraft.entity.player.EntityPlayer;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.ResinresinLoader;
+import resinresin.wars.worldgen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class GenNaturalSpleefSmall {

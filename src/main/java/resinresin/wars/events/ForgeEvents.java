@@ -30,7 +30,6 @@ public class ForgeEvents {
 
 	@EventHandler
 	public void serverStart(FMLServerStartingEvent event) {
-
 		MinecraftServer server = MinecraftServer.getServer();
 		ICommandManager command = server.getCommandManager();
 
@@ -61,9 +60,7 @@ public class ForgeEvents {
 					Item id = damageeBoots.getItem();
 					if (id == WarsItems.redBoots || id == WarsItems.greenBoots || id == WarsItems.blueBoots || id == WarsItems.yellowBoots) {
 						evt.setCanceled(true);
-
 					}
-
 				}
 			}
 		}
@@ -76,7 +73,6 @@ public class ForgeEvents {
 			EntityDamageSource source = (EntityDamageSource) evt.source;
 
 			if (source.getEntity() instanceof EntityPlayerMP) {
-
 				int warsmod_totalKill = source.getEntity().getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 
 				warsmod_totalKill++;

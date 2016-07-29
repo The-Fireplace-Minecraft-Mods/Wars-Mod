@@ -1,7 +1,7 @@
-package resinresin.wars.WorldGen.structure.building;
+package resinresin.wars.worldgen.structure.building;
 
 import net.minecraft.entity.player.EntityPlayer;
-import resinresin.wars.WorldGen.ResinresinLoader;
+import resinresin.wars.worldgen.ResinresinLoader;
 
 public class GenBlacksmith {
 

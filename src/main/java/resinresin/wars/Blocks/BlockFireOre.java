@@ -1,6 +1,4 @@
-package resinresin.wars.Blocks;
-
-import java.util.Random;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -8,6 +6,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
+
+import java.util.Random;
 
 public class BlockFireOre extends Block {
 
@@ -26,7 +26,6 @@ public class BlockFireOre extends Block {
 	@Override
 	public int quantityDropped(Random random) {
 		return 1;
-
 	}
 
 }

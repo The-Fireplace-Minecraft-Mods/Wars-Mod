@@ -1,4 +1,4 @@
-package resinresin.wars.Blocks;
+package resinresin.wars.blocks;
 
 import java.util.List;
 

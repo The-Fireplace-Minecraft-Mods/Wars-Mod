@@ -6,7 +6,7 @@ import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.ResinresinLoader;
+import resinresin.wars.worldgen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
 
 public class TileEntityHungerGamesLv2 extends TileEntity implements IUpdatePlayerListBox {

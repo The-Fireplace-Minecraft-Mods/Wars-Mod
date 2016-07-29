@@ -1,4 +1,4 @@
-package resinresin.wars.Blocks;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -17,7 +17,11 @@ public class BlockSelectorSpleef extends BlockContainer {
 		super(Material.iron);
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
-
+	@Override
+	public int getRenderType()
+	{
+		return 3;
+	}
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {

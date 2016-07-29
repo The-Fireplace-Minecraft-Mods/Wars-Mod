@@ -40,6 +40,7 @@ public class GuiHandler implements IGuiHandler {
 		case 6:
 
 			System.out.println("This actually happened");
+			System.out.println("Tile Entity: "+world.getTileEntity(position));///This is null for some reason; causes game to crash
 
 			return new GuiBuildingSelect(player, world.getTileEntity(position));
 		case 7:

@@ -1,4 +1,4 @@
-package resinresin.wars.Blocks;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -27,7 +27,6 @@ public class BlockSinkSand extends Block {
 				entity.attackEntityFrom(DamageSource.inWall, 1.0F);
 			}
 		}
-
 	}
 
 	@Override

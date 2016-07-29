@@ -1,6 +1,4 @@
-package resinresin.wars.Blocks.unseen;
-
-import java.util.Random;
+package resinresin.wars.blocks.unseen;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,8 +9,10 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
+import resinresin.wars.worldgen.ResinresinLoader;
+
+import java.util.Random;
 
 public class BlockMazeStart extends Block {
 

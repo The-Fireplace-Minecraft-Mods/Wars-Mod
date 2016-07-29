@@ -20,7 +20,7 @@ public enum GuiType {
 		open(player, 0, 0, 0);
 	}
 
-	@SideOnly(Side.SERVER)
+	@SideOnly(Side.SERVER)//Not supposed to use this
 	public void open(EntityPlayer player, int x, int y, int z) {
 		player.openGui(WarsMod.instance, ordinal(), player.worldObj, x, y, z);
 

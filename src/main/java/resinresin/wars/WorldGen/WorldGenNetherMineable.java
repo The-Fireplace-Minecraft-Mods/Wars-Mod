@@ -1,7 +1,6 @@
-package resinresin.wars.WorldGen;
+package resinresin.wars.worldgen;
 
-import java.util.Random;
-
+import com.google.common.base.Predicate;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
@@ -10,14 +9,13 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.google.common.base.Predicate;
+import java.util.Random;
 
 public class WorldGenNetherMineable extends WorldGenerator
 {
 	private final IBlockState oreBlock;
 	/** The number of blocks to generate. */
 	private final int numberOfBlocks;
-	private final Predicate predicate;//this doesn't seem to be used
 
 	public WorldGenNetherMineable(IBlockState p_i45630_1_, int p_i45630_2_)
 	{
@@ -28,7 +26,6 @@ public class WorldGenNetherMineable extends WorldGenerator
 	{
 		oreBlock = p_i45631_1_;
 		numberOfBlocks = p_i45631_2_;
-		predicate = p_i45631_3_;
 	}
 
 	@Override

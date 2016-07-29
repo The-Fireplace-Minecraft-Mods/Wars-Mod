@@ -1,6 +1,4 @@
-package resinresin.wars.Blocks;
-
-import java.util.Random;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -14,6 +12,8 @@ import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
 import resinresin.wars.registry.WarsItems;
 import resinresin.wars.tileentities.TileEntityClassSelect;
+
+import java.util.Random;
 
 public class BlockSelectorBasic extends BlockContainer {
 
@@ -30,7 +30,6 @@ public class BlockSelectorBasic extends BlockContainer {
 	@Override
 	public int quantityDropped(Random random) {
 		return 1;
-
 	}
 
 	@Override
@@ -53,4 +52,9 @@ public class BlockSelectorBasic extends BlockContainer {
 		return new TileEntityClassSelect();
 	}
 
+	@Override
+	public int getRenderType()
+	{
+		return 3;
+	}
 }

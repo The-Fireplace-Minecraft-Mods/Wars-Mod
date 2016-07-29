@@ -1,13 +1,5 @@
 package resinresin.wars;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.command.ICommandManager;
@@ -17,9 +9,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -29,44 +18,34 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
-import resinresin.wars.WorldGen.WarsWorldGenerator;
-import resinresin.wars.command.CommandBlueBase;
-import resinresin.wars.command.CommandChaosSpawn;
-import resinresin.wars.command.CommandEditMode;
-import resinresin.wars.command.CommandGreenBase;
-import resinresin.wars.command.CommandKillstreak;
-import resinresin.wars.command.CommandRedBase;
-import resinresin.wars.command.CommandTotalKills;
-import resinresin.wars.command.CommandYellowBase;
-import resinresin.wars.config.ConfigValues;
-import resinresin.wars.events.FMLEvents;
+import resinresin.wars.command.*;
+import resinresin.wars.entities.EntityPTNTPrimed;
 import resinresin.wars.events.ForgeEvents;
 import resinresin.wars.handlers.GuiHandler;
 import resinresin.wars.handlers.WarsPlayerEventHandler;
 import resinresin.wars.handlers.WarsTickEventHandler;
-import resinresin.wars.packet.PacketClassSelected;
-import resinresin.wars.packet.PacketKills;
-import resinresin.wars.packet.PacketOpenTeamSelect;
-import resinresin.wars.packet.PacketSpawnStructure;
-import resinresin.wars.packet.PacketTeamSelected;
-import resinresin.wars.packet.PacketTeams;
-import resinresin.wars.registry.CraftingRecipes;
-import resinresin.wars.registry.WarsBlocks;
-import resinresin.wars.registry.WarsDungeonChests;
-import resinresin.wars.registry.WarsItems;
-import resinresin.wars.registry.WarsTileEntities;
+import resinresin.wars.packet.*;
+import resinresin.wars.registry.*;
 import resinresin.wars.tabs.WarsBlocksTab;
 import resinresin.wars.tabs.WarsClassesTab;
 import resinresin.wars.tabs.WarsItemsTab;
+import resinresin.wars.worldgen.WarsWorldGenerator;
 
-@Mod(modid = WarsMod.MODID, name = WarsMod.MODNAME, version = WarsMod.VERSION, guiFactory="resinresin.wars.config.WarsModGuiFactory")
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+@Mod(modid = WarsMod.MODID, name = WarsMod.MODNAME)
 public class WarsMod {
 	public static final String MODID = "warsmod";
 	public static final String MODNAME = "Wars Mod";
-	public static final String VERSION = "2.0.0.1";
-	public static final String downloadUrl = "";//A goo.gl shortened version of the link to the thread. Will be used for the version checker.
 
 	@SidedProxy(clientSide = "resinresin.wars.client.ClientProxy", serverSide = "resinresin.wars.CommonProxy")
 	public static CommonProxy proxy;
@@ -75,15 +54,6 @@ public class WarsMod {
 	@Instance(MODID)
 	public static WarsMod instance;
 
-	public static Configuration config;
-	public static Property DOSAND_PROPERTY;
-
-	public static void syncConfig(){
-		ConfigValues.DOSAND = DOSAND_PROPERTY.getBoolean();
-		if(config.hasChanged())
-			config.save();
-	}
-
 	@SuppressWarnings("rawtypes")
 	public static List donators;
 
@@ -91,17 +61,9 @@ public class WarsMod {
 	public static CreativeTabs tabWarsItems = new WarsItemsTab("tabWarsBlocks");
 	public static CreativeTabs tabWarsClasses = new WarsClassesTab("tabWarsClasses");
 
-	public static WarsWorldGenerator worldGen;
-
 	@SuppressWarnings("unchecked")
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		// Create Config
-		config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
-		DOSAND_PROPERTY = config.get(Configuration.CATEGORY_GENERAL, ConfigValues.DOSAND_NAME, ConfigValues.DOSAND_DEFAULT);
-		syncConfig();
-
 		WarsBlocks.createBlocks();
 		WarsItems.createItems();
 
@@ -115,7 +77,6 @@ public class WarsMod {
 		CraftingRecipes.registerRecipes();
 		WarsDungeonChests.doDungeonChestHooks();
 		WarsTileEntities.createTileEntities();
-		FMLCommonHandler.instance().bus().register(new FMLEvents());
 		MinecraftForge.EVENT_BUS.register(new ForgeEvents());
 		MinecraftForge.EVENT_BUS.register(new WarsPlayerEventHandler());
 		MinecraftForge.EVENT_BUS.register(new WarsTickEventHandler());
@@ -127,17 +88,14 @@ public class WarsMod {
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
 		// Register PTNT Entity (here still as there is only one)
-		//int eid = 0;//Don't use global entity ids.
-		//EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", eid++, instance, 16, 1, false);
+		int eid = -1;//Don't use global entity ids.
+		EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", ++eid, instance, 16, 1, false);
 
 		proxy.registerRenderInformation();
-
-		config.save();
 	}
 
 	@EventHandler
 	public void serverStart(FMLServerStartingEvent event) {
-
 		MinecraftServer server = MinecraftServer.getServer();
 		ICommandManager command = server.getCommandManager();
 
@@ -157,20 +115,16 @@ public class WarsMod {
 	 * Used to help with 1.8 update (replaces setBlock)
 	 */
 	public static void generateBlock(World par1World, int i, int j, int k, Block block) {
-
 		BlockPos position = new BlockPos(i, j, k);
 		par1World.setBlockState(position, block.getDefaultState());
-
 	}
 
 	/**
 	 * Used to help with 1.8 update (replaces setBlock)
 	 */
 	public static void generateBlockWithMeta(World par1World, int i, int j, int k, IBlockState state) {
-
 		BlockPos position = new BlockPos(i, j, k);
 		par1World.setBlockState(position, state);
-
 	}
 
 	private void registerNetwork(){

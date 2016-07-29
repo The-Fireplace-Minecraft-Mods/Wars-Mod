@@ -1,4 +1,4 @@
-package resinresin.wars.WorldGen;
+package resinresin.wars.worldgen;
 
 import java.util.Random;
 

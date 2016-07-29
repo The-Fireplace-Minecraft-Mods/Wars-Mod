@@ -1,7 +1,4 @@
-package resinresin.wars.Blocks;
-
-import java.util.Iterator;
-import java.util.List;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
@@ -13,6 +10,9 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import resinresin.wars.registry.WarsItems;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class BlockBluePlate extends BlockPressurePlate {
 

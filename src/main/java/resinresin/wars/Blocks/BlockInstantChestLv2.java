@@ -1,6 +1,4 @@
-package resinresin.wars.Blocks;
-
-import java.util.Random;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -15,6 +13,8 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import resinresin.wars.WarsMod;
+
+import java.util.Random;
 
 public class BlockInstantChestLv2 extends Block {
 

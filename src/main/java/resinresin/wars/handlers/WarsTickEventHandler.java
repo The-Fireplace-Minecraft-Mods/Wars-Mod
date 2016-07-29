@@ -1,7 +1,5 @@
 package resinresin.wars.handlers;
 
-import java.util.Random;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.item.ItemStack;
@@ -11,7 +9,9 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import resinresin.wars.Items.ItemArmorMod;
+import resinresin.wars.items.ItemArmorMod;
+
+import java.util.Random;
 
 public class WarsTickEventHandler {
 

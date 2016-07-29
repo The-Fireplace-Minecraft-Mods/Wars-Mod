@@ -1,6 +1,4 @@
-package resinresin.wars.Blocks;
-
-import javax.swing.Icon;
+package resinresin.wars.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
@@ -13,8 +11,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import resinresin.wars.WarsMod;
-import resinresin.wars.WorldGen.ResinresinLoader;
 import resinresin.wars.registry.WarsBlocks;
+import resinresin.wars.worldgen.ResinresinLoader;
+
+import javax.swing.*;
 
 public class BlockCorner extends BlockStairs {
 
@@ -22,7 +22,6 @@ public class BlockCorner extends BlockStairs {
 		super(state);
 
 		setCreativeTab(WarsMod.tabWarsBlocks);
-
 	}
 
 	ResinresinLoader corner1 = new ResinresinLoader("corner0.resinresin");
