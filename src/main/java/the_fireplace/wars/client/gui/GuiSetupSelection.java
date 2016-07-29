@@ -6,8 +6,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
+import the_fireplace.wars.network.PacketDispatcher;
+import the_fireplace.wars.network.PacketSpawnStructure;
 
 public class GuiSetupSelection extends GuiScreen {
 
@@ -25,11 +26,10 @@ public class GuiSetupSelection extends GuiScreen {
 	public String sizeHeight = "";
 	public String sizeArea = "";
 
-	public BlockPos blockPos; 
-	
+	public BlockPos blockPos;
 	
 	public GuiSetupSelection(EntityPlayer player, TileEntity tile) {
-		
+		blockPos = tile.getPos();
 	}
 
 	@Override
@@ -113,19 +113,8 @@ public class GuiSetupSelection extends GuiScreen {
 
 	}
 
+	@Override
 	protected void actionPerformed(GuiButton guibutton) {
-		// id is the id you give your button
-//		ByteArrayDataOutput out = ByteStreams.newDataOutput();
-//		out.writeByte(guibutton.id);
-//
-//		out.writeInt(x);
-//
-//		out.writeInt(y);
-//
-//		out.writeInt(z);
-//
-//		PacketDispatcher.sendPacketToServer(PacketDispatcher.getTinyPacket(Warsmod.instance, (short) 11, out.toByteArray()));
-
 		switch (guibutton.id) {
 		case 1:
 			this.mc.thePlayer.closeScreen();
@@ -185,7 +174,9 @@ public class GuiSetupSelection extends GuiScreen {
 		}
 
 		// Packet code here
-		// PacketDispatcher.sendPacketToServer(packet); //send packet
+		if(guibutton.id > 0 && guibutton.id < 7){
+			PacketDispatcher.sendToServer(new PacketSpawnStructure(guibutton.id, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 1));
+		}
 	}
 
 }

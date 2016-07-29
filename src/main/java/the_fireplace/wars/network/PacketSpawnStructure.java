@@ -15,6 +15,8 @@ public class PacketSpawnStructure implements IMessage {
     private int z;
     private int type;
 
+    private String separator = "n";
+
     public PacketSpawnStructure() { }
 
     public PacketSpawnStructure(int button, int x, int y, int z, int type) {
@@ -27,22 +29,21 @@ public class PacketSpawnStructure implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buf) {
-        button = ByteBufUtils.readVarInt(buf, button); // this class is very useful in general for writing more complex objects
-        x = ByteBufUtils.readVarInt(buf, x);
-        y = ByteBufUtils.readVarInt(buf, y);
-        z = ByteBufUtils.readVarInt(buf, z);
-        type = ByteBufUtils.readVarInt(buf, type);
+        String basic = ByteBufUtils.readUTF8String(buf);
+        String[] values = basic.split(separator);
 
+        button = Integer.parseInt(values[0]);
+        x = Integer.parseInt(values[1]);
+        y = Integer.parseInt(values[2]);
+        z = Integer.parseInt(values[3]);
+        type = Integer.parseInt(values[4]);
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        ByteBufUtils.writeVarInt(buf, button, 128);
-        ByteBufUtils.writeVarInt(buf, x, 128);
-        ByteBufUtils.writeVarInt(buf, y, 128);
-        ByteBufUtils.writeVarInt(buf, z, 128);
-        ByteBufUtils.writeVarInt(buf, type, 128);
-        
+        String string = String.valueOf(button)+separator+String.valueOf(x)+separator+String.valueOf(y)+separator+String.valueOf(z)+separator+String.valueOf(type);
+
+        ByteBufUtils.writeUTF8String(buf, string);
     }
 
     public static class Handler extends AbstractServerMessageHandler<PacketSpawnStructure> {

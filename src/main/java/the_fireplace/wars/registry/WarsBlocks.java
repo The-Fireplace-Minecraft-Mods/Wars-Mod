@@ -49,18 +49,7 @@ import the_fireplace.wars.blocks.BlockWallEnd;
 import the_fireplace.wars.blocks.BlockWarChest;
 import the_fireplace.wars.blocks.BlockWaterOre;
 import the_fireplace.wars.blocks.BlockYellowPlate;
-import the_fireplace.wars.blocks.unseen.BlockHungerGamesLv1Reset;
-import the_fireplace.wars.blocks.unseen.BlockHungerGamesLv1Start;
-import the_fireplace.wars.blocks.unseen.BlockHungerGamesLv2Reset;
-import the_fireplace.wars.blocks.unseen.BlockHungerGamesLv2Start;
-import the_fireplace.wars.blocks.unseen.BlockMazeReset;
-import the_fireplace.wars.blocks.unseen.BlockMazeStart;
-import the_fireplace.wars.blocks.unseen.BlockMinersSpleefMedium;
-import the_fireplace.wars.blocks.unseen.BlockMinersSpleefSmall;
-import the_fireplace.wars.blocks.unseen.BlockNaturalSpleefMedium;
-import the_fireplace.wars.blocks.unseen.BlockNaturalSpleefSmall;
-import the_fireplace.wars.blocks.unseen.BlockNetherSpleefMedium;
-import the_fireplace.wars.blocks.unseen.BlockNetherSpleefSmall;
+import the_fireplace.wars.blocks.unseen.*;
 
 public class WarsBlocks {
 	public static Block castleSelector;
@@ -200,6 +189,11 @@ public class WarsBlocks {
 		hgLv2start = new BlockHungerGamesLv2Start().setUnlocalizedName("startHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		hgLv2reset = new BlockHungerGamesLv2Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 
+		//Control Blocks
+		controlBlue = new BlockCBlue().setUnlocalizedName("controlBlue");
+		controlYellow = new BlockCYellow().setUnlocalizedName("controlYellow");
+		controlGreen = new BlockCGreen().setUnlocalizedName("controlGreen");
+		controlRed = new BlockCRed().setUnlocalizedName("controlRed");
 
 		// /*LanguageRegistry.addName(buildingSelector, "Selector - Buildings");
 		// LanguageRegistry.addName(spleefSelector, "Selector - Spleef");
@@ -299,6 +293,10 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(yellowPlate, "yellowPlate");
 		GameRegistry.registerBlock(greenPlate, "greenPlate");
 		//GameRegistry.registerBlock(playerTNT, "ItemPTNTBlock.class");
+		GameRegistry.registerBlock(controlBlue, "controlBlue");
+		GameRegistry.registerBlock(controlYellow, "controlYellow");
+		GameRegistry.registerBlock(controlRed, "controlRed");
+		GameRegistry.registerBlock(controlGreen, "controlGreen");
 	}
 
 	@SideOnly(Side.CLIENT)
