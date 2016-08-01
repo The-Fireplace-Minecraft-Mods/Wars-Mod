@@ -122,7 +122,7 @@ public class WarsMod {
 	private void getDonators(){
 		donators = new ArrayList<String>();
 		try {
-			URL targetURL = new URL("https://dl.dropboxusercontent.com/u/104023161/Donators.txt");
+			URL targetURL = new URL("https://dl.dropboxusercontent.com/u/104023161/Donators.txt");//TODO: new link
 			InputStream in = targetURL.openStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			String dona;

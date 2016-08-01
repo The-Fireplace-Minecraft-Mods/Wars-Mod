@@ -1,7 +1,5 @@
 package the_fireplace.wars.entities;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.nbt.NBTTagCompound;
@@ -9,8 +7,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class EntityPTNTPrimed extends Entity {
 	/** How long the fuse is */
@@ -121,10 +119,5 @@ public class EntityPTNTPrimed extends Entity {
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
 		fuse = par1NBTTagCompound.getByte("Fuse");
-	}
-
-	@SideOnly(Side.CLIENT)
-	public float getShadowSize() {
-		return 0.0F;
 	}
 }
