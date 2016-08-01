@@ -37,8 +37,8 @@ public class BlockSelectorBasic extends BlockContainer {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int x = pos.getX();
-		int y = pos.getX();
-		int z = pos.getX();
+		int y = pos.getY();
+		int z = pos.getZ();
 
 		TileEntity tile_entity = world.getTileEntity(pos);
 		if (tile_entity == null || player.isSneaking()) {
