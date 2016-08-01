@@ -121,7 +121,7 @@ public abstract class WarsItems {
 		guardSword = new ItemGuardSword().setUnlocalizedName("guardSword").setCreativeTab(WarsMod.tabWarsClasses);
 		knightSword = new ItemKnightSword().setUnlocalizedName("knightSword").setCreativeTab(WarsMod.tabWarsClasses);
 		wizardStaff = new ItemWizardStaff().setUnlocalizedName("wizardStaff").setCreativeTab(WarsMod.tabWarsClasses);
-		//	bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(WarsMod.tabWarsClasses);
+		//bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(WarsMod.tabWarsClasses);
 		techSpanner = new ItemTechSpanner().setUnlocalizedName("techSpanner").setCreativeTab(WarsMod.tabWarsClasses);
 		dagger = new ItemMeleeDagger().setUnlocalizedName("dagger").setCreativeTab(WarsMod.tabWarsClasses);
 		chaosSword = new ItemChaosSword().setUnlocalizedName("chaosSword").setCreativeTab(WarsMod.tabWarsClasses);
@@ -212,64 +212,6 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(aWandLight, "aWandLight");
 		GameRegistry.registerItem(chaosBoots, "chaosBoots");
 		GameRegistry.registerItem(antidote, "antidote");
-
-
-
-		//		LanguageRegistry.addName(ancientGem, "Ancient Gem");
-		//		LanguageRegistry.addName(ancientEmblem, "Ancient Emblem");
-		//		LanguageRegistry.addName(scoutHelm, "\u00a78Scout Hood");
-		//		LanguageRegistry.addName(scoutPlate, "\u00a78Scout Tunic");
-		//		LanguageRegistry.addName(scoutLegs, "\u00a78Scout Leggings");
-		//		LanguageRegistry.addName(archerHelm, "\u00a72Archer Hood");
-		//		LanguageRegistry.addName(archerPlate, "\u00a72Archer Tunic");
-		//		LanguageRegistry.addName(archerLegs, "\u00a72Archer Leggings");
-		//		LanguageRegistry.addName(guardHelm, "\u00a76Guard Helm");
-		//		LanguageRegistry.addName(guardPlate, "\u00a76Guard Chestplate");
-		//		LanguageRegistry.addName(guardLegs, "\u00a76Guard Trousers");
-		//		LanguageRegistry.addName(healerHelm, "\u00a75Healer Hood");
-		//		LanguageRegistry.addName(healerPlate, "\u00a75Healer Cloak");
-		//		LanguageRegistry.addName(healerLegs, "\u00a75Healer Leggings");
-		//		LanguageRegistry.addName(techHelm, "\u00a79Tech Helmet");
-		//		LanguageRegistry.addName(techPlate, "\u00a79Tech Dungerees");
-		//		LanguageRegistry.addName(techLegs, "\u00a79Tech Trousers");
-		//		LanguageRegistry.addName(knightHelm, "\u00a74Knight Helm");
-		//		LanguageRegistry.addName(knightPlate, "\u00a74Knight Chestplate");
-		//		LanguageRegistry.addName(knightLegs, "\u00a74Knight Leggings");
-		//		LanguageRegistry.addName(chaosHelm, "\u00a75Chaos Warrior Helm");
-		//		LanguageRegistry.addName(chaosPlate, "\u00a75Chaos Warrior Chestplate");
-		//		LanguageRegistry.addName(chaosLegs, "\u00a75Chaos Warrior Leggings");
-		//		LanguageRegistry.addName(blueBoots, "\u00a79Blue Team Boots");
-		//		LanguageRegistry.addName(redBoots, "\u00a74Red Team Boots");
-		//		LanguageRegistry.addName(greenBoots, "\u00a72Green Team Boots");
-		//		LanguageRegistry.addName(yellowBoots, "\u00a76Yellow Team Boots");
-		//		LanguageRegistry.addName(chaosBoots, "\u00a75Chaos Boots");
-		//		LanguageRegistry.addName(scoutBlade, "\u00a78Scout Blade");
-		//		LanguageRegistry.addName(knightSword, "\u00a74Knight Sword");
-		//		LanguageRegistry.addName(guardSword, "\u00a76Guard Sword");
-		//		LanguageRegistry.addName(healerStaff, "\u00a75Healers Staff");
-		//		LanguageRegistry.addName(magicPotato, "Magical Potato -healer-");
-		//		LanguageRegistry.addName(workWaffel, "Work Waffel -tech-");
-		//		LanguageRegistry.addName(battleBurger, "Battle Burger -guard-");
-		//		LanguageRegistry.addName(warCheese, "War Cheese -knight-");
-		//		LanguageRegistry.addName(shadowFlesh, "Shadow Flesh -scout-");
-		//		LanguageRegistry.addName(longBannana, "Long Range Bananna -archer-");
-		//		LanguageRegistry.addName(fireGem, "\u00a74Fireite Gem");
-		//		LanguageRegistry.addName(waterGem, "\u00a79Wateite Gem");
-		//		LanguageRegistry.addName(decayGem, "\u00a76Decanite Gem");
-		//		LanguageRegistry.addName(naturalGem, "\u00a72Natrite Gem");
-		//		LanguageRegistry.addName(aWandBall, "Admin Wand - Fireballs");
-		//		LanguageRegistry.addName(aWandLight, "Admin Wand - Smiting");
-		//		LanguageRegistry.addName(aWandStone, "Admin Wand - Stone Thrower");
-		//		LanguageRegistry.addName(aWandLava, "Admin Wand - Lava");
-		//		LanguageRegistry.addName(aWandWater, "Admin Wand - Water");
-		//		LanguageRegistry.addName(aWandWeb, "Admin Wand - Web Thrower");
-		//		LanguageRegistry.addName(aWandTNT, "Admin Wand - TNT");
-		//		LanguageRegistry.addName(massMeal, "Mass Bone Meal");
-		//		LanguageRegistry.addName(antidote, "Antidote");
-		//		LanguageRegistry.addName(techSpanner, "\u00a79Tech Spanner");
-		//		LanguageRegistry.addName(meleeDagger, "Melee Dagger");
-		//		LanguageRegistry.addName(bowArcher, "\u00a72Archer Bow");
-		//		LanguageRegistry.addName(chaosSword, "\u00a75Chaos Sword");
 	}
 
 	@SideOnly(Side.CLIENT)
