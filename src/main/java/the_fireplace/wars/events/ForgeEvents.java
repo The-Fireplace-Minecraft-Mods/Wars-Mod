@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import the_fireplace.wars.command.*;
 import the_fireplace.wars.network.PacketDispatcher;
-import the_fireplace.wars.network.PacketKills;
+import the_fireplace.wars.network.packets.PacketKills;
 import the_fireplace.wars.registry.WarsItems;
 
 public class ForgeEvents {

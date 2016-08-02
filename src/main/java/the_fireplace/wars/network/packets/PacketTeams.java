@@ -1,4 +1,4 @@
-package the_fireplace.wars.network;
+package the_fireplace.wars.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +14,8 @@ public class PacketTeams implements IMessage {
 	private int bluePlayers;
 	private int yellowPlayers;
 
+    private String separator = "n";
+
     public PacketTeams() { }
 
     public PacketTeams(int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
@@ -21,30 +23,34 @@ public class PacketTeams implements IMessage {
         this.greenPlayers = greenPlayers;
         this.bluePlayers = bluePlayers;
         this.yellowPlayers = yellowPlayers;
-        
     }
 
     @Override
     public void fromBytes(ByteBuf buf) {
-        redPlayers = ByteBufUtils.readVarInt(buf, redPlayers); // this class is very useful in general for writing more complex objects
-        greenPlayers = ByteBufUtils.readVarInt(buf, greenPlayers);
-        bluePlayers = ByteBufUtils.readVarInt(buf, bluePlayers);
-        yellowPlayers = ByteBufUtils.readVarInt(buf, yellowPlayers);
+        String basic = ByteBufUtils.readUTF8String(buf);
+        String[] values = basic.split(separator);
+
+        redPlayers = Integer.parseInt(values[0]);
+        greenPlayers = Integer.parseInt(values[1]);
+        bluePlayers = Integer.parseInt(values[2]);
+        yellowPlayers = Integer.parseInt(values[3]);
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        ByteBufUtils.writeVarInt(buf, redPlayers, 128);
-        ByteBufUtils.writeVarInt(buf, greenPlayers, 128);
-        ByteBufUtils.writeVarInt(buf, bluePlayers, 128);
-        ByteBufUtils.writeVarInt(buf, yellowPlayers, 128);
+        String string = String.valueOf(redPlayers)+separator+
+                        String.valueOf(greenPlayers)+separator+
+                        String.valueOf(bluePlayers)+separator+
+                        String.valueOf(yellowPlayers);
+
+        ByteBufUtils.writeUTF8String(buf, string);
     }
 
     public static class Handler extends AbstractClientMessageHandler<PacketTeams> {
         
         @Override
         public IMessage handleClientMessage(EntityPlayer player, PacketTeams message, MessageContext ctx) {
-            System.out.println(String.format("Received %s from %s", message.redPlayers, player.getDisplayName().getUnformattedText()));
+            System.out.println(String.format("Received %s from %s", "Red: "+message.redPlayers+" Blue: "+message.bluePlayers+" Yellow: "+message.yellowPlayers+" Green: "+message.greenPlayers, player.getDisplayName().getUnformattedText()));
 			
             WarsMod.proxy.handleTeams(message.redPlayers, message.greenPlayers, message.bluePlayers, message.yellowPlayers);
 

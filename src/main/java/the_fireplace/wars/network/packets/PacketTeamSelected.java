@@ -1,8 +1,7 @@
-package the_fireplace.wars.network;
+package the_fireplace.wars.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import the_fireplace.wars.handlers.TeamSelected;
@@ -19,12 +18,12 @@ public class PacketTeamSelected implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buf) {
-        teamSelected = ByteBufUtils.readVarInt(buf, teamSelected); // this class is very useful in general for writing more complex objects
+        teamSelected = buf.readInt();
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        ByteBufUtils.writeVarInt(buf, teamSelected, 128);
+        buf.writeInt(teamSelected);
     }
 
     public static class Handler extends AbstractServerMessageHandler<PacketTeamSelected> {

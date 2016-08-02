@@ -1,4 +1,4 @@
-package the_fireplace.wars.network;
+package the_fireplace.wars.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +12,8 @@ public class PacketKills implements IMessage {
     private int killStreak;
     private int totalKills;
 
+    private String separator = "n";
+
     public PacketKills() { }
 
     public PacketKills(int killStreak, int totalKills) {
@@ -21,14 +23,19 @@ public class PacketKills implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buf) {
-        killStreak = ByteBufUtils.readVarInt(buf, killStreak); // this class is very useful in general for writing more complex objects
-        totalKills = ByteBufUtils.readVarInt(buf, totalKills);
+        String basic = ByteBufUtils.readUTF8String(buf);
+        String[] values = basic.split(separator);
+
+        killStreak = Integer.parseInt(values[0]);
+        totalKills = Integer.parseInt(values[1]);
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        ByteBufUtils.writeVarInt(buf, killStreak, 128);
-        ByteBufUtils.writeVarInt(buf, totalKills, 128);
+        String string = String.valueOf(killStreak)+separator+
+                String.valueOf(totalKills);
+
+        ByteBufUtils.writeUTF8String(buf, string);
     }
 
     public static class Handler extends AbstractClientMessageHandler<PacketKills> {

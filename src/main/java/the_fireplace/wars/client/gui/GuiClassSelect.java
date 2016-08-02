@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import the_fireplace.wars.client.ClientProxy;
-import the_fireplace.wars.network.PacketClassSelected;
+import the_fireplace.wars.network.packets.PacketClassSelected;
 import the_fireplace.wars.network.PacketDispatcher;
 
 public class GuiClassSelect extends GuiScreen {

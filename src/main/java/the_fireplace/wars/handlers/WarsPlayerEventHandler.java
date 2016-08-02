@@ -11,9 +11,9 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.data.WarsSavedData;
 import the_fireplace.wars.network.PacketDispatcher;
-import the_fireplace.wars.network.PacketKills;
-import the_fireplace.wars.network.PacketOpenTeamSelect;
-import the_fireplace.wars.network.PacketTeams;
+import the_fireplace.wars.network.packets.PacketKills;
+import the_fireplace.wars.network.packets.PacketOpenTeamSelect;
+import the_fireplace.wars.network.packets.PacketTeams;
 import the_fireplace.wars.registry.WarsItems;
 
 import java.io.BufferedReader;

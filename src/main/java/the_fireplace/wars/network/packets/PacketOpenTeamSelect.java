@@ -1,8 +1,7 @@
-package the_fireplace.wars.network;
+package the_fireplace.wars.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import the_fireplace.wars.WarsMod;
@@ -15,18 +14,16 @@ public class PacketOpenTeamSelect implements IMessage {
 
     public PacketOpenTeamSelect(int openTeamSelect) {
         this.openTeamSelect = openTeamSelect;
-        
     }
 
     @Override
     public void fromBytes(ByteBuf buf) {
-       openTeamSelect = ByteBufUtils.readVarInt(buf, openTeamSelect);
+       openTeamSelect = buf.readInt();
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        ByteBufUtils.writeVarInt(buf, openTeamSelect, 128);
-        
+        buf.writeInt(openTeamSelect);
     }
 
     public static class Handler extends AbstractClientMessageHandler<PacketOpenTeamSelect> {

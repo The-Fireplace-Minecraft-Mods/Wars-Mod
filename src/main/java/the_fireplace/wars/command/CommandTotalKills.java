@@ -6,7 +6,7 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import the_fireplace.wars.network.PacketDispatcher;
-import the_fireplace.wars.network.PacketKills;
+import the_fireplace.wars.network.packets.PacketKills;
 
 public class CommandTotalKills extends CommandBase {
 

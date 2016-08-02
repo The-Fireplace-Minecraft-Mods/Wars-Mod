@@ -7,7 +7,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import the_fireplace.wars.network.PacketDispatcher;
-import the_fireplace.wars.network.PacketSpawnStructure;
+import the_fireplace.wars.network.packets.PacketSpawnStructure;
 
 public class GuiGameSelect extends GuiScreen {
 

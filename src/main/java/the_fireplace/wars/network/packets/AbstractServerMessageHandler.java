@@ -1,4 +1,4 @@
-package the_fireplace.wars.network;
+package the_fireplace.wars.network.packets;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

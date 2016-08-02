@@ -1,4 +1,4 @@
-package the_fireplace.wars.network;
+package the_fireplace.wars.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -41,7 +41,11 @@ public class PacketSpawnStructure implements IMessage {
 
     @Override
     public void toBytes(ByteBuf buf) {
-        String string = String.valueOf(button)+separator+String.valueOf(x)+separator+String.valueOf(y)+separator+String.valueOf(z)+separator+String.valueOf(type);
+        String string = String.valueOf(button)+separator+
+                        String.valueOf(x)+separator+
+                        String.valueOf(y)+separator+
+                        String.valueOf(z)+separator+
+                        String.valueOf(type);
 
         ByteBufUtils.writeUTF8String(buf, string);
     }

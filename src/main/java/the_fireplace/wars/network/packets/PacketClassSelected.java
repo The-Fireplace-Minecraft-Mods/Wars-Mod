@@ -1,4 +1,4 @@
-package the_fireplace.wars.network;
+package the_fireplace.wars.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +13,8 @@ public class PacketClassSelected implements IMessage {
 	private int classSelected;
 	private int donator;
 
+	private String separator = "n";
+
 	public PacketClassSelected() {
 	}
 
@@ -23,14 +25,19 @@ public class PacketClassSelected implements IMessage {
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
-		classSelected = ByteBufUtils.readVarInt(buf, classSelected);
-		donator = ByteBufUtils.readVarInt(buf, donator);
+		String basic = ByteBufUtils.readUTF8String(buf);
+		String[] values = basic.split(separator);
+
+		classSelected = Integer.parseInt(values[0]);
+		donator = Integer.parseInt(values[1]);
 	}
 
 	@Override
 	public void toBytes(ByteBuf buf) {
-		ByteBufUtils.writeVarInt(buf, classSelected, 128);
-		ByteBufUtils.writeVarInt(buf, donator, 128);
+		String string = String.valueOf(classSelected)+separator+
+						String.valueOf(donator);
+
+		ByteBufUtils.writeUTF8String(buf, string);
 	}
 
 	public static class Handler extends AbstractServerMessageHandler<PacketClassSelected> {

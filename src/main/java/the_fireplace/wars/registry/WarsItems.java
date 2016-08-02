@@ -270,8 +270,6 @@ public abstract class WarsItems {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandLight, 0, new ModelResourceLocation("warsmod:aWandLight", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosBoots, 0, new ModelResourceLocation("warsmod:chaosBoots", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(antidote, 0, new ModelResourceLocation("warsmod:antidote", "inventory"));
-
-
 	}
 
 
