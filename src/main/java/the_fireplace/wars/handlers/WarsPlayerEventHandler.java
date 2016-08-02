@@ -14,7 +14,7 @@ import the_fireplace.wars.network.PacketDispatcher;
 import the_fireplace.wars.network.packets.PacketKills;
 import the_fireplace.wars.network.packets.PacketOpenTeamSelect;
 import the_fireplace.wars.network.packets.PacketTeams;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 
 import java.io.BufferedReader;
 import java.io.IOException;

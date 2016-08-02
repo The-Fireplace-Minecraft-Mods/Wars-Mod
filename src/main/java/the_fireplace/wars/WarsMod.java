@@ -26,7 +26,7 @@ import the_fireplace.wars.handlers.GuiHandler;
 import the_fireplace.wars.handlers.WarsPlayerEventHandler;
 import the_fireplace.wars.handlers.WarsTickEventHandler;
 import the_fireplace.wars.network.PacketDispatcher;
-import the_fireplace.wars.registry.*;
+import the_fireplace.wars.init.*;
 import the_fireplace.wars.tabs.WarsBlocksTab;
 import the_fireplace.wars.tabs.WarsClassesTab;
 import the_fireplace.wars.tabs.WarsItemsTab;

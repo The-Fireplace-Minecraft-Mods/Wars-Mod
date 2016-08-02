@@ -13,8 +13,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
 import the_fireplace.wars.CommonProxy;
 import the_fireplace.wars.handlers.WarsTickEventHandler;
-import the_fireplace.wars.registry.WarsBlocks;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.init.WarsItems;
 
 import java.io.BufferedReader;
 import java.io.IOException;

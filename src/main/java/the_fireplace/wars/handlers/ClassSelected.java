@@ -6,8 +6,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import the_fireplace.wars.registry.WarsBlocks;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.init.WarsItems;
 
 public class ClassSelected {
 

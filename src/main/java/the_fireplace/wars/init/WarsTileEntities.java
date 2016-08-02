@@ -1,4 +1,4 @@
-package the_fireplace.wars.registry;
+package the_fireplace.wars.init;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import the_fireplace.wars.tileentities.TileEntityBasicStructures;

@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import the_fireplace.wars.items.ItemArmorMod;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 
 import java.util.Random;
 

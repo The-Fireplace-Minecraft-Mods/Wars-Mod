@@ -1,4 +1,4 @@
-package the_fireplace.wars.registry;
+package the_fireplace.wars.init;
 
 import java.util.Arrays;
 

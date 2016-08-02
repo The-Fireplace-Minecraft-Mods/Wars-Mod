@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import the_fireplace.wars.data.WarsSavedData;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 
 public class TeamSelected {
 	

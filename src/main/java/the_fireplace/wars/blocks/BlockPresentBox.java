@@ -12,7 +12,7 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 
 public class BlockPresentBox extends Block {
 

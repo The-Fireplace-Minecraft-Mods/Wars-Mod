@@ -5,7 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 
 import java.util.Random;
 

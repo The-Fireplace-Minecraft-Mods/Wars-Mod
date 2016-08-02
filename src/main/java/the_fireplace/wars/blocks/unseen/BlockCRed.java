@@ -10,7 +10,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.worldgen.ResinresinLoader;
-import the_fireplace.wars.registry.WarsBlocks;
+import the_fireplace.wars.init.WarsBlocks;
 
 public class BlockCRed extends Block {
 

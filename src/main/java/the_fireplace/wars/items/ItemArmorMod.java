@@ -7,13 +7,13 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ISpecialArmor;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 
 public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
 
 	public ItemArmorMod(ArmorMaterial material, int renderIndex, int type) {
-		super(material, 0, type);
+		super(material, -1, type);
 
 	}
 

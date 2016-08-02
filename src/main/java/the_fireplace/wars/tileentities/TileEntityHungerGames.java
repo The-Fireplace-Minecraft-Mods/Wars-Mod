@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.worldgen.ResinresinLoader;
-import the_fireplace.wars.registry.WarsBlocks;
+import the_fireplace.wars.init.WarsBlocks;
 
 public class TileEntityHungerGames extends TileEntity implements IUpdatePlayerListBox {
 

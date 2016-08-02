@@ -9,7 +9,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.registry.WarsBlocks;
+import the_fireplace.wars.init.WarsBlocks;
 import the_fireplace.wars.worldgen.ResinresinLoader;
 
 import java.util.Random;

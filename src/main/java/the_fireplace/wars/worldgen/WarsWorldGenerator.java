@@ -7,7 +7,7 @@ import net.minecraft.world.biome.BiomeGenForest;
 import net.minecraft.world.biome.BiomeGenPlains;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import the_fireplace.wars.registry.WarsBlocks;
+import the_fireplace.wars.init.WarsBlocks;
 
 import java.util.Random;
 

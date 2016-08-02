@@ -17,10 +17,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.registry.WarsBlocks;
+import the_fireplace.wars.init.WarsBlocks;
 
 import com.google.common.collect.Multimap;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 
 public class ItemWizardStaff extends Item {
 

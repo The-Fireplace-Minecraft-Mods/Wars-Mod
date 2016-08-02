@@ -1,4 +1,4 @@
-package the_fireplace.wars.registry;
+package the_fireplace.wars.init;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -41,15 +41,15 @@ import the_fireplace.wars.items.ItemWorkWaffel;
 public abstract class WarsItems {
 
 
-	public static ArmorMaterial scoutArmor = EnumHelper.addArmorMaterial("SCOUT", null, -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial guardArmor = EnumHelper.addArmorMaterial("GUARD", null, -1, new int[] { 2, 6, 5, 2 }, 9);
-	public static ArmorMaterial healerArmor = EnumHelper.addArmorMaterial("HEALER", null, -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial archerArmor = EnumHelper.addArmorMaterial("ARCHER", null, -1, new int[] { 1, 3, 2, 1 }, 15);
-	public static ArmorMaterial knightArmor = EnumHelper.addArmorMaterial("KNIGHT", null, -1, new int[] { 4, 9, 7, 4 }, 10);
-	public static ArmorMaterial techArmor = EnumHelper.addArmorMaterial("TECH", null, -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial bootsArmor = EnumHelper.addArmorMaterial("BOOT", null, -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial readArmor = EnumHelper.addArmorMaterial("READ", null, -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", null, -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial scoutArmor = EnumHelper.addArmorMaterial("SCOUT", "warsmod_scout", -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial guardArmor = EnumHelper.addArmorMaterial("GUARD", "warsmod_guard", -1, new int[] { 2, 6, 5, 2 }, 9);
+	public static ArmorMaterial healerArmor = EnumHelper.addArmorMaterial("HEALER", "warsmod_healer", -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial archerArmor = EnumHelper.addArmorMaterial("ARCHER", "warsmod_archer", -1, new int[] { 1, 3, 2, 1 }, 15);
+	public static ArmorMaterial knightArmor = EnumHelper.addArmorMaterial("KNIGHT", "warsmod_knight", -1, new int[] { 4, 9, 7, 4 }, 10);
+	public static ArmorMaterial techArmor = EnumHelper.addArmorMaterial("TECH", "warsmod_tech", -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial bootsArmor = EnumHelper.addArmorMaterial("BOOT", "warsmod_", -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial readArmor = EnumHelper.addArmorMaterial("READ", "warsmod_", -1, new int[] { 0, 0, 0, 0 }, 30);
+	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", "warsmod_chaos", -1, new int[] { 0, 0, 0, 0 }, 30);
 
 	public static ToolMaterial healTool = EnumHelper.addToolMaterial("HEALT", 0, 0, 0F, 0, 0);
 

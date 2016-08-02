@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.data.WarsSavedData;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

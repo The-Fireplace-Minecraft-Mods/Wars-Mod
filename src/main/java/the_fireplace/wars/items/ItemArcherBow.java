@@ -19,7 +19,7 @@ import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.registry.WarsItems;
+import the_fireplace.wars.init.WarsItems;
 
 public class ItemArcherBow extends Item {
 	public static final String[] bowPullIconNameArray = new String[] { "ArcherBow_pulling_0", "ArcherBow_pulling_1", "ArcherBow_pulling_2" };

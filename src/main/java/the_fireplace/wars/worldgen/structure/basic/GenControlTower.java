@@ -2,7 +2,7 @@ package the_fireplace.wars.worldgen.structure.basic;
 
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.worldgen.ResinresinLoader;
-import the_fireplace.wars.registry.WarsBlocks;
+import the_fireplace.wars.init.WarsBlocks;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
