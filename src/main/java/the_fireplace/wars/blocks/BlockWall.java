@@ -40,11 +40,11 @@ public class BlockWall extends BlockStairs {
 		int k = pos.getZ();
 
 		if (this.isBlockStairsDirection(world, pos, WarsBlocks.wall.getStateFromMeta(2)) || this.isBlockStairsDirection(world, pos, WarsBlocks.wall.getStateFromMeta(3))) {
-			wallNS.generate(world, i - 2, j - 0, k - 4, true);
+			wallNS.generate(world, i - 2, j, k - 4, true);
 		}
 		if (this.isBlockStairsDirection(world, pos, WarsBlocks.wall.getStateFromMeta(0)) || this.isBlockStairsDirection(world, pos, WarsBlocks.wall.getStateFromMeta(1))) {
 
-			wallWE.generate(world, i - 4, j - 0, k - 2, true);
+			wallWE.generate(world, i - 4, j, k - 2, true);
 		}
 
 		return true;

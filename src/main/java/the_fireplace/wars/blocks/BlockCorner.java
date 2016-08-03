@@ -46,23 +46,23 @@ public class BlockCorner extends BlockStairs {
 		
 		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(1))) {
 
-			corner1.generate(world, i - 7, j - 0, k - 7, true);
-			corner1.generate(world, i - 7, j - 0, k - 7, true);
+			corner1.generate(world, i - 7, j, k - 7, true);
+			corner1.generate(world, i - 7, j, k - 7, true);
 		}
 		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(3))) {
 
-			corner2.generate(world, i - 0, j - 0, k - 7, true);
-			corner2.generate(world, i - 0, j - 0, k - 7, true);
+			corner2.generate(world, i, j, k - 7, true);
+			corner2.generate(world, i, j, k - 7, true);
 		}
 		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(0))) {
 
-			corner3.generate(world, i - 0, j - 0, k - 0, true);
-			corner3.generate(world, i - 0, j - 0, k - 0, true);
+			corner3.generate(world, i, j, k, true);
+			corner3.generate(world, i, j, k, true);
 		}
 		if (this.isBlockStairsDirection(world, pos, WarsBlocks.corner.getStateFromMeta(2))) {
 
-			corner4.generate(world, i - 7, j - 0, k - 0, true);
-			corner4.generate(world, i - 7, j - 0, k - 0, true);
+			corner4.generate(world, i - 7, j, k, true);
+			corner4.generate(world, i - 7, j, k, true);
 		}
 
 		return false;

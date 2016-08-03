@@ -32,7 +32,7 @@ public class BlockTower extends Block {
 		tower.generate(world, i - 4, j - 1, k - 4, false);
 		tower.generate(world, i - 4, j - 1, k - 4, false);
 
-		WarsMod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
+		WarsMod.generateBlock(world, i, j, k, Blocks.air);
 		
 		return true;
 

@@ -1,9 +1,5 @@
 package the_fireplace.wars.network;
 
-/**
- * @author The_Fireplace
- */
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.network.NetworkRegistry;

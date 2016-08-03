@@ -28,8 +28,8 @@ public class BlockRoadPiece extends Block {
 		int j = pos.getY();
 		int k = pos.getZ();
 		
-		WarsMod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
-		road.generate(world, i - 0, j - 1, k - 0, true);
+		WarsMod.generateBlock(world, i, j, k, Blocks.air);
+		road.generate(world, i, j - 1, k, true);
 		return true;
 
 	}

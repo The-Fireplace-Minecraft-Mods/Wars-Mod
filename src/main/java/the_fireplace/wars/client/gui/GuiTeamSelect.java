@@ -84,7 +84,7 @@ public class GuiTeamSelect extends GuiScreen {
 		int posY = (this.height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
 
-		buttonList.add(new GuiButton(1, posX + 0, posY + 54, 52, 20, redText));
+		buttonList.add(new GuiButton(1, posX, posY + 54, 52, 20, redText));
 		buttonList.add(new GuiButton(2, posX + 60, posY + 54, 52, 20, greenText));
 		buttonList.add(new GuiButton(3, posX + 120, posY + 54, 52, 20, blueText));
 		buttonList.add(new GuiButton(4, posX + 180, posY + 54, 52, 20, yellowText));

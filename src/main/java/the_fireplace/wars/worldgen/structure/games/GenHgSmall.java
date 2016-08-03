@@ -55,7 +55,7 @@ public class GenHgSmall {
 //		WarsMod.generateBlock(player.worldObj, i - 4, j + 15, k + 4, WarsBlocks.hgTele7);
 //		WarsMod.generateBlock(player.worldObj, i - 4, j + 15, k - 4, WarsBlocks.hgTele8);
 //		WarsMod.generateBlock(player.worldObj, i + 0, j + 15, k - 0, WarsBlocks.hgTeleMain);
-		WarsMod.generateBlock(player.worldObj, i + 0, j - 1, k + 7, WarsBlocks.hgLv1start);
+		WarsMod.generateBlock(player.worldObj, i, j - 1, k + 7, WarsBlocks.hgLv1start);
 	}
 
 }

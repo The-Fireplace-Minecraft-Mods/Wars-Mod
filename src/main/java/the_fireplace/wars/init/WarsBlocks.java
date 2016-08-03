@@ -9,47 +9,9 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import the_fireplace.wars.blocks.BlockAncientBlock;
-import the_fireplace.wars.blocks.BlockAncientOre;
-import the_fireplace.wars.blocks.BlockBadBlock;
-import the_fireplace.wars.blocks.BlockBluePlate;
-import the_fireplace.wars.blocks.BlockBooster;
-import the_fireplace.wars.blocks.BlockBounce;
-import the_fireplace.wars.blocks.BlockBounceLow;
-import the_fireplace.wars.blocks.BlockCastleSelector;
-import the_fireplace.wars.blocks.BlockClassSelectorDonator;
-import the_fireplace.wars.blocks.BlockCottage;
-import the_fireplace.wars.blocks.BlockDeadDirt;
-import the_fireplace.wars.blocks.BlockDecayOre;
-import the_fireplace.wars.blocks.BlockFireOre;
-import the_fireplace.wars.blocks.BlockGreenPlate;
-import the_fireplace.wars.blocks.BlockHill;
-import the_fireplace.wars.blocks.BlockInstantChestLv1;
-import the_fireplace.wars.blocks.BlockInstantChestLv2;
-import the_fireplace.wars.blocks.BlockInstantChestLv3;
-import the_fireplace.wars.blocks.BlockInstantChestLv4;
-import the_fireplace.wars.blocks.BlockLamp;
-import the_fireplace.wars.blocks.BlockNaturalOre;
-import the_fireplace.wars.blocks.BlockPresentBox;
-import the_fireplace.wars.blocks.BlockRedPlate;
-import the_fireplace.wars.blocks.BlockRoadPiece;
-import the_fireplace.wars.blocks.BlockSelectorBasic;
-import the_fireplace.wars.blocks.BlockSelectorBuildings;
-import the_fireplace.wars.blocks.BlockSelectorGames;
-import the_fireplace.wars.blocks.BlockSelectorSpleef;
-import the_fireplace.wars.blocks.BlockSinkSand;
-import the_fireplace.wars.blocks.BlockSpleefStone;
-import the_fireplace.wars.blocks.BlockSummoner;
-import the_fireplace.wars.blocks.BlockTeleporter;
-import the_fireplace.wars.blocks.BlockTeleporter2;
-import the_fireplace.wars.blocks.BlockTeleporter3;
-import the_fireplace.wars.blocks.BlockTeleporter4;
-import the_fireplace.wars.blocks.BlockTower;
-import the_fireplace.wars.blocks.BlockWallEnd;
-import the_fireplace.wars.blocks.BlockWarChest;
-import the_fireplace.wars.blocks.BlockWaterOre;
-import the_fireplace.wars.blocks.BlockYellowPlate;
+import the_fireplace.wars.blocks.*;
 import the_fireplace.wars.blocks.unseen.*;
+import the_fireplace.wars.items.ItemPTNTBlock;
 
 public class WarsBlocks {
 	public static Block castleSelector;
@@ -153,7 +115,7 @@ public class WarsBlocks {
 		classSelectDonator = new BlockClassSelectorDonator().setBlockUnbreakable().setUnlocalizedName("classSelectorDonator").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 
 		// Class Blocks
-		//playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
+		playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
 
 		// Individual Structure Blocks
 		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -194,60 +156,6 @@ public class WarsBlocks {
 		controlYellow = new BlockCYellow().setUnlocalizedName("ControlYellow");
 		controlGreen = new BlockCGreen().setUnlocalizedName("ControlGreen");
 		controlRed = new BlockCRed().setUnlocalizedName("ControlRed");
-
-		// /*LanguageRegistry.addName(buildingSelector, "Selector - Buildings");
-		// LanguageRegistry.addName(spleefSelector, "Selector - Spleef");
-		// LanguageRegistry.addName(castleSelector, "Selector - Setup");
-		// LanguageRegistry.addName(controlRed, "Control Of Fire");
-		// LanguageRegistry.addName(controlGreen, "Control Of Life");
-		// LanguageRegistry.addName(controlBlue, "Control Of Water");
-		// LanguageRegistry.addName(controlYellow, "Control Of Decay");
-		// LanguageRegistry.addName(ancientOre, "Ancient Ore");
-		// LanguageRegistry.addName(boostBlock, "Booster");
-		// LanguageRegistry.addName(bounceBlock, "Bouncer -high-");
-		// LanguageRegistry.addName(sumBlock, "Summoner");
-		// LanguageRegistry.addName(insChest1, "Hunger Games Chest -LV1-");
-		// LanguageRegistry.addName(insChest3, "Hunger Games Chest -LV3-");
-		// LanguageRegistry.addName(warChest, "War Chest");
-		// LanguageRegistry.addName(gamesSelector, "Selector - MiniGames");
-		// LanguageRegistry.addName(hill, "A Small Aesthestic Hill");
-		// LanguageRegistry.addName(hgLv1start, "Do Not Use This!");
-		// LanguageRegistry.addName(insChest2, "Hunger Games Chest -Lv2-");
-		// LanguageRegistry.addName(insChest4, "Hunger Games Chest -Lv4-");
-		// LanguageRegistry.addName(bounceBlockLow, "Bouncer -low-");
-		// LanguageRegistry.addName(deadDirt, "Dead Dirt");
-		// LanguageRegistry.addName(cottage,
-		// "Community Creation : Pylickuz's Cottage");
-		// LanguageRegistry.addName(teleporterBlock, "\u00a79Teleporter MK1");
-		// LanguageRegistry.addName(teleporterBlock2, "\u00a75Teleporter MK2");
-		// LanguageRegistry.addName(teleporterBlock3, "\u00a76Teleporter MK3");
-		// LanguageRegistry.addName(teleporterBlock4, "\u00a73Teleporter MK4");
-		// LanguageRegistry.addName(ancientBlock, "\u00a73Ancient Block");
-		// LanguageRegistry.addName(presentBox, "Present Box");
-		// LanguageRegistry.addName(spleefStone, "Spleef Stone");
-		// LanguageRegistry.addName(badBlock, "Doom Block");
-		// LanguageRegistry.addName(sinkSand, "Sink Sand");
-		// LanguageRegistry.addName(fireOre, "Firernite Ore");
-		// LanguageRegistry.addName(waterOre, "Waternate Ore");
-		// LanguageRegistry.addName(decayOre, "Decayenate Ore");
-		// LanguageRegistry.addName(naturalOre, "Natralite Ore");
-		// LanguageRegistry.addName(playerTNT, "Tech Player TNT");
-		// LanguageRegistry.addName(setSpawn, "World Spawn Setter");
-		// LanguageRegistry.addName(classSelect, "Class Selector");
-		// LanguageRegistry.addName(classSelectDonator,
-		// "Donator Class Selector");
-		// LanguageRegistry.addName(wallNS, "Wall Piece Side");
-		// LanguageRegistry.addName(corner1, "Wall Piece Corner");
-		// LanguageRegistry.addName(lamp, "Small Lamp");
-		// LanguageRegistry.addName(nostalHouse,
-		// "Easter Egg : My very first minecraft house (Made in 1.7.3 :D)");
-		// LanguageRegistry.addName(roadPiece, "Road Creator");
-		// LanguageRegistry.addName(tower, "Tower");
-		// LanguageRegistry.addName(wallEnd, "Wall Piece End");
-		// LanguageRegistry.addName(redPlate, "Red Team Pressure Plate");
-		// LanguageRegistry.addName(bluePlate, "Blue Team Pressure Plate");
-		// LanguageRegistry.addName(yellowPlate, "Yellow Team Pressure Plate");
-		// LanguageRegistry.addName(greenPlate, "Green Team Pressure Plate");*/
 
 		GameRegistry.registerBlock(buildingSelector, "buildingSelector");
 		GameRegistry.registerBlock(spleefSelector, "spleefSelector");
@@ -292,7 +200,7 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(bluePlate, "bluePlate");
 		GameRegistry.registerBlock(yellowPlate, "yellowPlate");
 		GameRegistry.registerBlock(greenPlate, "greenPlate");
-		//GameRegistry.registerBlock(playerTNT, "ItemPTNTBlock.class");
+		GameRegistry.registerBlock(playerTNT, ItemPTNTBlock.class, "playerTNT");
 		GameRegistry.registerBlock(controlBlue, "ControlBlue");
 		GameRegistry.registerBlock(controlYellow, "ControlYellow");
 		GameRegistry.registerBlock(controlRed, "ControlRed");
@@ -337,6 +245,7 @@ public class WarsBlocks {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(roadPiece), 0, new ModelResourceLocation("warsmod:roadPiece", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(tower), 0, new ModelResourceLocation("warsmod:tower", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(wallEnd), 0, new ModelResourceLocation("warsmod:wallEnd", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(playerTNT), 0, new ModelResourceLocation("warsmod:playerTNT", "inventory"));
 	}
 
 }

@@ -31,20 +31,20 @@ public class BlockNetherSpleefSmall extends Block {
 		int j = pos.getX();
 		int k = pos.getX();
 		
-		nSpleef.generate(world, i + -8, j - 0, k + -1, false);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 5, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 6, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 7, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 8, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 9, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 10, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 11, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 12, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 13, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 14, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 15, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 16, WarsBlocks.spleefStone);
-		WarsMod.generateBlock(world, i + 0, j + 3, k + 17, WarsBlocks.spleefStone);
+		nSpleef.generate(world, i + -8, j, k + -1, false);
+		WarsMod.generateBlock(world, i, j + 3, k + 5, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 6, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 7, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 8, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 9, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 10, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 11, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 12, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 13, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 14, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 15, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 16, WarsBlocks.spleefStone);
+		WarsMod.generateBlock(world, i, j + 3, k + 17, WarsBlocks.spleefStone);
 
 		WarsMod.generateBlock(world, i + 1, j + 3, k + 5, WarsBlocks.spleefStone);
 		WarsMod.generateBlock(world, i + 1, j + 3, k + 6, WarsBlocks.spleefStone);

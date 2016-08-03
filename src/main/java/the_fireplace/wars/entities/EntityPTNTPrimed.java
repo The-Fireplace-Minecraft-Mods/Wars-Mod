@@ -2,6 +2,7 @@ package the_fireplace.wars.entities;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
@@ -22,7 +23,7 @@ public class EntityPTNTPrimed extends Entity {
 		posY = height / 2.0F;
 	}
 
-	public EntityPTNTPrimed(World par1World, double par2, double par4, double par6) {
+	public EntityPTNTPrimed(World par1World, double par2, double par4, double par6, EntityLivingBase placer) {
 		this(par1World);
 		setPosition(par2, par4, par6);
 		float var8 = (float) (Math.random() * Math.PI * 2.0D);

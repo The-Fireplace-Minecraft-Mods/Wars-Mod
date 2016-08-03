@@ -30,8 +30,8 @@ public class BlockMazeReset extends Block {
 		int k = pos.getX();
 		
 		mazeRace.generate(world, i - 21, j - 8, k - 19, true);
-		WarsMod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.mazeStart);
-		WarsMod.generateBlock(world, i + 0, j - 4, k + 0, Blocks.wooden_slab);
+		WarsMod.generateBlock(world, i, j, k, WarsBlocks.mazeStart);
+		WarsMod.generateBlock(world, i, j - 4, k, Blocks.wooden_slab);
 		WarsMod.generateBlock(world, i - 8, j - 5, k + 4, Blocks.glass);
 		return false;
 

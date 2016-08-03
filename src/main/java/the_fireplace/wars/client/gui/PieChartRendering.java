@@ -1,10 +1,7 @@
 package the_fireplace.wars.client.gui;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -117,7 +114,7 @@ public final class PieChartRendering {
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 
 		if (tooltip != null)
-			renderTooltip(mouseX, mouseY, 1347420415, -267386864, Arrays.asList((int) Math.round((tooltip.val / 3.6)) + "%"));
+			renderTooltip(mouseX, mouseY, 1347420415, -267386864, Collections.singletonList((int) Math.round((tooltip.val / 3.6)) + "%"));
 
 		GL11.glPopMatrix();
 	}

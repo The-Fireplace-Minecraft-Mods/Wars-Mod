@@ -39,7 +39,7 @@ public class BlockCottage extends Block {
 
 		cottage.generate(world, i - 5, j - 1, k - 6, false);
 
-		WarsMod.generateBlock(world, i - 0, j + 0, k + 0, Blocks.air);
+		WarsMod.generateBlock(world, i, j, k, Blocks.air);
 		
 		System.out.print("BlockClicked");
 

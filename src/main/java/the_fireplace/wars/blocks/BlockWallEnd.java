@@ -33,7 +33,7 @@ public class BlockWallEnd extends Block {
 		wallEnd.generate(world, i - 7, j - 1, k - 6, false);
 		wallEnd.generate(world, i - 7, j - 1, k - 6, false);
 
-		WarsMod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
+		WarsMod.generateBlock(world, i, j, k, Blocks.air);
 		
 		return true;
 

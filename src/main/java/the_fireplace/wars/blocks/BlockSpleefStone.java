@@ -25,7 +25,7 @@ public class BlockSpleefStone extends Block {
 		int k = pos.getZ();
 		
 		
-		WarsMod.generateBlock(world, i + 0, j - 0, k + 0, Blocks.air);
+		WarsMod.generateBlock(world, i, j, k, Blocks.air);
 		world.playSoundAtEntity(player, "step.cloth", 1, 1);
 
 		return true;

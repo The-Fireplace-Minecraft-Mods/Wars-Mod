@@ -46,7 +46,7 @@ public class GenDungeonLarge extends WorldGenerator {
 			return false;
 		}
 
-		dungL.generate(world, i + 0, j - 40, k + 0, true);
+		dungL.generate(world, i, j - 40, k, true);
 
 		WarsMod.generateBlock(world, i + 5, j - 40, k + 12, Blocks.mob_spawner);
 		BlockPos spawnerPos1 = new BlockPos(i + 5, j - 40, k + 12);

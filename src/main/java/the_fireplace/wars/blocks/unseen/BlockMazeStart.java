@@ -37,7 +37,7 @@ public class BlockMazeStart extends Block {
 		int k = pos.getX();
 
 		mazeRace.generate(world, i - 21, j - 8, k - 19, true);
-		WarsMod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.mazeReset);
+		WarsMod.generateBlock(world, i, j, k, WarsBlocks.mazeReset);
 
 		Random random = new Random();
 

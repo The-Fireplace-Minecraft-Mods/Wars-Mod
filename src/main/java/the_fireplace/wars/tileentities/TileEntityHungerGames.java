@@ -75,18 +75,18 @@ public class TileEntityHungerGames extends TileEntity implements IUpdatePlayerLi
 
 			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a72HUNGER GAMES SMALL HAS STARTED GO GO GO "));
 
-			worldObj.createExplosion(null, pos.getX() + 0, pos.getY() + 3, pos.getZ() - 5, 0.0F, shouldTick);
-			WarsMod.generateBlock(worldObj, pos.getX() + 0, pos.getY() - 0, pos.getZ() - 0, Blocks.air);
+			worldObj.createExplosion(null, pos.getX(), pos.getY() + 3, pos.getZ() - 5, 0.0F, shouldTick);
+			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY(), pos.getZ(), Blocks.air);
 
 			hgSStarted.generate(worldObj, pos.getX() - 9, pos.getY() - 2, pos.getZ() - 16, false);
 			WarsMod.generateBlock(worldObj, pos.getX() + 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
 			WarsMod.generateBlock(worldObj, pos.getX() - 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
-			WarsMod.generateBlock(worldObj, pos.getX() + 0, pos.getY() + 1, pos.getZ() - 6, WarsBlocks.insChest3);
-			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 1, pos.getZ() - 8, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY() + 1, pos.getZ() - 6, WarsBlocks.insChest3);
+			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY() + 1, pos.getZ() - 8, WarsBlocks.insChest3);
 
-			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 2, pos.getZ() - 7, Blocks.crafting_table);
-			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 1, pos.getZ() - 7, Blocks.stonebrick);
-			WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 0, pos.getZ() - 7, WarsBlocks.hgLv1reset);
+			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY() + 2, pos.getZ() - 7, Blocks.crafting_table);
+			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY() + 1, pos.getZ() - 7, Blocks.stonebrick);
+			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY(), pos.getZ() - 7, WarsBlocks.hgLv1reset);
 			//WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 16, pos.getZ() - 7, WarsBlocks.hgTeleMain);
 
 		}

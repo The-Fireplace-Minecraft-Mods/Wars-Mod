@@ -30,7 +30,7 @@ public class BlockPresentBox extends Block {
 			int j = pos.getY();
 			int k = pos.getZ();
 
-			WarsMod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.chest);
+			WarsMod.generateBlock(world, i, j + 1, k, Blocks.chest);
 			TileEntityChest chest2 = new TileEntityChest();
 
 			
@@ -116,12 +116,11 @@ public class BlockPresentBox extends Block {
 
 				}
 
-				WarsMod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.stone);
-				WarsMod.generateBlock(world, i + 0, j + 1, k + 0, Blocks.air);
+				WarsMod.generateBlock(world, i, j + 1, k, Blocks.stone);
+				WarsMod.generateBlock(world, i, j + 1, k, Blocks.air);
 
 			}
-			return;
-		}
+        }
 
 	}
 }

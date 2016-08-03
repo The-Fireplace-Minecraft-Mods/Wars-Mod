@@ -27,12 +27,12 @@ public class BlockCYellow extends Block {
 		int j = pos.getX();
 		int k = pos.getX();
 		
-		controlYellow.generate(world, i + 0, j - 0, k + -1, true);
+		controlYellow.generate(world, i, j, k + -1, true);
 		{
-			WarsMod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.controlYellow);
-			WarsMod.generateBlock(world, i + 2, j - 0, k + 0, WarsBlocks.controlBlue);
-			WarsMod.generateBlock(world, i + 1, j - 0, k + -1, WarsBlocks.controlRed);
-			WarsMod.generateBlock(world, i + 1, j - 0, k + 1, WarsBlocks.controlGreen);
+			WarsMod.generateBlock(world, i, j, k, WarsBlocks.controlYellow);
+			WarsMod.generateBlock(world, i + 2, j, k, WarsBlocks.controlBlue);
+			WarsMod.generateBlock(world, i + 1, j, k + -1, WarsBlocks.controlRed);
+			WarsMod.generateBlock(world, i + 1, j, k + 1, WarsBlocks.controlGreen);
 
 		}
 		{

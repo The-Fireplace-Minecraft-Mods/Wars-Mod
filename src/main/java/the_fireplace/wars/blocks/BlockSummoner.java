@@ -72,9 +72,8 @@ public class BlockSummoner extends Block {
 				entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 				par1World.spawnEntityInWorld(entityLightningBolt);
 			}
-			return;
 
-		}
+        }
 
 	}
 

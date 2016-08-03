@@ -1,13 +1,13 @@
 package the_fireplace.wars.handlers;
 
-import java.util.Arrays;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import the_fireplace.wars.init.WarsBlocks;
 import the_fireplace.wars.init.WarsItems;
+
+import java.util.Arrays;
 
 public class ClassSelected {
 
@@ -29,10 +29,6 @@ public class ClassSelected {
 			player.inventory.setInventorySlotContents(0, itemstack3);
 
 			((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
-			// ItemStack itemstack4 = new ItemStack(Item.arrow, 1);
-			// player.inventory.setInventorySlotContents(9, itemstack4);
-			// ItemStack itemstack5 = new ItemStack(WarsItems.meleeDagger, 1);
-			// player.inventory.setInventorySlotContents(1, itemstack5);
 
 			break;
 		case 2:

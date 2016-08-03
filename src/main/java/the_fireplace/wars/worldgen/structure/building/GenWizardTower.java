@@ -12,8 +12,8 @@ public class GenWizardTower {
 
 		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k + 1, Blocks.stone);
 		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k - 1, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i - 2, j + 7, k + 0, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i + 2, j + 7, k + 0, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i - 2, j + 7, k, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i + 2, j + 7, k, Blocks.stone);
 
 		WarsMod.generateBlock(player.worldObj, i - 3, j + 2, k - 1, Blocks.stone);
 		WarsMod.generateBlock(player.worldObj, i - 3, j + 2, k + 1, Blocks.stone);
@@ -46,7 +46,7 @@ public class GenWizardTower {
 		WarsMod.generateBlock(player.worldObj, i - 1, j + 7, k + 2, Blocks.stone);
 		wizardTower.generate(player.worldObj, i - 4, j - 1, k - 4, false);
 
-		WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k + 0, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.air);
 	}
 
 }

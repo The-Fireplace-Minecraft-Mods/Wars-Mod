@@ -12,13 +12,13 @@ public class GenControlTower {
 	ResinresinLoader controlMain = new ResinresinLoader("controlMain.resinresin");
 
 	public GenControlTower(EntityPlayer player, int i, int j, int k) {
-		controlMain.generate(player.worldObj, i + -1, j - 0, k + -1, true);
+		controlMain.generate(player.worldObj, i + -1, j, k + -1, true);
 		{
-			WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k + 0, Blocks.planks);
-			WarsMod.generateBlock(player.worldObj, i + -1, j - 0, k + 0, WarsBlocks.controlYellow);
-			WarsMod.generateBlock(player.worldObj, i + 1, j - 0, k + 0, WarsBlocks.controlBlue);
-			WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k + -1, WarsBlocks.controlRed);
-			WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k + 1, WarsBlocks.controlGreen);
+			WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.planks);
+			WarsMod.generateBlock(player.worldObj, i + -1, j, k, WarsBlocks.controlYellow);
+			WarsMod.generateBlock(player.worldObj, i + 1, j, k, WarsBlocks.controlBlue);
+			WarsMod.generateBlock(player.worldObj, i, j, k + -1, WarsBlocks.controlRed);
+			WarsMod.generateBlock(player.worldObj, i, j, k + 1, WarsBlocks.controlGreen);
 		}
 
 		{

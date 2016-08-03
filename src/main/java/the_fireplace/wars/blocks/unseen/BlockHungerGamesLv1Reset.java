@@ -31,18 +31,18 @@ public class BlockHungerGamesLv1Reset extends Block {
 		int j = pos.getX();
 		int k = pos.getX();
 		
-		WarsMod.generateBlock(world, i + 1, j + 1, k - 0, Blocks.air);
-		WarsMod.generateBlock(world, i - 1, j + 1, k - 0, Blocks.air);
-		WarsMod.generateBlock(world, i + 0, j + 1, k - 1, Blocks.air);
-		WarsMod.generateBlock(world, i - 0, j + 1, k + 1, Blocks.air);
+		WarsMod.generateBlock(world, i + 1, j + 1, k, Blocks.air);
+		WarsMod.generateBlock(world, i - 1, j + 1, k, Blocks.air);
+		WarsMod.generateBlock(world, i, j + 1, k - 1, Blocks.air);
+		WarsMod.generateBlock(world, i, j + 1, k + 1, Blocks.air);
 
-		WarsMod.generateBlock(world, i - 0, j + 1, k - 0, Blocks.air);
-		WarsMod.generateBlock(world, i - 0, j + 2, k - 0, Blocks.air);
+		WarsMod.generateBlock(world, i, j + 1, k, Blocks.air);
+		WarsMod.generateBlock(world, i, j + 2, k, Blocks.air);
 
-		WarsMod.generateBlock(world, i + 1, j + 3, k - 0, Blocks.air);
-		WarsMod.generateBlock(world, i - 1, j + 3, k - 0, Blocks.air);
-		WarsMod.generateBlock(world, i + 0, j + 3, k - 1, Blocks.air);
-		WarsMod.generateBlock(world, i - 0, j + 3, k + 1, Blocks.air);
+		WarsMod.generateBlock(world, i + 1, j + 3, k, Blocks.air);
+		WarsMod.generateBlock(world, i - 1, j + 3, k, Blocks.air);
+		WarsMod.generateBlock(world, i, j + 3, k - 1, Blocks.air);
+		WarsMod.generateBlock(world, i, j + 3, k + 1, Blocks.air);
 
 		WarsMod.generateBlock(world, i - 1, j + 3, k - 1, Blocks.air);
 		WarsMod.generateBlock(world, i + 1, j + 3, k + 1, Blocks.air);
@@ -59,30 +59,30 @@ public class BlockHungerGamesLv1Reset extends Block {
 		WarsMod.generateBlock(world, i - 1, j + 1, k + 1, Blocks.air);
 		WarsMod.generateBlock(world, i + 1, j + 1, k - 1, Blocks.air);
 
-		WarsMod.generateBlock(world, i + 8, j - 0, k + 0, Blocks.air);
-		WarsMod.generateBlock(world, i + 0, j - 0, k + 8, Blocks.air);
-		WarsMod.generateBlock(world, i - 8, j - 0, k + 0, Blocks.air);
-		WarsMod.generateBlock(world, i + 0, j - 0, k - 8, Blocks.air);
-		WarsMod.generateBlock(world, i + 8, j - 1, k + 0, Blocks.air);
-		WarsMod.generateBlock(world, i + 0, j - 1, k + 8, Blocks.air);
-		WarsMod.generateBlock(world, i - 8, j - 1, k + 0, Blocks.air);
-		WarsMod.generateBlock(world, i + 0, j - 1, k - 8, Blocks.air);
+		WarsMod.generateBlock(world, i + 8, j, k, Blocks.air);
+		WarsMod.generateBlock(world, i, j, k + 8, Blocks.air);
+		WarsMod.generateBlock(world, i - 8, j, k, Blocks.air);
+		WarsMod.generateBlock(world, i, j, k - 8, Blocks.air);
+		WarsMod.generateBlock(world, i + 8, j - 1, k, Blocks.air);
+		WarsMod.generateBlock(world, i, j - 1, k + 8, Blocks.air);
+		WarsMod.generateBlock(world, i - 8, j - 1, k, Blocks.air);
+		WarsMod.generateBlock(world, i, j - 1, k - 8, Blocks.air);
 
 		WarsMod.generateBlock(world, i + 6, j - 1, k + 6, Blocks.air);
 		WarsMod.generateBlock(world, i + 6, j - 1, k - 6, Blocks.air);
 		WarsMod.generateBlock(world, i - 6, j - 1, k + 6, Blocks.air);
 		WarsMod.generateBlock(world, i - 6, j - 1, k - 6, Blocks.air);
-		WarsMod.generateBlock(world, i + 6, j - 0, k + 6, Blocks.air);
-		WarsMod.generateBlock(world, i + 6, j - 0, k - 6, Blocks.air);
-		WarsMod.generateBlock(world, i - 6, j - 0, k + 6, Blocks.air);
-		WarsMod.generateBlock(world, i - 6, j - 0, k - 6, Blocks.air);
+		WarsMod.generateBlock(world, i + 6, j, k + 6, Blocks.air);
+		WarsMod.generateBlock(world, i + 6, j, k - 6, Blocks.air);
+		WarsMod.generateBlock(world, i - 6, j, k + 6, Blocks.air);
+		WarsMod.generateBlock(world, i - 6, j, k - 6, Blocks.air);
 
-		WarsMod.generateBlock(world, i + 7, j - 0, k - 5, Blocks.air);
-		WarsMod.generateBlock(world, i - 7, j - 0, k - 5, Blocks.air);
+		WarsMod.generateBlock(world, i + 7, j, k - 5, Blocks.air);
+		WarsMod.generateBlock(world, i - 7, j, k - 5, Blocks.air);
 		WarsMod.generateBlock(world, i + 7, j - 1, k - 5, Blocks.air);
 		WarsMod.generateBlock(world, i - 7, j - 1, k - 5, Blocks.air);
 
-		WarsMod.generateBlock(world, i + 0, j - 0, k - 0, Blocks.air);
+		WarsMod.generateBlock(world, i, j, k, Blocks.air);
 
 		hgS.generate(world, i - 9, j - 2, k - 9, false);
 		
@@ -105,7 +105,7 @@ public class BlockHungerGamesLv1Reset extends Block {
 //		WarsMod.generateBlock(world, i - 4, j + 16, k + 4, WarsBlocks.hgTele7);
 //		WarsMod.generateBlock(world, i - 4, j + 16, k - 4, WarsBlocks.hgTele8);
 //		WarsMod.generateBlock(world, i + 0, j + 16, k - 0, WarsBlocks.hgTeleMain);
-		WarsMod.generateBlock(world, i + 0, j - 0, k + 7, WarsBlocks.hgLv1start);
+		WarsMod.generateBlock(world, i, j, k + 7, WarsBlocks.hgLv1start);
 		return false;
 
 	}

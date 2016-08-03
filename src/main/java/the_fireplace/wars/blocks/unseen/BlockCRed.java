@@ -27,12 +27,12 @@ public class BlockCRed extends Block {
 		int j = pos.getX();
 		int k = pos.getX();
 		
-		controlRed.generate(world, i + -1, j - 0, k + 0, true);
+		controlRed.generate(world, i + -1, j, k, true);
 		{
-			WarsMod.generateBlock(world, i + -1, j - 0, k + 1, WarsBlocks.controlYellow);
-			WarsMod.generateBlock(world, i + 1, j - 0, k + 1, WarsBlocks.controlBlue);
-			WarsMod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.controlRed);
-			WarsMod.generateBlock(world, i + 0, j - 0, k + 2, WarsBlocks.controlGreen);
+			WarsMod.generateBlock(world, i + -1, j, k + 1, WarsBlocks.controlYellow);
+			WarsMod.generateBlock(world, i + 1, j, k + 1, WarsBlocks.controlBlue);
+			WarsMod.generateBlock(world, i, j, k, WarsBlocks.controlRed);
+			WarsMod.generateBlock(world, i, j, k + 2, WarsBlocks.controlGreen);
 
 		}
 		{

@@ -33,7 +33,7 @@ public class BlockHungerGamesLv2Reset extends Block {
 		int k = pos.getX();
 		
 		hgLTop.generate(world, i - 21, j + 1, k - 22, true);
-		WarsMod.generateBlock(world, i + 19, j + 1, k + 0, WarsBlocks.hgLv2start);
+		WarsMod.generateBlock(world, i + 19, j + 1, k, WarsBlocks.hgLv2start);
 		
 		
 		//TODO find a better way of making these blocks
@@ -98,10 +98,10 @@ public class BlockHungerGamesLv2Reset extends Block {
 //		WarsMod.generateBlock(world, i - 10, j - 1, k + 17, WarsBlocks.hgTeleb23);
 //		WarsMod.generateBlock(world, i - 10, j - 1, k - 17, WarsBlocks.hgTeleb24);
 
-		WarsMod.generateBlock(world, i + 1, j + 1, k + 0, Blocks.air);
-		WarsMod.generateBlock(world, i - 1, j + 1, k + 0, Blocks.air);
-		WarsMod.generateBlock(world, i + 0, j + 1, k + 1, Blocks.air);
-		WarsMod.generateBlock(world, i + 0, j + 1, k - 1, Blocks.air);
+		WarsMod.generateBlock(world, i + 1, j + 1, k, Blocks.air);
+		WarsMod.generateBlock(world, i - 1, j + 1, k, Blocks.air);
+		WarsMod.generateBlock(world, i, j + 1, k + 1, Blocks.air);
+		WarsMod.generateBlock(world, i, j + 1, k - 1, Blocks.air);
 		return false;
 
 	}

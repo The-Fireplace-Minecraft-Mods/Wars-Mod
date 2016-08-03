@@ -39,24 +39,23 @@ public class BlockBluePlate extends BlockPressurePlate {
 
 		if (oldRedstoneStrength != j) {
 			if (!var8.isEmpty()) {
-				Iterator var9 = var8.iterator();
 
-				while (var9.hasNext()) {
-					EntityPlayer var10 = (EntityPlayer) var9.next();
+                for (Object aVar8 : var8) {
+                    EntityPlayer var10 = (EntityPlayer) aVar8;
 
-					if (!var10.doesEntityNotTriggerPressurePlate()) {
+                    if (!var10.doesEntityNotTriggerPressurePlate()) {
 
-						ItemStack boots = var10.inventory.armorItemInSlot(0);
-						if (boots != null && boots.getItem() == WarsItems.blueBoots) {
+                        ItemStack boots = var10.inventory.armorItemInSlot(0);
+                        if (boots != null && boots.getItem() == WarsItems.blueBoots) {
 
-							state = this.setRedstoneStrength(state, j);
-							world.setBlockState(pos, state, 2);
-							this.updateNeighbors(world, pos);
-							world.markBlockRangeForRenderUpdate(pos, pos);
+                            state = this.setRedstoneStrength(state, j);
+                            world.setBlockState(pos, state, 2);
+                            this.updateNeighbors(world, pos);
+                            world.markBlockRangeForRenderUpdate(pos, pos);
 
-						}
-					}
-				}
+                        }
+                    }
+                }
 			}
 
 		}

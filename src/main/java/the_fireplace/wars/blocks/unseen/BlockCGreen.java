@@ -30,12 +30,12 @@ public class BlockCGreen extends Block {
 		int k = pos.getX();
 		
 		
-		controlGreen.generate(world, i + -1, j - 0, k + -2, true);
+		controlGreen.generate(world, i + -1, j, k + -2, true);
 		{
-			WarsMod.generateBlock(world, i + -1, j - 0, k + -1, WarsBlocks.controlYellow);
-			WarsMod.generateBlock(world, i + 1, j - 0, k + -1, WarsBlocks.controlBlue);
-			WarsMod.generateBlock(world, i + 0, j - 0, k + -2, WarsBlocks.controlRed);
-			WarsMod.generateBlock(world, i + 0, j - 0, k + 0, WarsBlocks.controlGreen);
+			WarsMod.generateBlock(world, i + -1, j, k + -1, WarsBlocks.controlYellow);
+			WarsMod.generateBlock(world, i + 1, j, k + -1, WarsBlocks.controlBlue);
+			WarsMod.generateBlock(world, i, j, k + -2, WarsBlocks.controlRed);
+			WarsMod.generateBlock(world, i, j, k, WarsBlocks.controlGreen);
 
 		}
 		{

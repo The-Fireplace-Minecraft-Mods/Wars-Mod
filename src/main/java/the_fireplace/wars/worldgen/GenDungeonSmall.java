@@ -41,7 +41,7 @@ public class GenDungeonSmall extends WorldGenerator {
 			return false;
 		}
 
-		dungS.generate(world, i + 0, j - 55, k + 0, true);
+		dungS.generate(world, i, j - 55, k, true);
 
 		WarsMod.generateBlock(world, i + 3, j - 53, k + 3, Blocks.mob_spawner);
 		BlockPos spawnerPos = new BlockPos(i + 3, j - 53, k + 3);

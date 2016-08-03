@@ -75,12 +75,12 @@ public class GenHgLarge {
 //		WarsMod.generateBlock(player.worldObj, i - 10, j - 2, k + 17, WarsBlocks.hgTeleb23);
 //		WarsMod.generateBlock(player.worldObj, i - 10, j - 2, k - 17, WarsBlocks.hgTeleb24);
 
-		WarsMod.generateBlock(player.worldObj, i + 19, j - 0, k + 0, WarsBlocks.hgLv2start);
+		WarsMod.generateBlock(player.worldObj, i + 19, j, k, WarsBlocks.hgLv2start);
 
-		WarsMod.generateBlock(player.worldObj, i + 1, j + 0, k + 0, Blocks.air);
-		WarsMod.generateBlock(player.worldObj, i - 1, j + 0, k + 0, Blocks.air);
-		WarsMod.generateBlock(player.worldObj, i + 0, j + 0, k + 1, Blocks.air);
-		WarsMod.generateBlock(player.worldObj, i + 0, j + 0, k - 1, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i + 1, j, k, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i - 1, j, k, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i, j, k + 1, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i, j, k - 1, Blocks.air);
 	}
 
 }
