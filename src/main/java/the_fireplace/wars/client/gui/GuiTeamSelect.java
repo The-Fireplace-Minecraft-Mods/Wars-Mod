@@ -25,8 +25,11 @@ public class GuiTeamSelect extends GuiScreen {
 
 	public EntityPlayer player;
 
+	private boolean joinedteam = false;
+
 	public GuiTeamSelect(EntityPlayer player) {
 		this.player = player;
+		joinedteam = false;
 	}
 
 	@Override
@@ -108,6 +111,7 @@ public class GuiTeamSelect extends GuiScreen {
 				info = "The Red Team Is Full!";
 			} else {
 				this.mc.thePlayer.closeScreen();
+				joinedteam = true;
 			}
 			break;
 		case 2:
@@ -115,6 +119,7 @@ public class GuiTeamSelect extends GuiScreen {
 				info = "The Green Team Is Full!";
 			} else {
 				this.mc.thePlayer.closeScreen();
+				joinedteam = true;
 			}
 			break;
 		case 3:
@@ -122,6 +127,7 @@ public class GuiTeamSelect extends GuiScreen {
 				info = "The Blue Team Is Full!";
 			} else {
 				this.mc.thePlayer.closeScreen();
+				joinedteam = true;
 			}
 			break;
 		case 4:
@@ -129,6 +135,7 @@ public class GuiTeamSelect extends GuiScreen {
 				info = "The Yellow Team Is Full!";
 			} else {
 				this.mc.thePlayer.closeScreen();
+				joinedteam = true;
 			}
 			break;
 		case 5:
@@ -145,7 +152,7 @@ public class GuiTeamSelect extends GuiScreen {
 			this.initGui();
 		}
 
-		if(guibutton.id > 0 && guibutton.id < 5){
+		if(guibutton.id > 0 && guibutton.id < 5 && joinedteam){
 			PacketDispatcher.sendToServer(new PacketTeamSelected(guibutton.id));
 		}
 	}
