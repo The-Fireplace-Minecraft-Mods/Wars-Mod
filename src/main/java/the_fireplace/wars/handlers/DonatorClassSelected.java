@@ -1,19 +1,19 @@
 package the_fireplace.wars.handlers;
 
-import java.util.Arrays;
-
-import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.data.WarsSavedData;
-import the_fireplace.wars.init.WarsItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import the_fireplace.wars.WarsMod;
+import the_fireplace.wars.data.WarsSavedData;
+import the_fireplace.wars.init.WarsItems;
+
+import java.util.Arrays;
 
 public class DonatorClassSelected {
 
 	public DonatorClassSelected(EntityPlayer player) {
 		WarsSavedData savedData = WarsSavedData.get(player.worldObj);
-		if (WarsMod.donators.contains(player.getName())) {
+		if (WarsMod.getDonators().contains(player.getName())) {
 
 			Arrays.fill(player.inventory.mainInventory, null);
 

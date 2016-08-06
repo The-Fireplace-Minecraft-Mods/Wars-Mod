@@ -35,7 +35,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 @Mod(modid = WarsMod.MODID, name = WarsMod.MODNAME)
 public class WarsMod {
@@ -48,7 +47,7 @@ public class WarsMod {
 	@Instance(MODID)
 	public static WarsMod instance;
 
-	public static List donators;
+	private static ArrayList<String> donators;
 
 	public static CreativeTabs tabWarsBlocks = new WarsBlocksTab("tabWarsItems");
 	public static CreativeTabs tabWarsItems = new WarsItemsTab("tabWarsBlocks");
@@ -61,7 +60,7 @@ public class WarsMod {
 
 		registerNetwork();
 
-		getDonators();
+		donators = downloadDonators();
 	}
 
 	@EventHandler
@@ -111,8 +110,9 @@ public class WarsMod {
 		PacketDispatcher.registerPackets();
 	}
 
-	private void getDonators(){
-		donators = new ArrayList<String>();
+	@SuppressWarnings("unchecked")
+	private ArrayList<String> downloadDonators(){
+		ArrayList donators = new ArrayList<String>();
 		try {
 			URL targetURL = new URL("https://dl.dropboxusercontent.com/u/104023161/Donators.txt");//TODO: new link
 			InputStream in = targetURL.openStream();
@@ -126,5 +126,10 @@ public class WarsMod {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return donators;
+	}
+
+	public static ArrayList<String> getDonators(){
+		return donators;
 	}
 }

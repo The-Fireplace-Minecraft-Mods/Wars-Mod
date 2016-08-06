@@ -26,11 +26,6 @@ import the_fireplace.wars.network.packets.PacketKills;
 import the_fireplace.wars.network.packets.PacketOpenTeamSelect;
 import the_fireplace.wars.network.packets.PacketTeams;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.List;
 import java.util.Random;
 
@@ -184,21 +179,6 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void PlayerLoggedInEvent(PlayerEvent.PlayerLoggedInEvent event) {
-		try {
-			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");//TODO: new link
-			InputStream in = targetURL.openStream();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-			String dona;
-			while ((dona = reader.readLine()) != null) {
-				dona = dona.trim();
-				// toLowerCase().
-				WarsMod.donators.add(dona);
-			}
-			in.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
 		if (event.player instanceof EntityPlayerMP) {
 
 			for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {

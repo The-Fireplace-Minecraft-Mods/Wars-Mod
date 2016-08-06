@@ -46,7 +46,7 @@ public class ItemChaosSword extends Item {
 
 
 			if (cooldown <= 0) {
-				if (WarsMod.donators.contains(par3EntityPlayer.getName())) {
+				if (WarsMod.getDonators().contains(par3EntityPlayer.getName())) {
 
 					if (par3EntityPlayer instanceof EntityPlayerMP && ItemArmorMod.fullEquiped(par3EntityPlayer, WarsItems.chaosArmor)) {
 
@@ -62,7 +62,7 @@ public class ItemChaosSword extends Item {
 						cooldown = 40;
 					}
 				}
-			} else if (!WarsMod.donators.contains(par3EntityPlayer.getName())) {
+			} else if (!WarsMod.getDonators().contains(par3EntityPlayer.getName())) {
 				par3EntityPlayer.addChatMessage(new ChatComponentText("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com"));
 
 			}
@@ -79,10 +79,9 @@ public class ItemChaosSword extends Item {
 			stack.stackSize = 0;
 		}
 
-		else if (!WarsMod.donators.contains(player.getName())) {
+		else if (!WarsMod.getDonators().contains(player.getName())) {
 			stack.stackSize = 0;
 			player.addChatMessage(new ChatComponentText("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com"));
-
 		}
 
 		return false;
