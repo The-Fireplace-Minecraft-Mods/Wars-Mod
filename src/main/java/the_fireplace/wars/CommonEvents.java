@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import the_fireplace.wars.data.WarsSavedData;
 import the_fireplace.wars.init.WarsItems;
 import the_fireplace.wars.items.ItemArmorMod;
@@ -183,7 +184,6 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void PlayerLoggedInEvent(PlayerEvent.PlayerLoggedInEvent event) {
-
 		try {
 			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");//TODO: new link
 			InputStream in = targetURL.openStream();
@@ -234,20 +234,16 @@ public class CommonEvents {
 
 			PacketDispatcher.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
 
-			System.out.println("Ok so this worked");
-
 			WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
 			if (playerBoots == null) {
 				if (!savedWarsData.editMode.editModeToggle) {
-					event.player.openGui(WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
+					FMLNetworkHandler.openGui(event.player, WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
 
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
 				}
 			}
-
 		}
-
 	}
 
 	@SuppressWarnings("unchecked")
@@ -257,17 +253,12 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void PlayerRespawnEvent(PlayerEvent.PlayerRespawnEvent event) {
-
-		System.out.println("Player respawning");
-
-
 		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
 			if(playerMP.inventory.getStackInSlot(36) != null) {
 				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
 
 				if (playerBoots != null) {
-
 					if (playerBoots == WarsItems.redBoots) {
 						redPlayers++;
 					}
@@ -294,7 +285,7 @@ public class CommonEvents {
 
 		WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 		if (!savedWarsData.editMode.editModeToggle) {
-			event.player.openGui(WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
+			FMLNetworkHandler.openGui(event.player, WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
 
 			PacketDispatcher.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
 		}
@@ -336,16 +327,13 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void tickEvent(TickEvent.PlayerTickEvent event) {
-
 		EntityPlayer player = event.player;
 		if (ItemArmorMod.fullEquiped(player, WarsItems.knightArmor)) {
 			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 10, 0));
 		} else if (ItemArmorMod.fullEquiped(player, WarsItems.scoutArmor)) {
-
 			ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities, 0.15F, 6);
 			player.fallDistance = 0;
 			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 10, 1));
-
 		}
 
 		else if (ItemArmorMod.fullEquiped(player, WarsItems.chaosArmor)) {
@@ -367,11 +355,8 @@ public class CommonEvents {
 
 				if (num == 1) {
 					player.addChatMessage(new ChatComponentText("\u00a73WEAR TEAM BOOTS TO USE CLASS!"));
-
 				}
-
 			}
-
 		}
 
 		int killstreakBefore = player.getEntityData().getInteger("warsmod_killstreak");
@@ -402,8 +387,6 @@ public class CommonEvents {
 		}
 		if (killstreakBefore > 2) {
 			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.getId(), 10, 0));
-
 		}
-
 	}
 }

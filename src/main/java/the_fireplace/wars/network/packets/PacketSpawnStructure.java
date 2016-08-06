@@ -56,10 +56,9 @@ public class PacketSpawnStructure implements IMessage {
         public IMessage handleServerMessage(EntityPlayer player, PacketSpawnStructure message, MessageContext ctx) {
             System.out.println(String.format("Received %s from %s", "Structure Packet with type "+message.type+" and button "+message.button+" at ("+message.x+", "+message.y+", "+message.z+")", player.getDisplayName().getUnformattedText()));
 
-            System.out.println("this got called (packet recieved)");
 			new StructureSpawning(player, message.type, message.button, message.x, message.y, message.z);
             
-            return null; // no response in this case
+            return null;
         }
     }
 }
