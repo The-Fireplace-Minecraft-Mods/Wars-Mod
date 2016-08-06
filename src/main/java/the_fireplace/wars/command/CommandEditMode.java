@@ -23,15 +23,11 @@ public class CommandEditMode extends CommandBase {
 		return 4;
 	}
 
-
 	@Override
 	public void execute(ICommandSender sender, String[] args) throws CommandException {
-
-		EntityPlayer player1 = (EntityPlayer) sender;
-		WarsSavedData savedData = WarsSavedData.get(player1.worldObj);
-
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
+			WarsSavedData savedData = WarsSavedData.get(player.worldObj);
 			int a = savedData.teamRed.baseX;
 			int b = savedData.teamRed.baseY;
 			int c = savedData.teamRed.baseZ;
@@ -50,34 +46,22 @@ public class CommandEditMode extends CommandBase {
 
 			if (a == 0 && b == 0 && c == 0) {
 				player.addChatMessage(new ChatComponentText("Red Base Spawn Not Set!"));
-
 			} else if (d == 0 && e == 0 && f == 0) {
 				player.addChatMessage(new ChatComponentText("Green Base Spawn Not Set!"));
-
 			} else if (g == 0 && h == 0 && i == 0) {
 				player.addChatMessage(new ChatComponentText("Blue Base Spawn Not Set!"));
-
 			} else if (j == 0 && k == 0 && l == 0) {
 				player.addChatMessage(new ChatComponentText("Yellow Base Spawn Not Set!"));
-
-			}
-
-			else {
-
+			} else {
 				savedData.editMode.editModeToggle = !savedData.editMode.editModeToggle;
 				savedData.markDirty();
 				player.addChatMessage(new ChatComponentText("Toggled edit mode to: " + savedData.editMode.editModeToggle));
-
 			}
-
 		}
-
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
-		// TODO Auto-generated method stub
-		return null;
+		return "/toggleEditMode";
 	}
-
 }

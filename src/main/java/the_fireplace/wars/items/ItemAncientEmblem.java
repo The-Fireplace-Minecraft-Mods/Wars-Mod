@@ -11,9 +11,6 @@ public class ItemAncientEmblem extends Item {
 	public ItemAncientEmblem() { 
 		super();
 		this.setCreativeTab(WarsMod.tabWarsItems);
-													
-													
-
 	}
 
 	@Override

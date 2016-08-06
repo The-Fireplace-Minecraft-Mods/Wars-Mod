@@ -51,14 +51,12 @@ public class WarsMod {
 	@Instance(MODID)
 	public static WarsMod instance;
 
-	@SuppressWarnings("rawtypes")
 	public static List donators;
 
 	public static CreativeTabs tabWarsBlocks = new WarsBlocksTab("tabWarsItems");
 	public static CreativeTabs tabWarsItems = new WarsItemsTab("tabWarsBlocks");
 	public static CreativeTabs tabWarsClasses = new WarsClassesTab("tabWarsClasses");
 
-	@SuppressWarnings("unchecked")
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		WarsBlocks.createBlocks();

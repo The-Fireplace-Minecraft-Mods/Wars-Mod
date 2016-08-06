@@ -21,9 +21,4 @@ public class BlockDecayOre extends Block {
 		return WarsItems.decayGem;
 	}
 
-	@Override
-	public int quantityDropped(Random random) {
-		return 1;
-	}
-
 }

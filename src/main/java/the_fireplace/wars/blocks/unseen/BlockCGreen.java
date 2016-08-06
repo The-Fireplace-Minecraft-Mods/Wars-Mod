@@ -23,12 +23,9 @@ public class BlockCGreen extends Block {
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
-
-		
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
-		
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		controlGreen.generate(world, i + -1, j, k + -2, true);
 		{
@@ -42,7 +39,6 @@ public class BlockCGreen extends Block {
 			EntityLightningBolt entityLightningBolt = new EntityLightningBolt(world, maxX, maxX, maxX);
 			entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 			world.spawnEntityInWorld(entityLightningBolt);
-
 		}
 		return false;
 

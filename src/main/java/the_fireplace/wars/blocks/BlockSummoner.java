@@ -34,18 +34,15 @@ public class BlockSummoner extends Block {
 			int num = random.nextInt(7);
 
 			if (num == 1) {
-
 				EntityLightningBolt entityLightningBolt = new EntityLightningBolt(par1World, maxX, maxX, maxX);
 				entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 				par1World.spawnEntityInWorld(entityLightningBolt);
-
 			}
 			if (num == 2) {
 				EntityCreeper entityCreeper = new EntityCreeper(par1World);
 				entityCreeper.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 				par1World.spawnEntityInWorld(entityCreeper);
 			}
-
 			if (num == 3) {
 				EntitySnowman entitySnowman = new EntitySnowman(par1World);
 				entitySnowman.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
@@ -72,9 +69,6 @@ public class BlockSummoner extends Block {
 				entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 				par1World.spawnEntityInWorld(entityLightningBolt);
 			}
-
         }
-
 	}
-
 }

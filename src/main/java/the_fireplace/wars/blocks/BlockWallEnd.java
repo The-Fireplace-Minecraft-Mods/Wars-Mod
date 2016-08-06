@@ -23,8 +23,6 @@ public class BlockWallEnd extends Block {
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
-
-		
 		int i = pos.getX();
 		int j = pos.getY();
 		int k = pos.getZ();
@@ -36,7 +34,5 @@ public class BlockWallEnd extends Block {
 		WarsMod.generateBlock(world, i, j, k, Blocks.air);
 		
 		return true;
-
 	}
-
 }

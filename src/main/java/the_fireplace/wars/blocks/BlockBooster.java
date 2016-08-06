@@ -11,5 +11,4 @@ public class BlockBooster extends Block {
 		slipperiness = 1.5F;
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
-
 }

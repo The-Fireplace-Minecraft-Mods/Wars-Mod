@@ -18,19 +18,14 @@ public class BlockNetherSpleefMedium extends Block {
 		super(Material.iron);
 	}
 
-	/**
-	 * Called when the block is clicked by a player. Args: x, y, z, entityPlayer
-	 */
-
 	ResinresinLoader nSpleefM = new ResinresinLoader("nSpleefM.resinresin");
 
-	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		WarsMod.generateBlock(world, i, j + 2, k + 10, Blocks.stone);
 		WarsMod.generateBlock(world, i + 1, j + 2, k + 10, Blocks.stone);

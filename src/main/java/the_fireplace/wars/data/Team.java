@@ -9,7 +9,6 @@ public class Team {
 	public int baseZ = 0;
 
 	public void readFromNBT(NBTTagCompound nbttagcompound) {
-		// TODO Auto-generated method stub
 		baseX = nbttagcompound.getInteger("baseX");
 		baseY = nbttagcompound.getInteger("baseY");
 		baseZ = nbttagcompound.getInteger("baseZ");
@@ -21,7 +20,5 @@ public class Team {
 		nbttagcompound.setInteger("baseZ", baseZ);
 
 		return nbttagcompound;
-
 	}
-
 }

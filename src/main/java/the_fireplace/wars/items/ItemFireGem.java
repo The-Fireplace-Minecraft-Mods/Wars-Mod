@@ -17,5 +17,4 @@ public class ItemFireGem extends Item {
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 	}
-
 }

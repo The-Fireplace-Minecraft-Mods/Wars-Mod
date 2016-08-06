@@ -27,27 +27,20 @@ public class CommandGreenBase extends CommandBase {
 
 	@Override
 	public void execute(ICommandSender sender, String[] args) throws CommandException {
-
-		EntityPlayer player1 = (EntityPlayer) sender;
-		WarsSavedData savedData = WarsSavedData.get(player1.worldObj);
-
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
+			WarsSavedData savedData = WarsSavedData.get(player.worldObj);
 
 			savedData.teamGreen.baseX = (int) player.posX;
 			savedData.teamGreen.baseY = (int) player.posY;
 			savedData.teamGreen.baseZ = (int) player.posZ;
 			savedData.markDirty();
 			player.addChatMessage(new ChatComponentText("Green Team Base Set To: " + savedData.teamGreen.baseX + ", " + savedData.teamGreen.baseY + ", " + savedData.teamGreen.baseZ));
-
 		}
-
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
-		// TODO Auto-generated method stub
-		return null;
+		return "/setGreenBase";
 	}
-
 }

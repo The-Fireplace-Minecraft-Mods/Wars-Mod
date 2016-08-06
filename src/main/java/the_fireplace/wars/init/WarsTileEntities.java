@@ -14,7 +14,6 @@ import the_fireplace.wars.tileentities.TileEntityTeleporter;
 public abstract class WarsTileEntities {
 
 	public static void createTileEntities() {
-
 		GameRegistry.registerTileEntity(TileEntityTeleporter.class, "simpleTeleporter");
 		GameRegistry.registerTileEntity(TileEntityHungerGames.class, "hungerGames");
 		GameRegistry.registerTileEntity(TileEntityHungerGamesLv2.class, "hungerGamesLv2");
@@ -25,6 +24,5 @@ public abstract class WarsTileEntities {
 		GameRegistry.registerTileEntity(TileEntitySpleefStructures.class, "spleefStructures");
 		GameRegistry.registerTileEntity(TileEntityBuildingStructures.class, "buildingStructures");
 		GameRegistry.registerTileEntity(TileEntityGameStructures.class, "gameStructures");
-
 	}
 }

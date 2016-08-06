@@ -1,7 +1,5 @@
 package the_fireplace.wars.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -16,6 +14,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 
+import java.util.Random;
+
 public class BlockInstantChestLv4 extends Block {
 
 	public BlockInstantChestLv4() {
@@ -25,7 +25,6 @@ public class BlockInstantChestLv4 extends Block {
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
-
 		if (!world.isRemote) {
 
 			int i = pos.getX();
@@ -46,58 +45,44 @@ public class BlockInstantChestLv4 extends Block {
 
 					if (num == 1) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond));
-
 					}
 					if (num == 2) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.iron_ingot));
-
 					}
 
 					if (num == 5) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
-
 					}
 
 					if (num == 6) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.bow));
-
 					}
 					if (num == 7) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.arrow, 3));
-
 					}
 					if (num == 8) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond_boots));
-
 					}
 					if (num == 9) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond_helmet));
-
 					}
 
 					if (num == 10) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.stick));
-
 					}
 
 					if (num == 11) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.golden_apple));
-
-						if (num == 12) {
-							((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
-
-						}
-						if (num == 13) {
-							((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
-
-						}
-						if (num == 14) {
-							((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond));
-
-						}
-
 					}
-
+					if (num == 12) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
+					}
+					if (num == 13) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
+					}
+					if (num == 14) {
+						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.diamond));
+					}
 				}
 			}
 		}

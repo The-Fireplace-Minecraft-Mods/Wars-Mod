@@ -201,7 +201,6 @@ public class GuiClassSelect extends GuiScreen {
 			if (currentKills > 399) {
 				colorIndex = 2;
 				talkTo = "Technician Selected";
-
 			} else {
 				colorIndex = 0;
 				talkTo = "Not Enough Kills!" + " (" + (400 - ClientProxy.totalKills) + " More Needed)";
@@ -209,7 +208,6 @@ public class GuiClassSelect extends GuiScreen {
 			break;
 		}
 
-		// Packet code here
 		if(guibutton.id > 0 && guibutton.id < 7){
 			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, 1));
 		}

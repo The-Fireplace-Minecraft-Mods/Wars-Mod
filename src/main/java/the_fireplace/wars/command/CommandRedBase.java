@@ -24,30 +24,22 @@ public class CommandRedBase extends CommandBase {
 		return 4;
 	}
 
-
 	@Override
 	public void execute(ICommandSender sender, String[] args) throws CommandException {
-
-		EntityPlayer player1 = (EntityPlayer) sender;
-		WarsSavedData savedData = WarsSavedData.get(player1.worldObj);
-
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
+			WarsSavedData savedData = WarsSavedData.get(player.worldObj);
 
 			savedData.teamRed.baseX = (int) player.posX;
 			savedData.teamRed.baseY = (int) player.posY;
 			savedData.teamRed.baseZ = (int) player.posZ;
 			savedData.markDirty();
 			player.addChatMessage(new ChatComponentText("Red Team Base Set To: " + savedData.teamRed.baseX + ", " + savedData.teamRed.baseY + ", " + savedData.teamRed.baseZ));
-
 		}
-
 	}
 
 	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
-		// TODO Auto-generated method stub
-		return null;
+		return "/setRedBase";
 	}
-
 }

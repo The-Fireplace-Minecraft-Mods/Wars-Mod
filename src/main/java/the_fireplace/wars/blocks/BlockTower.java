@@ -35,7 +35,5 @@ public class BlockTower extends Block {
 		WarsMod.generateBlock(world, i, j, k, Blocks.air);
 		
 		return true;
-
 	}
-
 }

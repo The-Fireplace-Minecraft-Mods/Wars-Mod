@@ -40,5 +40,4 @@ public class ItemMagicPotato extends ItemFood {
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 	}
-
 }

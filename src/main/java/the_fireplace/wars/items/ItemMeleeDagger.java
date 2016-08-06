@@ -1,5 +1,6 @@
 package the_fireplace.wars.items;
 
+import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -8,12 +9,8 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
-
-import com.google.common.collect.Multimap;
 
 public class ItemMeleeDagger extends Item {
 
@@ -26,7 +23,6 @@ public class ItemMeleeDagger extends Item {
 		this.setMaxDamage(300);
 		this.weaponDamage = 2F;
 		setFull3D();
-
 	}
 
 	@Override
@@ -50,23 +46,15 @@ public class ItemMeleeDagger extends Item {
 	}
 
 	@Override
-    @SideOnly(Side.CLIENT)
-	// Makes it render nicely
-	public boolean isFull3D() {
-		return true;
-	}
-
-	// The max use time of the action
-	@Override
     public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 72000;
 	}
 
     @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-	public Multimap getItemAttributeModifiers()
+    @SuppressWarnings("unchecked")
+	public Multimap getAttributeModifiers(ItemStack stack)
     {
-        Multimap multimap = super.getItemAttributeModifiers();
+        Multimap multimap = super.getAttributeModifiers(stack);
         multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", (double)this.weaponDamage, 0));
         return multimap;
     }

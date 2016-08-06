@@ -12,9 +12,8 @@ import the_fireplace.wars.init.WarsItems;
 public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
 
-	public ItemArmorMod(ArmorMaterial material, int renderIndex, int type) {
+	public ItemArmorMod(ArmorMaterial material, int type) {
 		super(material, -1, type);
-
 	}
 
 	@Override
@@ -86,7 +85,6 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 		}
 
 		return "";
-
 	}
 
 	@Override

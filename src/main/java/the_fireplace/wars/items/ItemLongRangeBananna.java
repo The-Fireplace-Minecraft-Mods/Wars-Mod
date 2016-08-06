@@ -16,7 +16,6 @@ public class ItemLongRangeBananna extends ItemFood {
 		this.setMaxStackSize(3);
 	}
 
-	
 	@Override
 	public ItemStack onItemUseFinish(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
 		entityPlayer.getFoodStats().addStats(this, itemStack);
@@ -34,5 +33,4 @@ public class ItemLongRangeBananna extends ItemFood {
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.RARE;
 	}
-
 }

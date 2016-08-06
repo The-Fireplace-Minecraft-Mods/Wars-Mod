@@ -31,7 +31,6 @@ public class ItemAntidote extends Item {
 
 	@Override
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-
 		if (!world.isRemote) {
 			entityplayer.curePotionEffects(new ItemStack(Items.milk_bucket));
 

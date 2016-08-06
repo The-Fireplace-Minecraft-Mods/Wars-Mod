@@ -29,8 +29,8 @@ public class BlockHungerGamesLv2Reset extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		hgLTop.generate(world, i - 21, j + 1, k - 22, true);
 		WarsMod.generateBlock(world, i + 19, j + 1, k, WarsBlocks.hgLv2start);

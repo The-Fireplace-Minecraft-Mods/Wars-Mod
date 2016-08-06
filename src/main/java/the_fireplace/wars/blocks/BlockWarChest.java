@@ -28,7 +28,6 @@ public class BlockWarChest extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		if (!world.isRemote) {
-
 			int i = pos.getX();
 			int j = pos.getY();
 			int k = pos.getZ();
@@ -47,47 +46,34 @@ public class BlockWarChest extends Block {
 
 					if (num == 1) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Blocks.torch));
-
 					}
 					if (num == 2) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(WarsItems.magicPotato));
-
 					}
-
 					if (num == 5) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.beef));
-
 					}
-
 					if (num == 6) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.golden_apple));
-
 					}
 					if (num == 7) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(Items.apple));
-
 					}
 					if (num == 8) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(WarsItems.battleBurger));
-
 					}
 					if (num == 9) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(WarsItems.longBannana));
-
 					}
 					if (num == 10) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(WarsItems.workWaffel));
-
 					}
 					if (num == 11) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(WarsItems.shadowFlesh));
-
 					}
 					if (num == 12) {
 						((TileEntityChest) chestTile).setInventorySlotContents(slot, new ItemStack(WarsItems.warCheese));
-
 					}
-
 				}
 			}
 		}

@@ -16,7 +16,6 @@ public class ItemMassMeal extends Item {
 	public ItemMassMeal() {
 		super();
 		setCreativeTab(WarsMod.tabWarsItems);
-
 	}
 
 	@Override
@@ -24,49 +23,47 @@ public class ItemMassMeal extends Item {
 
 		if (!player.canPlayerEdit(pos, side, stack)) {
 			return false;
-		}
+		} else {
+			IBlockState state;
+			int i;
+			int x;
 
-		else {
-			IBlockState var11;
-			int var12;
-			int var13;
+			state = world.getBlockState(pos);
 
-			var11 = world.getBlockState(pos);
-
-			BonemealEvent event = new BonemealEvent(player, world, pos, var11);
+			BonemealEvent event = new BonemealEvent(player, world, pos, state);
 
 			if (MinecraftForge.EVENT_BUS.post(event)) {
 				return false;
 			}
 
-			if (var11 == Blocks.grass.getDefaultState()) {
+			if (state == Blocks.grass.getDefaultState()) {
 				if (!world.isRemote) {
 					--stack.stackSize;
 					label133:
 
-						for (var12 = 0; var12 < 128; ++var12) {
-							var13 = pos.getX();
-							int var14 = pos.getY() + 1;
-							int var15 = pos.getZ();
+						for (i = 0; i < 128; ++i) {
+							x = pos.getX();
+							int y = pos.getY() + 1;
+							int z = pos.getZ();
 
-							for (int var16 = 0; var16 < var12 / 16; ++var16) {
-								var13 += itemRand.nextInt(15) - 5;
-								var14 += (itemRand.nextInt(15) - 5) * itemRand.nextInt(15) / 10;
-								var15 += itemRand.nextInt(15) - 5;
+							for (int j = 0; j < i / 16; ++j) {
+								x += itemRand.nextInt(15) - 5;
+								y += (itemRand.nextInt(15) - 5) * itemRand.nextInt(15) / 10;
+								z += itemRand.nextInt(15) - 5;
 
-								BlockPos positionGrass2 = new BlockPos(var13, var14 - 1, var15);
+								BlockPos positionGrass2 = new BlockPos(x, y - 1, z);
 
 								if (world.getBlockState(positionGrass2).getBlock() != Blocks.grass || world.isBlockNormalCube(pos, true)) {
 									continue label133;
 								}
 							}
 
-							BlockPos positionGrass = new BlockPos(var13, var14, var15);
+							BlockPos positionGrass = new BlockPos(x, y, z);
 
 							if (world.getBlockState(positionGrass) == Blocks.air.getDefaultState()) {
 								if (itemRand.nextInt(3) != 0) {
 									if (Blocks.tallgrass.canBlockStay(world, positionGrass, Blocks.tallgrass.getDefaultState() )) {
-										WarsMod.generateBlock(world, var13, var14, var15, Blocks.tallgrass);
+										WarsMod.generateBlock(world, x, y, z, Blocks.tallgrass);
 									}
 								}
 							}

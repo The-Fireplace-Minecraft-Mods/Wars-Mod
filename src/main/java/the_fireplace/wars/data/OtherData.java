@@ -7,7 +7,6 @@ public class OtherData {
 	public boolean editModeToggle = true;
 
 	public void readFromNBT(NBTTagCompound nbttagcompound) {
-		// TODO Auto-generated method stub
 		editModeToggle = nbttagcompound.getBoolean("editModeToggle");
 	}
 
@@ -15,7 +14,5 @@ public class OtherData {
 		nbttagcompound.setBoolean("editModeToggle", editModeToggle);
 
 		return nbttagcompound;
-
 	}
-
 }

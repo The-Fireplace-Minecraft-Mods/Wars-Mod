@@ -1,5 +1,6 @@
 package the_fireplace.wars.items;
 
+import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,12 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
-
-import com.google.common.collect.Multimap;
 import the_fireplace.wars.init.WarsItems;
 
 public class ItemChaosSword extends Item {
@@ -32,22 +29,15 @@ public class ItemChaosSword extends Item {
 		setMaxDamage(300);
 		weaponDamage = 3F;
 		setFull3D();
-
 	}
 
 	int cooldown = 0;
 
 	@Override
 	public void onUpdate(ItemStack par1ItemStak, World par2World, Entity par3Entity, int par4, boolean par5) {
-
 		cooldown--;
-
 	}
 
-	/**
-	 * Called whenever this item is equipped and the right mouse button is
-	 * pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 		par3EntityPlayer.setItemInUse(par1ItemStack, getMaxItemUseDuration(par1ItemStack));
@@ -113,23 +103,15 @@ public class ItemChaosSword extends Item {
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	// Makes it render nicely
-	public boolean isFull3D() {
-		return true;
-	}
-
-	// The max use time of the action
-	@Override
 	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 72000;
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Multimap getItemAttributeModifiers()
+	@SuppressWarnings("unchecked")
+	public Multimap getAttributeModifiers(ItemStack stack)
 	{
-		Multimap multimap = super.getItemAttributeModifiers();
+		Multimap multimap = super.getAttributeModifiers(stack);
 		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", weaponDamage, 0));
 		return multimap;
 	}

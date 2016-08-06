@@ -24,8 +24,8 @@ public class BlockCYellow extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		controlYellow.generate(world, i, j, k + -1, true);
 		{
@@ -33,16 +33,12 @@ public class BlockCYellow extends Block {
 			WarsMod.generateBlock(world, i + 2, j, k, WarsBlocks.controlBlue);
 			WarsMod.generateBlock(world, i + 1, j, k + -1, WarsBlocks.controlRed);
 			WarsMod.generateBlock(world, i + 1, j, k + 1, WarsBlocks.controlGreen);
-
 		}
 		{
 			EntityLightningBolt entityLightningBolt = new EntityLightningBolt(world, maxX, maxX, maxX);
 			entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 			world.spawnEntityInWorld(entityLightningBolt);
-
 		}
 		return false;
-
 	}
-
 }

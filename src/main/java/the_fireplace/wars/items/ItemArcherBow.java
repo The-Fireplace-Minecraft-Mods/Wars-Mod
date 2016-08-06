@@ -1,7 +1,5 @@
 package the_fireplace.wars.items;
 
-import javax.swing.Icon;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,6 +19,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsItems;
 
+import javax.swing.*;
+
 public class ItemArcherBow extends Item {
 	public static final String[] bowPullIconNameArray = new String[] { "ArcherBow_pulling_0", "ArcherBow_pulling_1", "ArcherBow_pulling_2" };
 	@SideOnly(Side.CLIENT)
@@ -34,10 +34,6 @@ public class ItemArcherBow extends Item {
 		setFull3D();
 	}
 
-	/**
-	 * called when the player releases the use item button. Args: itemstack,
-	 * world, entityplayer, itemInUseCount
-	 */
 	@Override
 	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4) {
 		int j = getMaxItemUseDuration(par1ItemStack) - par4;

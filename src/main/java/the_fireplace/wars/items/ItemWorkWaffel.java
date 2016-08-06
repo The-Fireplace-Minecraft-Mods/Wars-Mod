@@ -11,12 +11,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemWorkWaffel extends ItemFood {
-	public ItemWorkWaffel(int par2) {
-		super(par2, false);
+	public ItemWorkWaffel(int restoreAmount) {
+		super(restoreAmount, false);
 		this.setMaxStackSize(3);
 	}
 
-	
 	@Override 
 	public ItemStack onItemUseFinish(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
 		entityPlayer.getFoodStats().addStats(this, itemStack);
@@ -27,7 +26,6 @@ public class ItemWorkWaffel extends ItemFood {
 		entityPlayer.addPotionEffect(new PotionEffect(Potion.wither.id, 10 * 20, 6));
 		
 		return itemStack;
-
 	}
 
 	@Override
@@ -35,5 +33,4 @@ public class ItemWorkWaffel extends ItemFood {
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.RARE;
 	}
-
 }

@@ -125,32 +125,32 @@ public abstract class WarsItems {
 		techSpanner = new ItemTechSpanner().setUnlocalizedName("techSpanner").setCreativeTab(WarsMod.tabWarsClasses);
 		dagger = new ItemMeleeDagger().setUnlocalizedName("dagger").setCreativeTab(WarsMod.tabWarsClasses);
 		chaosSword = new ItemChaosSword().setUnlocalizedName("chaosSword").setCreativeTab(WarsMod.tabWarsClasses);
-		scoutHelm = new ItemArmorMod(scoutArmor, 0, 0).setUnlocalizedName("scoutHelm").setCreativeTab(WarsMod.tabWarsClasses);
-		scoutPlate = new ItemArmorMod(scoutArmor, 1, 1).setUnlocalizedName("scoutChest").setCreativeTab(WarsMod.tabWarsClasses);
-		scoutLegs = new ItemArmorMod(scoutArmor, 2, 2).setUnlocalizedName("scoutLegs").setCreativeTab(WarsMod.tabWarsClasses);
-		techHelm = new ItemArmorMod(techArmor, 0, 0).setUnlocalizedName("techHelm").setCreativeTab(WarsMod.tabWarsClasses);
-		techPlate = new ItemArmorMod(techArmor, 1, 1).setUnlocalizedName("techChest").setCreativeTab(WarsMod.tabWarsClasses);
-		techLegs = new ItemArmorMod(techArmor, 2, 2).setUnlocalizedName("techLegs").setCreativeTab(WarsMod.tabWarsClasses);
-		healerHelm = new ItemArmorMod(healerArmor, 0, 0).setUnlocalizedName("healerHelm").setCreativeTab(WarsMod.tabWarsClasses);
-		healerPlate = new ItemArmorMod(healerArmor, 1, 1).setUnlocalizedName("healerChest").setCreativeTab(WarsMod.tabWarsClasses);
-		healerLegs = new ItemArmorMod(healerArmor, 2, 2).setUnlocalizedName("healerLegs").setCreativeTab(WarsMod.tabWarsClasses);
-		archerHelm = new ItemArmorMod(archerArmor, 0, 0).setUnlocalizedName("archerHelm").setCreativeTab(WarsMod.tabWarsClasses);
-		archerPlate = new ItemArmorMod(archerArmor, 1, 1).setUnlocalizedName("archerChest").setCreativeTab(WarsMod.tabWarsClasses);
-		archerLegs = new ItemArmorMod(archerArmor, 2, 2).setUnlocalizedName("archerLegs").setCreativeTab(WarsMod.tabWarsClasses);
-		knightHelm = new ItemArmorMod(knightArmor, 0, 0).setUnlocalizedName("knightHelm").setCreativeTab(WarsMod.tabWarsClasses);
-		knightPlate = new ItemArmorMod(knightArmor, 1, 1).setUnlocalizedName("knightChest").setCreativeTab(WarsMod.tabWarsClasses);
-		knightLegs = new ItemArmorMod(knightArmor, 2, 2).setUnlocalizedName("knightLegs").setCreativeTab(WarsMod.tabWarsClasses);
-		guardHelm = new ItemArmorMod(guardArmor, 0, 0).setUnlocalizedName("guardHelm").setCreativeTab(WarsMod.tabWarsClasses);
-		guardPlate = new ItemArmorMod(guardArmor, 1, 1).setUnlocalizedName("guardChest").setCreativeTab(WarsMod.tabWarsClasses);
-		guardLegs = new ItemArmorMod(guardArmor, 2, 2).setUnlocalizedName("guardLegs").setCreativeTab(WarsMod.tabWarsClasses);
-		chaosHelm = new ItemArmorMod(chaosArmor, 0, 0).setUnlocalizedName("chaosHelm").setCreativeTab(WarsMod.tabWarsClasses);
-		chaosPlate = new ItemArmorMod(chaosArmor, 1, 1).setUnlocalizedName("chaosChest").setCreativeTab(WarsMod.tabWarsClasses);
-		chaosLegs = new ItemArmorMod(chaosArmor, 2, 2).setUnlocalizedName("chaosLegs").setCreativeTab(WarsMod.tabWarsClasses);
-		redBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("redBoots").setCreativeTab(WarsMod.tabWarsClasses);
-		greenBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("greenBoots").setCreativeTab(WarsMod.tabWarsClasses);
-		yellowBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("yellowBoots").setCreativeTab(WarsMod.tabWarsClasses);
-		blueBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("blueBoots").setCreativeTab(WarsMod.tabWarsClasses);
-		chaosBoots = new ItemArmorMod(bootsArmor, 3, 3).setUnlocalizedName("chaosBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		scoutHelm = new ItemArmorMod(scoutArmor, 0).setUnlocalizedName("scoutHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		scoutPlate = new ItemArmorMod(scoutArmor, 1).setUnlocalizedName("scoutChest").setCreativeTab(WarsMod.tabWarsClasses);
+		scoutLegs = new ItemArmorMod(scoutArmor, 2).setUnlocalizedName("scoutLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		techHelm = new ItemArmorMod(techArmor, 0).setUnlocalizedName("techHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		techPlate = new ItemArmorMod(techArmor, 1).setUnlocalizedName("techChest").setCreativeTab(WarsMod.tabWarsClasses);
+		techLegs = new ItemArmorMod(techArmor, 2).setUnlocalizedName("techLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		healerHelm = new ItemArmorMod(healerArmor, 0).setUnlocalizedName("healerHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		healerPlate = new ItemArmorMod(healerArmor, 1).setUnlocalizedName("healerChest").setCreativeTab(WarsMod.tabWarsClasses);
+		healerLegs = new ItemArmorMod(healerArmor, 2).setUnlocalizedName("healerLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		archerHelm = new ItemArmorMod(archerArmor, 0).setUnlocalizedName("archerHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		archerPlate = new ItemArmorMod(archerArmor, 1).setUnlocalizedName("archerChest").setCreativeTab(WarsMod.tabWarsClasses);
+		archerLegs = new ItemArmorMod(archerArmor, 2).setUnlocalizedName("archerLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		knightHelm = new ItemArmorMod(knightArmor, 0).setUnlocalizedName("knightHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		knightPlate = new ItemArmorMod(knightArmor, 1).setUnlocalizedName("knightChest").setCreativeTab(WarsMod.tabWarsClasses);
+		knightLegs = new ItemArmorMod(knightArmor, 2).setUnlocalizedName("knightLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		guardHelm = new ItemArmorMod(guardArmor, 0).setUnlocalizedName("guardHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		guardPlate = new ItemArmorMod(guardArmor, 1).setUnlocalizedName("guardChest").setCreativeTab(WarsMod.tabWarsClasses);
+		guardLegs = new ItemArmorMod(guardArmor, 2).setUnlocalizedName("guardLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosHelm = new ItemArmorMod(chaosArmor, 0).setUnlocalizedName("chaosHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosPlate = new ItemArmorMod(chaosArmor, 1).setUnlocalizedName("chaosChest").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosLegs = new ItemArmorMod(chaosArmor, 2).setUnlocalizedName("chaosLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		redBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("redBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		greenBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("greenBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		yellowBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("yellowBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		blueBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("blueBoots").setCreativeTab(WarsMod.tabWarsClasses);
+		chaosBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("chaosBoots").setCreativeTab(WarsMod.tabWarsClasses);
 		waterGem = new ItemWaterGem().setUnlocalizedName("waterGem");
 		fireGem = new ItemFireGem().setUnlocalizedName("fireGem");
 		decayGem = new ItemDecayGem().setUnlocalizedName("decayGem");
@@ -172,6 +172,7 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(workWaffel, "workWaffel");
 		GameRegistry.registerItem(scoutBlade, "scoutBlade");
 		GameRegistry.registerItem(knightSword, "knightSword");
+		GameRegistry.registerItem(guardSword, "guardSword");
 		GameRegistry.registerItem(wizardStaff, "wizardStaff");
 		GameRegistry.registerItem(techSpanner, "techSpanner");
 		GameRegistry.registerItem(dagger, "dagger");
@@ -216,7 +217,6 @@ public abstract class WarsItems {
 
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders() {
-
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientGem, 0, new ModelResourceLocation("warsmod:ancientGem", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ancientEmblem, 0, new ModelResourceLocation("warsmod:ancientEmblem", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(magicPotato, 0, new ModelResourceLocation("warsmod:magicPotato", "inventory"));

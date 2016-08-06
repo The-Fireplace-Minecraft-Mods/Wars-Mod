@@ -10,7 +10,6 @@ public class ItemWaterGem extends Item {
 	public ItemWaterGem() {
 		super();
 		this.setCreativeTab(WarsMod.tabWarsItems);
-
 	}
 
 	@Override
@@ -18,5 +17,4 @@ public class ItemWaterGem extends Item {
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 	}
-
 }

@@ -19,13 +19,12 @@ public class BlockNaturalSpleefSmall extends Block {
 
 	ResinresinLoader pSpleef = new ResinresinLoader("pSpleef.resinresin");
 
-	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		pSpleef.generate(world, i + -9, j, k, false);
 		WarsMod.generateBlock(world, i, j + 3, k + 5, WarsBlocks.spleefStone);

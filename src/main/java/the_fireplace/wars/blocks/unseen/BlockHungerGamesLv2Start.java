@@ -33,8 +33,8 @@ public class BlockHungerGamesLv2Start extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		BlockPos position = new BlockPos(i, j, k);
 		TileEntityHungerGamesLv2 te = (TileEntityHungerGamesLv2) world.getTileEntity(position);
@@ -47,6 +47,5 @@ public class BlockHungerGamesLv2Start extends Block {
 		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a79HUNGER GAMES MEDIUM STARTING IN 1 MINUTE"));
 
 		return false;
-
 	}
 }

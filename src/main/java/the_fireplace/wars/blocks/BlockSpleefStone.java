@@ -29,7 +29,5 @@ public class BlockSpleefStone extends Block {
 		world.playSoundAtEntity(player, "step.cloth", 1, 1);
 
 		return true;
-
 	}
-
 }

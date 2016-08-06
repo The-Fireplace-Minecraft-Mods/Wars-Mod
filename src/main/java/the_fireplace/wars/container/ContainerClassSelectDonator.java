@@ -11,7 +11,6 @@ public class ContainerClassSelectDonator extends Container {
 
 	public ContainerClassSelectDonator(InventoryPlayer inventoryPlayer, TileEntityClassSelect te) {
 		tileEntity = te;
-
 	}
 
 	@Override

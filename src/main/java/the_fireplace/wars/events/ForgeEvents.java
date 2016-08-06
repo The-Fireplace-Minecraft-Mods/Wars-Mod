@@ -1,7 +1,5 @@
 package the_fireplace.wars.events;
 
-import net.minecraft.command.ICommandManager;
-import net.minecraft.command.ServerCommandManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
@@ -11,33 +9,12 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import the_fireplace.wars.command.*;
+import the_fireplace.wars.init.WarsItems;
 import the_fireplace.wars.network.PacketDispatcher;
 import the_fireplace.wars.network.packets.PacketKills;
-import the_fireplace.wars.init.WarsItems;
 
 public class ForgeEvents {
-
-	@EventHandler
-	public void serverStart(FMLServerStartingEvent event) {
-		MinecraftServer server = MinecraftServer.getServer();
-		ICommandManager command = server.getCommandManager();
-
-		ServerCommandManager serverCommand = (ServerCommandManager) command;
-
-		// Registering Commands
-		serverCommand.registerCommand(new CommandKillstreak());
-		serverCommand.registerCommand(new CommandTotalKills());
-		serverCommand.registerCommand(new CommandRedBase());
-		serverCommand.registerCommand(new CommandGreenBase());
-		serverCommand.registerCommand(new CommandBlueBase());
-		serverCommand.registerCommand(new CommandYellowBase());
-		serverCommand.registerCommand(new CommandChaosSpawn());
-		serverCommand.registerCommand(new CommandEditMode());
-	}
 
 	@SubscribeEvent
 	public void onLivingAttack(LivingAttackEvent evt) {

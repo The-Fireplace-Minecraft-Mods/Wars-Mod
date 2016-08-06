@@ -19,7 +19,6 @@ public class BlockCottage extends Block {
 	}
 
 	ResinresinLoader cottage = new ResinresinLoader("cottage.resinresin");
-
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
@@ -44,6 +43,5 @@ public class BlockCottage extends Block {
 		System.out.print("BlockClicked");
 
 		return true;
-
 	}
 }

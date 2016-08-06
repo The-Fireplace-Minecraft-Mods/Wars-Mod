@@ -14,29 +14,16 @@ public class GuiBuildingSelect extends GuiScreen {
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/classBuildings.png");
 	private static final ResourceLocation textureLocation2 = new ResourceLocation("warsmod:gui/infoBox.png");
 
-	public String[] colors = new String[] { "red", "blue", "green", "purple", "black" };
-	public int[] colorsHex = new int[] { 0xFF0000, 0x0000FF, 0x006400, 0x6A5ACD, 0x000000 };
-	public int colorIndex = 0;
-
 	public String title = "Building Select";
 
-	public String info = "Select a wide range of buildings to decorate your warzone/ map. You are free to use and release these in your own public maps.";
+	public String info = "Select a wide range of buildings to decorate your warzone / map. You are free to use and release these in your own public maps.";
 
 	public String sizeHeight = "";
 	public String sizeArea = "";
 
 	public BlockPos blockPos;
 
-	public int x = 0;
-	public int y = 0;
-	public int z = 0;
-
 	public GuiBuildingSelect(EntityPlayer player, BlockPos pos) {
-
-		this.x = pos.getX();
-		this.y = pos.getY();
-		this.z = pos.getZ();
-
 		blockPos = pos;
 	}
 
@@ -52,9 +39,6 @@ public class GuiBuildingSelect extends GuiScreen {
 
 	public final int xSizeOfTexture2 = 100;
 	public final int ySizeOfTexture2 = 256;
-
-	public final int xSizeOfTexture3 = 256;
-	public final int ySizeOfTexture3 = 256;
 
 	/** The X size of the inventory window in pixels. */
 	protected int xSize = 176;
@@ -181,7 +165,6 @@ public class GuiBuildingSelect extends GuiScreen {
 			break;
 		}
 
-		// Packet code here
 		if(guibutton.id > 0 && guibutton.id < 7){
 			PacketDispatcher.sendToServer(new PacketSpawnStructure(guibutton.id, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 3));
 		}

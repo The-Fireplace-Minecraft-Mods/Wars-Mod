@@ -19,7 +19,6 @@ public class BlockHungerGamesLv1Start extends Block {
 
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
-		
 		return true;
 	}
 
@@ -33,8 +32,8 @@ public class BlockHungerGamesLv1Start extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		BlockPos position = new BlockPos(i, j, k);
 		TileEntityHungerGames te = (TileEntityHungerGames) world.getTileEntity(position);
@@ -49,6 +48,5 @@ public class BlockHungerGamesLv1Start extends Block {
 		}
 
 		return false;
-
 	}
 }

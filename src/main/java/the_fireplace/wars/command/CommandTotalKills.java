@@ -9,10 +9,10 @@ import the_fireplace.wars.network.PacketDispatcher;
 import the_fireplace.wars.network.packets.PacketKills;
 
 public class CommandTotalKills extends CommandBase {
-
+//TODO: Merge this with /mykills
 	@Override
 	public String getName() {
-		return "unlockall"; // Name of the command e.g "/Test", "/Command"
+		return "totalkills"; // Name of the command e.g "/Test", "/Command"
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class CommandTotalKills extends CommandBase {
 
 		int warsmod_totalKill = ((EntityPlayer) sender).getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 
-		warsmod_totalKill = 1000;
+		//warsmod_totalKill = 1000;
 
 		((EntityPlayer) sender).getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_totalKill", warsmod_totalKill);
 
@@ -42,8 +42,7 @@ public class CommandTotalKills extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
-		// TODO Auto-generated method stub
-		return null;
+		return "/totalkills";
 	}
 
 }

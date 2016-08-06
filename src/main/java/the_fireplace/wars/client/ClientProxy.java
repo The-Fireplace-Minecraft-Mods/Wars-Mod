@@ -1,17 +1,18 @@
 package the_fireplace.wars.client;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ServerData;
-import net.minecraft.client.multiplayer.ServerList;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
 import the_fireplace.wars.CommonProxy;
+import the_fireplace.wars.client.render.RenderPTNTPrimed;
+import the_fireplace.wars.entities.EntityPTNTPrimed;
 import the_fireplace.wars.handlers.WarsTickEventHandler;
 import the_fireplace.wars.init.WarsBlocks;
 import the_fireplace.wars.init.WarsItems;
@@ -41,8 +42,6 @@ public class ClientProxy extends CommonProxy {
 	@SuppressWarnings("rawtypes")
 	public static List donators;
 
-	//protected GuiTeamSelect teamSelected;//This is not used
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public void registerRenderInformation() {
@@ -65,19 +64,16 @@ public class ClientProxy extends CommonProxy {
 			e.printStackTrace();
 		}
 
-		// TickRegistry.registerTickHandler(new ClientTickEventHandler(),
-		// Side.CLIENT);
 		MinecraftForge.EVENT_BUS.register(new WarsTickEventHandler());
 		MinecraftForge.EVENT_BUS.register(new WarsKeyEventHandler());
 
-		//RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed());
+		RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed(Minecraft.getMinecraft().getRenderManager()));
 
 		toggleHUD = new KeyBinding("key.toggleHUD", Keyboard.KEY_B, "key.categories.warsmod");
 		ClientRegistry.registerKeyBinding(toggleHUD);
 
 		// Automatically adds official server to servers list
-		// TODO turn this into a button
-		ServerList list = new ServerList(Minecraft.getMinecraft());
+		/*ServerList list = new ServerList(Minecraft.getMinecraft());
 		list.loadServerList();
 		boolean found = false;
 		for (int i = 0; i < list.countServers(); i++) {
@@ -90,7 +86,7 @@ public class ClientProxy extends CommonProxy {
 		if (!found) {
 			list.addServerData(new ServerData("Wars Mod Battle Server", "108.170.23.98:63293"));
 		}
-		list.saveServerList();
+		list.saveServerList();*/
 	}
 
 	@Override

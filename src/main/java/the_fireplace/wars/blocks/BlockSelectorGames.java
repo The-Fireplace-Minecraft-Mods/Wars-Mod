@@ -32,8 +32,8 @@ public class BlockSelectorGames extends BlockContainer {
 		int y = pos.getY();
 		int z = pos.getZ();
 
-		TileEntity tile_entity = world.getTileEntity(pos);
-		if (tile_entity == null || player.isSneaking()) {
+		TileEntity te = world.getTileEntity(pos);
+		if (te == null || player.isSneaking()) {
 			return false;
 		}
 		FMLNetworkHandler.openGui(player, WarsMod.instance, 7, world, x, y, z);

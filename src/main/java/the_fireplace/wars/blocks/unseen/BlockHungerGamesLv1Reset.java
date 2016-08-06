@@ -28,8 +28,8 @@ public class BlockHungerGamesLv1Reset extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		WarsMod.generateBlock(world, i + 1, j + 1, k, Blocks.air);
 		WarsMod.generateBlock(world, i - 1, j + 1, k, Blocks.air);
@@ -107,6 +107,5 @@ public class BlockHungerGamesLv1Reset extends Block {
 //		WarsMod.generateBlock(world, i + 0, j + 16, k - 0, WarsBlocks.hgTeleMain);
 		WarsMod.generateBlock(world, i, j, k + 7, WarsBlocks.hgLv1start);
 		return false;
-
 	}
 }

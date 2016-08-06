@@ -17,10 +17,6 @@ public class BlockNetherSpleefSmall extends Block {
 		super(Material.iron);
 	}
 
-	/**
-	 * Called when the block is clicked by a player. Args: x, y, z, entityPlayer
-	 */
-
 	ResinresinLoader nSpleef = new ResinresinLoader("nSpleef.resinresin");
 
 	
@@ -28,8 +24,8 @@ public class BlockNetherSpleefSmall extends Block {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		nSpleef.generate(world, i + -8, j, k + -1, false);
 		WarsMod.generateBlock(world, i, j + 3, k + 5, WarsBlocks.spleefStone);
@@ -131,7 +127,6 @@ public class BlockNetherSpleefSmall extends Block {
 		WarsMod.generateBlock(world, i + 6, j + 3, k + 17, WarsBlocks.spleefStone);
 
 		// left
-
 		WarsMod.generateBlock(world, i - 1, j + 3, k + 5, WarsBlocks.spleefStone);
 		WarsMod.generateBlock(world, i - 1, j + 3, k + 6, WarsBlocks.spleefStone);
 		WarsMod.generateBlock(world, i - 1, j + 3, k + 7, WarsBlocks.spleefStone);
@@ -217,7 +212,6 @@ public class BlockNetherSpleefSmall extends Block {
 		WarsMod.generateBlock(world, i - 6, j + 3, k + 17, WarsBlocks.spleefStone);
 
 		return false;
-
 	}
 
 }

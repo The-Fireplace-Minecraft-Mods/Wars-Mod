@@ -11,7 +11,6 @@ public final class CraftingRecipes {
 	private CraftingRecipes() {
 	}
 
-	@SuppressWarnings("boxing")
 	public static void registerRecipes() {
 
 		GameRegistry.addRecipe(new ItemStack(WarsItems.blueBoots, 1), "   ", "@ @", "@ @", Character.valueOf('@'), WarsItems.waterGem);

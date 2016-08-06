@@ -31,7 +31,5 @@ public class BlockRoadPiece extends Block {
 		WarsMod.generateBlock(world, i, j, k, Blocks.air);
 		road.generate(world, i, j - 1, k, true);
 		return true;
-
 	}
-
 }

@@ -160,13 +160,12 @@ public class GuiClassSelectDonator extends GuiScreen {
 		case 4:
 
 			try {
-				Desktop.getDesktop().browse(new URL("http://resinresin.buycraft.net/category/87818").toURI());
+				Desktop.getDesktop().browse(new URL("http://resinresin.buycraft.net/category/87818").toURI());//TODO: New link
 			} catch (Exception e) {
 			}
 
 		}
 
-		// Packet code here
 		if(guibutton.id > 0 && guibutton.id < 2){
 			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, 0));
 		}

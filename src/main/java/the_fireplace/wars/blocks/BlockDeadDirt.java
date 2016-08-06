@@ -10,5 +10,4 @@ public class BlockDeadDirt extends Block {
 		super(Material.grass);
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
-
 }

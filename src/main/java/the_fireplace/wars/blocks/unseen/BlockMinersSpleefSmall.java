@@ -19,13 +19,12 @@ public class BlockMinersSpleefSmall extends Block {
 
 	ResinresinLoader mSpleefS = new ResinresinLoader("mSpleefS.resinresin");
 
-	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
-		int j = pos.getX();
-		int k = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
 		
 		mSpleefS.generate(world, i - 8, j, k, false);
 

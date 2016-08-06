@@ -27,7 +27,7 @@ public class BlockBounceLow extends Block {
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		if (entity instanceof EntityLivingBase) {
-		entity.motionY += 1.0;
+			entity.motionY += 1.0;
 		}
 	}
 }

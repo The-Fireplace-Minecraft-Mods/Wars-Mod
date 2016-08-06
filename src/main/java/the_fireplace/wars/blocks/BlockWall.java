@@ -1,7 +1,5 @@
 package the_fireplace.wars.blocks;
 
-import javax.swing.Icon;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
@@ -10,11 +8,9 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.worldgen.ResinresinLoader;
 import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.worldgen.ResinresinLoader;
 
 public class BlockWall extends BlockStairs {
 
@@ -50,8 +46,4 @@ public class BlockWall extends BlockStairs {
 		return true;
 
 	}
-
-	@SideOnly(Side.CLIENT)
-	public static Icon iconMain;
-
 }

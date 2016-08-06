@@ -58,14 +58,12 @@ public class ItemGuardSword extends Item {
 		return EnumAction.BLOCK;
 	}
 
-	// The max use time of the action
 	@Override
 	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 72000;
 	}
 
-	
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings("unchecked")
 	@Override
 	public Multimap getAttributeModifiers(ItemStack stack)
     {

@@ -11,8 +11,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemWarCheese extends ItemFood {
-	public ItemWarCheese(int par2) {
-		super(par2, false);
+	public ItemWarCheese(int restoreAmount) {
+		super(restoreAmount, false);
 		this.setMaxStackSize(3);
 	}
 
@@ -34,5 +34,4 @@ public class ItemWarCheese extends ItemFood {
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.RARE;
 	}
-
 }

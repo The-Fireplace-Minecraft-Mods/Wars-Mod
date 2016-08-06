@@ -1,7 +1,5 @@
 package the_fireplace.wars.handlers;
 
-import java.util.List;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
@@ -11,16 +9,17 @@ import net.minecraft.util.ChatComponentText;
 import the_fireplace.wars.data.WarsSavedData;
 import the_fireplace.wars.init.WarsItems;
 
+import java.util.List;
+
 public class TeamSelected {
 	
 	public static int redPlayers = 0;
 	public static int greenPlayers = 0;
 	public static int bluePlayers = 0;
 	public static int yellowPlayers = 0;
-
-
 	
 	//this class handles what happens depending on what team the player selects
+	@SuppressWarnings("unchecked")
 	public TeamSelected(EntityPlayer player, int teamSelected) {
 		WarsSavedData savedData = WarsSavedData.get(player.worldObj);
 		

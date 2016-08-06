@@ -1,8 +1,5 @@
 package the_fireplace.wars.blocks;
 
-import java.util.Iterator;
-import java.util.List;
-
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,45 +11,44 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import the_fireplace.wars.init.WarsItems;
 
+import java.util.List;
+
 public class BlockGreenPlate extends BlockPressurePlate {
 
 	public BlockGreenPlate(Material material, Sensitivity sens) {
 		super(material, sens);
-
 	}
 
-	@SuppressWarnings("rawtypes")
 	private void setStateIfMobInteractsWithPlate(World world, BlockPos pos, IBlockState state, int oldRedstoneStrength) {
 
 		int j = this.computeRedstoneStrength(world, pos);
 		boolean flag = oldRedstoneStrength > 0;
 		boolean flag1 = j > 0;
 
-		List var8 = null;
-		float var7 = 0.125F;
+		List entities;
+		float offset = 0.125F;
 
-		BlockPos posMin = new BlockPos(pos.getX() + var7, pos.getY(), pos.getZ() + var7);
-		BlockPos posMax = new BlockPos(pos.getX() + 1 - var7, pos.getY() + 0.25D, pos.getZ() + 1 - var7);
+		BlockPos posMin = new BlockPos(pos.getX() + offset, pos.getY(), pos.getZ() + offset);
+		BlockPos posMax = new BlockPos(pos.getX() + 1 - offset, pos.getY() + 0.25D, pos.getZ() + 1 - offset);
 
 		AxisAlignedBB boundingBox = new AxisAlignedBB(posMin, posMax);
-		var8 = world.getEntitiesWithinAABB(EntityPlayer.class, boundingBox);
+		entities = world.getEntitiesWithinAABB(EntityPlayer.class, boundingBox);
 
 		if (oldRedstoneStrength != j) {
-			if (!var8.isEmpty()) {
+			if (!entities.isEmpty()) {
 
-                for (Object aVar8 : var8) {
-                    EntityPlayer var10 = (EntityPlayer) aVar8;
+                for (Object entity : entities) {
+                    EntityPlayer player = (EntityPlayer) entity;
 
-                    if (!var10.doesEntityNotTriggerPressurePlate()) {
+                    if (!player.doesEntityNotTriggerPressurePlate()) {
 
-                        ItemStack boots = var10.inventory.armorItemInSlot(0);
+                        ItemStack boots = player.inventory.armorItemInSlot(0);
                         if (boots != null && boots.getItem() == WarsItems.greenBoots) {
 
                             state = this.setRedstoneStrength(state, j);
                             world.setBlockState(pos, state, 2);
                             this.updateNeighbors(world, pos);
                             world.markBlockRangeForRenderUpdate(pos, pos);
-
                         }
                     }
                 }
@@ -74,12 +70,10 @@ public class BlockGreenPlate extends BlockPressurePlate {
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entityIn) {
 		if (!world.isRemote) {
-
 			int i = this.getRedstoneStrength(state);
 			if (i == 0) {
 				this.setStateIfMobInteractsWithPlate(world, pos, state, i);
 			}
-
 		}
 	}
 

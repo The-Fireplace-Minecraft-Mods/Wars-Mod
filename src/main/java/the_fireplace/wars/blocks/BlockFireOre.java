@@ -15,17 +15,9 @@ public class BlockFireOre extends Block {
 		super(Material.iron);
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
-	
-	
+
     @Override 
 	public Item getItemDropped(IBlockState state, Random random, int j) {
 		return WarsItems.fireGem;
 	}
-
-	
-	@Override
-	public int quantityDropped(Random random) {
-		return 1;
-	}
-
 }

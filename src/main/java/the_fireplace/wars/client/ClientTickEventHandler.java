@@ -15,8 +15,6 @@ public class ClientTickEventHandler extends Gui  {
 	 //Called when the client ticks. 
 	 @SubscribeEvent
 	 public void onClientTick(TickEvent.RenderTickEvent event) {
-
-		 
 		 if (mc.theWorld != null && mc.currentScreen == null) {
 				if (ClientProxy.guiVisible && (!Minecraft.getMinecraft().isSingleplayer() || Minecraft.getMinecraft().getIntegratedServer().getPublic())) {
 					mc.entityRenderer.setupOverlayRendering();
@@ -25,8 +23,7 @@ public class ClientTickEventHandler extends Gui  {
 					drawTexturedModalRect(5, 5, 0, 0, 160, 32);
 
 					mc.fontRendererObj.drawString(String.valueOf(ClientProxy.killStreak), 137, 17, 0x000000);
-					mc.fontRendererObj.drawString(String.valueOf("Press B To Toggle Gui Off"), 10, 39, 0x000000);
-
+					mc.fontRendererObj.drawString(String.valueOf("Press B To Toggle Gui Off"), 10, 39, 0x000000);//TODO: Modifiable keybind
 				}
 			}
 		 

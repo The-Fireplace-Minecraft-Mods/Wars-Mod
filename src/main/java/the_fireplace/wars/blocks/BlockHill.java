@@ -19,7 +19,6 @@ public class BlockHill extends Block {
 
 	ResinresinLoader hill = new ResinresinLoader("hill.resinresin");
 
-	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
@@ -29,7 +28,5 @@ public class BlockHill extends Block {
 		
 		hill.generate(world, i - 10, j - 6, k - 10, false);
 		return true;
-
 	}
-
 }

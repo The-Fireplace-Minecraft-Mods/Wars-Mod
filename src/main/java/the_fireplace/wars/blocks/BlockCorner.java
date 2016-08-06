@@ -8,13 +8,9 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
 import the_fireplace.wars.worldgen.ResinresinLoader;
-
-import javax.swing.*;
 
 public class BlockCorner extends BlockStairs {
 
@@ -38,8 +34,6 @@ public class BlockCorner extends BlockStairs {
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
-
-		
 		int i = pos.getX();
 		int j = pos.getY();
 		int k = pos.getZ();
@@ -68,10 +62,4 @@ public class BlockCorner extends BlockStairs {
 		return false;
 
 	}
-
-	@SideOnly(Side.CLIENT)
-	public static Icon iconMain;
-
-
-
 }

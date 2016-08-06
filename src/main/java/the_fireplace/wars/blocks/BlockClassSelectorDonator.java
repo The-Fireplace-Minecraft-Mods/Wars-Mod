@@ -17,6 +17,7 @@ public class BlockClassSelectorDonator extends BlockContainer {
 		super(Material.iron);
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
+
 	@Override
 	public int getRenderType()
 	{
@@ -26,8 +27,8 @@ public class BlockClassSelectorDonator extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
 
-		TileEntity tile_entity = world.getTileEntity(pos);
-		if (tile_entity == null || player.isSneaking()) {
+		TileEntity te = world.getTileEntity(pos);
+		if (te == null || player.isSneaking()) {
 			return false;
 		}
 		player.openGui(WarsMod.instance, 2, world, pos.getX(), pos.getY(), pos.getZ());
@@ -38,5 +39,4 @@ public class BlockClassSelectorDonator extends BlockContainer {
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityClassSelectDonator();
 	}
-
 }
