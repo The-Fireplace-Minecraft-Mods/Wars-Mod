@@ -1,18 +1,17 @@
 package the_fireplace.wars.client.gui;
 
-import java.awt.Color;
-import java.util.*;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.WorldRenderer;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import org.lwjgl.util.vector.Vector2f;
-
 import the_fireplace.wars.client.ClientProxy;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public final class PieChartRendering {
 
@@ -185,7 +184,7 @@ public final class PieChartRendering {
 
 	
 	private static void drawGradientRect(int par1, int par2, float z, int par3, int par4, int par5, int par6) {
-		float var7 = (par5 >> 24 & 255) / 255.0F;
+		/*float var7 = (par5 >> 24 & 255) / 255.0F;
 		float var8 = (par5 >> 16 & 255) / 255.0F;
 		float var9 = (par5 >> 8 & 255) / 255.0F;
 		float var10 = (par5 & 255) / 255.0F;
@@ -210,6 +209,6 @@ public final class PieChartRendering {
 		GL11.glShadeModel(GL11.GL_FLAT);
 		GL11.glDisable(GL11.GL_BLEND);
 		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GL11.glEnable(GL11.GL_TEXTURE_2D);*/
 	}
 }

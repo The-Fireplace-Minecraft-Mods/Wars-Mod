@@ -10,7 +10,7 @@ import the_fireplace.wars.data.WarsSavedData;
 public class CommandChaosSpawn extends CommandBase {
 
 	@Override
-	public String getName() {
+	public String getCommandName() {
 		return "setChaosSpawn";
 	}
 	
@@ -20,7 +20,7 @@ public class CommandChaosSpawn extends CommandBase {
 	}
 
 	@Override
-	public void execute(ICommandSender sender, String[] args) throws CommandException {
+	public void processCommand(ICommandSender sender, String[] args) throws CommandException {
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
 			WarsSavedData savedData = WarsSavedData.get(player.worldObj);

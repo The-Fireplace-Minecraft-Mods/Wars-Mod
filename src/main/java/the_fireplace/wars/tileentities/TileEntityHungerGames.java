@@ -2,14 +2,14 @@ package the_fireplace.wars.tileentities;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ITickable;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.worldgen.ResinresinLoader;
 import the_fireplace.wars.init.WarsBlocks;
 
-public class TileEntityHungerGames extends TileEntity implements IUpdatePlayerListBox {
+public class TileEntityHungerGames extends TileEntity implements ITickable {
 
 	private static final int TICKS_IN_30_SECONDS = 600;
 	private static final int TICKS_IN_50_SECONDS = 1000; 

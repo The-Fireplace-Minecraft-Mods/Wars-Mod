@@ -203,24 +203,25 @@ public class CommonEvents {
 
 			for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
-				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
+				if(playerMP.inventory.getStackInSlot(36) != null) {
+					Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
 
-				if (playerBoots != null) {
+					if (playerBoots != null) {
 
-					if (playerBoots == WarsItems.redBoots) {
-						redPlayers++;
-					}
-					if (playerBoots == WarsItems.blueBoots) {
-						bluePlayers++;
-					}
-					if (playerBoots == WarsItems.greenBoots) {
-						greenPlayers++;
-					}
-					if (playerBoots == WarsItems.yellowBoots) {
-						yellowPlayers++;
+						if (playerBoots == WarsItems.redBoots) {
+							redPlayers++;
+						}
+						if (playerBoots == WarsItems.blueBoots) {
+							bluePlayers++;
+						}
+						if (playerBoots == WarsItems.greenBoots) {
+							greenPlayers++;
+						}
+						if (playerBoots == WarsItems.yellowBoots) {
+							yellowPlayers++;
+						}
 					}
 				}
-
 			}
 
 			WarsMod.proxy.genTag(event.player);
@@ -262,24 +263,25 @@ public class CommonEvents {
 
 		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
-			Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
+			if(playerMP.inventory.getStackInSlot(36) != null) {
+				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
 
-			if (playerBoots != null) {
+				if (playerBoots != null) {
 
-				if (playerBoots == WarsItems.redBoots) {
-					redPlayers++;
-				}
-				if (playerBoots == WarsItems.blueBoots) {
-					bluePlayers++;
-				}
-				if (playerBoots == WarsItems.greenBoots) {
-					greenPlayers++;
-				}
-				if (playerBoots == WarsItems.yellowBoots) {
-					yellowPlayers++;
+					if (playerBoots == WarsItems.redBoots) {
+						redPlayers++;
+					}
+					if (playerBoots == WarsItems.blueBoots) {
+						bluePlayers++;
+					}
+					if (playerBoots == WarsItems.greenBoots) {
+						greenPlayers++;
+					}
+					if (playerBoots == WarsItems.yellowBoots) {
+						yellowPlayers++;
+					}
 				}
 			}
-
 		}
 
 		totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");

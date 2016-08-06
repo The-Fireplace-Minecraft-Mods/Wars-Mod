@@ -9,12 +9,12 @@ import net.minecraft.util.ChatComponentText;
 public class CommandKills extends CommandBase {
 
 	@Override
-	public String getName() {
+	public String getCommandName() {
 		return "kills";
 	}
 
 	@Override
-	public void execute(ICommandSender sender, String[] args) throws CommandException {
+	public void processCommand(ICommandSender sender, String[] args) throws CommandException {
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
 
