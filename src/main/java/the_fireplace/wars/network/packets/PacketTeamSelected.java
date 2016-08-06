@@ -12,7 +12,7 @@ public class PacketTeamSelected implements IMessage {
 
     public PacketTeamSelected() { }
 
-    public PacketTeamSelected(int teamSelected, int totalKills) {
+    public PacketTeamSelected(int teamSelected) {
         this.teamSelected = teamSelected;
     }
 

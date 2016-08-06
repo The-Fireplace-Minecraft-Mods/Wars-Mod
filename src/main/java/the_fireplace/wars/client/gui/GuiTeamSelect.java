@@ -4,6 +4,8 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import the_fireplace.wars.client.ClientProxy;
+import the_fireplace.wars.network.PacketDispatcher;
+import the_fireplace.wars.network.packets.PacketTeamSelected;
 
 public class GuiTeamSelect extends GuiScreen {
 
@@ -21,8 +23,10 @@ public class GuiTeamSelect extends GuiScreen {
 	public String blueText = "\u00a79Blue " + "(" + ClientProxy.bluePlayers + ")";
 	public String yellowText = "\u00a76Yellow " + "(" + ClientProxy.yellowPlayers + ")";
 
-	public GuiTeamSelect(EntityPlayer player) {
+	public EntityPlayer player;
 
+	public GuiTeamSelect(EntityPlayer player) {
+		this.player = player;
 	}
 
 	@Override
@@ -98,61 +102,37 @@ public class GuiTeamSelect extends GuiScreen {
 
 	@Override
     protected void actionPerformed(GuiButton guibutton) {
-
 		switch (guibutton.id) {
 		case 1:
-
 			if (ClientProxy.redPlayers > ClientProxy.greenPlayers && ClientProxy.redPlayers > ClientProxy.yellowPlayers && ClientProxy.redPlayers > ClientProxy.bluePlayers) {
-
 				info = "The Red Team Is Full!";
-
 			} else {
-
-				// this.mc.thePlayer.closeScreen();
-
+				this.mc.thePlayer.closeScreen();
 			}
-
 			break;
 		case 2:
-
 			if (ClientProxy.greenPlayers > ClientProxy.redPlayers && ClientProxy.greenPlayers > ClientProxy.yellowPlayers && ClientProxy.greenPlayers > ClientProxy.bluePlayers) {
-
 				info = "The Green Team Is Full!";
-
 			} else {
-
+				this.mc.thePlayer.closeScreen();
 			}
-
 			break;
 		case 3:
-
 			if (ClientProxy.bluePlayers > ClientProxy.redPlayers && ClientProxy.bluePlayers > ClientProxy.yellowPlayers && ClientProxy.bluePlayers > ClientProxy.greenPlayers) {
-
 				info = "The Blue Team Is Full!";
-
 			} else {
-
-				// this.mc.thePlayer.closeScreen();
-
+				this.mc.thePlayer.closeScreen();
 			}
-
 			break;
 		case 4:
-
 			if (ClientProxy.yellowPlayers > ClientProxy.greenPlayers && ClientProxy.yellowPlayers > ClientProxy.redPlayers && ClientProxy.yellowPlayers > ClientProxy.bluePlayers) {
-
 				info = "The Yellow Team Is Full!";
-
 			} else {
-
-				// this.mc.thePlayer.closeScreen();
-
+				this.mc.thePlayer.closeScreen();
 			}
 			break;
 		case 5:
-
 			this.mc.thePlayer.closeScreen();
-
 			break;
 		case 6:
 
@@ -165,6 +145,9 @@ public class GuiTeamSelect extends GuiScreen {
 			this.initGui();
 		}
 
+		if(guibutton.id > 0 && guibutton.id < 5){
+			PacketDispatcher.sendToServer(new PacketTeamSelected(guibutton.id));
+		}
 	}
 
 }
