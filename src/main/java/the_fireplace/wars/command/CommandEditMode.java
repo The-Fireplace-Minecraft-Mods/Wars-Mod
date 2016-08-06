@@ -11,13 +11,9 @@ public class CommandEditMode extends CommandBase {
 
 	@Override
 	public String getName() {
-		return "toggleEditMode"; // Name of the command e.g "/Test", "/Command"
+		return "toggleEditMode";
 	}
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
     @Override
 	public int getRequiredPermissionLevel() {
 		return 4;

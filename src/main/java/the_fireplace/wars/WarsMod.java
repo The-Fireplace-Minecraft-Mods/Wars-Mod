@@ -93,8 +93,7 @@ public class WarsMod {
 
 		ServerCommandManager serverCommand = (ServerCommandManager) command;
 
-		serverCommand.registerCommand(new CommandKillstreak());
-		serverCommand.registerCommand(new CommandTotalKills());
+		serverCommand.registerCommand(new CommandKills());
 		serverCommand.registerCommand(new CommandRedBase());
 		serverCommand.registerCommand(new CommandGreenBase());
 		serverCommand.registerCommand(new CommandBlueBase());

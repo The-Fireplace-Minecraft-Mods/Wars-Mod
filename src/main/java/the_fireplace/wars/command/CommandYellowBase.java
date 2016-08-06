@@ -11,19 +11,13 @@ public class CommandYellowBase extends CommandBase {
 
 	@Override
 	public String getName() {
-		return "setYellowBase"; // Name of the command e.g "/Test", "/Command"
+		return "setYellowBase";
 	}
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
 
     @Override
 	public int getRequiredPermissionLevel() {
 		return 4;
 	}
-
 
 	@Override
 	public void execute(ICommandSender sender, String[] args) throws CommandException {

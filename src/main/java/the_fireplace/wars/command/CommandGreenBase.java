@@ -11,12 +11,7 @@ public class CommandGreenBase extends CommandBase {
 
 	@Override
 	public String getName() {
-		return "setGreenBase"; // Name of the command e.g "/Test", "/Command"
-	}
-
-	@Override
-	public int compareTo(Object o) {
-		return 0;
+		return "setGreenBase";
 	}
 	
 	@Override

@@ -11,14 +11,13 @@ public class CommandChaosSpawn extends CommandBase {
 
 	@Override
 	public String getName() {
-		return "setChaosSpawn"; // Name of the command e.g "/Test", "/Command"
+		return "setChaosSpawn";
 	}
 	
 	@Override
 	public int getRequiredPermissionLevel() {
 		return 4;
 	}
-
 
 	@Override
 	public void execute(ICommandSender sender, String[] args) throws CommandException {
@@ -33,11 +32,6 @@ public class CommandChaosSpawn extends CommandBase {
 			player.addChatMessage(new ChatComponentText("Chaos Base Set To: " + savedData.teamChaos.baseX + ", " + savedData.teamChaos.baseY + ", " + savedData.teamChaos.baseZ));
 		}
 	}
-
-    @Override
-    public int compareTo(Object o) {
-       return 0;
-    }
 
 	@Override
 	public String getCommandUsage(ICommandSender icommandsender) {
