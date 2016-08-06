@@ -11,14 +11,16 @@ public class PacketKills implements IMessage {
     
     private int killStreak;
     private int totalKills;
+    private int deaths;
 
     private String separator = "n";
 
     public PacketKills() { }
 
-    public PacketKills(int killStreak, int totalKills) {
+    public PacketKills(int killStreak, int totalKills, int deaths) {
         this.killStreak = killStreak;
         this.totalKills = totalKills;
+        this.deaths = deaths;
     }
 
     @Override
@@ -28,25 +30,26 @@ public class PacketKills implements IMessage {
 
         killStreak = Integer.parseInt(values[0]);
         totalKills = Integer.parseInt(values[1]);
+        deaths = Integer.parseInt(values[2]);
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
         String string = String.valueOf(killStreak)+separator+
-                String.valueOf(totalKills);
+                String.valueOf(totalKills)+separator+
+                String.valueOf(deaths);
 
         ByteBufUtils.writeUTF8String(buf, string);
     }
 
     public static class Handler extends AbstractClientMessageHandler<PacketKills> {
-        
         @Override
         public IMessage handleClientMessage(EntityPlayer player, PacketKills message, MessageContext ctx) {
-            System.out.println(String.format("Received %s from %s", message.killStreak, player.getDisplayName().getUnformattedText()));
-			
-            WarsMod.proxy.handleKillData(message.totalKills, message.killStreak);
+            System.out.println(String.format("Received %s from %s", message.deaths, player.getDisplayName().getUnformattedText()));
 
-            return null; // no response in this case
+            WarsMod.proxy.handleKillData(player, message.totalKills, message.killStreak, message.deaths);
+
+            return null;
         }
     }
 }

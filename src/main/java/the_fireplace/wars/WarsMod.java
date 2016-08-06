@@ -21,12 +21,9 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import the_fireplace.wars.command.*;
 import the_fireplace.wars.entities.EntityPTNTPrimed;
-import the_fireplace.wars.events.ForgeEvents;
 import the_fireplace.wars.handlers.GuiHandler;
-import the_fireplace.wars.handlers.WarsPlayerEventHandler;
-import the_fireplace.wars.handlers.WarsTickEventHandler;
-import the_fireplace.wars.network.PacketDispatcher;
 import the_fireplace.wars.init.*;
+import the_fireplace.wars.network.PacketDispatcher;
 import the_fireplace.wars.tabs.WarsBlocksTab;
 import the_fireplace.wars.tabs.WarsClassesTab;
 import the_fireplace.wars.tabs.WarsItemsTab;
@@ -72,9 +69,7 @@ public class WarsMod {
 		CraftingRecipes.registerRecipes();
 		WarsDungeonChests.doDungeonChestHooks();
 		WarsTileEntities.createTileEntities();
-		MinecraftForge.EVENT_BUS.register(new ForgeEvents());
-		MinecraftForge.EVENT_BUS.register(new WarsPlayerEventHandler());
-		MinecraftForge.EVENT_BUS.register(new WarsTickEventHandler());
+		MinecraftForge.EVENT_BUS.register(new CommonEvents());
 
 		GameRegistry.registerWorldGenerator(new WarsWorldGenerator(), 0);
 

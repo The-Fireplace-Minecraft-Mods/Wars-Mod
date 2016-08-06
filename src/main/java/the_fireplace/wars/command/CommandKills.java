@@ -18,7 +18,7 @@ public class CommandKills extends CommandBase {
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
 
-			int killstreak = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_killstreak");
+			int killstreak = player.getEntityData().getInteger("warsmod_killstreak");
 			int totalKills = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 			int deaths = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_deaths");
 			float kdr;
@@ -27,7 +27,6 @@ public class CommandKills extends CommandBase {
 			else
 				kdr = totalKills;
 			player.addChatMessage(new ChatComponentText("Your current killstreak: " + killstreak));
-			player.addChatMessage(new ChatComponentText("Your total number of kills: " + totalKills));
 			player.addChatMessage(new ChatComponentText("Your kill/death ratio: " + kdr + " (" + totalKills + ":" + deaths + ")"));
 		}
 	}

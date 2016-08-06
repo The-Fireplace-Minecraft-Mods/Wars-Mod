@@ -1,19 +1,15 @@
 package the_fireplace.wars.client;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.input.Keyboard;
 import the_fireplace.wars.CommonProxy;
 import the_fireplace.wars.client.render.RenderPTNTPrimed;
 import the_fireplace.wars.entities.EntityPTNTPrimed;
-import the_fireplace.wars.handlers.WarsTickEventHandler;
 import the_fireplace.wars.init.WarsBlocks;
 import the_fireplace.wars.init.WarsItems;
 
@@ -28,12 +24,11 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 
-	public static KeyBinding toggleHUD;
-
 	public static boolean guiVisible = true;
 
 	public static int totalKills;
 	public static int killStreak;
+	public static int deaths;
 	public static int redPlayers;
 	public static int bluePlayers;
 	public static int greenPlayers;
@@ -64,13 +59,9 @@ public class ClientProxy extends CommonProxy {
 			e.printStackTrace();
 		}
 
-		MinecraftForge.EVENT_BUS.register(new WarsTickEventHandler());
-		MinecraftForge.EVENT_BUS.register(new WarsKeyEventHandler());
+		MinecraftForge.EVENT_BUS.register(new ClientEvents());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed(Minecraft.getMinecraft().getRenderManager()));
-
-		toggleHUD = new KeyBinding("key.toggleHUD", Keyboard.KEY_B, "key.categories.warsmod");
-		ClientRegistry.registerKeyBinding(toggleHUD);
 
 		// Automatically adds official server to servers list
 		/*ServerList list = new ServerList(Minecraft.getMinecraft());
@@ -90,23 +81,19 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void handleKillData(int totalKills, int killStreak) {
-		System.out.println("This was actually sent");
-		ClientProxy.totalKills = totalKills;
-		ClientProxy.killStreak = killStreak;
+	public void handleKillData(EntityPlayer player, int totalKills, int killStreak, int deaths) {
+		this.totalKills = totalKills;
+		this.killStreak = killStreak;
+		this.deaths = deaths;
+		super.handleKillData(player, totalKills, killStreak, deaths);
 	}
 
 	@Override
 	public void handleTeams(int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
-		ClientProxy.redPlayers = redPlayers;
-		ClientProxy.greenPlayers = greenPlayers;
-		ClientProxy.bluePlayers = bluePlayers;
-		ClientProxy.yellowPlayers = yellowPlayers;
-	}
-
-	@Override
-	public void closeOpenGui() {
-
+		this.redPlayers = redPlayers;
+		this.greenPlayers = greenPlayers;
+		this.bluePlayers = bluePlayers;
+		this.yellowPlayers = yellowPlayers;
 	}
 
     @Override
