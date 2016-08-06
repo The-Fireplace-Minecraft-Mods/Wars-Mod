@@ -15,20 +15,22 @@ public class ItemAdminWandBall extends Item {
 	public ItemAdminWandBall() {
 		super();
 		this.setCreativeTab(WarsMod.tabWarsItems);
-
 	}
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
         return true;
     }
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.RARE;
 	}
 
+	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!world.isRemote) {
 			Vec3 look = entityplayer.getLookVec();

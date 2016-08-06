@@ -112,7 +112,8 @@ public class GuiSpleefSelect extends GuiScreen {
 
 	}
 
-	protected void actionPerformed(GuiButton guibutton) {
+	@Override
+    protected void actionPerformed(GuiButton guibutton) {
 		switch (guibutton.id) {
 		case 1:
 			this.mc.thePlayer.closeScreen();

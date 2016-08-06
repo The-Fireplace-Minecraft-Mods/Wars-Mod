@@ -42,7 +42,7 @@ public class WarsWorldGenerator implements IWorldGenerator {
 				int RandPosY = random.nextInt(128);
 				int RandPosZ = blockZ + random.nextInt(16);
 				BlockPos largePos = new BlockPos(RandPosX, RandPosY, RandPosZ);
-				(new GenDungeonLarge()).generate(world, random, largePos);
+				new GenDungeonLarge().generate(world, random, largePos);
 			}
 
 			for (int k = 0; k < 25; k++) {
@@ -50,7 +50,7 @@ public class WarsWorldGenerator implements IWorldGenerator {
 				int RandPosY = random.nextInt(128);
 				int RandPosZ = blockZ + random.nextInt(16);
 				BlockPos smallPos = new BlockPos(RandPosX, RandPosY, RandPosZ);
-				(new GenDungeonSmall()).generate(world, random, smallPos);
+				new GenDungeonSmall().generate(world, random, smallPos);
 			}
 		}
 
@@ -112,7 +112,7 @@ public class WarsWorldGenerator implements IWorldGenerator {
 			int Zcoord = blockZ + random.nextInt(16);
 
 			BlockPos firePos = new BlockPos(Xcoord, Ycoord, Zcoord);
-			(new WorldGenNetherMineable(WarsBlocks.fireOre.getDefaultState(), 20)).generate(world, random, firePos);
+			new WorldGenNetherMineable(WarsBlocks.fireOre.getDefaultState(), 20).generate(world, random, firePos);
 		}
 
 	}

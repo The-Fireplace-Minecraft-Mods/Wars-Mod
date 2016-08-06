@@ -17,17 +17,20 @@ public class ItemAntidote extends Item {
 		this.setMaxStackSize(1);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.EPIC;
 	}
 
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+	@Override
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 
 		if (!world.isRemote) {
 			entityplayer.curePotionEffects(new ItemStack(Items.milk_bucket));

@@ -123,8 +123,8 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 	}
 
 	public static boolean fullEquiped(EntityPlayer player, ArmorMaterial material) {
-		return (player != null && player.inventory != null && material != null && player.inventory.getStackInSlot(39) != null && (player.inventory.getStackInSlot(39).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(39).getItem()).getArmorMaterial() == material && player.inventory.getStackInSlot(37) != null
-				&& (player.inventory.getStackInSlot(37).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(37).getItem()).getArmorMaterial() == material && player.inventory.getStackInSlot(38) != null && (player.inventory.getStackInSlot(38).getItem()) instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(38).getItem()).getArmorMaterial() == material);
+		return player != null && player.inventory != null && material != null && player.inventory.getStackInSlot(39) != null && player.inventory.getStackInSlot(39).getItem() instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(39).getItem()).getArmorMaterial() == material && player.inventory.getStackInSlot(37) != null
+				&& player.inventory.getStackInSlot(37).getItem() instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(37).getItem()).getArmorMaterial() == material && player.inventory.getStackInSlot(38) != null && player.inventory.getStackInSlot(38).getItem() instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(38).getItem()).getArmorMaterial() == material;
 
 	}
 

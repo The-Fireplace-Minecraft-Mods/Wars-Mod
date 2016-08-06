@@ -36,7 +36,8 @@ public class ItemScoutsDagger extends Item {
 
 	}
 
-	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
+	@Override
+    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
 		if (player instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(player, WarsItems.scoutArmor)) {
 			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Scout Armour (which you must put on in survival)"));
@@ -50,7 +51,8 @@ public class ItemScoutsDagger extends Item {
 	 * Current implementations of this method in child classes do not use the
 	 * entry argument beside ev. They just raise the damage on the stack.
 	 */
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLiving, EntityLivingBase par3EntityLiving) {
+	@Override
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLiving, EntityLivingBase par3EntityLiving) {
 
 		par2EntityLiving.addPotionEffect(new PotionEffect(Potion.blindness.id, 10 * 20, 6));
 		par1ItemStack.damageItem(1, par3EntityLiving);
@@ -61,30 +63,36 @@ public class ItemScoutsDagger extends Item {
 	 * Returns the strength of the stack against a given block. 1.0F base,
 	 * (Quality+1)*2 if correct blocktype, 1.5F if sword
 	 */
-	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
+	@Override
+    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
 		return par2Block != WarsBlocks.sumBlock ? 0.9F : 15F;
 	}
 
-	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+	@Override
+    public EnumAction getItemUseAction(ItemStack par1ItemStack) {
 		return EnumAction.BLOCK;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
 	// Makes it render nicely
 	public boolean isFull3D() {
 		return true;
 	}
 
 	// The max use time of the action
-	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+	@Override
+    public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 72000;
 	}
 
-	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
+	@Override
+    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
 		player.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
 		return itemStack;
 	}
 
+    @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	public Multimap getItemAttributeModifiers()
     {

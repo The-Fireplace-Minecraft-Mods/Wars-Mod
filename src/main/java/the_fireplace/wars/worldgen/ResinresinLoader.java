@@ -53,7 +53,7 @@ public class ResinresinLoader {
 
 			for (int i = 0; i < blocks.length; i++) {
 				int blockId = UnsignedBytes.toInt(blocks[i]);
-				if ((blocks[i] != 0 && !spawnairblocks) || spawnairblocks) {
+				if (blocks[i] != 0 && !spawnairblocks || spawnairblocks) {
 					
 					
 					
@@ -65,10 +65,10 @@ public class ResinresinLoader {
 
 				if (xnum < width - 1) {
 					xnum++;
-				} else if ((xnum >= width - 1) && (znum < length - 1)) {
+				} else if (xnum >= width - 1 && znum < length - 1) {
 					xnum = 0;
 					znum++;
-				} else if ((xnum >= width - 1) && (znum >= length - 1) && (ynum < height - 1)) {
+				} else if (xnum >= width - 1 && znum >= length - 1 && ynum < height - 1) {
 					xnum = 0;
 					znum = 0;
 					ynum++;

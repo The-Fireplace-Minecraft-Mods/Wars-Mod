@@ -114,7 +114,7 @@ public final class PieChartRendering {
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 
 		if (tooltip != null)
-			renderTooltip(mouseX, mouseY, 1347420415, -267386864, Collections.singletonList((int) Math.round((tooltip.val / 3.6)) + "%"));
+			renderTooltip(mouseX, mouseY, 1347420415, -267386864, Collections.singletonList((int) Math.round(tooltip.val / 3.6) + "%"));
 
 		GL11.glPopMatrix();
 	}

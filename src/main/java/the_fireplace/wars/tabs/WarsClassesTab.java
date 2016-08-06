@@ -11,7 +11,8 @@ public final class WarsClassesTab extends CreativeTabs {
 		super(par2Str);
 	}
 
-	public String getTranslatedTabLabel() {
+	@Override
+    public String getTranslatedTabLabel() {
 		return "Wars Mod Classes";
 	}
 

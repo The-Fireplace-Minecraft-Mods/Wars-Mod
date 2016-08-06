@@ -13,7 +13,8 @@ public class ItemWaterGem extends Item {
 
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 	}

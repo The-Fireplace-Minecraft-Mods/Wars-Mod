@@ -25,7 +25,8 @@ public class GuiTeamSelect extends GuiScreen {
 
 	}
 
-	protected void keyTyped(char par1, int par2) {
+	@Override
+    protected void keyTyped(char par1, int par2) {
 	}
 
 	public final int xSizeOfTexture = 250;
@@ -64,7 +65,8 @@ public class GuiTeamSelect extends GuiScreen {
 		super.drawScreen(x, y, f);
 	}
 
-	public void drawDefaultBackground() {
+	@Override
+    public void drawDefaultBackground() {
 		this.drawWorldBackground(0);
 	}
 
@@ -94,7 +96,8 @@ public class GuiTeamSelect extends GuiScreen {
 
 	}
 
-	protected void actionPerformed(GuiButton guibutton) {
+	@Override
+    protected void actionPerformed(GuiButton guibutton) {
 
 		switch (guibutton.id) {
 		case 1:

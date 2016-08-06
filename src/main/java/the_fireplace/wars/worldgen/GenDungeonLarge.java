@@ -22,7 +22,7 @@ public class GenDungeonLarge extends WorldGenerator {
 
 	private String pickMobSpawner(Random par1Random) {
 		int var2 = par1Random.nextInt(4);
-		return var2 == 0 ? "Skeleton" : (var2 == 1 ? "Zombie" : (var2 == 2 ? "Blaze" : (var2 == 3 ? "Spider" : "")));
+		return var2 == 0 ? "Skeleton" : var2 == 1 ? "Zombie" : var2 == 2 ? "Blaze" : var2 == 3 ? "Spider" : "";
 	}
 
 	@Override

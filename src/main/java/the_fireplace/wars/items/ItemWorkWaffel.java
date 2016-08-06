@@ -30,7 +30,8 @@ public class ItemWorkWaffel extends ItemFood {
 
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.RARE;
 	}

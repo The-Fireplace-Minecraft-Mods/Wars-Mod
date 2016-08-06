@@ -17,7 +17,7 @@ public class ClientTickEventHandler extends Gui  {
 	 public void onClientTick(TickEvent.RenderTickEvent event) {
 
 		 
-		 if (mc.theWorld != null && (mc.currentScreen == null)) {
+		 if (mc.theWorld != null && mc.currentScreen == null) {
 				if (ClientProxy.guiVisible && (!Minecraft.getMinecraft().isSingleplayer() || Minecraft.getMinecraft().getIntegratedServer().getPublic())) {
 					mc.entityRenderer.setupOverlayRendering();
 					Minecraft mc = FMLClientHandler.instance().getClient();

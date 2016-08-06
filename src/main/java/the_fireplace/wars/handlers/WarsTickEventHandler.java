@@ -36,8 +36,8 @@ public class WarsTickEventHandler {
 
 		}
 
-		if ((ItemArmorMod.fullEquiped(player, WarsItems.archerArmor)) || (ItemArmorMod.fullEquiped(player, WarsItems.techArmor)) || (ItemArmorMod.fullEquiped(player, WarsItems.chaosArmor)) || (ItemArmorMod.fullEquiped(player, WarsItems.knightArmor)) || (ItemArmorMod.fullEquiped(player, WarsItems.healerArmor))
-				|| (ItemArmorMod.fullEquiped(player, WarsItems.guardArmor)) || (ItemArmorMod.fullEquiped(player, WarsItems.scoutArmor))) {
+		if (ItemArmorMod.fullEquiped(player, WarsItems.archerArmor) || ItemArmorMod.fullEquiped(player, WarsItems.techArmor) || ItemArmorMod.fullEquiped(player, WarsItems.chaosArmor) || ItemArmorMod.fullEquiped(player, WarsItems.knightArmor) || ItemArmorMod.fullEquiped(player, WarsItems.healerArmor)
+				|| ItemArmorMod.fullEquiped(player, WarsItems.guardArmor) || ItemArmorMod.fullEquiped(player, WarsItems.scoutArmor)) {
 			ItemStack boots = player.inventory.armorItemInSlot(0);
 			if (!(boots != null)) {
 				Random random = new Random();
@@ -56,7 +56,7 @@ public class WarsTickEventHandler {
 
 		}
 
-		int killstreakBefore = (player.getEntityData().getInteger("warsmod_killstreak"));
+		int killstreakBefore = player.getEntityData().getInteger("warsmod_killstreak");
 
 		if (killstreakBefore > 1) {
 			player.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 10, 0));

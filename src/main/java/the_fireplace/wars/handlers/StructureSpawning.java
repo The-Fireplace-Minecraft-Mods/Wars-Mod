@@ -40,7 +40,7 @@ public class StructureSpawning {
 		case 1:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands((playerMP).getGameProfile())) {
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -76,7 +76,7 @@ public class StructureSpawning {
 
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands((playerMP).getGameProfile())) {
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -111,7 +111,7 @@ public class StructureSpawning {
 		case 3:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands((playerMP).getGameProfile())) {
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -146,7 +146,7 @@ public class StructureSpawning {
 		case 4:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands((playerMP).getGameProfile())) {
+				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 

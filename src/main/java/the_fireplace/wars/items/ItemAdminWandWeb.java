@@ -18,17 +18,20 @@ public class ItemAdminWandWeb extends Item {
 		this.setCreativeTab(WarsMod.tabWarsItems);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.RARE;
 	}
 
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+	@Override
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!world.isRemote) {
 			Vec3 look = entityplayer.getLookVec();
 			EntityFallingBlock fireball2 = new EntityFallingBlock(world, 1, 1, 1, Blocks.web.getDefaultState());

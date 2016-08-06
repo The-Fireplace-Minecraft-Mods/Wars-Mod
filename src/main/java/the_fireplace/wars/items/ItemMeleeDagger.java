@@ -29,7 +29,8 @@ public class ItemMeleeDagger extends Item {
 
 	}
 
-	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
+	@Override
+    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
 		player.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
 		return itemStack;
 	}
@@ -43,21 +44,25 @@ public class ItemMeleeDagger extends Item {
 		return par2Block != WarsBlocks.sumBlock ? 0.9F : 15F;
 	}
 
-	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+	@Override
+    public EnumAction getItemUseAction(ItemStack par1ItemStack) {
 		return EnumAction.BLOCK;
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
+    @SideOnly(Side.CLIENT)
 	// Makes it render nicely
 	public boolean isFull3D() {
 		return true;
 	}
 
 	// The max use time of the action
-	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+	@Override
+    public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 72000;
 	}
 
+    @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	public Multimap getItemAttributeModifiers()
     {

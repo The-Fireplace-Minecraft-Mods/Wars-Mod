@@ -92,7 +92,7 @@ public class GuiClassSelectDonator extends GuiScreen {
         GlStateManager.enableColorMaterial();
         GlStateManager.pushMatrix();
         GlStateManager.translate((float)p_147046_0_, (float)p_147046_1_, 50.0F);
-        GlStateManager.scale((float)(-p_147046_2_), (float)p_147046_2_, (float)p_147046_2_);
+        GlStateManager.scale((float) -p_147046_2_, (float)p_147046_2_, (float)p_147046_2_);
         GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
         float f2 = p_147046_5_.renderYawOffset;
         float f3 = p_147046_5_.rotationYaw;
@@ -129,7 +129,8 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 
 
-	protected void actionPerformed(GuiButton guibutton) {
+	@Override
+    protected void actionPerformed(GuiButton guibutton) {
 		switch (guibutton.id) {
 		case 1:
 			if (ClientProxy.donators.contains(this.mc.thePlayer.getName())) {

@@ -93,7 +93,7 @@ public class WarsMod {
 		MinecraftServer server = MinecraftServer.getServer();
 		ICommandManager command = server.getCommandManager();
 
-		ServerCommandManager serverCommand = ((ServerCommandManager) command);
+		ServerCommandManager serverCommand = (ServerCommandManager) command;
 
 		serverCommand.registerCommand(new CommandKillstreak());
 		serverCommand.registerCommand(new CommandTotalKills());
