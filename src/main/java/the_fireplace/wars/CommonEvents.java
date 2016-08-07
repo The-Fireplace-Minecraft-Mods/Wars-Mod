@@ -176,7 +176,7 @@ public class CommonEvents {
 
 				if (playerBoots != null) {
 					if (playerBoots == WarsItems.redBoots || playerBoots == WarsItems.yellowBoots || playerBoots == WarsItems.blueBoots || playerBoots == WarsItems.greenBoots || playerBoots == WarsItems.chaosBoots) {
-						deadPlayer.inventory.clear();//Clear the dead player's inventory. Hopefully before the items drop.
+						deadPlayer.inventory.clear();
 					}
 				}
 			}
@@ -202,7 +202,6 @@ public class CommonEvents {
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
 			if (playerBoots == null) {
 				if (!savedWarsData.editMode.editModeToggle) {
-					//FMLNetworkHandler.openGui(event.player, WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP) event.player);
 				}
 			}
@@ -228,7 +227,6 @@ public class CommonEvents {
 
 		WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 		if (!savedWarsData.editMode.editModeToggle) {
-			//FMLNetworkHandler.openGui(event.player, WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
 			PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP) event.player);
 		}
 
