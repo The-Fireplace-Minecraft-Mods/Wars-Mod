@@ -193,27 +193,7 @@ public class CommonEvents {
 	@SubscribeEvent
 	public void PlayerLoggedInEvent(PlayerEvent.PlayerLoggedInEvent event) {
 		if (event.player instanceof EntityPlayerMP) {
-			for (EntityPlayerMP playerMP : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-
-				if(playerMP.inventory.getStackInSlot(36) != null) {
-					Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
-
-					if (playerBoots != null) {
-						if (playerBoots == WarsItems.redBoots) {
-							redPlayers++;
-						}
-						if (playerBoots == WarsItems.blueBoots) {
-							bluePlayers++;
-						}
-						if (playerBoots == WarsItems.greenBoots) {
-							greenPlayers++;
-						}
-						if (playerBoots == WarsItems.yellowBoots) {
-							yellowPlayers++;
-						}
-					}
-				}
-			}
+			recalcTeams();
 
 			WarsMod.proxy.genTag(event.player);
 
@@ -243,27 +223,7 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void PlayerRespawnEvent(PlayerEvent.PlayerRespawnEvent event) {
-		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-
-			if(playerMP.inventory.getStackInSlot(36) != null) {
-				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
-
-				if (playerBoots != null) {
-					if (playerBoots == WarsItems.redBoots) {
-						redPlayers++;
-					}
-					if (playerBoots == WarsItems.blueBoots) {
-						bluePlayers++;
-					}
-					if (playerBoots == WarsItems.greenBoots) {
-						greenPlayers++;
-					}
-					if (playerBoots == WarsItems.yellowBoots) {
-						yellowPlayers++;
-					}
-				}
-			}
-		}
+		recalcTeams();
 
 		int totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
 		int killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
@@ -343,6 +303,34 @@ public class CommonEvents {
 		}
 		if (killstreakBefore > 2) {
 			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.getId(), 10, 0));
+		}
+	}
+
+	public void recalcTeams(){
+		redPlayers = 0;
+		bluePlayers = 0;
+		greenPlayers = 0;
+		yellowPlayers = 0;
+		for (EntityPlayerMP playerMP : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+
+			if(playerMP.inventory.getStackInSlot(36) != null) {
+				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
+
+				if (playerBoots != null) {
+					if (playerBoots == WarsItems.redBoots) {
+						redPlayers++;
+					}
+					if (playerBoots == WarsItems.blueBoots) {
+						bluePlayers++;
+					}
+					if (playerBoots == WarsItems.greenBoots) {
+						greenPlayers++;
+					}
+					if (playerBoots == WarsItems.yellowBoots) {
+						yellowPlayers++;
+					}
+				}
+			}
 		}
 	}
 }
