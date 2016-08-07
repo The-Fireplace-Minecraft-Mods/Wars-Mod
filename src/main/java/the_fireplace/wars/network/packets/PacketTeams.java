@@ -54,7 +54,7 @@ public class PacketTeams implements IMessage {
 			
             WarsMod.proxy.handleTeams(message.redPlayers, message.greenPlayers, message.bluePlayers, message.yellowPlayers);
 
-            return null; // no response in this case
+            return null;
         }
     }
 }

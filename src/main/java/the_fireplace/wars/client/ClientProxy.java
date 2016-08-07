@@ -8,18 +8,10 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.CommonProxy;
-import the_fireplace.wars.client.render.RenderPTNTPrimed;
+import the_fireplace.wars.client.render.PTNTRenderFactory;
 import the_fireplace.wars.entities.EntityPTNTPrimed;
 import the_fireplace.wars.init.WarsBlocks;
 import the_fireplace.wars.init.WarsItems;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
@@ -34,34 +26,14 @@ public class ClientProxy extends CommonProxy {
 	public static int greenPlayers;
 	public static int yellowPlayers;
 
-	@SuppressWarnings("rawtypes")
-	public static List donators;
-
-	@SuppressWarnings("unchecked")
 	@Override
 	public void registerRenderInformation() {
 		WarsBlocks.registerItemRenders();
 		WarsItems.registerItemRenders();
-		donators = new ArrayList<String>();
-
-		try {
-			URL targetURL = new URL("https://dl.dropbox.com/u/104023161/Donators.txt");
-			InputStream in = targetURL.openStream();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-			String dona;
-			while ((dona = reader.readLine()) != null) {
-				dona = dona.trim();
-				// toLowerCase().
-				donators.add(dona);
-			}
-			in.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
 		MinecraftForge.EVENT_BUS.register(new ClientEvents());
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new RenderPTNTPrimed(Minecraft.getMinecraft().getRenderManager()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityPTNTPrimed.class, new PTNTRenderFactory());
 
 		// Automatically adds official server to servers list
 		/*ServerList list = new ServerList(Minecraft.getMinecraft());

@@ -45,7 +45,6 @@ public class ResinresinLoader {
 	}
 
 	public void generate(World world, int posX, int posY, int posZ, boolean spawnairblocks) {
-		
 		try {
 			int xnum = 0;
 			int ynum = 0;
@@ -54,9 +53,6 @@ public class ResinresinLoader {
 			for (int i = 0; i < blocks.length; i++) {
 				int blockId = UnsignedBytes.toInt(blocks[i]);
 				if (blocks[i] != 0 && !spawnairblocks || spawnairblocks) {
-					
-					
-					
 					BlockPos position = new BlockPos(posX + xnum, posY + ynum, posZ + znum);
 					world.setBlockState(position, Block.getBlockById(blockId).getStateFromMeta(datablocks[i]));
 

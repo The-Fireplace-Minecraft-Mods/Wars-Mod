@@ -17,7 +17,6 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import the_fireplace.wars.data.WarsSavedData;
 import the_fireplace.wars.init.WarsItems;
 import the_fireplace.wars.items.ItemArmorMod;
@@ -31,14 +30,10 @@ import java.util.Random;
 
 public class CommonEvents {
 
-	public static int redPlayers = 0;
-	public static int greenPlayers = 0;
-	public static int bluePlayers = 0;
-	public static int yellowPlayers = 0;
-
-	public static int killStreak;
-	public static int totalKills;
-	public static int deaths;
+	private static int redPlayers = 0;
+	private static int greenPlayers = 0;
+	private static int bluePlayers = 0;
+	private static int yellowPlayers = 0;
 
 	@SubscribeEvent
 	public void onLivingAttack(LivingAttackEvent evt) {
@@ -174,20 +169,36 @@ public class CommonEvents {
 			deadPlayer.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_deaths", deadPlayerDeaths);
 
 			PacketDispatcher.sendTo(new PacketKills(0, deadPlayer.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill"), deadPlayerDeaths), (EntityPlayerMP)deadPlayer);
+
+			if(deadPlayer.inventory.getStackInSlot(36) != null) {
+				Item playerBoots = deadPlayer.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
+
+				if (playerBoots != null) {
+					if (playerBoots == WarsItems.redBoots) {
+						redPlayers--;
+					} else if (playerBoots == WarsItems.blueBoots) {
+						bluePlayers--;
+					} else if (playerBoots == WarsItems.greenBoots) {
+						greenPlayers--;
+					} else if (playerBoots == WarsItems.yellowBoots) {
+						yellowPlayers--;
+					}
+
+					PacketDispatcher.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) deadPlayer);
+				}
+			}
 		}
 	}
 
 	@SubscribeEvent
 	public void PlayerLoggedInEvent(PlayerEvent.PlayerLoggedInEvent event) {
 		if (event.player instanceof EntityPlayerMP) {
-
-			for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+			for (EntityPlayerMP playerMP : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 
 				if(playerMP.inventory.getStackInSlot(36) != null) {
 					Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
 
 					if (playerBoots != null) {
-
 						if (playerBoots == WarsItems.redBoots) {
 							redPlayers++;
 						}
@@ -206,9 +217,9 @@ public class CommonEvents {
 
 			WarsMod.proxy.genTag(event.player);
 
-			totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
-			killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
-			deaths = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_deaths");
+			int totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
+			int killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
+			int deaths = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_deaths");
 
 			PacketDispatcher.sendTo(new PacketKills(totalKills, killStreak, deaths), (EntityPlayerMP) event.player);
 
@@ -218,9 +229,8 @@ public class CommonEvents {
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
 			if (playerBoots == null) {
 				if (!savedWarsData.editMode.editModeToggle) {
-					FMLNetworkHandler.openGui(event.player, WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
-
-					PacketDispatcher.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
+					//FMLNetworkHandler.openGui(event.player, WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
+					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP) event.player);
 				}
 			}
 		}
@@ -255,9 +265,9 @@ public class CommonEvents {
 			}
 		}
 
-		totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
-		killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
-		deaths = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_deaths");
+		int totalKills = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
+		int killStreak = event.player.getEntityData().getInteger("warsmod_killstreak");
+		int deaths = event.player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_deaths");
 
 		PacketDispatcher.sendTo(new PacketKills(totalKills, killStreak, deaths), (EntityPlayerMP) event.player);
 
@@ -265,44 +275,10 @@ public class CommonEvents {
 
 		WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
 		if (!savedWarsData.editMode.editModeToggle) {
-			FMLNetworkHandler.openGui(event.player, WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
-
-			PacketDispatcher.sendTo(new PacketOpenTeamSelect(1), (EntityPlayerMP) event.player);
+			//FMLNetworkHandler.openGui(event.player, WarsMod.instance, 3, event.player.worldObj, 0, 0, 0);
+			PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP) event.player);
 		}
 
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void sendPlayerPackets(EntityPlayer player) {
-
-		redPlayers = 0;
-		greenPlayers = 0;
-		bluePlayers = 0;
-		yellowPlayers = 0;
-
-		for (EntityPlayerMP playerMP : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-
-			Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
-
-			if (playerBoots != null) {
-
-				if (playerBoots == WarsItems.redBoots) {
-					redPlayers++;
-				}
-				if (playerBoots == WarsItems.blueBoots) {
-					bluePlayers++;
-				}
-				if (playerBoots == WarsItems.greenBoots) {
-					greenPlayers++;
-				}
-				if (playerBoots == WarsItems.yellowBoots) {
-					yellowPlayers++;
-				}
-			}
-
-		}
-
-		PacketDispatcher.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) player);
 	}
 
 	@SubscribeEvent

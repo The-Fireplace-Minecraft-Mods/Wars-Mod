@@ -11,9 +11,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import the_fireplace.wars.client.ClientProxy;
-import the_fireplace.wars.network.packets.PacketClassSelected;
+import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.network.PacketDispatcher;
+import the_fireplace.wars.network.packets.PacketClassSelected;
 
 import java.awt.*;
 import java.net.URL;
@@ -131,16 +131,16 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 	@Override
     protected void actionPerformed(GuiButton guibutton) {
+		boolean flag = false;
 		switch (guibutton.id) {
 		case 1:
-			if (ClientProxy.donators.contains(this.mc.thePlayer.getName())) {
+			if (WarsMod.getDonators().contains(this.mc.thePlayer.getName())) {
 				colorIndex = 2;
 				talkTo = "ChaosWarrior Selected";
+				flag = true;
 			} else {
-
 				colorIndex = 0;
-				talkTo = "You Need To Donate For This! ( $5 )";
-
+				talkTo = "You Need To Donate For This! ($5)";
 			}
 
 			break;
@@ -166,10 +166,8 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 		}
 
-		if(guibutton.id > 0 && guibutton.id < 2){
+		if(guibutton.id > 0 && guibutton.id < 2 && flag){
 			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, 0));
 		}
 	}
-
-
 }

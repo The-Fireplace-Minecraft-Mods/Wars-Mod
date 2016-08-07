@@ -135,9 +135,6 @@ public final class PieChartRendering {
 		GL11.glEnd();
 	}
 
-	// ==================== SEMI COPY PASTED VANILLA MINECRAFT CODE BELOW
-	// ===================================
-
 	private static void renderTooltip(int x, int y, int color, int color2, List<String> tooltipData) {
 		GL11.glPushMatrix();
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);

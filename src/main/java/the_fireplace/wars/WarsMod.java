@@ -57,9 +57,7 @@ public class WarsMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		WarsBlocks.createBlocks();
 		WarsItems.createItems();
-
-		registerNetwork();
-
+		PacketDispatcher.registerPackets();
 		donators = downloadDonators();
 	}
 
@@ -104,10 +102,6 @@ public class WarsMod {
 	public static void generateBlockWithMeta(World par1World, int i, int j, int k, IBlockState state) {
 		BlockPos position = new BlockPos(i, j, k);
 		par1World.setBlockState(position, state);
-	}
-
-	private void registerNetwork(){
-		PacketDispatcher.registerPackets();
 	}
 
 	@SuppressWarnings("unchecked")
