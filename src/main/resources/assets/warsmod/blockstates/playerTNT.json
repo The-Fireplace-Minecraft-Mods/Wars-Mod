@@ -1,6 +1,10 @@
 {
 	"variants": {
-		"normal": [{ "model": "warsmod:playerTNT" },
+		"explode=true": [{ "model": "warsmod:playerTNT" },
+			{ "model": "warsmod:playerTNT", "y": 90 },
+			{ "model": "warsmod:playerTNT", "y": 180 },
+			{ "model": "warsmod:playerTNT", "y": 270 }],
+		"explode=false": [{ "model": "warsmod:playerTNT" },
 			{ "model": "warsmod:playerTNT", "y": 90 },
 			{ "model": "warsmod:playerTNT", "y": 180 },
 			{ "model": "warsmod:playerTNT", "y": 270 }]

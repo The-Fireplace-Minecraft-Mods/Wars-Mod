@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "warsmod:yellowPlate_up" },
+        "powered=true": { "model": "warsmod:yellowPlate_down" }
+    }
+}

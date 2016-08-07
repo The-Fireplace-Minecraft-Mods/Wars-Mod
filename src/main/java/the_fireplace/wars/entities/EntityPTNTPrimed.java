@@ -63,7 +63,6 @@ public class EntityPTNTPrimed extends Entity {
 	 */
 	@Override
 	public void onUpdate() {
-		System.out.print("works2");
 		prevPosX = posX;
 		prevPosY = posY;
 		prevPosZ = posZ;

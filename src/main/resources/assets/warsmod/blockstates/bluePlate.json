@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "warsmod:bluePlate_up" },
+        "powered=true": { "model": "warsmod:bluePlate_down" }
+    }
+}
