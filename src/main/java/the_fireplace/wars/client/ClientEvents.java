@@ -48,7 +48,7 @@ public class ClientEvents extends Gui  {
 				drawTexturedModalRect(5, 5, 0, 0, 160, 32);
 
 				mc.fontRendererObj.drawString(String.valueOf(ClientProxy.killStreak), 137, 17, 0x000000);
-				mc.fontRendererObj.drawString(String.valueOf("Press "+Keyboard.getKeyName(keys[KEYID].getKeyCode())+" To Toggle Gui Off"), 10, 39, 0x000000);
+				mc.fontRendererObj.drawString(String.valueOf("Press "+Keyboard.getKeyName(keys[KEYID].getKeyCode())+" To Toggle"), 10, 39, 0x000000);
 			}
 		}
 	}
