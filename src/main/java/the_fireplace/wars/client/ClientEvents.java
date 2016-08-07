@@ -19,7 +19,7 @@ public class ClientEvents extends Gui  {
 	public static ResourceLocation texture = new ResourceLocation("warsmod:gui/killcounter.png");
 	public static final int KEYID = 0;
 	private static final String[] desc = {"key.killcounter.desc"};
-	private static final int[] keyValues = {Keyboard.KEY_L};
+	private static final int[] keyValues = {Keyboard.KEY_B};
 	private final KeyBinding[] keys;
 
 	public ClientEvents(){
