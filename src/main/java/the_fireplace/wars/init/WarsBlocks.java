@@ -133,10 +133,6 @@ public class WarsBlocks {
 		greenPlate = new BlockGreenPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("greenPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		yellowPlate = new BlockYellowPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("yellowPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 
-
-		//json files go to here
-
-
 		// Game Blocks
 		nSpleefS = new BlockNetherSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNetherSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		nSpleefM = new BlockNetherSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefNetherMedium").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
