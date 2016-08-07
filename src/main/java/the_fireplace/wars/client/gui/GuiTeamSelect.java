@@ -100,7 +100,6 @@ public class GuiTeamSelect extends GuiScreen {
 
 		buttonList.add(new GuiButton(5, posX + 200, posY + 120, 52, 20, "Done"));
 		buttonList.add(new GuiButton(6, posX + 200, posY + 100, 52, 20, "Refresh"));
-
 	}
 
 	@Override
@@ -156,5 +155,4 @@ public class GuiTeamSelect extends GuiScreen {
 			PacketDispatcher.sendToServer(new PacketTeamSelected(guibutton.id));
 		}
 	}
-
 }

@@ -1,5 +1,6 @@
 package the_fireplace.wars;
 
+import com.google.common.collect.Lists;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -202,9 +203,28 @@ public class CommonEvents {
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
 			if (playerBoots == null) {
 				if (!savedWarsData.editMode.editModeToggle) {
-					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP) event.player);
+					scheduleDelayedGui((EntityPlayerMP) event.player);
 				}
 			}
+		}
+	}
+
+	private int timer = 0;
+	private List scheduledPlayers = Lists.newArrayList();
+
+	@SuppressWarnings("unchecked")
+	private void scheduleDelayedGui(EntityPlayerMP player){
+		timer += 100;
+		scheduledPlayers.add(player);
+	}
+
+	@SubscribeEvent
+	public void onServerTick(TickEvent.ServerTickEvent event){
+		if(timer > 0)
+			timer--;
+		if(timer % 100 == 1) {
+			PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP) scheduledPlayers.get(0));
+			scheduledPlayers.remove(0);
 		}
 	}
 
