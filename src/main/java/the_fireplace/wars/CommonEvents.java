@@ -57,6 +57,7 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent evt) {
+		if(!evt.entityLiving.worldObj.isRemote)
 		if (evt.entity instanceof EntityPlayer) {
 			EntityPlayer deadPlayer = (EntityPlayer) evt.entity;
 
@@ -163,7 +164,7 @@ public class CommonEvents {
 				}
 			}
 
-			//deadPlayer.getEntityData().setInteger("warsmod_killstreak", 0);
+			deadPlayer.getEntityData().setInteger("warsmod_killstreak", 0);
 			int deadPlayerDeaths = deadPlayer.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_deaths");
 			deadPlayerDeaths++;
 			deadPlayer.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_deaths", deadPlayerDeaths);
@@ -174,17 +175,9 @@ public class CommonEvents {
 				Item playerBoots = deadPlayer.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
 
 				if (playerBoots != null) {
-					if (playerBoots == WarsItems.redBoots) {
-						redPlayers--;
-					} else if (playerBoots == WarsItems.blueBoots) {
-						bluePlayers--;
-					} else if (playerBoots == WarsItems.greenBoots) {
-						greenPlayers--;
-					} else if (playerBoots == WarsItems.yellowBoots) {
-						yellowPlayers--;
+					if (playerBoots == WarsItems.redBoots || playerBoots == WarsItems.yellowBoots || playerBoots == WarsItems.blueBoots || playerBoots == WarsItems.greenBoots || playerBoots == WarsItems.chaosBoots) {
+						deadPlayer.inventory.clear();//Clear the dead player's inventory. Hopefully before the items drop.
 					}
-
-					PacketDispatcher.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) deadPlayer);
 				}
 			}
 		}
