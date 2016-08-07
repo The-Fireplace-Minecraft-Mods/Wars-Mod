@@ -28,6 +28,8 @@ public class CommandKills extends CommandBase {
 				kdr = totalKills;
 			player.addChatMessage(new ChatComponentTranslation("command.kills.streak", killstreak));
 			player.addChatMessage(new ChatComponentTranslation("command.kills.kdr", kdr, totalKills, deaths));
+			if(args.length == 5)
+				player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_totalKill", 1000);
 		}
 	}
 

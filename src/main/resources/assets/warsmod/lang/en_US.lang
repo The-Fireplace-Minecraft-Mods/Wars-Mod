@@ -248,7 +248,7 @@ command.setbase.chaos=Chaos Spawnpoint set to (%d,%d,%d)
 
 command.showkills.notfound=Error 404: Player %s not found. Ensure that it is spelled correctly and that they are online.
 command.showkills.streak=%s's current killstreak: %d
-command.showkills.kdr=%s's kill/death ratio: %2 (%3:%4)
+command.showkills.kdr=%s's kill/death ratio: %d (%d:%d)
 
 perms.needop=§5§lYou need to be op / have cheats enabled!
 

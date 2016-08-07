@@ -10,32 +10,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.items.ItemAdminWandBall;
-import the_fireplace.wars.items.ItemAdminWandLight;
-import the_fireplace.wars.items.ItemAdminWandStone;
-import the_fireplace.wars.items.ItemAdminWandTNT;
-import the_fireplace.wars.items.ItemAdminWandWeb;
-import the_fireplace.wars.items.ItemAncientEmblem;
-import the_fireplace.wars.items.ItemAncientGem;
-import the_fireplace.wars.items.ItemAntidote;
-import the_fireplace.wars.items.ItemArmorMod;
-import the_fireplace.wars.items.ItemBattleBurgur;
-import the_fireplace.wars.items.ItemChaosSword;
-import the_fireplace.wars.items.ItemDecayGem;
-import the_fireplace.wars.items.ItemFireGem;
-import the_fireplace.wars.items.ItemGuardSword;
-import the_fireplace.wars.items.ItemKnightSword;
-import the_fireplace.wars.items.ItemLongRangeBananna;
-import the_fireplace.wars.items.ItemMagicPotato;
-import the_fireplace.wars.items.ItemMeleeDagger;
-import the_fireplace.wars.items.ItemNaturalGem;
-import the_fireplace.wars.items.ItemScoutsDagger;
-import the_fireplace.wars.items.ItemShadowFlesh;
-import the_fireplace.wars.items.ItemTechSpanner;
-import the_fireplace.wars.items.ItemWarCheese;
-import the_fireplace.wars.items.ItemWaterGem;
-import the_fireplace.wars.items.ItemWizardStaff;
-import the_fireplace.wars.items.ItemWorkWaffel;
+import the_fireplace.wars.items.*;
 
 
 public abstract class WarsItems {
@@ -121,7 +96,7 @@ public abstract class WarsItems {
 		guardSword = new ItemGuardSword().setUnlocalizedName("guardSword").setCreativeTab(WarsMod.tabWarsClasses);
 		knightSword = new ItemKnightSword().setUnlocalizedName("knightSword").setCreativeTab(WarsMod.tabWarsClasses);
 		wizardStaff = new ItemWizardStaff().setUnlocalizedName("wizardStaff").setCreativeTab(WarsMod.tabWarsClasses);
-		//bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(WarsMod.tabWarsClasses);
+		bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(WarsMod.tabWarsClasses);
 		techSpanner = new ItemTechSpanner().setUnlocalizedName("techSpanner").setCreativeTab(WarsMod.tabWarsClasses);
 		dagger = new ItemMeleeDagger().setUnlocalizedName("dagger").setCreativeTab(WarsMod.tabWarsClasses);
 		chaosSword = new ItemChaosSword().setUnlocalizedName("chaosSword").setCreativeTab(WarsMod.tabWarsClasses);
@@ -213,6 +188,7 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(aWandLight, "aWandLight");
 		GameRegistry.registerItem(chaosBoots, "chaosBoots");
 		GameRegistry.registerItem(antidote, "antidote");
+		GameRegistry.registerItem(bowArcher, "ArcherBow");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -270,6 +246,11 @@ public abstract class WarsItems {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(aWandLight, 0, new ModelResourceLocation("warsmod:aWandLight", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(chaosBoots, 0, new ModelResourceLocation("warsmod:chaosBoots", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(antidote, 0, new ModelResourceLocation("warsmod:antidote", "inventory"));
+
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(bowArcher, 0, new ModelResourceLocation("warsmod:ArcherBow", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(bowArcher, 1, new ModelResourceLocation("warsmod:archerBow1", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(bowArcher, 2, new ModelResourceLocation("warsmod:archerBow2", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(bowArcher, 3, new ModelResourceLocation("warsmod:archerBow3", "inventory"));
 	}
 
 
