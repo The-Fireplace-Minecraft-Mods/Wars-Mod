@@ -31,10 +31,10 @@ import java.util.Random;
 
 public class CommonEvents {
 
-	private static int redPlayers = 0;
-	private static int greenPlayers = 0;
-	private static int bluePlayers = 0;
-	private static int yellowPlayers = 0;
+	public static int redPlayers = 0;
+	public static int greenPlayers = 0;
+	public static int bluePlayers = 0;
+	public static int yellowPlayers = 0;
 
 	@SubscribeEvent
 	public void onLivingAttack(LivingAttackEvent evt) {
@@ -317,7 +317,7 @@ public class CommonEvents {
 		}
 	}
 
-	public void recalcTeams(){
+	public static void recalcTeams(){
 		redPlayers = 0;
 		bluePlayers = 0;
 		greenPlayers = 0;
