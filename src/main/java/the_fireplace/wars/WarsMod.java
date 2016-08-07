@@ -86,11 +86,7 @@ public class WarsMod {
 		ServerCommandManager serverCommand = (ServerCommandManager) command;
 
 		serverCommand.registerCommand(new CommandKills());
-		serverCommand.registerCommand(new CommandRedBase());
-		serverCommand.registerCommand(new CommandGreenBase());
-		serverCommand.registerCommand(new CommandBlueBase());
-		serverCommand.registerCommand(new CommandYellowBase());
-		serverCommand.registerCommand(new CommandChaosSpawn());
+		serverCommand.registerCommand(new CommandSetBase());
 		serverCommand.registerCommand(new CommandEditMode());
 	}
 
