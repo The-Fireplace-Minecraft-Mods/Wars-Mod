@@ -103,9 +103,9 @@ item.aWandWeb.name=Admin Wand - Web Thrower
 item.aWandLight.name=Admin Wand - Smiting
 item.antidote.name=Antidote
 
-creativeTabs.tabWarsBlocks=Wars Mod Blocks
-creativeTabs.tabWarsItems=Wars Mod Items
-creativeTabs.tabWarsClasses=Wars Mod Classes
+itemGroup.tabWarsBlocks=Wars Mod Blocks
+itemGroup.tabWarsItems=Wars Mod Items
+itemGroup.tabWarsClasses=Wars Mod Classes
 
 hungergames.small.start=§9HUNGER GAMES SMALL STARTING IN 1 MINUTE
 hungergames.medium.start=§9HUNGER GAMES MEDIUM STARTING IN 1 MINUTE
