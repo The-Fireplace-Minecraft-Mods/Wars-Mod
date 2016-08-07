@@ -238,7 +238,7 @@ command.edit.enabled=Enabled edit mode. Players can no longer join teams.
 command.edit.disabled=Disabled edit mode. Players can now join teams.
 
 command.kills.streak=Your current killstreak: %d
-command.kills.kdr=Your kill/death ratio: %1 (%2:%3)
+command.kills.kdr=Your kill/death ratio: %d (%d:%d)
 
 command.setbase.red=Red Team Base set to (%d,%d,%d)
 command.setbase.green=Green Team Base set to (%d,%d,%d)

@@ -151,7 +151,7 @@ public class GuiTeamSelect extends GuiScreen {
 			this.initGui();
 		}
 
-		if(guibutton.id > 0 && guibutton.id < 5 && joinedteam && !player.isDead){
+		if(guibutton.id > 0 && guibutton.id < 5 && joinedteam){
 			PacketDispatcher.sendToServer(new PacketTeamSelected(guibutton.id));
 		}
 	}
