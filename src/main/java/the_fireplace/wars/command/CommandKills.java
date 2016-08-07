@@ -4,7 +4,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandKills extends CommandBase {
 
@@ -26,8 +26,8 @@ public class CommandKills extends CommandBase {
 				kdr = totalKills / deaths;
 			else
 				kdr = totalKills;
-			player.addChatMessage(new ChatComponentText("Your current killstreak: " + killstreak));
-			player.addChatMessage(new ChatComponentText("Your kill/death ratio: " + kdr + " (" + totalKills + ":" + deaths + ")"));
+			player.addChatMessage(new ChatComponentTranslation("command.kills.streak", killstreak));
+			player.addChatMessage(new ChatComponentTranslation("command.kills.kdr", kdr, totalKills, deaths));
 		}
 	}
 

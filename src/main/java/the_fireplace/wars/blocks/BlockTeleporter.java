@@ -13,8 +13,6 @@ import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.tileentities.TileEntityTeleporter;
 
-import java.util.List;
-
 public class BlockTeleporter extends Block implements ITileEntityProvider {
 
 	public BlockTeleporter() {
@@ -30,7 +28,7 @@ public class BlockTeleporter extends Block implements ITileEntityProvider {
 			int distance = -1;
 			TileEntity foundTileEntity = null;
 			TileEntity thisTileEntity = world.getTileEntity(pos);
-			for (TileEntity tileEntity : (List<TileEntity>) world.loadedTileEntityList) {
+			for (TileEntity tileEntity : world.loadedTileEntityList) {
 				BlockPos position = new BlockPos(tileEntity.getPos().getX(), tileEntity.getPos().getY(), tileEntity.getPos().getZ());
 				if (tileEntity != thisTileEntity && world.getBlockState(position).getBlock() == state.getBlock()) {
 					int thisDistance = ((TileEntityTeleporter) tileEntity).getDistanceTo(pos.getX(), pos.getY(), pos.getZ());

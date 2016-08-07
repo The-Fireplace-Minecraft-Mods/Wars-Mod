@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -26,8 +27,8 @@ public class GuiClassSelectDonator extends GuiScreen {
 	public int[] colorsHex = new int[] { 0xFF0000, 0x0000FF, 0x006400, 0x6A5ACD, 0x000000 };
 	public int colorIndex = 0;
 
-	public String talkTo = "Be In Survival When Using This GUI!";
-	public String info = "Donations Can Take Some Time To Process!!";
+	public String talkTo = I18n.format("classselect.survival");
+	public String info = I18n.format("classselect.donations");
 
 	public GuiClassSelectDonator(EntityPlayer player) {
 
@@ -79,11 +80,11 @@ public class GuiClassSelectDonator extends GuiScreen {
 		int posX = (this.width - xSizeOfTexture) / 2;
 		int posY = (this.height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
-		buttonList.add(new GuiButton(1, posX + 15, posY + 90, 70, 12, "ChaosWarrior"));
-		buttonList.add(new GuiButton(2, posX + 100, posY + 90, 52, 12, "EnderMan"));
-		buttonList.add(new GuiButton(3, posX + 173, posY + 90, 52, 12, "General"));
+		buttonList.add(new GuiButton(1, posX + 15, posY + 90, 70, 12, I18n.format("class.chaoswarrior")));
+		buttonList.add(new GuiButton(2, posX + 100, posY + 90, 52, 12, I18n.format("class.enderknight")));
+		buttonList.add(new GuiButton(3, posX + 173, posY + 90, 52, 12, I18n.format("class.rogue")));
 
-		buttonList.add(new GuiButton(4, posX + 195, posY + 3, 50, 20, "Donate"));
+		buttonList.add(new GuiButton(4, posX + 195, posY + 3, 50, 20, I18n.format("classselect.donate")));
 
 	}
 
@@ -130,17 +131,17 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 
 	@Override
-    protected void actionPerformed(GuiButton guibutton) {
+    protected void actionPerformed(GuiButton guibutton) {//TODO: Add the other 2 donator classes
 		boolean flag = false;
 		switch (guibutton.id) {
 		case 1:
 			if (WarsMod.getDonators().contains(this.mc.thePlayer.getName())) {
 				colorIndex = 2;
-				talkTo = "ChaosWarrior Selected";
+				talkTo = I18n.format("classselect.selected", I18n.format("class.chaoswarrior"));
 				flag = true;
 			} else {
 				colorIndex = 0;
-				talkTo = "You Need To Donate For This! ($5)";
+				talkTo = I18n.format("classselect.needtodonate");
 			}
 
 			break;

@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -83,76 +83,76 @@ public class CommonEvents {
 
 						EntityPlayerMP player = (EntityPlayerMP) evt.entity;
 
-						MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Died With" + " \u00a75" + " " + deadPlayerKillstreak + " \u00a73" + "Kills"));
+						MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.death", player.getName(), deadPlayerKillstreak));
 					}
 
 					switch (attackerKillstreak) {
 						case 2:
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lDouble Kill! \u00a72Unlocked Protection"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						case 3: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lTriple Kill! \u00a72Unlocked Water Breathing"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 4: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lMultiKill! \u00a72Unlocked Jump Boost"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 5: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lLike A Boss!"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Now Has" + " \u00a75" + "5" + " \u00a73" + "Kills"));
+							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 8: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lRunning Riot! \u00a72Unlocked Night Vision"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 10: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lUnBeatable!"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "10" + " \u00a73" + "Kills"));
+							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 12: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lKilltacular! \u00a72Unlocked Damage Boost"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 15: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lMass Murder!"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "15" + " \u00a73" + "Kills"));
+							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 20: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lWar Crimes! \u00a72Unlocked Protection Lv2"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "20" + " \u00a73" + "Kills"));
+							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 25: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lExtinctionist!"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "25" + " \u00a73" + "Kills"));
+							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 30: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lGenocide! \u00a72Unlocked Mega Damage Booster"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "30" + " \u00a73" + "Kills"));
+							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 35: {
-							attacker.addChatMessage(new ChatComponentText("\u00a75\u00a7lPlanet Crusher!"));
+							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText(player.getName() + " " + "\u00a73Has" + " \u00a75" + "35" + " \u00a73" + "Kills And Is Off The Scale Now OMG"));
+							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement.offscale", player.getName(), attackerKillstreak));
 							break;
 						}
 						default:
@@ -281,7 +281,7 @@ public class CommonEvents {
 				int num = random.nextInt(50);
 
 				if (num == 1) {
-					player.addChatMessage(new ChatComponentText("\u00a73WEAR TEAM BOOTS TO USE CLASS!"));
+					player.addChatMessage(new ChatComponentTranslation("needteamboots"));
 				}
 			}
 		}

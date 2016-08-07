@@ -3,7 +3,7 @@ package the_fireplace.wars.handlers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import the_fireplace.wars.CommonEvents;
 import the_fireplace.wars.data.WarsSavedData;
 import the_fireplace.wars.init.WarsItems;
@@ -25,11 +25,11 @@ public class TeamSelected {
 			switch (teamSelected) {
 			case 1:
 				if (redPlayers > greenPlayers || redPlayers > yellowPlayers || redPlayers > bluePlayers) {
-					player.addChatMessage(new ChatComponentText("Team appears to be full. Please try again."));
+					player.addChatMessage(new ChatComponentTranslation("teamselected.retry"));
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP)player);
 				} else {
 
-					player.addChatMessage(new ChatComponentText("\u00a74\u00a7lRed Team Selected!"));
+					player.addChatMessage(new ChatComponentTranslation("teamselected.red"));
 
 					int redBaseX = savedData.teamRed.baseX;
 					int redBaseY = savedData.teamRed.baseY;
@@ -44,10 +44,10 @@ public class TeamSelected {
 				break;
 			case 2:
 				if (greenPlayers > redPlayers || greenPlayers > yellowPlayers || greenPlayers > bluePlayers) {
-					player.addChatMessage(new ChatComponentText("Team appears to be full. Please try again."));
+					player.addChatMessage(new ChatComponentTranslation("teamselected.retry"));
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP)player);
 				} else {
-					player.addChatMessage(new ChatComponentText("\u00a72\u00a7lGreen Team Selected!"));
+					player.addChatMessage(new ChatComponentTranslation("teamselected.green"));
 
 					int greenBaseX = savedData.teamGreen.baseX;
 					int greenBaseY = savedData.teamGreen.baseY;
@@ -61,11 +61,11 @@ public class TeamSelected {
 				break;
 			case 3:
 				if (bluePlayers > greenPlayers || bluePlayers > yellowPlayers || bluePlayers > redPlayers) {
-					player.addChatMessage(new ChatComponentText("Team appears to be full. Please try again."));
+					player.addChatMessage(new ChatComponentTranslation("teamselected.retry"));
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP)player);
 				} else {
 
-					player.addChatMessage(new ChatComponentText("\u00a79\u00a7lBlue Team Selected!"));
+					player.addChatMessage(new ChatComponentTranslation("teamselected.blue"));
 
 					int blueBaseX = savedData.teamBlue.baseX;
 					int blueBaseY = savedData.teamBlue.baseY;
@@ -80,11 +80,11 @@ public class TeamSelected {
 				break;
 			case 4:
 				if (yellowPlayers > greenPlayers || yellowPlayers > redPlayers || yellowPlayers > bluePlayers) {
-					player.addChatMessage(new ChatComponentText("Team appears to be full. Please try again."));
+					player.addChatMessage(new ChatComponentTranslation("teamselected.retry"));
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP)player);
 				} else {
 
-					player.addChatMessage(new ChatComponentText("\u00a76\u00a7lYellow Team Selected!"));
+					player.addChatMessage(new ChatComponentTranslation("teamselected.yellow"));
 
 					int yellowBaseX = savedData.teamYellow.baseX;
 					int yellowBaseY = savedData.teamYellow.baseY;

@@ -2,6 +2,7 @@ package the_fireplace.wars.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
@@ -18,9 +19,9 @@ public class GuiSpleefSelect extends GuiScreen {
 	public int[] colorsHex = new int[] { 0xFF0000, 0x0000FF, 0x006400, 0x6A5ACD, 0x000000 };
 	public int colorIndex = 0;
 
-	public String title = "Spleef Select";
+	public String title = I18n.format("spleefselect.title");
 
-	public String info = "Welcome to the spleef selection. Select a range of wonderful places to play that game that which we call spleef!";
+	public String info = I18n.format("spleefselect.info");
 
 	public String sizeHeight = "";
 	public String sizeArea = "";
@@ -94,13 +95,13 @@ public class GuiSpleefSelect extends GuiScreen {
 		int posX = (this.width - xSizeOfTexture) / 2;
 		int posY = (this.height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
-		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(3, posX + 172, posY + 59, 52, 20, "Generate"));
+		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(3, posX + 172, posY + 59, 52, 20, I18n.format("generate")));
 
-		buttonList.add(new GuiButton(4, posX + 23, posY + 126, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(5, posX + 99, posY + 126, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(6, posX + 172, posY + 126, 52, 20, "Generate"));
+		buttonList.add(new GuiButton(4, posX + 23, posY + 126, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(5, posX + 99, posY + 126, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(6, posX + 172, posY + 126, 52, 20, I18n.format("generate")));
 
 		buttonList.add(new GuiButton(7, posX + 63, posY + 22, 12, 12, "i"));
 		buttonList.add(new GuiButton(8, posX + 138, posY + 22, 12, 12, "i"));
@@ -135,40 +136,40 @@ public class GuiSpleefSelect extends GuiScreen {
 			break;
 
 		case 7:
-			title = "Miners [small]";
-			info = "The spleef of the deep miners of Minetargok. This is their only source of amusment between 6-18 million year mining trips.";
-			sizeArea = "Area: " + "18x18";
-			sizeHeight = "Height: " + "9";
+			title = I18n.format("spleef.miners.title")+I18n.format("spleef.small");
+			info = I18n.format("spleef.miners.info");
+			sizeArea = I18n.format("sizeArea") + "18x18";
+			sizeHeight = I18n.format("sizeHeight") + "9";
 			break;
 		case 8:
-			title = "\u00a72Natural [small]";
-			info = "The people of the forest love to play this sceneic spleef arena!";
-			sizeArea = "Area: " + "18x18";
-			sizeHeight = "Height: " + "9";
+			title = I18n.format("spleef.natural.title")+I18n.format("spleef.small");
+			info = I18n.format("spleef.natural.info");
+			sizeArea = I18n.format("sizeArea") + "18x18";
+			sizeHeight = I18n.format("sizeHeight") + "9";
 			break;
 		case 9:
-			title = "\u00a74Nether [small]";
-			info = "From the pits of hell demons bet on players playing spleef. The prize: you don't have to stay in the fiery pit of death for more than a million years.";
-			sizeArea = "Area: " + "18x18";
-			sizeHeight = "Height: " + "9";
+			title = I18n.format("spleef.nether.title")+I18n.format("spleef.small");
+			info = I18n.format("spleef.nether.info");
+			sizeArea = I18n.format("sizeArea") + "18x18";
+			sizeHeight = I18n.format("sizeHeight") + "9";
 			break;
 		case 10:
-			title = "Miners [medium]";
-			info = "The spleef of the deep miners of Minetargok. This is their only source of amusment between 6-18 million year mining trips.";
-			sizeArea = "Area: " + "22x22";
-			sizeHeight = "Height: " + "20";
+			title = I18n.format("spleef.miners.title")+I18n.format("spleef.medium");
+			info = I18n.format("spleef.miners.info");
+			sizeArea = I18n.format("sizeArea") + "22x22";
+			sizeHeight = I18n.format("sizeHeight") + "20";
 			break;
 		case 11:
-			title = "\u00a72Natural [medium]";
-			info = "The people of the forest love to play this sceneic spleef arena!";
-			sizeArea = "Area: " + "22x22";
-			sizeHeight = "Height: " + "20";
+			title = I18n.format("spleef.natural.title")+I18n.format("spleef.medium");
+			info = I18n.format("spleef.natural.info");
+			sizeArea = I18n.format("sizeArea") + "22x22";
+			sizeHeight = I18n.format("sizeHeight") + "20";
 			break;
 		case 12:
-			title = "\u00a74Nether [medium]";
-			info = "From the pits of hell demons bet on players playing spleef. The prize: you don't have to stay in the fiery pit of death for more than a million years.";
-			sizeArea = "Area: " + "22x22";
-			sizeHeight = "Height: " + "20";
+			title = I18n.format("spleef.nether.title")+I18n.format("spleef.medium");
+			info = I18n.format("spleef.nether.info");
+			sizeArea = I18n.format("sizeArea") + "22x22";
+			sizeHeight = I18n.format("sizeHeight") + "20";
 			break;
 		}
 

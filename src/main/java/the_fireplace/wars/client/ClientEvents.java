@@ -2,6 +2,7 @@ package the_fireplace.wars.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.FMLClientHandler;
@@ -48,7 +49,7 @@ public class ClientEvents extends Gui  {
 				drawTexturedModalRect(5, 5, 0, 0, 160, 32);
 
 				mc.fontRendererObj.drawString(String.valueOf(ClientProxy.killStreak), 137, 17, 0x000000);
-				mc.fontRendererObj.drawString(String.valueOf("Press "+Keyboard.getKeyName(keys[KEYID].getKeyCode())+" To Toggle"), 10, 39, 0x000000);
+				mc.fontRendererObj.drawString(I18n.format("killstreak.toggle", Keyboard.getKeyName(keys[KEYID].getKeyCode())), 10, 39, 0x000000);
 			}
 		}
 	}

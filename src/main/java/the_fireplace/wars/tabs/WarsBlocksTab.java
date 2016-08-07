@@ -12,11 +12,6 @@ public final class WarsBlocksTab extends CreativeTabs {
 	}
 
 	@Override
-    public String getTranslatedTabLabel() {
-		return "Wars Mod Blocks";
-	}
-
-	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem() {
 		return Item.getItemFromBlock(WarsBlocks.castleSelector);

@@ -6,7 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import the_fireplace.wars.tileentities.TileEntityHungerGames;
@@ -44,7 +44,7 @@ public class BlockHungerGamesLv1Start extends Block {
 		te.shouldTick = true;
 
 		if (!world.isRemote) {
-			player.addChatMessage(new ChatComponentText("\u00a79HUNGER GAMES SMALL STARTING IN 1 MINUTE"));
+			player.addChatMessage(new ChatComponentTranslation("hungergames.small.start"));
 		}
 
 		return false;

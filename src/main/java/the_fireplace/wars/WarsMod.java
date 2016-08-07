@@ -49,9 +49,9 @@ public class WarsMod {
 
 	private static ArrayList<String> donators;
 
-	public static CreativeTabs tabWarsBlocks = new WarsBlocksTab("tabWarsItems");
-	public static CreativeTabs tabWarsItems = new WarsItemsTab("tabWarsBlocks");
-	public static CreativeTabs tabWarsClasses = new WarsClassesTab("tabWarsClasses");
+	public static final CreativeTabs tabWarsBlocks = new WarsBlocksTab("tabWarsBlocks");
+	public static final CreativeTabs tabWarsItems = new WarsItemsTab("tabWarsItems");
+	public static final CreativeTabs tabWarsClasses = new WarsClassesTab("tabWarsClasses");
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

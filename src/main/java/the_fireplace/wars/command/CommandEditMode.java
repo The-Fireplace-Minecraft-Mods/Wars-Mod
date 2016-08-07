@@ -3,7 +3,7 @@ package the_fireplace.wars.command;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import the_fireplace.wars.data.WarsSavedData;
 
 public class CommandEditMode extends CommandBase {
@@ -44,36 +44,36 @@ public class CommandEditMode extends CommandBase {
 			boolean flag = false;
 
 			if (a == 0 && b == 0 && c == 0) {
-				sender.addChatMessage(new ChatComponentText("Red Base Spawn Not Set!"));
+				sender.addChatMessage(new ChatComponentTranslation("command.edit.rednotset"));
 				flag = true;
 			}
 			if (d == 0 && e == 0 && f == 0) {
-				sender.addChatMessage(new ChatComponentText("Green Base Spawn Not Set!"));
+				sender.addChatMessage(new ChatComponentTranslation("command.edit.greennotset"));
 				flag = true;
 			}
 			if (g == 0 && h == 0 && i == 0) {
-				sender.addChatMessage(new ChatComponentText("Blue Base Spawn Not Set!"));
+				sender.addChatMessage(new ChatComponentTranslation("command.edit.bluenotset"));
 				flag = true;
 			}
 			if (j == 0 && k == 0 && l == 0) {
-				sender.addChatMessage(new ChatComponentText("Yellow Base Spawn Not Set!"));
+				sender.addChatMessage(new ChatComponentTranslation("command.edit.yellownotset"));
 				flag = true;
 			}
 			if (m == 0 && n == 0 && o == 0) {
-				sender.addChatMessage(new ChatComponentText("Chaos Spawn Not Set!"));
+				sender.addChatMessage(new ChatComponentTranslation("command.edit.chaosnotset"));
 				flag = true;
 			}
 			if(flag && savedData.editMode.editModeToggle){
-				sender.addChatMessage(new ChatComponentText("Ensure that all spawnpoints are set before trying to disable edit mode."));
+				sender.addChatMessage(new ChatComponentTranslation("command.edit.setpoints"));
 			}
 
 			if(!flag || !savedData.editMode.editModeToggle){
 				savedData.editMode.editModeToggle = !savedData.editMode.editModeToggle;
 				savedData.markDirty();
 				if(savedData.editMode.editModeToggle)
-					sender.addChatMessage(new ChatComponentText("Enabled edit mode. Players can no longer join teams."));
+					sender.addChatMessage(new ChatComponentTranslation("command.edit.enabled"));
 				else
-					sender.addChatMessage(new ChatComponentText("Disabled edit mode. Players can now join teams."));
+					sender.addChatMessage(new ChatComponentTranslation("command.edit.disabled"));
 			}
 	}
 

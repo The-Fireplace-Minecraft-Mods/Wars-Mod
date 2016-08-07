@@ -2,6 +2,7 @@ package the_fireplace.wars.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import the_fireplace.wars.client.ClientProxy;
 import the_fireplace.wars.network.PacketDispatcher;
@@ -13,15 +14,15 @@ public class GuiTeamSelect extends GuiScreen {
 	public int[] colorsHex = new int[] { 0xFF0000, 0x0000FF, 0x006400, 0x6A5ACD, 0x000000 };
 	public int colorIndex = 0;
 
-	public String title = "\u00a79Choose Your Team!";
+	public String title = I18n.format("teamselect.title");
 	public String info = "";
-	public String howTo = "You can only join the team ";
-	public String howTo2 = "with the least players in order for balance!";
+	public String howTo = I18n.format("teamselect.howto.1");
+	public String howTo2 = I18n.format("teamselect.howto.2");
 
-	public String redText = "\u00a74Red " + "(" + ClientProxy.redPlayers + ")";
-	public String greenText = "\u00a72Green " + "(" + ClientProxy.greenPlayers + ")";
-	public String blueText = "\u00a79Blue " + "(" + ClientProxy.bluePlayers + ")";
-	public String yellowText = "\u00a76Yellow " + "(" + ClientProxy.yellowPlayers + ")";
+	public String redText = I18n.format("teamselect.red", ClientProxy.redPlayers);
+	public String greenText = I18n.format("teamselect.green", ClientProxy.greenPlayers);
+	public String blueText = I18n.format("teamselect.blue", ClientProxy.bluePlayers);
+	public String yellowText = I18n.format("teamselect.yellow", ClientProxy.yellowPlayers);
 
 	public EntityPlayer player;
 
@@ -98,8 +99,8 @@ public class GuiTeamSelect extends GuiScreen {
 		buttonList.add(new GuiButton(3, posX + 120, posY + 54, 52, 20, blueText));
 		buttonList.add(new GuiButton(4, posX + 180, posY + 54, 52, 20, yellowText));
 
-		buttonList.add(new GuiButton(5, posX + 200, posY + 120, 52, 20, "Done"));
-		buttonList.add(new GuiButton(6, posX + 200, posY + 100, 52, 20, "Refresh"));
+		buttonList.add(new GuiButton(5, posX + 200, posY + 120, 52, 20, I18n.format("teamselect.done")));
+		buttonList.add(new GuiButton(6, posX + 200, posY + 100, 52, 20, I18n.format("teamselect.refresh")));
 	}
 
 	@Override
@@ -107,7 +108,7 @@ public class GuiTeamSelect extends GuiScreen {
 		switch (guibutton.id) {
 		case 1:
 			if (ClientProxy.redPlayers > ClientProxy.greenPlayers && ClientProxy.redPlayers > ClientProxy.yellowPlayers && ClientProxy.redPlayers > ClientProxy.bluePlayers) {
-				info = "The Red Team Is Full!";
+				info = I18n.format("teamselect.redfull");
 			} else {
 				this.mc.thePlayer.closeScreen();
 				joinedteam = true;
@@ -115,7 +116,7 @@ public class GuiTeamSelect extends GuiScreen {
 			break;
 		case 2:
 			if (ClientProxy.greenPlayers > ClientProxy.redPlayers && ClientProxy.greenPlayers > ClientProxy.yellowPlayers && ClientProxy.greenPlayers > ClientProxy.bluePlayers) {
-				info = "The Green Team Is Full!";
+				info = I18n.format("teamselect.greenfull");
 			} else {
 				this.mc.thePlayer.closeScreen();
 				joinedteam = true;
@@ -123,7 +124,7 @@ public class GuiTeamSelect extends GuiScreen {
 			break;
 		case 3:
 			if (ClientProxy.bluePlayers > ClientProxy.redPlayers && ClientProxy.bluePlayers > ClientProxy.yellowPlayers && ClientProxy.bluePlayers > ClientProxy.greenPlayers) {
-				info = "The Blue Team Is Full!";
+				info = I18n.format("teamselect.bluefull");
 			} else {
 				this.mc.thePlayer.closeScreen();
 				joinedteam = true;
@@ -131,7 +132,7 @@ public class GuiTeamSelect extends GuiScreen {
 			break;
 		case 4:
 			if (ClientProxy.yellowPlayers > ClientProxy.greenPlayers && ClientProxy.yellowPlayers > ClientProxy.redPlayers && ClientProxy.yellowPlayers > ClientProxy.bluePlayers) {
-				info = "The Yellow Team Is Full!";
+				info = I18n.format("teamselect.yellowfull");
 			} else {
 				this.mc.thePlayer.closeScreen();
 				joinedteam = true;
@@ -141,11 +142,10 @@ public class GuiTeamSelect extends GuiScreen {
 			this.mc.thePlayer.closeScreen();
 			break;
 		case 6:
-
-			redText = "\u00a74Red " + "(" + ClientProxy.redPlayers + ")";
-			greenText = "\u00a72Green " + "(" + ClientProxy.greenPlayers + ")";
-			blueText = "\u00a79Blue " + "(" + ClientProxy.bluePlayers + ")";
-			yellowText = "\u00a76Yellow " + "(" + ClientProxy.yellowPlayers + ")";
+			redText = I18n.format("teamselect.red", ClientProxy.redPlayers);
+			greenText = I18n.format("teamselect.green", ClientProxy.greenPlayers);
+			blueText = I18n.format("teamselect.blue", ClientProxy.bluePlayers);
+			yellowText = I18n.format("teamselect.yellow", ClientProxy.yellowPlayers);
 
 			this.buttonList.clear();
 			this.initGui();

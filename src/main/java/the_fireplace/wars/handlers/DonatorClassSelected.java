@@ -28,15 +28,15 @@ public class DonatorClassSelected {
 
 			((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
 
-			int redBaseX = savedData.teamChaos.baseX;
-			int redBaseY = savedData.teamChaos.baseY;
-			int redBaseZ = savedData.teamChaos.baseZ;
+			int chaosSpawnX = savedData.teamChaos.baseX;
+			int chaosSpawnY = savedData.teamChaos.baseY;
+			int chaosSpawnZ = savedData.teamChaos.baseZ;
 
 			ItemStack itemstack2 = new ItemStack(WarsItems.chaosBoots, 1);
 			player.inventory.armorInventory[0] = itemstack2;
 			((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
 
-			player.setPositionAndUpdate(redBaseX + 0.5, redBaseY, redBaseZ + 0.5);
+			player.setPositionAndUpdate(chaosSpawnX + 0.5, chaosSpawnY, chaosSpawnZ + 0.5);
 
 		}
 	}

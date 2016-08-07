@@ -103,4 +103,180 @@ item.aWandWeb.name=Admin Wand - Web Thrower
 item.aWandLight.name=Admin Wand - Smiting
 item.antidote.name=Antidote
 
+creativeTabs.tabWarsBlocks=Wars Mod Blocks
+creativeTabs.tabWarsItems=Wars Mod Items
+creativeTabs.tabWarsClasses=Wars Mod Classes
+
+hungergames.small.start=§9HUNGER GAMES SMALL STARTING IN 1 MINUTE
+hungergames.medium.start=§9HUNGER GAMES MEDIUM STARTING IN 1 MINUTE
+
+generate=Generate
+sizeArea=Area:
+sizeHeight=Height:
+
+buildingselect.title=Building Select
+buildingselect.info=Select a wide range of buildings to decorate your warzone/map. You are free to use and release these in your own public maps.
+
+buildingselect.guardhut.title=Guard Hut
+buildingselect.guardhut.info=A small house with a little basement for storage. A nice hideout when being hunted.
+
+buildingselect.knighthut.title=Knight Hut
+buildingselect.knighthut.info=A lovely home for the rich knights. They can just go home and chill, leaving everyone else fighting to the death.
+
+buildingselect.archertower.title=Archer Tower
+buildingselect.archertower.info=From the heavens archers can rain arrows on their foes!
+
+buildingselect.wizardtower.title=Wizard Tower
+buildingselect.wizardtower.info=A well protected place for wizards. Comes bonus with a enchanting table for all your wizarding needs!
+
+buildingselect.blacksmith.title=Blacksmith
+buildingselect.blacksmith.info='Ye! I makest yee epic swords!' The blacksmith fuels the wars!
+
+buildingselect.windmill.title=Windmill
+buildingselect.windmill.info=A massive windmill to make lovely wheat! Shame the propeller broke :(
+
+class.guard=Guard
+class.knight=Knight
+class.healer=Healer
+class.scout=Scout
+class.archer=Archer
+class.tech=Technician
+class.chaoswarrior=ChaosWarrior
+class.enderknight=EnderKnight
+class.rogue=RogueNinja
+
 classselect.survival=Be In Survival When Using This GUI!
+classselect.donations=Donations Can Take Some Time To Process!
+classselect.donate=Donate
+classselect.selected=%s Selected
+classselect.notenoughkills=Not Enough Kills! (%d More Needed)
+classselect.needtodonate=You Need To Donate For This! ($5)
+
+gameselect.title=Minigame Select
+gameselect.info=Select from fun minigames to play with friends!
+
+gameselect.chestparkour.title=Chest Parkour
+gameselect.chestparkour.info=A very nice little parkour in the shape of a chest.
+
+gameselect.skyblock.title=Instant Skyblock
+gameselect.skyblock.info=Creates a skyblock way up high in the air and spawns with all the items from the original skyblock. (use to boats given to climb water elevator)
+
+gameselect.hungergames.small.title=HG [small]
+gameselect.hungergames.small.info=A small little hunger games arena with automatic countdown and automatically spawning chests. Above it players can select their spot.
+
+gameselect.bookparkour.title=Book Parkour
+gameselect.bookparkour.info=Another parkour build made to look like a bookshelf! Have fun!
+
+gameselect.mazerace.title=Maze Race
+gameselect.mazerace.info=Run around and get lost in a maze of books! Beware of the learning monster!
+
+gameselect.hungergames.large.title=HG [large]
+gameselect.hungergames.large.info=A massive hunger games to play with lots of friends! Includes automatic countdown and automatically spawning chests.
+
+setupselect.title=Building Select
+setupselect.info=Welcome to the war zone building select gui. Select basic warzone stuff here! The height is how far above ground it goes. (some may go below ground)
+
+setupselect.redcastle.title=§4Red Castle
+setupselect.redcastle.info=The castle of the red team. The team of fire! They protect the great fire plains of the north!
+
+setupselect.bluecastle.title=§1Blue Castle
+setupselect.bluecastle.info=The castle of the blue team. The team of water! The people of the great ocean villages!
+
+setupselect.greencastle.title=§2Green Castle
+setupselect.greencastle.info=The castle of the green team. The team of nature! The men of the forest of argarac!
+
+setupselect.yellowcastle.title=§eYellow Castle
+setupselect.yellowcastle.info=The castle of the yellow team. The team of decay! The lone people of the great plains of death!
+
+setupselect.dome.title=Glass Dome
+setupselect.dome.info=Spawns a massive glass dome around the map! The dome has a radius of 50 blocks.
+
+setupselect.controltower.title=Control Point
+setupselect.controltower.info=A tower that changes colour when different teams right click their side. Can be used for minigames with friends, but does not have any game controlling functionality.
+
+spleefselect.title=Spleef Select
+spleefselect.info=Welcome to the spleef selection. Select a range of wonderful places to play that game that which we call spleef!
+
+spleef.miners.title=Miners
+spleef.miners.info=The spleef of the deep miners of Minetargok. This is their only source of amusement between 6-18 million year mining trips.
+
+spleef.natural.title=§2Natural
+spleef.natural.info=The people of the forest love to play this scenic spleef arena!
+
+spleef.nether.title=§4Nether
+spleef.nether.info=From the pits of hell demons bet on players playing spleef. The prize: you don't have to stay in the fiery pit of death for more than a million years.
+
+spleef.small= [small]
+spleef.medium= [medium]
+
+teamselect.title=§9Choose Your Team!
+teamselect.howto.1=You can only join the team
+teamselect.howto.2=with the least players in order for balance!
+
+teamselect.red=§4Red (%d)
+teamselect.green=§2Green (%d)
+teamselect.blue=§9Blue (%d)
+teamselect.yellow=§6Yellow (%d)
+
+teamselect.redfull=The Red Team Is Full!
+teamselect.greenfull=The Green Team Is Full!
+teamselect.bluefull=The Blue Team Is Full!
+teamselect.yellowfull=The Yellow Team Is Full!
+
+teamselect.done=Done
+teamselect.refresh=Refresh
+
+killstreak.toggle=Press %s To Toggle
+
+command.edit.rednotset=Red Base Spawn Not Set!
+command.edit.greennotset=Green Base Spawn Not Set!
+command.edit.bluenotset=Blue Base Spawn Not Set!
+command.edit.yellownotset=Yellow Base Spawn Not Set!
+command.edit.chaosnotset=Chaos Spawnpoint Not Set!
+command.edit.setpoints=Ensure that all spawnpoints are set before trying to disable edit mode.
+command.edit.enabled=Enabled edit mode. Players can no longer join teams.
+command.edit.disabled=Disabled edit mode. Players can now join teams.
+
+command.kills.streak=Your current killstreak: %d
+command.kills.kdr=Your kill/death ratio: %1 (%2:%3)
+
+command.setbase.red=Red Team Base set to (%d,%d,%d)
+command.setbase.green=Green Team Base set to (%d,%d,%d)
+command.setbase.blue=Blue Team Base set to (%d,%d,%d)
+command.setbase.yellow=Yellow Team Base set to (%d,%d,%d)
+command.setbase.chaos=Chaos Spawnpoint set to (%d,%d,%d)
+
+command.showkills.notfound=Error 404: Player %s not found. Ensure that it is spelled correctly and that they are online.
+command.showkills.streak=%s's current killstreak: %d
+command.showkills.kdr=%s's kill/death ratio: %2 (%3:%4)
+
+perms.needop=§5§lYou need to be op / have cheats enabled!
+
+teamselected.red=§4§lRed Team Selected!
+teamselected.green=§2§lGreen Team Selected!
+teamselected.blue=§9§lBlue Team Selected!
+teamselected.yellow=§6§lYellow Team Selected!
+teamselected.retry=Team appears to be full. Please try again.
+
+killstreak.announcement=%s §3Now Has §5%d §3Kills
+killstreak.announcement.offscale=%s §3Now Has §5%d §3Kills And Is Off The Scale Now OMG
+
+killstreak.death=%s §3Died With §5%d §3Kills
+
+killstreak.2=§5§lDouble Kill! §2Unlocked Protection
+killstreak.3=§5§lTriple Kill! §2Unlocked Water Breathing
+killstreak.4=§5§lMultiKill! §2Unlocked Jump Boost
+killstreak.5=§5§lLike A Boss!
+killstreak.8=§5§lRunning Riot! §2Unlocked Night Vision
+killstreak.10=§5§lUnBeatable!
+killstreak.12=§5§lKilltacular! §2Unlocked Damage Boost
+killstreak.15=§5§lMass Murder!
+killstreak.20=§5§lWar Crimes! §2Unlocked Protection Lv2
+killstreak.25=§5§lExtinctionist!
+killstreak.30=§5§lGenocide! §2Unlocked Mega Damage Booster
+killstreak.35=§5§lPlanet Crusher!
+
+needteamboots=§3WEAR TEAM BOOTS TO USE CLASS!
+
+key.warsmod.category=Wars Mod
+key.killcounter.desc=Toggle Killstreak HUD

@@ -5,7 +5,7 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import the_fireplace.wars.data.WarsSavedData;
 
 public class CommandSetBase extends CommandBase {
@@ -25,8 +25,6 @@ public class CommandSetBase extends CommandBase {
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
 			WarsSavedData savedData = WarsSavedData.get(player.worldObj);
-
-			String type = " Team Base";
 
 			if(args.length > 0){
 				if(args[0].toLowerCase().equals("red")) {
@@ -49,13 +47,12 @@ public class CommandSetBase extends CommandBase {
 					savedData.teamChaos.baseX = (int) player.posX;
 					savedData.teamChaos.baseY = (int) player.posY;
 					savedData.teamChaos.baseZ = (int) player.posZ;
-					type = " Spawnpoint";
 				}else
 					throw new WrongUsageException(getCommandUsage(sender));
 			}else
 				throw new WrongUsageException(getCommandUsage(sender));
 			savedData.markDirty();
-			player.addChatMessage(new ChatComponentText(String.valueOf(args[0].charAt(0)).toUpperCase() + args[0].substring(1).toLowerCase() + type + " Set To: " + (int)player.posX + ", " + (int)player.posY + ", " + (int)player.posZ));
+			player.addChatMessage(new ChatComponentTranslation("command.setbase."+args[0].toLowerCase(), (int)player.posX, (int)player.posY, (int)player.posZ));
 		}
 	}
 

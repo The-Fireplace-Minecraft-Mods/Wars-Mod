@@ -2,6 +2,7 @@ package the_fireplace.wars.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
@@ -18,9 +19,9 @@ public class GuiSetupSelection extends GuiScreen {
 	public int[] colorsHex = new int[] { 0xFF0000, 0x0000FF, 0x006400, 0x6A5ACD, 0x000000 };
 	public int colorIndex = 0;
 
-	public String title = "Building Select";
+	public String title = I18n.format("setupselect.title");
 
-	public String info = "Welcome to the war zone building select gui. Select basic warzone stuff here! The height is how far above ground it goes. (some may go below ground)";
+	public String info = I18n.format("setupselect.info");
 
 	public String sizeHeight = "";
 	public String sizeArea = "";
@@ -94,13 +95,13 @@ public class GuiSetupSelection extends GuiScreen {
 		int posX = (this.width - xSizeOfTexture) / 2;
 		int posY = (this.height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
-		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(3, posX + 172, posY + 59, 52, 20, "Generate"));
+		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(3, posX + 172, posY + 59, 52, 20, I18n.format("generate")));
 
-		buttonList.add(new GuiButton(4, posX + 23, posY + 126, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(5, posX + 99, posY + 126, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(6, posX + 172, posY + 126, 52, 20, "Generate"));
+		buttonList.add(new GuiButton(4, posX + 23, posY + 126, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(5, posX + 99, posY + 126, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(6, posX + 172, posY + 126, 52, 20, I18n.format("generate")));
 
 		buttonList.add(new GuiButton(7, posX + 63, posY + 22, 12, 12, "i"));
 		buttonList.add(new GuiButton(8, posX + 138, posY + 22, 12, 12, "i"));
@@ -135,39 +136,39 @@ public class GuiSetupSelection extends GuiScreen {
 			break;
 
 		case 7:
-			title = "\u00a74Red Castle";
-			info = "The castle of the red team. The team of fire! They protect the great fire plains of the north!";
-			sizeArea = "Area: " + "23x23";
-			sizeHeight = "Height: " + "26";
+			title = I18n.format("setupselect.redcastle.title");
+			info = I18n.format("setupselect.redcastle.info");
+			sizeArea = I18n.format("sizeArea") + "23x23";
+			sizeHeight = I18n.format("sizeHeight") + "26";
 			break;
 		case 8:
-			title = "\u00a71Blue Castle";
-			info = "The castle of the blue team. The team of water! The people of the great ocean villages!";
-			sizeArea = "Area: " + "23x23";
-			sizeHeight = "Height: " + "26";
+			title = I18n.format("setupselect.bluecastle.title");
+			info = I18n.format("setupselect.bluecastle.info");
+			sizeArea = I18n.format("sizeArea") + "23x23";
+			sizeHeight = I18n.format("sizeHeight") + "26";
 			break;
 		case 9:
-			title = "\u00a72Green Castle";
-			info = "The castle of the red team. The team of nature! The men of the forest of argarac!";
-			sizeArea = "Area: " + "23x23";
-			sizeHeight = "Height: " + "26";
+			title = I18n.format("setupselect.greencastle.title");
+			info = I18n.format("setupselect.greencastle.info");
+			sizeArea = I18n.format("sizeArea") + "23x23";
+			sizeHeight = I18n.format("sizeHeight") + "26";
 			break;
 		case 10:
-			title = "\u00a7eYellow Castle";
-			info = "The castle of the red team. The team of decay! The lone people of the great plains of death!";
-			sizeArea = "Area: " + "23x23";
-			sizeHeight = "Height: " + "26";
+			title = I18n.format("setupselect.yellowcastle.title");
+			info = I18n.format("setupselect.yellowcastle.info");
+			sizeArea = I18n.format("sizeArea") + "23x23";
+			sizeHeight = I18n.format("sizeHeight") + "26";
 			break;
 		case 11:
-			title = "Glass Dome";
-			info = "Spawns a massive glass dome around the map! The dome has a radius of 50.";
+			title = I18n.format("setupselect.dome.title");
+			info = I18n.format("setupselect.dome.info");
 			sizeArea = "";
 			sizeHeight = "";
 			break;
 		case 12:
-			title = "Control Tower";
-			info = "A tower that changes colour when different teams right click their side. Can be used for minigames with friends, but does not have any game controlling functionality.";
-			sizeArea = "Area: " + "3x3";
+			title = I18n.format("setupselect.controltower.title");
+			info = I18n.format("setupselect.controltower.info");
+			sizeArea = I18n.format("sizeArea") + "3x3";
 			sizeHeight = "";
 			break;
 		}

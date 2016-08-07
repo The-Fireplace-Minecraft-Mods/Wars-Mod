@@ -2,35 +2,14 @@ package the_fireplace.wars.handlers;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import the_fireplace.wars.worldgen.structure.basic.GenBlueCastle;
-import the_fireplace.wars.worldgen.structure.basic.GenControlTower;
-import the_fireplace.wars.worldgen.structure.basic.GenGlassDome;
-import the_fireplace.wars.worldgen.structure.basic.GenGreenCastle;
-import the_fireplace.wars.worldgen.structure.basic.GenRedCastle;
-import the_fireplace.wars.worldgen.structure.basic.GenYellowCastle;
-import the_fireplace.wars.worldgen.structure.building.GenArcherTower;
-import the_fireplace.wars.worldgen.structure.building.GenBlacksmith;
-import the_fireplace.wars.worldgen.structure.building.GenGuardHut;
-import the_fireplace.wars.worldgen.structure.building.GenKnightHut;
-import the_fireplace.wars.worldgen.structure.building.GenWindmill;
-import the_fireplace.wars.worldgen.structure.building.GenWizardTower;
-import the_fireplace.wars.worldgen.structure.games.GenBookshelf;
-import the_fireplace.wars.worldgen.structure.games.GenChestParkour;
-import the_fireplace.wars.worldgen.structure.games.GenHgLarge;
-import the_fireplace.wars.worldgen.structure.games.GenHgSmall;
-import the_fireplace.wars.worldgen.structure.games.GenMazerace;
-import the_fireplace.wars.worldgen.structure.games.GenSkyblock;
-import the_fireplace.wars.worldgen.structure.spleef.GenMinersSpleefMedium;
-import the_fireplace.wars.worldgen.structure.spleef.GenMinersSpleefSmall;
-import the_fireplace.wars.worldgen.structure.spleef.GenNaturalSpleefMedium;
-import the_fireplace.wars.worldgen.structure.spleef.GenNaturalSpleefSmall;
-import the_fireplace.wars.worldgen.structure.spleef.GenNetherSpleefMedium;
-import the_fireplace.wars.worldgen.structure.spleef.GenNetherSpleefSmall;
+import the_fireplace.wars.worldgen.structure.basic.*;
+import the_fireplace.wars.worldgen.structure.building.*;
+import the_fireplace.wars.worldgen.structure.games.*;
+import the_fireplace.wars.worldgen.structure.spleef.*;
 
 public class StructureSpawning {
-
 
 	//handles what structure should be spawned based on what packet was received. There are 6 structure per GUI over 4 GUI's
 	public StructureSpawning(EntityPlayer player, int type, int structure, int i, int j, int k) {
@@ -51,7 +30,6 @@ public class StructureSpawning {
 					case 2:
 						new GenBlueCastle(player, i, j, k);
 						break;
-
 					case 3:
 						new GenGreenCastle(player, i, j, k);
 						break;
@@ -67,7 +45,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new ChatComponentText("\u00a75\u00a7lYou need to be op / have cheats enabled!"));
+					player.addChatMessage(new ChatComponentTranslation("perms.needop"));
 				}
 			}
 
@@ -101,8 +79,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-
-					player.addChatMessage(new ChatComponentText("\u00a75\u00a7lYou need to be op / have cheats enabled!"));
+					player.addChatMessage(new ChatComponentTranslation("perms.needop"));
 				}
 			}
 
@@ -138,8 +115,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-
-					player.addChatMessage(new ChatComponentText("\u00a75\u00a7lYou need to be op / have cheats enabled!"));
+					player.addChatMessage(new ChatComponentTranslation("perms.needop"));
 				}
 			}
 			break;
@@ -173,8 +149,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-
-					player.addChatMessage(new ChatComponentText("\u00a75\u00a7lYou need to be op / have cheats enabled!"));
+					player.addChatMessage(new ChatComponentTranslation("perms.needop"));
 				}
 			}
 			break;

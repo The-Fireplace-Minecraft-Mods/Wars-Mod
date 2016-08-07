@@ -7,7 +7,6 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 import the_fireplace.wars.client.gui.*;
 
 public class GuiHandler implements IGuiHandler {
-	// returns an instance of the Container you made earlier
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
 		return null;
@@ -15,8 +14,6 @@ public class GuiHandler implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-		System.out.println("Gui called: "+id);
-
 		switch (id) {
 		case 1:
 			return new GuiClassSelect(player);

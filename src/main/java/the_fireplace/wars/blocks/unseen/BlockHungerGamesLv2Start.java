@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import the_fireplace.wars.tileentities.TileEntityHungerGamesLv2;
@@ -43,8 +43,8 @@ public class BlockHungerGamesLv2Start extends Block {
 		}
 		te.tickCount = 0;
 		te.shouldTick = true;
-
-		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a79HUNGER GAMES MEDIUM STARTING IN 1 MINUTE"));
+		//TODO: This should be the same method of sending a message that the HungerGames Lv1 is
+		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("hungergames.medium.start"));
 
 		return false;
 	}

@@ -12,14 +12,8 @@ public final class WarsClassesTab extends CreativeTabs {
 	}
 
 	@Override
-    public String getTranslatedTabLabel() {
-		return "Wars Mod Classes";
-	}
-
-	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem() {
-		
 		return WarsItems.knightSword;
 	}
 }

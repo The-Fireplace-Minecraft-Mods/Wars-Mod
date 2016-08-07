@@ -27,7 +27,7 @@ public class BlockPlayerTNT extends BlockTNT {
     {
         if (!worldIn.isRemote)
         {
-            if ((Boolean)state.getValue(EXPLODE))
+            if (state.getValue(EXPLODE))
             {
                 EntityPTNTPrimed entitytntprimed = new EntityPTNTPrimed(worldIn, (double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), igniter);
                 worldIn.spawnEntityInWorld(entitytntprimed);

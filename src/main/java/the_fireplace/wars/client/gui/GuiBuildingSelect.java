@@ -2,6 +2,7 @@ package the_fireplace.wars.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
@@ -14,9 +15,9 @@ public class GuiBuildingSelect extends GuiScreen {
 	private static final ResourceLocation textureLocation = new ResourceLocation("warsmod:gui/classBuildings.png");
 	private static final ResourceLocation textureLocation2 = new ResourceLocation("warsmod:gui/infoBox.png");
 
-	public String title = "Building Select";
+	public String title = I18n.format("buildingselect.title");
 
-	public String info = "Select a wide range of buildings to decorate your warzone / map. You are free to use and release these in your own public maps.";
+	public String info = I18n.format("buildingselect.info");
 
 	public String sizeHeight = "";
 	public String sizeArea = "";
@@ -87,13 +88,13 @@ public class GuiBuildingSelect extends GuiScreen {
 		int posX = (this.width - xSizeOfTexture) / 2;
 		int posY = (this.height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
-		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(3, posX + 172, posY + 59, 52, 20, "Generate"));
+		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(3, posX + 172, posY + 59, 52, 20, I18n.format("generate")));
 
-		buttonList.add(new GuiButton(4, posX + 23, posY + 126, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(5, posX + 99, posY + 126, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(6, posX + 172, posY + 126, 52, 20, "Generate"));
+		buttonList.add(new GuiButton(4, posX + 23, posY + 126, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(5, posX + 99, posY + 126, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(6, posX + 172, posY + 126, 52, 20, I18n.format("generate")));
 
 		buttonList.add(new GuiButton(7, posX + 63, posY + 22, 12, 12, "i"));
 		buttonList.add(new GuiButton(8, posX + 138, posY + 22, 12, 12, "i"));
@@ -128,40 +129,40 @@ public class GuiBuildingSelect extends GuiScreen {
 			break;
 
 		case 7:
-			title = "Guard Hut";
-			info = "A small house with a little basement for storage. A nice wideout when being hunted.";
-			sizeArea = "Area: " + "5x5";
-			sizeHeight = "Height: " + "4";
+			title = I18n.format("buildingselect.guardhut.title");
+			info = I18n.format("buildingselect.guardhut.info");
+			sizeArea = I18n.format("sizeArea") + "5x5";
+			sizeHeight = I18n.format("sizeHeight") + "4";
 			break;
 		case 8:
-			title = "Knight Hut";
-			info = "A lovely home for the rich knights. They can just go home and chill, leaving everyone else fighting to the death.";
-			sizeArea = "Area: " + "9x9";
-			sizeHeight = "Height: " + "6";
+			title = I18n.format("buildingselect.knighthut.title");
+			info = I18n.format("buildingselect.knighthut.info");
+			sizeArea = I18n.format("sizeArea") + "9x9";
+			sizeHeight = I18n.format("sizeHeight") + "6";
 			break;
 		case 9:
-			title = "Archer Tower";
-			info = "From the heavens archers can rain arrows on their foes!";
-			sizeArea = "Area: " + "11x11";
-			sizeHeight = "Height: " + "22";
+			title = I18n.format("buildingselect.archertower.title");
+			info = I18n.format("buildingselect.archertower.info");
+			sizeArea = I18n.format("sizeArea") + "11x11";
+			sizeHeight = I18n.format("sizeHeight") + "22";
 			break;
 		case 10:
-			title = "Wizard Tower";
-			info = "A well protected place for wizards. Comes bonus with a enchanting table for all your wizarding needs!";
-			sizeArea = "Area: " + "10x10";
-			sizeHeight = "Height: " + "13";
+			title = I18n.format("buildingselect.wizaardtower.title");
+			info = I18n.format("buildingselect.wizardtower.info");
+			sizeArea = I18n.format("sizeArea") + "10x10";
+			sizeHeight = I18n.format("sizeHeight") + "13";
 			break;
 		case 11:
-			title = "Blacksmith";
-			info = "'Ye! I makest yee epic swords!' The blacksith fuels the wars!";
-			sizeArea = "Area: " + "14x14";
-			sizeHeight = "Height: " + "13";
+			title = I18n.format("buildingselect.blacksmith.title");
+			info = I18n.format("buildingselect.blacksmith.info");
+			sizeArea = I18n.format("sizeArea") + "14x14";
+			sizeHeight = I18n.format("sizeHeight") + "13";
 			break;
 		case 12:
-			title = "Windmill";
-			info = "A massive windmill to make lovely wheat! Shame the propeller broke :(";
-			sizeArea = "Area: " + "18x18";
-			sizeHeight = "Height: " + "27";
+			title = I18n.format("buildingselect.windmill.title");
+			info = I18n.format("buildingselect.windmill.info");
+			sizeArea = I18n.format("sizeArea") + "18x18";
+			sizeHeight = I18n.format("sizeHeight") + "27";
 			break;
 		}
 

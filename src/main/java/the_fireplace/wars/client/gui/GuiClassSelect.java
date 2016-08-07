@@ -7,13 +7,14 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import the_fireplace.wars.client.ClientProxy;
-import the_fireplace.wars.network.packets.PacketClassSelected;
 import the_fireplace.wars.network.PacketDispatcher;
+import the_fireplace.wars.network.packets.PacketClassSelected;
 
 public class GuiClassSelect extends GuiScreen {
 
@@ -23,7 +24,7 @@ public class GuiClassSelect extends GuiScreen {
 	public int[] colorsHex = new int[] { 0xFF0000, 0x0000FF, 0x006400, 0x6A5ACD, 0x000000 };
 	public int colorIndex = 0;
 
-	public String talkTo = "Be In Survival When Using This GUI!";
+	public String talkTo = I18n.format("classselect.survival");
 
 	public GuiClassSelect(EntityPlayer player) {
 
@@ -97,13 +98,13 @@ public class GuiClassSelect extends GuiScreen {
 		int posX = (this.width - xSizeOfTexture) / 2;
 		int posY = (this.height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
-		buttonList.add(new GuiButton(1, posX + 24, posY + 54, 52, 12, "Guard"));
-		buttonList.add(new GuiButton(2, posX + 100, posY + 54, 52, 12, "Knight"));
-		buttonList.add(new GuiButton(3, posX + 173, posY + 54, 52, 12, "Healer"));
+		buttonList.add(new GuiButton(1, posX + 24, posY + 54, 52, 12, I18n.format("class.guard")));
+		buttonList.add(new GuiButton(2, posX + 100, posY + 54, 52, 12, I18n.format("class.knight")));
+		buttonList.add(new GuiButton(3, posX + 173, posY + 54, 52, 12, I18n.format("class.healer")));
 
-		buttonList.add(new GuiButton(4, posX + 24, posY + 121, 52, 12, "Scout"));
-		buttonList.add(new GuiButton(5, posX + 100, posY + 121, 52, 12, "Archer"));
-		buttonList.add(new GuiButton(6, posX + 173, posY + 121, 52, 12, "Technician"));
+		buttonList.add(new GuiButton(4, posX + 24, posY + 121, 52, 12, I18n.format("class.scout")));
+		buttonList.add(new GuiButton(5, posX + 100, posY + 121, 52, 12, I18n.format("class.archer")));
+		buttonList.add(new GuiButton(6, posX + 173, posY + 121, 52, 12, I18n.format("class.tech")));
 
 	}
 
@@ -147,63 +148,65 @@ public class GuiClassSelect extends GuiScreen {
         GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
     }
 
+    //TODO: Donators can access all classes
+
 	@Override
     protected void actionPerformed(GuiButton guibutton) {
-     	int currentKills = ClientProxy.totalKills;
+     	int currentKills = ClientProxy.totalKills;//TODO: Call from either local variable or the proxy. Not both.
 
 		switch (guibutton.id) {
 		case 1:
 			colorIndex = 2;
-			talkTo = "Guard Selected";
+			talkTo = I18n.format("classselect.selected", I18n.format("class.guard"));
 
 			break;
 		case 2:
 			if (currentKills > 24) {
 				colorIndex = 2;
-				talkTo = "Knight Selected";
+				talkTo = I18n.format("classselect.selected", I18n.format("class.knight"));
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (25 - ClientProxy.totalKills) + " More Needed)";
+				talkTo = I18n.format("classselect.notenoughkills", 25 - ClientProxy.totalKills);
 			}
 			break;
 		case 3:
 			if (currentKills > 49) {
 				colorIndex = 2;
-				talkTo = "Healer Selected";
+				talkTo = I18n.format("classselect.selected", I18n.format("class.healer"));
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (50 - ClientProxy.totalKills) + " More Needed)";
+				talkTo = I18n.format("classselect.notenoughkills", 50 - ClientProxy.totalKills);
 			}
 			break;
 		case 4:
 			if (currentKills > 99) {
 				colorIndex = 2;
-				talkTo = "Scout Selected";
+				talkTo = I18n.format("classselect.selected", I18n.format("class.scout"));
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (100 - ClientProxy.totalKills) + " More Needed)";
+				talkTo = I18n.format("classselect.notenoughkills", 100 - ClientProxy.totalKills);
 			}
 			break;
 		case 5:
 			if (currentKills > 199) {
 				colorIndex = 2;
-				talkTo = "Archer Selected";
+				talkTo = I18n.format("classselect.selected", I18n.format("class.archer"));
 
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (200 - ClientProxy.totalKills) + " More Needed)";
+				talkTo = I18n.format("classselect.notenoughkills", 200 - ClientProxy.totalKills);
 			}
 			break;
 		case 6:
 			if (currentKills > 399) {
 				colorIndex = 2;
-				talkTo = "Technician Selected";
+				talkTo = I18n.format("classselect.selected", I18n.format("class.tech"));
 			} else {
 				colorIndex = 0;
-				talkTo = "Not Enough Kills!" + " (" + (400 - ClientProxy.totalKills) + " More Needed)";
+				talkTo = I18n.format("classselect.notenoughkills", 400 - ClientProxy.totalKills);
 			}
 			break;
 		}

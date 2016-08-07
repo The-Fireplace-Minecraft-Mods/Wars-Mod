@@ -2,6 +2,7 @@ package the_fireplace.wars.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
@@ -18,9 +19,9 @@ public class GuiGameSelect extends GuiScreen {
 	public int[] colorsHex = new int[] { 0xFF0000, 0x0000FF, 0x006400, 0x6A5ACD, 0x000000 };
 	public int colorIndex = 0;
 
-	public String title = "Minigame Select";
+	public String title = I18n.format("gameselect.title");
 
-	public String info = "Select from fun minigames to play with friends!";
+	public String info = I18n.format("gameselect.info");
 
 	public String sizeHeight = "";
 	public String sizeArea = "";
@@ -101,13 +102,13 @@ public class GuiGameSelect extends GuiScreen {
 		int posX = (this.width - xSizeOfTexture) / 2;
 		int posY = (this.height - ySizeOfTexture) / 2;
 		// id, x, y, width, height, text
-		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(3, posX + 172, posY + 59, 52, 20, "Generate"));
+		buttonList.add(new GuiButton(1, posX + 23, posY + 59, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(2, posX + 99, posY + 59, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(3, posX + 172, posY + 59, 52, 20, I18n.format("generate")));
 
-		buttonList.add(new GuiButton(4, posX + 23, posY + 126, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(5, posX + 99, posY + 126, 52, 20, "Generate"));
-		buttonList.add(new GuiButton(6, posX + 172, posY + 126, 52, 20, "Generate"));
+		buttonList.add(new GuiButton(4, posX + 23, posY + 126, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(5, posX + 99, posY + 126, 52, 20, I18n.format("generate")));
+		buttonList.add(new GuiButton(6, posX + 172, posY + 126, 52, 20, I18n.format("generate")));
 
 		buttonList.add(new GuiButton(7, posX + 63, posY + 22, 12, 12, "i"));
 		buttonList.add(new GuiButton(8, posX + 138, posY + 22, 12, 12, "i"));
@@ -142,40 +143,40 @@ public class GuiGameSelect extends GuiScreen {
 			break;
 
 		case 7:
-			title = "Chest Parkour";
-			info = "A very nice little parkour in the shape of a chest.";
-			sizeArea = "Area: " + "14x14";
-			sizeHeight = "Height: " + "14";
+			title = I18n.format("gameselect.chestparkour.title");
+			info = I18n.format("gameselect.chestparkour.info");
+			sizeArea = I18n.format("sizeArea") + "14x14";
+			sizeHeight = I18n.format("sizeHeight") + "14";
 			break;
 		case 8:
-			title = "Instant Skyblock";
-			info = "Creates a skyblock way up high in the air and spawns will all the items from the original skyblock. (use to boats given to climb water elevator)";
-			sizeArea = "Area: " + "18x18";
-			sizeHeight = "Height: " + "84";
+			title = I18n.format("gameselect.skyblock.title");
+			info = I18n.format("gameselect.skyblock.info");
+			sizeArea = I18n.format("sizeArea") + "18x18";
+			sizeHeight = I18n.format("sizeHeight") + "84";
 			break;
 		case 9:
-			title = "HG [small]";
-			info = "A small little hunger games arena with automatic countdown and automatically spawning chests. Above it players can select their spot.";
-			sizeArea = "Area: " + "18x18";
-			sizeHeight = "Height: " + "23";
+			title = I18n.format("gameselect.hungergames.small.title");
+			info = I18n.format("gameselect.hungergames.small.info");
+			sizeArea = I18n.format("sizeArea") + "18x18";
+			sizeHeight = I18n.format("sizeHeight") + "23";
 			break;
 		case 10:
-			title = "Book Parkour";
-			info = "Another parkour build made to look like a bookshelf! Have fun!";
-			sizeArea = "Area: " + "16x16";
-			sizeHeight = "Height: " + "16";
+			title = I18n.format("gameselect.bookparkour.title");
+			info = I18n.format("gameselect.bookparkour.info");
+			sizeArea = I18n.format("sizeArea") + "16x16";
+			sizeHeight = I18n.format("sizeHeight") + "16";
 			break;
 		case 11:
-			title = "Maze Race";
-			info = "Run around and get lost in a maze of books! Beware of the learning monster!";
-			sizeArea = "Area: " + "14x14";
-			sizeHeight = "Height: " + "13";
+			title = I18n.format("gameselect.mazerace.title");
+			info = I18n.format("gameselect.mazerace.info");
+			sizeArea = I18n.format("sizeArea") + "14x14";
+			sizeHeight = I18n.format("sizeHeight") + "13";
 			break;
 		case 12:
-			title = "HG [large]";
-			info = "A massive hunger games to play with lots of friends! Includes automatic countdown and automatically spawning chests.";
-			sizeArea = "Area: " + "38x38";
-			sizeHeight = "Height: " + "34";
+			title = I18n.format("gameselect.hungergames.large.title");
+			info = I18n.format("gameselect.hungergames.large.info");
+			sizeArea = I18n.format("sizeArea") + "38x38";
+			sizeHeight = I18n.format("sizeHeight") + "34";
 			break;
 		}
 

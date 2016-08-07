@@ -7,7 +7,7 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 
 public class CommandShowKills extends CommandBase {
 
@@ -33,7 +33,7 @@ public class CommandShowKills extends CommandBase {
 			}
 		}
 		if(player == null){
-			sender.addChatMessage(new ChatComponentText("Player "+ args[0] +" not found. Ensure that it is spelled correctly and that they are online."));
+			sender.addChatMessage(new ChatComponentTranslation("command.showkills.notfound", args[0]));
 			return;
 		}
 
@@ -45,8 +45,8 @@ public class CommandShowKills extends CommandBase {
 			kdr = totalKills / deaths;
 		else
 			kdr = totalKills;
-		sender.addChatMessage(new ChatComponentText(player.getDisplayNameString() + "'s current killstreak: " + killstreak));
-		sender.addChatMessage(new ChatComponentText(player.getDisplayNameString() + "'s kill/death ratio: " + kdr + " (" + totalKills + ":" + deaths + ")"));
+		sender.addChatMessage(new ChatComponentTranslation("command.showkills.streak", player.getDisplayNameString(), killstreak));
+		sender.addChatMessage(new ChatComponentTranslation("command.showkills.kdr", player.getDisplayNameString(), kdr, totalKills, deaths));
 	}
 
 	@Override

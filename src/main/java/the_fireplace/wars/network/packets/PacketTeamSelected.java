@@ -31,7 +31,7 @@ public class PacketTeamSelected implements IMessage {
         @Override
         public IMessage handleServerMessage(EntityPlayer player, PacketTeamSelected message, MessageContext ctx) {
             System.out.println(String.format("Received %s from %s", message.teamSelected, player.getDisplayName().getUnformattedText()));
-			
+
             new TeamSelected(player, message.teamSelected);
             
             return null; // no response in this case
