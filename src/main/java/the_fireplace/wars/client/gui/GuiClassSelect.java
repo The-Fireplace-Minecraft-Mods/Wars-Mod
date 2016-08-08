@@ -212,7 +212,7 @@ public class GuiClassSelect extends GuiScreen {
 		}
 
 		if(guibutton.id > 0 && guibutton.id < 7){
-			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, 1));
+			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, false));
 		}
 	}
 

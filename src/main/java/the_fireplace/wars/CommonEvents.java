@@ -255,22 +255,22 @@ public class CommonEvents {
 	@SubscribeEvent
 	public void tickEvent(TickEvent.PlayerTickEvent event) {
 		EntityPlayer player = event.player;
-		if (ItemArmorMod.fullEquiped(player, WarsItems.knightArmor)) {
+		if (ItemArmorMod.hasFullSuit(player, WarsItems.knightArmor)) {
 			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 10, 0));
-		} else if (ItemArmorMod.fullEquiped(player, WarsItems.scoutArmor)) {
+		} else if (ItemArmorMod.hasFullSuit(player, WarsItems.scoutArmor)) {
 			ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities, 0.15F, 6);
 			player.fallDistance = 0;
 			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 10, 1));
 		}
 
-		else if (ItemArmorMod.fullEquiped(player, WarsItems.chaosArmor)) {
+		else if (ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
 
 			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 10, 0));
 
 		}
 
-		if (ItemArmorMod.fullEquiped(player, WarsItems.archerArmor) || ItemArmorMod.fullEquiped(player, WarsItems.techArmor) || ItemArmorMod.fullEquiped(player, WarsItems.chaosArmor) || ItemArmorMod.fullEquiped(player, WarsItems.knightArmor) || ItemArmorMod.fullEquiped(player, WarsItems.healerArmor)
-				|| ItemArmorMod.fullEquiped(player, WarsItems.guardArmor) || ItemArmorMod.fullEquiped(player, WarsItems.scoutArmor)) {
+		if (ItemArmorMod.hasFullSuit(player, WarsItems.archerArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.techArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.knightArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.healerArmor)
+				|| ItemArmorMod.hasFullSuit(player, WarsItems.guardArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.scoutArmor)) {
 			ItemStack boots = player.inventory.armorItemInSlot(0);
 			if (!(boots != null)) {
 				Random random = new Random();

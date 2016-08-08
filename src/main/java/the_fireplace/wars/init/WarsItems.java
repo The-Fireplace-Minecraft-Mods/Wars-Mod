@@ -80,6 +80,7 @@ public abstract class WarsItems {
 	public static Item aWandLight;
 	public static Item chaosBoots;
 	public static Item antidote;
+	public static Item enderWand;
 
 	public static void createItems() {
 
@@ -136,6 +137,7 @@ public abstract class WarsItems {
 		aWandWeb = new ItemAdminWandWeb().setUnlocalizedName("aWandWeb");
 		aWandLight = new ItemAdminWandLight().setUnlocalizedName("aWandLight");
 		antidote = new ItemAntidote().setUnlocalizedName("antidote");
+		enderWand = new ItemEnderWand().setUnlocalizedName("enderWand");
 
 		GameRegistry.registerItem(ancientGem, "ancientGem");
 		GameRegistry.registerItem(ancientEmblem, "ancientEmblem");
@@ -189,6 +191,7 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(chaosBoots, "chaosBoots");
 		GameRegistry.registerItem(antidote, "antidote");
 		GameRegistry.registerItem(bowArcher, "ArcherBow");
+		GameRegistry.registerItem(enderWand, "enderWand");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -233,6 +236,7 @@ public abstract class WarsItems {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(greenBoots, 0, new ModelResourceLocation("warsmod:greenBoots", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(yellowBoots, 0, new ModelResourceLocation("warsmod:yellowBoots", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(blueBoots, 0, new ModelResourceLocation("warsmod:blueBoots", "inventory"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(enderWand, 0, new ModelResourceLocation("warsmod:enderWand", "inventory"));
 
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(waterGem, 0, new ModelResourceLocation("warsmod:waterGem", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(fireGem, 0, new ModelResourceLocation("warsmod:fireGem", "inventory"));

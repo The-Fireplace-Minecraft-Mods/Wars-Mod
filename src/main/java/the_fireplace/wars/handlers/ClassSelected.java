@@ -134,8 +134,8 @@ public class ClassSelected {
 				player.inventory.setInventorySlotContents(2, itemstack29);
 
 				((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
-
 			}
+			break;
 		default:
 			break;
 		}

@@ -48,7 +48,7 @@ public class ItemChaosSword extends Item {
 			if (cooldown <= 0) {
 				if (WarsMod.getDonators().contains(par3EntityPlayer.getName())) {
 
-					if (par3EntityPlayer instanceof EntityPlayerMP && ItemArmorMod.fullEquiped(par3EntityPlayer, WarsItems.chaosArmor)) {
+					if (par3EntityPlayer instanceof EntityPlayerMP && ItemArmorMod.hasFullSuit(par3EntityPlayer, WarsItems.chaosArmor)) {
 
 						par3EntityPlayer.setItemInUse(par1ItemStack, getMaxItemUseDuration(par1ItemStack));
 
@@ -73,7 +73,7 @@ public class ItemChaosSword extends Item {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
-		if (player instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(player, WarsItems.chaosArmor)) {
+		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
 			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Chaos Armour (which you must put on in survival)"));
 
 			stack.stackSize = 0;

@@ -35,7 +35,7 @@ public class ItemScoutsDagger extends Item {
 	@Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
-		if (player instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(player, WarsItems.scoutArmor)) {
+		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.scoutArmor)) {
 			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Scout Armour (which you must put on in survival)"));
 			stack.stackSize = 0;
 		}

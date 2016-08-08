@@ -11,14 +11,14 @@ import the_fireplace.wars.handlers.DonatorClassSelected;
 public class PacketClassSelected implements IMessage {
 
 	private int classSelected;
-	private int donator;
+	private boolean donator;
 
 	private String separator = "n";
 
 	public PacketClassSelected() {
 	}
 
-	public PacketClassSelected(int classSelected, int donator) {
+	public PacketClassSelected(int classSelected, boolean donator) {
 		this.classSelected = classSelected;
 		this.donator = donator;
 	}
@@ -29,7 +29,7 @@ public class PacketClassSelected implements IMessage {
 		String[] values = basic.split(separator);
 
 		classSelected = Integer.parseInt(values[0]);
-		donator = Integer.parseInt(values[1]);
+		donator = Boolean.parseBoolean(values[1]);
 	}
 
 	@Override
@@ -46,10 +46,10 @@ public class PacketClassSelected implements IMessage {
 		public IMessage handleServerMessage(EntityPlayer player, PacketClassSelected message, MessageContext ctx) {
 			System.out.println(String.format("Received %s from %s", message.classSelected, player.getDisplayName().getUnformattedText()));
 
-			if (message.donator == 1) {
+			if (!message.donator) {
 				new ClassSelected(player, message.classSelected);
 			} else {
-				new DonatorClassSelected(player);
+				new DonatorClassSelected(player, message.classSelected);
 			}
 
 			return null; // no response in this case

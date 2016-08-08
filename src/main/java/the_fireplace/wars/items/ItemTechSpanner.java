@@ -35,7 +35,7 @@ public class ItemTechSpanner extends Item {
 	@Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
-		if (player instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(player, WarsItems.techArmor)) {
+		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.techArmor)) {
 			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Tech Armour (which you must put on in survival)"));
 			stack.stackSize = 0;
 		}

@@ -92,7 +92,7 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 		if (getArmorMaterial() == WarsItems.scoutArmor) {
 			return new ArmorProperties(0, 0, 0);
 		} else if (getArmorMaterial() == WarsItems.archerArmor) {
-			if (entity instanceof EntityPlayer && fullEquiped((EntityPlayer) entity, getArmorMaterial()) && slot == 0) {
+			if (entity instanceof EntityPlayer && hasFullSuit((EntityPlayer) entity, getArmorMaterial()) && slot == 0) {
 				return new ArmorProperties(0, 1, (int) (damage / 2) * 25);
 			} else {
 				return new ArmorProperties(0, 0, 0);
@@ -120,7 +120,7 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 		return null;
 	}
 
-	public static boolean fullEquiped(EntityPlayer player, ArmorMaterial material) {
+	public static boolean hasFullSuit(EntityPlayer player, ArmorMaterial material) {
 		return player != null && player.inventory != null && material != null && player.inventory.getStackInSlot(39) != null && player.inventory.getStackInSlot(39).getItem() instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(39).getItem()).getArmorMaterial() == material && player.inventory.getStackInSlot(37) != null
 				&& player.inventory.getStackInSlot(37).getItem() instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(37).getItem()).getArmorMaterial() == material && player.inventory.getStackInSlot(38) != null && player.inventory.getStackInSlot(38).getItem() instanceof ItemArmorMod && ((ItemArmorMod) player.inventory.getStackInSlot(38).getItem()).getArmorMaterial() == material;
 
@@ -128,7 +128,7 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
 	@Override
 	public int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot) {
-		if (fullEquiped(player, this.getArmorMaterial()) && slot == 0) {
+		if (hasFullSuit(player, this.getArmorMaterial()) && slot == 0) {
 			return 20;
 		} else {
 			return 0;

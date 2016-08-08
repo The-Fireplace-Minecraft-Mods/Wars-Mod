@@ -34,7 +34,7 @@ public class ItemWizardStaff extends Item {
 
 	@Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		if (player instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(player, WarsItems.healerArmor)) {
+		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.healerArmor)) {
 			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Healer Armour (which you must put on in survival)"));
 			stack.stackSize = 0;
 

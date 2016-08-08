@@ -102,6 +102,7 @@ item.aWandStone.name=Admin Wand - Stone Thrower
 item.aWandWeb.name=Admin Wand - Web Thrower
 item.aWandLight.name=Admin Wand - Smiting
 item.antidote.name=Antidote
+item.enderWand.name=Teleportation Staff
 
 itemGroup.tabWarsBlocks=Wars Mod Blocks
 itemGroup.tabWarsItems=Wars Mod Items
@@ -143,7 +144,7 @@ class.archer=Archer
 class.tech=Technician
 class.chaoswarrior=ChaosWarrior
 class.enderknight=EnderKnight
-class.rogue=RogueNinja
+class.ninja=Ninja
 
 classselect.survival=Be In Survival When Using This GUI!
 classselect.donations=Donations Can Take Some Time To Process!

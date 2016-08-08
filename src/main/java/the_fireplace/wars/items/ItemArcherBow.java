@@ -34,7 +34,7 @@ public class ItemArcherBow extends ItemBow {
 			return event.result;
 		}
 
-		if (par3EntityPlayer instanceof EntityPlayerMP && !ItemArmorMod.fullEquiped(par3EntityPlayer, WarsItems.archerArmor)) {
+		if (par3EntityPlayer instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(par3EntityPlayer, WarsItems.archerArmor)) {
 			par3EntityPlayer.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Archer Armor (which you must put on in survival)"));
 
 		} else if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Items.arrow)) {

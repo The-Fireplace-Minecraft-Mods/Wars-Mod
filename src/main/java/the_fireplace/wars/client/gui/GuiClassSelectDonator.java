@@ -44,9 +44,6 @@ public class GuiClassSelectDonator extends GuiScreen {
 	public final int xSizeOfTexture = 250;
 	public final int ySizeOfTexture = 165;
 
-	public final int xSizeOfTexture2 = 256;
-	public final int ySizeOfTexture2 = 256;
-
 	@Override
 	public void drawScreen(int x, int y, float f) {
 		drawDefaultBackground();
@@ -82,7 +79,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 		// id, x, y, width, height, text
 		buttonList.add(new GuiButton(1, posX + 15, posY + 90, 70, 12, I18n.format("class.chaoswarrior")));
 		buttonList.add(new GuiButton(2, posX + 100, posY + 90, 52, 12, I18n.format("class.enderknight")));
-		buttonList.add(new GuiButton(3, posX + 173, posY + 90, 52, 12, I18n.format("class.rogue")));
+		buttonList.add(new GuiButton(3, posX + 173, posY + 90, 52, 12, I18n.format("class.ninja")));
 
 		buttonList.add(new GuiButton(4, posX + 195, posY + 3, 50, 20, I18n.format("classselect.donate")));
 
@@ -131,7 +128,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 
 	@Override
-    protected void actionPerformed(GuiButton guibutton) {//TODO: Add the other 2 donator classes
+    protected void actionPerformed(GuiButton guibutton) {
 		boolean flag = false;
 		switch (guibutton.id) {
 		case 1:
@@ -146,15 +143,25 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 			break;
 		case 2:
-
-			colorIndex = 1;
-			talkTo = "Coming Soon!";
+			if (WarsMod.getDonators().contains(this.mc.thePlayer.getName())) {
+				colorIndex = 3;
+				talkTo = I18n.format("classselect.selected", I18n.format("class.enderknight"));
+				flag = true;
+			} else {
+				colorIndex = 0;
+				talkTo = I18n.format("classselect.needtodonate");
+			}
 
 			break;
 		case 3:
-
-			colorIndex = 1;
-			talkTo = "Coming Soon!";
+			if (WarsMod.getDonators().contains(this.mc.thePlayer.getName())) {
+				colorIndex = 1;
+				talkTo = I18n.format("classselect.selected", I18n.format("class.ninja"));
+				flag = true;
+			} else {
+				colorIndex = 0;
+				talkTo = I18n.format("classselect.needtodonate");
+			}
 
 			break;
 
@@ -167,8 +174,8 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 		}
 
-		if(guibutton.id > 0 && guibutton.id < 2 && flag){
-			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, 0));
+		if(guibutton.id > 0 && guibutton.id < 4 && flag){
+			PacketDispatcher.sendToServer(new PacketClassSelected(guibutton.id, true));
 		}
 	}
 }
