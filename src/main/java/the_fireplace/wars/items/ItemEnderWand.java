@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
@@ -21,13 +21,11 @@ import java.util.Random;
  * @author The_Fireplace
  */
 public class ItemEnderWand extends Item {
-    private float weaponDamage;
     public ItemEnderWand() {
         super();
         this.setCreativeTab(WarsMod.tabWarsClasses);
         this.setMaxStackSize(1);
         this.setMaxDamage(300);
-        this.weaponDamage = 1F;
         setFull3D();
     }
 
@@ -43,8 +41,24 @@ public class ItemEnderWand extends Item {
             player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Chaos Armor (which you must put on in survival)"));
             stack.stackSize = 0;
         }
-        Vec3 look = player.getLookVec();
-        teleportTo(look.xCoord, look.yCoord, look.zCoord, player);
+        MovingObjectPosition result = player.rayTrace(20, 1F);
+        int x = result.getBlockPos().getX();
+        int y = result.getBlockPos().getY();
+        int z = result.getBlockPos().getZ();
+        if(!teleportTo(x, y, z, player)){
+            if(player.posX > x)
+                if(teleportTo(x+2, y, z, player))
+                    return stack;
+            if(player.posX < x)
+                if(teleportTo(x-2, y, z, player))
+                    return stack;
+            if(player.posZ > z)
+                if(teleportTo(x, y, z+2, player))
+                    return stack;
+            if(player.posZ < z)
+                if(teleportTo(x, y, z-2, player))
+                    return stack;
+        }
         return stack;
     }
 
@@ -91,6 +105,18 @@ public class ItemEnderWand extends Item {
                 if (player.worldObj.getCollidingBoundingBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.isAnyLiquid(player.getEntityBoundingBox()))
                 {
                     flag = true;
+                }else{
+                    player.setPositionAndUpdate(player.posX, player.posY+1, player.posZ);
+                    if (player.worldObj.getCollidingBoundingBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.isAnyLiquid(player.getEntityBoundingBox()))
+                    {
+                        flag = true;
+                    }else{
+                        player.setPositionAndUpdate(player.posX, player.posY+2, player.posZ);
+                        if (player.worldObj.getCollidingBoundingBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.isAnyLiquid(player.getEntityBoundingBox()))
+                        {
+                            flag = true;
+                        }
+                    }
                 }
             }
         }
