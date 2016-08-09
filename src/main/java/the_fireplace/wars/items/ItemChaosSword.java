@@ -11,7 +11,7 @@ import net.minecraft.entity.projectile.EntityWitherSkull;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
@@ -61,10 +61,10 @@ public class ItemChaosSword extends Item {
 						par2World.spawnEntityInWorld(fireball2);
 						cooldown = 40;
 					}
+				} else {
+					par3EntityPlayer.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
+					return null;
 				}
-			} else if (!WarsMod.getDonators().contains(par3EntityPlayer.getName())) {
-				par3EntityPlayer.addChatMessage(new ChatComponentText("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com"));
-
 			}
 		}
 		return par1ItemStack;
@@ -74,14 +74,13 @@ public class ItemChaosSword extends Item {
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
 		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
-			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Chaos Armour (which you must put on in survival)"));
-
-			stack.stackSize = 0;
-		}
-
-		else if (!WarsMod.getDonators().contains(player.getName())) {
-			stack.stackSize = 0;
-			player.addChatMessage(new ChatComponentText("\u00a73Donater Only Class! \u00a72Donate ($10+) @ http://adf.ly/I46Wv and email your username to resinresinl@gmail.com"));
+			player.addChatMessage(new ChatComponentTranslation("nocheat.chaos"));
+			stack.stackSize=0;
+			return false;
+		} else if (!WarsMod.getDonators().contains(player.getName())) {
+			player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
+			stack.stackSize=0;
+			return false;
 		}
 
 		return false;

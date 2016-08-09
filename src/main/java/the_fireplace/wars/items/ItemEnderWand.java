@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -38,8 +38,11 @@ public class ItemEnderWand extends Item {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
-            player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Chaos Armor (which you must put on in survival)"));
-            stack.stackSize = 0;
+            player.addChatMessage(new ChatComponentTranslation("nocheat.ender"));
+            return null;
+        } else if (!WarsMod.getDonators().contains(player.getName())) {
+            player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
+            return null;
         }
         MovingObjectPosition result = player.rayTrace(20, 1F);
         int x = result.getBlockPos().getX();

@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
@@ -34,17 +34,16 @@ public class ItemScoutsDagger extends Item {
 
 	@Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-
 		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.scoutArmor)) {
-			player.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Scout Armour (which you must put on in survival)"));
+			player.addChatMessage(new ChatComponentTranslation("nocheat.scout"));
 			stack.stackSize = 0;
+			return false;
 		}
 		return false;
 	}
 
 	@Override
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLiving, EntityLivingBase par3EntityLiving) {
-
 		par2EntityLiving.addPotionEffect(new PotionEffect(Potion.blindness.id, 10 * 20, 6));
 		par1ItemStack.damageItem(1, par3EntityLiving);
 		return true;

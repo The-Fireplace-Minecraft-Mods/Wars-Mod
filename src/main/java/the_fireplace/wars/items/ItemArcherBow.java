@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
@@ -35,8 +35,8 @@ public class ItemArcherBow extends ItemBow {
 		}
 
 		if (par3EntityPlayer instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(par3EntityPlayer, WarsItems.archerArmor)) {
-			par3EntityPlayer.addChatMessage(new ChatComponentText("\u00a74DONT CHEAT! \u00a72Wear The Archer Armor (which you must put on in survival)"));
-
+			par3EntityPlayer.addChatMessage(new ChatComponentTranslation("nocheat.archer"));
+			return null;
 		} else if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Items.arrow)) {
 			par3EntityPlayer.setItemInUse(par1ItemStack, getMaxItemUseDuration(par1ItemStack));
 		}

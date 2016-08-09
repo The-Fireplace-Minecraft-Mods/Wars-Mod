@@ -281,3 +281,14 @@ needteamboots=§3WEAR TEAM BOOTS TO USE CLASS!
 
 key.warsmod.category=Wars Mod
 key.killcounter.desc=Toggle Killstreak HUD
+
+nocheat.archer=§4DONT CHEAT! §2Wear The Archer Armor
+nocheat.chaos=§4DONT CHEAT! §2Wear The Chaos Warrior Armor
+nocheat.ender=§4DONT CHEAT! §2Wear The Ender Knight Armor
+nocheat.guard=§4DONT CHEAT! §2Wear The Guard Armor
+nocheat.knight=§4DONT CHEAT! §2Wear The Knight Armor
+nocheat.scout=§4DONT CHEAT! §2Wear The Scout Armor
+nocheat.tech=§4DONT CHEAT! §2Wear The Tech Armor
+nocheat.healer=§4DONT CHEAT! §2Wear The Healer Armor
+
+class.donatoronly=§3Donater Only Class! §2Donate ($5+) @ [TODO new link] and email your username to the.f1repl4ce@gmail.com
