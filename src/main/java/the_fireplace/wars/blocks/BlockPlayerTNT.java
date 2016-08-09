@@ -3,10 +3,14 @@ package the_fireplace.wars.blocks;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import the_fireplace.wars.entities.EntityPTNTPrimed;
+import the_fireplace.wars.init.WarsItems;
 
 /**
  * @author The_Fireplace
@@ -34,5 +38,23 @@ public class BlockPlayerTNT extends BlockTNT {
                 worldIn.playSoundAtEntity(entitytntprimed, "game.tnt.primed", 1.0F, 1.0F);
             }
         }
+    }
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
+        if (playerIn.getCurrentEquippedItem() != null)
+        {
+            Item item = playerIn.getCurrentEquippedItem().getItem();
+
+            if (item == WarsItems.techSpanner)
+            {
+                this.explode(worldIn, pos, state.withProperty(EXPLODE, true), playerIn);
+                worldIn.setBlockToAir(pos);
+
+                return true;
+            }
+        }
+
+        return super.onBlockActivated(worldIn, pos, state, playerIn, side, hitX, hitY, hitZ);
     }
 }
