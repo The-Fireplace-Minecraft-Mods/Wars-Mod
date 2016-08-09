@@ -11,7 +11,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.blocks.*;
 import the_fireplace.wars.blocks.unseen.*;
-import the_fireplace.wars.items.ItemPTNTBlock;
 
 public class WarsBlocks {
 	public static Block castleSelector;
@@ -196,7 +195,7 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(bluePlate, "bluePlate");
 		GameRegistry.registerBlock(yellowPlate, "yellowPlate");
 		GameRegistry.registerBlock(greenPlate, "greenPlate");
-		GameRegistry.registerBlock(playerTNT, ItemPTNTBlock.class, "playerTNT");
+		GameRegistry.registerBlock(playerTNT, "playerTNT");
 		GameRegistry.registerBlock(controlBlue, "ControlBlue");
 		GameRegistry.registerBlock(controlYellow, "ControlYellow");
 		GameRegistry.registerBlock(controlRed, "ControlRed");
