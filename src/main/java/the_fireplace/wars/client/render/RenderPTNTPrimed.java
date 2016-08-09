@@ -2,12 +2,13 @@ package the_fireplace.wars.client.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 import the_fireplace.wars.entities.EntityPTNTPrimed;
 import the_fireplace.wars.init.WarsBlocks;
 
@@ -21,52 +22,48 @@ public class RenderPTNTPrimed extends Render {
         this.shadowSize = 0.5F;
     }
 
-    public void doRender(EntityPTNTPrimed entity, double x, double y, double z, float p_76986_8_, float partialTicks)
+    public void doRender(EntityPTNTPrimed entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         BlockRendererDispatcher blockRenderer = Minecraft.getMinecraft().getBlockRendererDispatcher();
-        GL11.glPushMatrix();
-        GL11.glTranslatef((float)x, (float)y, (float)z);
-        float f2;
+        GlStateManager.pushMatrix();
+        GlStateManager.translate((float)x, (float)y + 0.5F, (float)z);
 
         if ((float)entity.fuse - partialTicks + 1.0F < 10.0F)
         {
-            f2 = 1.0F - ((float)entity.fuse - partialTicks + 1.0F) / 10.0F;
-
-            if (f2 < 0.0F)
-            {
-                f2 = 0.0F;
-            }
-
-            if (f2 > 1.0F)
-            {
-                f2 = 1.0F;
-            }
-
-            f2 *= f2;
-            f2 *= f2;
-            float f3 = 1.0F + f2 * 0.3F;
-            GL11.glScalef(f3, f3, f3);
+            float f = 1.0F - ((float)entity.fuse - partialTicks + 1.0F) / 10.0F;
+            f = MathHelper.clamp_float(f, 0.0F, 1.0F);
+            f = f * f;
+            f = f * f;
+            float f1 = 1.0F + f * 0.3F;
+            GlStateManager.scale(f1, f1, f1);
         }
 
-        f2 = (1.0F - ((float)entity.fuse - partialTicks + 1.0F) / 100.0F) * 0.8F;
+        float f2 = (1.0F - ((float)entity.fuse - partialTicks + 1.0F) / 100.0F) * 0.8F;
         this.bindEntityTexture(entity);
+        GlStateManager.translate(-0.5F, -0.5F, 0.5F);
         blockRenderer.renderBlockBrightness(WarsBlocks.playerTNT.getDefaultState(), entity.getBrightness(partialTicks));
+        GlStateManager.translate(0.0F, 0.0F, 1.0F);
 
         if (entity.fuse / 5 % 2 == 0)
         {
-            GL11.glDisable(GL11.GL_TEXTURE_2D);
-            GL11.glDisable(GL11.GL_LIGHTING);
-            GL11.glEnable(GL11.GL_BLEND);
-            GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_DST_ALPHA);
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, f2);
+            GlStateManager.disableTexture2D();
+            GlStateManager.disableLighting();
+            GlStateManager.enableBlend();
+            GlStateManager.blendFunc(770, 772);
+            GlStateManager.color(1.0F, 1.0F, 1.0F, f2);
+            GlStateManager.doPolygonOffset(-3.0F, -3.0F);
+            GlStateManager.enablePolygonOffset();
             blockRenderer.renderBlockBrightness(WarsBlocks.playerTNT.getDefaultState(), 1.0F);
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-            GL11.glDisable(GL11.GL_BLEND);
-            GL11.glEnable(GL11.GL_LIGHTING);
-            GL11.glEnable(GL11.GL_TEXTURE_2D);
+            GlStateManager.doPolygonOffset(0.0F, 0.0F);
+            GlStateManager.disablePolygonOffset();
+            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+            GlStateManager.disableBlend();
+            GlStateManager.enableLighting();
+            GlStateManager.enableTexture2D();
         }
 
-        GL11.glPopMatrix();
+        GlStateManager.popMatrix();
+        super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 
     @Override
@@ -76,8 +73,8 @@ public class RenderPTNTPrimed extends Render {
     }
 
     @Override
-    public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float partialTicks)
+    public void doRender(Entity entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
-        this.doRender((EntityPTNTPrimed) entity, x, y, z, p_76986_8_, partialTicks);
+        this.doRender((EntityPTNTPrimed) entity, x, y, z, entityYaw, partialTicks);
     }
 }
