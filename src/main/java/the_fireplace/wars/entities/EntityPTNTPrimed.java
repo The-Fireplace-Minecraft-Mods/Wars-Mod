@@ -14,7 +14,6 @@ import java.util.List;
 public class EntityPTNTPrimed extends Entity {
 	/** How long the fuse is */
 	public int fuse;
-	private final int fuseID = 31;
 
 	public EntityPTNTPrimed(World par1World) {
 		super(par1World);
@@ -39,8 +38,7 @@ public class EntityPTNTPrimed extends Entity {
 
 	@Override
 	protected void entityInit() {
-		if(!worldObj.isRemote)
-			this.dataWatcher.addObject(fuseID, Integer.valueOf(fuse));
+		this.dataWatcher.addObject(31, new Integer(fuse));
 	}
 
 	/**
@@ -66,14 +64,8 @@ public class EntityPTNTPrimed extends Entity {
 	 */
 	@Override
 	public void onUpdate() {
-		if(!worldObj.isRemote)
-			dataWatcher.updateObject(fuseID, Integer.valueOf(fuse));
-		else
-			try {
-				fuse = dataWatcher.getWatchableObjectInt(fuseID);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
+		dataWatcher.updateObject(31, Integer.valueOf(fuse));
+		fuse = dataWatcher.getWatchableObjectInt(31);
 		prevPosX = posX;
 		prevPosY = posY;
 		prevPosZ = posZ;
