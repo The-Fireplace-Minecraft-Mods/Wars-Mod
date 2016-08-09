@@ -193,7 +193,7 @@ setupselect.dome.title=Glass Dome
 setupselect.dome.info=Spawns a massive glass dome around the map! The dome has a radius of 50 blocks.
 
 setupselect.controltower.title=Control Point
-setupselect.controltower.info=A tower that changes colour when different teams right click their side. Can be used for minigames with friends, but does not have any game controlling functionality.
+setupselect.controltower.info=A tower that changes color when different teams right click their side. Can be used for minigames with friends, but does not have any game controlling functionality.
 
 spleefselect.title=Spleef Select
 spleefselect.info=Welcome to the spleef selection. Select a range of wonderful places to play that game that which we call spleef!
