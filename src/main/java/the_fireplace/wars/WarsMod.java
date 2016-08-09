@@ -59,6 +59,7 @@ public class WarsMod {
 		WarsItems.createItems();
 		PacketDispatcher.registerPackets();
 		donators = downloadDonators();
+		proxy.registerRenderInformation();
 	}
 
 	@EventHandler
@@ -74,8 +75,6 @@ public class WarsMod {
 
 		int eid = -1;
 		EntityRegistry.registerModEntity(EntityPTNTPrimed.class, "PTNTPrimed", ++eid, instance, 16, 1, false);
-
-		proxy.registerRenderInformation();
 	}
 
 	@EventHandler
