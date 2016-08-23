@@ -2,7 +2,6 @@ package the_fireplace.wars.init;
 
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -24,9 +23,8 @@ public abstract class WarsItems {
 	public static ArmorMaterial techArmor = EnumHelper.addArmorMaterial("TECH", "warsmod_tech", -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial bootsArmor = EnumHelper.addArmorMaterial("BOOT", "warsmod_", -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial readArmor = EnumHelper.addArmorMaterial("READ", "warsmod_", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", "warsmod_chaos", -1, new int[] { 0, 0, 0, 0 }, 30);
-
-	public static ToolMaterial healTool = EnumHelper.addToolMaterial("HEALT", 0, 0, 0F, 0, 0);
+	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", "warsmod_chaos", -1, new int[] { 0, 0, 0, 0 }, 20);
+	public static ArmorMaterial enderArmor = EnumHelper.addArmorMaterial("ENDER", "warsmod_ender", -1, new int[] { 0, 0, 0, 0 }, 30);
 
 	public static Item ancientGem;
 	public static Item ancientEmblem;
@@ -65,6 +63,9 @@ public abstract class WarsItems {
 	public static Item chaosHelm;
 	public static Item chaosPlate;
 	public static Item chaosLegs;
+	public static Item enderHelm;
+	public static Item enderPlate;
+	public static Item enderLegs;
 	public static Item redBoots;
 	public static Item greenBoots;
 	public static Item yellowBoots;
@@ -122,6 +123,9 @@ public abstract class WarsItems {
 		chaosHelm = new ItemArmorMod(chaosArmor, 0).setUnlocalizedName("chaosHelm").setCreativeTab(WarsMod.tabWarsClasses);
 		chaosPlate = new ItemArmorMod(chaosArmor, 1).setUnlocalizedName("chaosChest").setCreativeTab(WarsMod.tabWarsClasses);
 		chaosLegs = new ItemArmorMod(chaosArmor, 2).setUnlocalizedName("chaosLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		enderHelm = new ItemArmorMod(enderArmor, 0).setUnlocalizedName("enderHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		enderPlate = new ItemArmorMod(enderArmor, 1).setUnlocalizedName("enderChest").setCreativeTab(WarsMod.tabWarsClasses);
+		enderLegs = new ItemArmorMod(enderArmor, 2).setUnlocalizedName("enderLegs").setCreativeTab(WarsMod.tabWarsClasses);
 		redBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("redBoots").setCreativeTab(WarsMod.tabWarsClasses);
 		greenBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("greenBoots").setCreativeTab(WarsMod.tabWarsClasses);
 		yellowBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("yellowBoots").setCreativeTab(WarsMod.tabWarsClasses);
@@ -175,6 +179,9 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(chaosHelm, "chaosHelm");
 		GameRegistry.registerItem(chaosPlate, "chaosPlate");
 		GameRegistry.registerItem(chaosLegs, "chaosLegs");
+		GameRegistry.registerItem(enderHelm, "enderHelm");
+		GameRegistry.registerItem(enderPlate, "enderPlate");
+		GameRegistry.registerItem(enderLegs, "enderLegs");
 		GameRegistry.registerItem(redBoots, "redBoots");
 		GameRegistry.registerItem(greenBoots, "greenBoots");
 		GameRegistry.registerItem(yellowBoots, "yellowBoots");
@@ -232,6 +239,9 @@ public abstract class WarsItems {
 		ModelLoader.setCustomModelResourceLocation(chaosHelm, 0, new ModelResourceLocation("warsmod:chaosHelm", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(chaosPlate, 0, new ModelResourceLocation("warsmod:chaosPlate", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(chaosLegs, 0, new ModelResourceLocation("warsmod:chaosLegs", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(enderHelm, 0, new ModelResourceLocation("warsmod:enderHelm", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(enderPlate, 0, new ModelResourceLocation("warsmod:enderPlate", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(enderLegs, 0, new ModelResourceLocation("warsmod:enderLegs", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(redBoots, 0, new ModelResourceLocation("warsmod:redBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(greenBoots, 0, new ModelResourceLocation("warsmod:greenBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(yellowBoots, 0, new ModelResourceLocation("warsmod:yellowBoots", "inventory"));

@@ -67,6 +67,12 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 		if (stack.getItem() == WarsItems.chaosLegs) {
 			return "warsmod:armor/warsmod_chaos_2.png";
 		}
+		if (stack.getItem() == WarsItems.enderHelm || stack.getItem() == WarsItems.enderPlate) {
+			return "warsmod:armor/warsmod_ender_1.png";
+		}
+		if (stack.getItem() == WarsItems.enderLegs) {
+			return "warsmod:armor/warsmod_ender_2.png";
+		}
 
 		if (stack.getItem() == WarsItems.blueBoots) {
 			return "warsmod:armor/warsmod_blue_1.png";
@@ -97,23 +103,19 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 			} else {
 				return new ArmorProperties(0, 0, 0);
 			}
-
 		} else if (getArmorMaterial() == WarsItems.guardArmor) {
 			return new ArmorProperties(0, 0, 0);
-
 		} else if (getArmorMaterial() == WarsItems.knightArmor) {
 			return new ArmorProperties(0, 0, 0);
-
 		} else if (getArmorMaterial() == WarsItems.healerArmor) {
 			return new ArmorProperties(0, 0, 0);
-
 		} else if (getArmorMaterial() == WarsItems.bootsArmor) {
 			return new ArmorProperties(0, 0, 0);
-
 		} else if (getArmorMaterial() == WarsItems.techArmor) {
 			return new ArmorProperties(0, 0, 0);
-
 		} else if (getArmorMaterial() == WarsItems.chaosArmor) {
+			return new ArmorProperties(0, 0, 0);
+		} else if (getArmorMaterial() == WarsItems.enderArmor) {
 			return new ArmorProperties(0, 0, 0);
 		}
 
