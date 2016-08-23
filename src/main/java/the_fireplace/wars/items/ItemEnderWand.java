@@ -39,10 +39,10 @@ public class ItemEnderWand extends Item {
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
             player.addChatMessage(new ChatComponentTranslation("nocheat.ender"));
-            return null;
+            return stack;
         } else if (!WarsMod.getDonators().contains(player.getName())) {
             player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
-            return null;
+            return stack;
         }
         MovingObjectPosition result = player.rayTrace(20, 1F);
         int x = result.getBlockPos().getX();
