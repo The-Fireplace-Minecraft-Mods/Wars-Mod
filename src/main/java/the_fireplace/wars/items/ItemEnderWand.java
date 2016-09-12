@@ -1,9 +1,7 @@
 package the_fireplace.wars.items;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
@@ -13,7 +11,6 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
-import the_fireplace.wars.init.WarsItems;
 
 import java.util.Random;
 
@@ -25,22 +22,12 @@ public class ItemEnderWand extends Item {
         super();
         this.setCreativeTab(WarsMod.tabWarsClasses);
         this.setMaxStackSize(1);
-        this.setMaxDamage(300);
         setFull3D();
     }
 
     @Override
-    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLiving, EntityLivingBase par3EntityLiving) {
-        par1ItemStack.damageItem(1, par3EntityLiving);
-        return true;
-    }
-
-    @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
-            player.addChatMessage(new ChatComponentTranslation("nocheat.ender"));
-            return stack;
-        } else if (!WarsMod.getDonators().contains(player.getName())) {
+        if (!WarsMod.getDonators().contains(player.getName())) {
             player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
             return stack;
         }

@@ -7,17 +7,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
-import the_fireplace.wars.init.WarsItems;
 
 public class ItemKnightSword extends Item {
 
@@ -34,11 +31,6 @@ public class ItemKnightSword extends Item {
     
 	@Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.knightArmor)) {
-			player.addChatMessage(new ChatComponentTranslation("nocheat.knight"));
-			stack.stackSize = 0;
-			return false;
-		}
 		return false;
 	}
 

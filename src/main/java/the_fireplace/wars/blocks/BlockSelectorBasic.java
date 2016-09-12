@@ -4,26 +4,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.init.WarsItems;
-
-import java.util.Random;
 
 public class BlockSelectorBasic extends Block {
 
 	public BlockSelectorBasic() {
 		super(Material.iron);
 		setCreativeTab(WarsMod.tabWarsBlocks);
-	}
-
-	@Override
-	public Item getItemDropped(IBlockState state, Random random, int j) {
-		return WarsItems.ancientGem;
 	}
 
 	@Override

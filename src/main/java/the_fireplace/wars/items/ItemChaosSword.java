@@ -26,7 +26,6 @@ public class ItemChaosSword extends Item {
 		super();
 		setCreativeTab(WarsMod.tabWarsClasses);
 		setMaxStackSize(1);
-		setMaxDamage(300);
 		weaponDamage = 3F;
 		setFull3D();
 	}
@@ -43,8 +42,6 @@ public class ItemChaosSword extends Item {
 		par3EntityPlayer.setItemInUse(par1ItemStack, getMaxItemUseDuration(par1ItemStack));
 
 		if (!par2World.isRemote) {
-
-
 			if (cooldown <= 0) {
 				if (WarsMod.getDonators().contains(par3EntityPlayer.getName())) {
 
@@ -63,7 +60,7 @@ public class ItemChaosSword extends Item {
 					}
 				} else {
 					par3EntityPlayer.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
-					return null;
+					return par1ItemStack;
 				}
 			}
 		}
@@ -73,13 +70,8 @@ public class ItemChaosSword extends Item {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
-		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
-			player.addChatMessage(new ChatComponentTranslation("nocheat.chaos"));
-			stack.stackSize=0;
-			return false;
-		} else if (!WarsMod.getDonators().contains(player.getName())) {
+		if (!WarsMod.getDonators().contains(player.getName())) {
 			player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
-			stack.stackSize=0;
 			return false;
 		}
 

@@ -64,8 +64,6 @@ public class WarsMod {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		CraftingRecipes.registerRecipes();
-		WarsDungeonChests.doDungeonChestHooks();
 		WarsTileEntities.createTileEntities();
 		MinecraftForge.EVENT_BUS.register(new CommonEvents());
 

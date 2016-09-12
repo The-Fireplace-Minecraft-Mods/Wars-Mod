@@ -14,7 +14,6 @@ import the_fireplace.wars.items.*;
 
 public abstract class WarsItems {
 
-
 	public static ArmorMaterial scoutArmor = EnumHelper.addArmorMaterial("SCOUT", "warsmod_scout", -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial guardArmor = EnumHelper.addArmorMaterial("GUARD", "warsmod_guard", -1, new int[] { 2, 6, 5, 2 }, 9);
 	public static ArmorMaterial healerArmor = EnumHelper.addArmorMaterial("HEALER", "warsmod_healer", -1, new int[] { 0, 0, 0, 0 }, 30);
@@ -22,12 +21,9 @@ public abstract class WarsItems {
 	public static ArmorMaterial knightArmor = EnumHelper.addArmorMaterial("KNIGHT", "warsmod_knight", -1, new int[] { 4, 9, 7, 4 }, 10);
 	public static ArmorMaterial techArmor = EnumHelper.addArmorMaterial("TECH", "warsmod_tech", -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial bootsArmor = EnumHelper.addArmorMaterial("BOOT", "warsmod_", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial readArmor = EnumHelper.addArmorMaterial("READ", "warsmod_", -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", "warsmod_chaos", -1, new int[] { 0, 0, 0, 0 }, 20);
 	public static ArmorMaterial enderArmor = EnumHelper.addArmorMaterial("ENDER", "warsmod_ender", -1, new int[] { 0, 0, 0, 0 }, 30);
 
-	public static Item ancientGem;
-	public static Item ancientEmblem;
 	public static Item magicPotato;
 	public static Item shadowFlesh;
 	public static Item warCheese;
@@ -70,10 +66,6 @@ public abstract class WarsItems {
 	public static Item greenBoots;
 	public static Item yellowBoots;
 	public static Item blueBoots;
-	public static Item waterGem;
-	public static Item fireGem;
-	public static Item decayGem;
-	public static Item naturalGem;
 	public static Item aWandTNT;
 	public static Item aWandBall;
 	public static Item aWandStone;
@@ -84,10 +76,6 @@ public abstract class WarsItems {
 	public static Item enderWand;
 
 	public static void createItems() {
-
-
-		ancientGem = new ItemAncientGem().setUnlocalizedName("ancientGem");
-		ancientEmblem = new ItemAncientEmblem().setUnlocalizedName("ancientEmblem").setCreativeTab(WarsMod.tabWarsItems);
 		magicPotato = new ItemMagicPotato(3).setUnlocalizedName("magicPotato").setCreativeTab(WarsMod.tabWarsItems);
 		shadowFlesh = new ItemShadowFlesh(3).setUnlocalizedName("shadowFlesh").setCreativeTab(WarsMod.tabWarsItems);
 		warCheese = new ItemWarCheese(3).setUnlocalizedName("warCheese").setCreativeTab(WarsMod.tabWarsItems);
@@ -131,10 +119,6 @@ public abstract class WarsItems {
 		yellowBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("yellowBoots").setCreativeTab(WarsMod.tabWarsClasses);
 		blueBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("blueBoots").setCreativeTab(WarsMod.tabWarsClasses);
 		chaosBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("chaosBoots").setCreativeTab(WarsMod.tabWarsClasses);
-		waterGem = new ItemWaterGem().setUnlocalizedName("waterGem");
-		fireGem = new ItemFireGem().setUnlocalizedName("fireGem");
-		decayGem = new ItemDecayGem().setUnlocalizedName("decayGem");
-		naturalGem = new ItemNaturalGem().setUnlocalizedName("naturalGem");
 		aWandTNT = new ItemAdminWandTNT().setUnlocalizedName("aWandTNT");
 		aWandBall = new ItemAdminWandBall().setUnlocalizedName("aWandBall");
 		aWandStone = new ItemAdminWandStone().setUnlocalizedName("aWandStone");
@@ -143,8 +127,6 @@ public abstract class WarsItems {
 		antidote = new ItemAntidote().setUnlocalizedName("antidote");
 		enderWand = new ItemEnderWand().setUnlocalizedName("enderWand");
 
-		GameRegistry.registerItem(ancientGem, "ancientGem");
-		GameRegistry.registerItem(ancientEmblem, "ancientEmblem");
 		GameRegistry.registerItem(magicPotato, "magicPotato");
 		GameRegistry.registerItem(shadowFlesh, "shadowFlesh");
 		GameRegistry.registerItem(warCheese, "warCheese");
@@ -186,10 +168,6 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(greenBoots, "greenBoots");
 		GameRegistry.registerItem(yellowBoots, "yellowBoots");
 		GameRegistry.registerItem(blueBoots, "blueBoots");
-		GameRegistry.registerItem(waterGem, "waterGem");
-		GameRegistry.registerItem(fireGem, "fireGem");
-		GameRegistry.registerItem(decayGem, "decayGem");
-		GameRegistry.registerItem(naturalGem, "naturalGem");
 		GameRegistry.registerItem(aWandTNT, "aWandTNT");
 		GameRegistry.registerItem(aWandBall, "aWandBall");
 		GameRegistry.registerItem(aWandStone, "aWandStone");
@@ -203,8 +181,6 @@ public abstract class WarsItems {
 
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders() {
-		ModelLoader.setCustomModelResourceLocation(ancientGem, 0, new ModelResourceLocation("warsmod:ancientGem", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(ancientEmblem, 0, new ModelResourceLocation("warsmod:ancientEmblem", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(magicPotato, 0, new ModelResourceLocation("warsmod:magicPotato", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(shadowFlesh, 0, new ModelResourceLocation("warsmod:shadowFlesh", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(warCheese, 0, new ModelResourceLocation("warsmod:warCheese", "inventory"));
@@ -248,11 +224,6 @@ public abstract class WarsItems {
 		ModelLoader.setCustomModelResourceLocation(blueBoots, 0, new ModelResourceLocation("warsmod:blueBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(enderWand, 0, new ModelResourceLocation("warsmod:enderWand", "inventory"));
 
-		ModelLoader.setCustomModelResourceLocation(waterGem, 0, new ModelResourceLocation("warsmod:waterGem", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(fireGem, 0, new ModelResourceLocation("warsmod:fireGem", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(decayGem, 0, new ModelResourceLocation("warsmod:decayGem", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(naturalGem, 0, new ModelResourceLocation("warsmod:naturalGem", "inventory"));
-
 		ModelLoader.setCustomModelResourceLocation(aWandTNT, 0, new ModelResourceLocation("warsmod:aWandTNT", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(aWandBall, 0, new ModelResourceLocation("warsmod:aWandBall", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(aWandStone, 0, new ModelResourceLocation("warsmod:aWandStone", "inventory"));
@@ -266,7 +237,4 @@ public abstract class WarsItems {
 		ModelLoader.setCustomModelResourceLocation(bowArcher, 2, new ModelResourceLocation("warsmod:archerBow2", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(bowArcher, 3, new ModelResourceLocation("warsmod:archerBow3", "inventory"));
 	}
-
-
-
 }

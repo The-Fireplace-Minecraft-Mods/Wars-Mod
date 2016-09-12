@@ -15,6 +15,6 @@ public final class WarsItemsTab extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem() {
 	
-		return WarsItems.ancientGem;
+		return WarsItems.warCheese;
 	}
 }

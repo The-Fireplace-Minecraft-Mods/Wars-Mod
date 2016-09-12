@@ -31,16 +31,9 @@ public class WarsBlocks {
 	public static Block mSpleefS;
 	public static Block mSpleefM;
 	public static Block spleefSelector;
-	public static Block ancientOre;
-	public static Block deadDirt;
-	public static Block ancientBlock;
 	public static Block presentBox;
 	public static Block spleefStone;
 	public static Block sinkSand;
-	public static Block fireOre;
-	public static Block waterOre;
-	public static Block decayOre;
-	public static Block naturalOre;
 	public static Block bounceBlock;
 	public static Block boostBlock;
 	public static Block sumBlock;
@@ -78,14 +71,7 @@ public class WarsBlocks {
 
 	public static void createBlocks() {
 
-		// Basic Blocks Used in worldgen
-		deadDirt = new BlockDeadDirt().setUnlocalizedName("deadDirt").setHardness(0.5F).setStepSound(Block.soundTypeGrass);
-		ancientOre = new BlockAncientOre().setHardness(3F).setUnlocalizedName("ancientOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		ancientBlock = new BlockAncientBlock().setHardness(5F).setUnlocalizedName("ancientBlock").setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		fireOre = new BlockFireOre().setHardness(3F).setUnlocalizedName("fireOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		waterOre = new BlockWaterOre().setHardness(3F).setUnlocalizedName("waterOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		decayOre = new BlockDecayOre().setHardness(3F).setUnlocalizedName("decayOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		naturalOre = new BlockNaturalOre().setHardness(3F).setUnlocalizedName("naturalOre").setResistance(6000000F).setStepSound(Block.soundTypeStone);
+		// Basic Blocks Used in map building
 		sinkSand = new BlockSinkSand().setUnlocalizedName("sinkSand").setBlockUnbreakable().setHardness(6.9F).setStepSound(Block.soundTypeStone);
 
 		// Utility Blocks
@@ -155,7 +141,6 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(buildingSelector, "buildingSelector");
 		GameRegistry.registerBlock(spleefSelector, "spleefSelector");
 		GameRegistry.registerBlock(castleSelector, "castleSelector");
-		GameRegistry.registerBlock(ancientOre, "ancientOre");
 		GameRegistry.registerBlock(boostBlock, "boostBlock");
 		GameRegistry.registerBlock(bounceBlock, "bounceBlock");
 		GameRegistry.registerBlock(sumBlock, "sumBlock");
@@ -168,21 +153,15 @@ public class WarsBlocks {
 		GameRegistry.registerBlock(insChest2, "insChest2");
 		GameRegistry.registerBlock(insChest4, "insChest4");
 		GameRegistry.registerBlock(bounceBlockLow, "bounceBlockLow");
-		GameRegistry.registerBlock(deadDirt, "deadDirt");
 		GameRegistry.registerBlock(cottage, "cottage");
 		GameRegistry.registerBlock(teleporterBlock, "teleporterBlock");
 		GameRegistry.registerBlock(teleporterBlock2, "teleporterBlock2");
 		GameRegistry.registerBlock(teleporterBlock3, "teleporterBlock3");
 		GameRegistry.registerBlock(teleporterBlock4, "teleporterBlock4");
-		GameRegistry.registerBlock(ancientBlock, "ancientBlock");
 		GameRegistry.registerBlock(presentBox, "presentBox");
 		GameRegistry.registerBlock(spleefStone, "spleefStone");
 		GameRegistry.registerBlock(badBlock, "badBlock");
 		GameRegistry.registerBlock(sinkSand, "sinkSand");
-		GameRegistry.registerBlock(fireOre, "fireOre");
-		GameRegistry.registerBlock(waterOre, "waterOre");
-		GameRegistry.registerBlock(decayOre, "decayOre");
-		GameRegistry.registerBlock(naturalOre, "naturalOre");
 		GameRegistry.registerBlock(classSelect, "classSelect");
 		GameRegistry.registerBlock(classSelectDonator, "classSelectDonator");
 		//GameRegistry.registerBlock(wall, "wallNS");
@@ -204,13 +183,6 @@ public class WarsBlocks {
 
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRenders() {
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(deadDirt), 0, new ModelResourceLocation("warsmod:deadDirt", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ancientOre), 0, new ModelResourceLocation("warsmod:ancientOre", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ancientBlock), 0, new ModelResourceLocation("warsmod:ancientBlock", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(fireOre), 0, new ModelResourceLocation("warsmod:fireOre", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(waterOre), 0, new ModelResourceLocation("warsmod:waterOre", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(decayOre), 0, new ModelResourceLocation("warsmod:decayOre", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(naturalOre), 0, new ModelResourceLocation("warsmod:naturalOre", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(sinkSand), 0, new ModelResourceLocation("warsmod:sinkSand", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(boostBlock), 0, new ModelResourceLocation("warsmod:boostBlock", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(bounceBlock), 0, new ModelResourceLocation("warsmod:bounceBlock", "inventory"));

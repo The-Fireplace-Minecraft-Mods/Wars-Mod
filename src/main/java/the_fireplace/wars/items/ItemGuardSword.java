@@ -6,15 +6,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
-import the_fireplace.wars.init.WarsItems;
 
 public class ItemGuardSword extends Item {
 
@@ -24,18 +21,12 @@ public class ItemGuardSword extends Item {
 		super();
 		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(300);
 		this.weaponDamage = 3F;
 		setFull3D();
 	}
 
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.guardArmor)) {
-			player.addChatMessage(new ChatComponentTranslation("nocheat.guard"));
-			stack.stackSize = 0;
-			return false;
-		}
 		return false;
 	}
 

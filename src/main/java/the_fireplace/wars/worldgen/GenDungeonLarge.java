@@ -1,7 +1,5 @@
 package the_fireplace.wars.worldgen;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -12,7 +10,8 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.init.WarsItems;
+
+import java.util.Random;
 
 public class GenDungeonLarge extends WorldGenerator {
 	public GenDungeonLarge() {
@@ -112,10 +111,6 @@ public class GenDungeonLarge extends WorldGenerator {
 			}
 			if (num == 5) {
 				chest2.setInventorySlotContents(slot, new ItemStack(Items.rotten_flesh));
-
-			}
-			if (num == 6) {
-				chest2.setInventorySlotContents(slot, new ItemStack(WarsItems.ancientGem));
 
 			}
 			if (num == 7) {
