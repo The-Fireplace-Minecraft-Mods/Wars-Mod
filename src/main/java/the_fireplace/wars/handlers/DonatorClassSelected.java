@@ -41,13 +41,13 @@ public class DonatorClassSelected {
 				case 2://Ender Knight
 					Arrays.fill(player.inventory.mainInventory, null);
 
-					ItemStack itemstack8 = new ItemStack(WarsItems.chaosHelm, 1);
+					ItemStack itemstack8 = new ItemStack(WarsItems.enderHelm, 1);
 					player.inventory.armorInventory[3] = itemstack8;
-					ItemStack itemstack9 = new ItemStack(WarsItems.chaosPlate, 1);
+					ItemStack itemstack9 = new ItemStack(WarsItems.enderPlate, 1);
 					player.inventory.armorInventory[2] = itemstack9;
-					ItemStack itemstack10 = new ItemStack(WarsItems.chaosLegs, 1);
+					ItemStack itemstack10 = new ItemStack(WarsItems.enderLegs, 1);
 					player.inventory.armorInventory[1] = itemstack10;
-					ItemStack itemstack11 = new ItemStack(WarsItems.enderWand, 1);
+					ItemStack itemstack11 = new ItemStack(WarsItems.enderSword, 1);
 					player.inventory.setInventorySlotContents(0, itemstack11);
 
 					((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);

@@ -91,7 +91,7 @@ item.redBoots.name=Red Team Boots
 item.greenBoots.name=Green Team Boots
 item.yellowBoots.name=Yellow Team Boots
 item.blueBoots.name=Blue Team Boots
-item.chaosBoots.name=Chaos Warrior Boots
+item.chaosBoots.name=Chaos Boots
 item.waterGem.name=Wateite Gem
 item.fireGem.name=Fireite Gem
 item.decayGem.name=Decanite Gem
@@ -102,7 +102,7 @@ item.aWandStone.name=Admin Wand - Stone Thrower
 item.aWandWeb.name=Admin Wand - Web Thrower
 item.aWandLight.name=Admin Wand - Smiting
 item.antidote.name=Antidote
-item.enderWand.name=Teleportation Staff
+item.enderSword.name=Ender Knight Sword
 
 itemGroup.tabWarsBlocks=Wars Mod Blocks
 itemGroup.tabWarsItems=Wars Mod Items
@@ -281,14 +281,5 @@ needteamboots=§3WEAR TEAM BOOTS TO USE CLASS!
 
 key.warsmod.category=Wars Mod
 key.killcounter.desc=Toggle Killstreak HUD
-
-nocheat.archer=§4DONT CHEAT! §2Wear The Archer Armor
-nocheat.chaos=§4DONT CHEAT! §2Wear The Chaos Warrior Armor
-nocheat.ender=§4DONT CHEAT! §2Wear The Ender Knight Armor
-nocheat.guard=§4DONT CHEAT! §2Wear The Guard Armor
-nocheat.knight=§4DONT CHEAT! §2Wear The Knight Armor
-nocheat.scout=§4DONT CHEAT! §2Wear The Scout Armor
-nocheat.tech=§4DONT CHEAT! §2Wear The Tech Armor
-nocheat.healer=§4DONT CHEAT! §2Wear The Healer Armor
 
 class.donatoronly=§3Donater Only Class! §2Donate ($5+) @ [TODO new link] and email your username to the.f1repl4ce@gmail.com

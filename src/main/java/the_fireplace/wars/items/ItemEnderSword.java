@@ -1,7 +1,13 @@
 package the_fireplace.wars.items;
 
+import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
@@ -11,50 +17,106 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.init.WarsItems;
 
 import java.util.Random;
 
 /**
  * @author The_Fireplace
  */
-public class ItemEnderWand extends Item {
-    public ItemEnderWand() {
+public class ItemEnderSword extends Item {
+
+    private float weaponDamage;
+
+    public ItemEnderSword() {
         super();
         this.setCreativeTab(WarsMod.tabWarsClasses);
         this.setMaxStackSize(1);
+        weaponDamage = 3F;
         setFull3D();
+    }
+
+    int cooldown = 0;
+
+    @Override
+    public void onUpdate(ItemStack par1ItemStak, World par2World, Entity par3Entity, int par4, boolean par5) {
+        cooldown--;
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (!WarsMod.getDonators().contains(player.getName())) {
-            player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
-            return stack;
-        }
-        MovingObjectPosition result = player.rayTrace(20, 1F);
-        int x = result.getBlockPos().getX();
-        int y = result.getBlockPos().getY();
-        int z = result.getBlockPos().getZ();
-        if(!teleportTo(x, y, z, player)){
-            if(player.posX > x)
-                if(teleportTo(x+2, y, z, player))
+        player.setItemInUse(stack, getMaxItemUseDuration(stack));
+
+        if (!world.isRemote) {
+            if (cooldown <= 0) {
+                if (WarsMod.getDonators().contains(player.getName())) {
+
+                    if (player instanceof EntityPlayerMP && ItemArmorMod.hasFullSuit(player, WarsItems.enderArmor)) {
+
+                        player.setItemInUse(stack, getMaxItemUseDuration(stack));
+
+                        MovingObjectPosition result = player.rayTrace(20, 1F);
+                        int x = result.getBlockPos().getX();
+                        int y = result.getBlockPos().getY();
+                        int z = result.getBlockPos().getZ();
+                        if(!teleportTo(x, y, z, player)){
+                            if(player.posX > x)
+                                if(teleportTo(x+2, y, z, player))
+                                    return stack;
+                            if(player.posX < x)
+                                if(teleportTo(x-2, y, z, player))
+                                    return stack;
+                            if(player.posZ > z)
+                                if(teleportTo(x, y, z+2, player))
+                                    return stack;
+                            if(player.posZ < z)
+                                if(teleportTo(x, y, z-2, player))
+                                    return stack;
+                        }
+                        cooldown = 40;
+                    }
+                } else {
+                    player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
                     return stack;
-            if(player.posX < x)
-                if(teleportTo(x-2, y, z, player))
-                    return stack;
-            if(player.posZ > z)
-                if(teleportTo(x, y, z+2, player))
-                    return stack;
-            if(player.posZ < z)
-                if(teleportTo(x, y, z-2, player))
-                    return stack;
+                }
+            }
         }
         return stack;
     }
 
     @Override
+    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
+
+        if (!WarsMod.getDonators().contains(player.getName())) {
+            player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
+            return false;
+        }
+
+        return false;
+    }
+
+    @Override
     public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
         return par2Block != WarsBlocks.sumBlock ? 0.9F : 15F;
+    }
+
+    @Override
+    public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+        return EnumAction.BLOCK;
+    }
+
+    @Override
+    public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+        return 72000;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public Multimap getAttributeModifiers(ItemStack stack)
+    {
+        Multimap multimap = super.getAttributeModifiers(stack);
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", weaponDamage, 0));
+        return multimap;
     }
 
     protected boolean teleportTo(double x, double y, double z, EntityPlayer player)

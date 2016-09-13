@@ -38,33 +38,33 @@ public class ItemChaosSword extends Item {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-		par3EntityPlayer.setItemInUse(par1ItemStack, getMaxItemUseDuration(par1ItemStack));
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		player.setItemInUse(stack, getMaxItemUseDuration(stack));
 
-		if (!par2World.isRemote) {
+		if (!world.isRemote) {
 			if (cooldown <= 0) {
-				if (WarsMod.getDonators().contains(par3EntityPlayer.getName())) {
+				if (WarsMod.getDonators().contains(player.getName())) {
 
-					if (par3EntityPlayer instanceof EntityPlayerMP && ItemArmorMod.hasFullSuit(par3EntityPlayer, WarsItems.chaosArmor)) {
+					if (player instanceof EntityPlayerMP && ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
 
-						par3EntityPlayer.setItemInUse(par1ItemStack, getMaxItemUseDuration(par1ItemStack));
+						player.setItemInUse(stack, getMaxItemUseDuration(stack));
 
-						Vec3 look = par3EntityPlayer.getLookVec();
-						EntityWitherSkull fireball2 = new EntityWitherSkull(par2World, par3EntityPlayer, 1, 1, 1);
-						fireball2.setPosition(par3EntityPlayer.posX + look.xCoord * 1, par3EntityPlayer.posY + look.yCoord * 2, par3EntityPlayer.posZ + look.zCoord * 1);
+						Vec3 look = player.getLookVec();
+						EntityWitherSkull fireball2 = new EntityWitherSkull(world, player, 1, 1, 1);
+						fireball2.setPosition(player.posX + look.xCoord * 1, player.posY + look.yCoord * 2, player.posZ + look.zCoord * 1);
 						fireball2.accelerationX = look.xCoord * 0.1;
 						fireball2.accelerationY = look.yCoord * 0.1;
 						fireball2.accelerationZ = look.zCoord * 0.1;
-						par2World.spawnEntityInWorld(fireball2);
+						world.spawnEntityInWorld(fireball2);
 						cooldown = 40;
 					}
 				} else {
-					par3EntityPlayer.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
-					return par1ItemStack;
+					player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
+					return stack;
 				}
 			}
 		}
-		return par1ItemStack;
+		return stack;
 	}
 
 	@Override

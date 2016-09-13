@@ -73,7 +73,7 @@ public abstract class WarsItems {
 	public static Item aWandLight;
 	public static Item chaosBoots;
 	public static Item antidote;
-	public static Item enderWand;
+	public static Item enderSword;
 
 	public static void createItems() {
 		magicPotato = new ItemMagicPotato(3).setUnlocalizedName("magicPotato").setCreativeTab(WarsMod.tabWarsItems);
@@ -125,7 +125,7 @@ public abstract class WarsItems {
 		aWandWeb = new ItemAdminWandWeb().setUnlocalizedName("aWandWeb");
 		aWandLight = new ItemAdminWandLight().setUnlocalizedName("aWandLight");
 		antidote = new ItemAntidote().setUnlocalizedName("antidote");
-		enderWand = new ItemEnderWand().setUnlocalizedName("enderWand");
+		enderSword = new ItemEnderSword().setUnlocalizedName("enderSword");
 
 		GameRegistry.registerItem(magicPotato, "magicPotato");
 		GameRegistry.registerItem(shadowFlesh, "shadowFlesh");
@@ -176,7 +176,7 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(chaosBoots, "chaosBoots");
 		GameRegistry.registerItem(antidote, "antidote");
 		GameRegistry.registerItem(bowArcher, "ArcherBow");
-		GameRegistry.registerItem(enderWand, "enderWand");
+		GameRegistry.registerItem(enderSword, "enderSword");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -222,7 +222,7 @@ public abstract class WarsItems {
 		ModelLoader.setCustomModelResourceLocation(greenBoots, 0, new ModelResourceLocation("warsmod:greenBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(yellowBoots, 0, new ModelResourceLocation("warsmod:yellowBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(blueBoots, 0, new ModelResourceLocation("warsmod:blueBoots", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(enderWand, 0, new ModelResourceLocation("warsmod:enderWand", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(enderSword, 0, new ModelResourceLocation("warsmod:enderSword", "inventory"));
 
 		ModelLoader.setCustomModelResourceLocation(aWandTNT, 0, new ModelResourceLocation("warsmod:aWandTNT", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(aWandBall, 0, new ModelResourceLocation("warsmod:aWandBall", "inventory"));
