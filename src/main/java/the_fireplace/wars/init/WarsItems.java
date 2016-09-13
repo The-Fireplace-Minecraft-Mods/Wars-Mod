@@ -21,9 +21,9 @@ public abstract class WarsItems {
 	public static ArmorMaterial knightArmor = EnumHelper.addArmorMaterial("KNIGHT", "warsmod_knight", -1, new int[] { 4, 9, 7, 4 }, 10);
 	public static ArmorMaterial techArmor = EnumHelper.addArmorMaterial("TECH", "warsmod_tech", -1, new int[] { 0, 0, 0, 0 }, 30);
 	public static ArmorMaterial bootsArmor = EnumHelper.addArmorMaterial("BOOT", "warsmod_", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", "warsmod_chaos", -1, new int[] { 0, 0, 0, 0 }, 20);
-	public static ArmorMaterial enderArmor = EnumHelper.addArmorMaterial("ENDER", "warsmod_ender", -1, new int[] { 0, 0, 0, 0 }, 30);
-	public static ArmorMaterial ninjaArmor = EnumHelper.addArmorMaterial("NINJA", "warsmod_ninja", -1, new int[] { 0, 0, 0, 0 }, 15);
+	public static ArmorMaterial chaosArmor = EnumHelper.addArmorMaterial("CHAOS", "warsmod_chaos", -1, new int[] { 1, 3, 2, 1 }, 20);
+	public static ArmorMaterial enderArmor = EnumHelper.addArmorMaterial("ENDER", "warsmod_ender", -1, new int[] { 1, 3, 2, 1 }, 30);
+	public static ArmorMaterial ninjaArmor = EnumHelper.addArmorMaterial("NINJA", "warsmod_ninja", -1, new int[] { 1, 3, 2, 1 }, 15);
 
 	public static Item magicPotato;
 	public static Item shadowFlesh;
