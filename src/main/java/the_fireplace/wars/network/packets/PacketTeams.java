@@ -2,7 +2,6 @@ package the_fireplace.wars.network.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import the_fireplace.wars.WarsMod;
@@ -13,8 +12,6 @@ public class PacketTeams implements IMessage {
 	private int greenPlayers;
 	private int bluePlayers;
 	private int yellowPlayers;
-
-    private String separator = "n";
 
     public PacketTeams() { }
 
@@ -27,23 +24,18 @@ public class PacketTeams implements IMessage {
 
     @Override
     public void fromBytes(ByteBuf buf) {
-        String basic = ByteBufUtils.readUTF8String(buf);
-        String[] values = basic.split(separator);
-
-        redPlayers = Integer.parseInt(values[0]);
-        greenPlayers = Integer.parseInt(values[1]);
-        bluePlayers = Integer.parseInt(values[2]);
-        yellowPlayers = Integer.parseInt(values[3]);
+        redPlayers = buf.readInt();
+        greenPlayers = buf.readInt();
+        bluePlayers = buf.readInt();
+        yellowPlayers = buf.readInt();
     }
 
     @Override
     public void toBytes(ByteBuf buf) {
-        String string = String.valueOf(redPlayers)+separator+
-                        String.valueOf(greenPlayers)+separator+
-                        String.valueOf(bluePlayers)+separator+
-                        String.valueOf(yellowPlayers);
-
-        ByteBufUtils.writeUTF8String(buf, string);
+        buf.writeInt(redPlayers);
+        buf.writeInt(greenPlayers);
+        buf.writeInt(bluePlayers);
+        buf.writeInt(yellowPlayers);
     }
 
     public static class Handler extends AbstractClientMessageHandler<PacketTeams> {
