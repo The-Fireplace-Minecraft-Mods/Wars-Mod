@@ -61,13 +61,13 @@ public class DonatorClassSelected {
 				case 3://Ninja
 					Arrays.fill(player.inventory.mainInventory, null);
 
-					ItemStack itemstack12 = new ItemStack(WarsItems.chaosHelm, 1);
+					ItemStack itemstack12 = new ItemStack(WarsItems.ninjaHelm, 1);
 					player.inventory.armorInventory[3] = itemstack12;
-					ItemStack itemstack13 = new ItemStack(WarsItems.chaosPlate, 1);
+					ItemStack itemstack13 = new ItemStack(WarsItems.ninjaPlate, 1);
 					player.inventory.armorInventory[2] = itemstack13;
-					ItemStack itemstack14 = new ItemStack(WarsItems.chaosLegs, 1);
+					ItemStack itemstack14 = new ItemStack(WarsItems.ninjaLegs, 1);
 					player.inventory.armorInventory[1] = itemstack14;
-					ItemStack itemstack15 = new ItemStack(WarsItems.chaosSword, 1);
+					ItemStack itemstack15 = new ItemStack(WarsItems.ninjaSword, 1);
 					player.inventory.setInventorySlotContents(0, itemstack15);
 
 					((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);

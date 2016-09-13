@@ -63,6 +63,9 @@ public abstract class WarsItems {
 	public static Item enderHelm;
 	public static Item enderPlate;
 	public static Item enderLegs;
+	public static Item ninjaHelm;
+	public static Item ninjaPlate;
+	public static Item ninjaLegs;
 	public static Item redBoots;
 	public static Item greenBoots;
 	public static Item yellowBoots;
@@ -75,6 +78,7 @@ public abstract class WarsItems {
 	public static Item chaosBoots;
 	public static Item antidote;
 	public static Item enderSword;
+	public static Item ninjaSword;
 
 	public static void createItems() {
 		magicPotato = new ItemMagicPotato(3).setUnlocalizedName("magicPotato").setCreativeTab(WarsMod.tabWarsItems);
@@ -115,6 +119,9 @@ public abstract class WarsItems {
 		enderHelm = new ItemArmorMod(enderArmor, 0).setUnlocalizedName("enderHelm").setCreativeTab(WarsMod.tabWarsClasses);
 		enderPlate = new ItemArmorMod(enderArmor, 1).setUnlocalizedName("enderChest").setCreativeTab(WarsMod.tabWarsClasses);
 		enderLegs = new ItemArmorMod(enderArmor, 2).setUnlocalizedName("enderLegs").setCreativeTab(WarsMod.tabWarsClasses);
+		ninjaHelm = new ItemArmorMod(ninjaArmor, 0).setUnlocalizedName("ninjaHelm").setCreativeTab(WarsMod.tabWarsClasses);
+		ninjaPlate = new ItemArmorMod(ninjaArmor, 1).setUnlocalizedName("ninjaChest").setCreativeTab(WarsMod.tabWarsClasses);
+		ninjaLegs = new ItemArmorMod(ninjaArmor, 2).setUnlocalizedName("ninjaLegs").setCreativeTab(WarsMod.tabWarsClasses);
 		redBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("redBoots").setCreativeTab(WarsMod.tabWarsClasses);
 		greenBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("greenBoots").setCreativeTab(WarsMod.tabWarsClasses);
 		yellowBoots = new ItemArmorMod(bootsArmor, 3).setUnlocalizedName("yellowBoots").setCreativeTab(WarsMod.tabWarsClasses);
@@ -127,6 +134,7 @@ public abstract class WarsItems {
 		aWandLight = new ItemAdminWandLight().setUnlocalizedName("aWandLight");
 		antidote = new ItemAntidote().setUnlocalizedName("antidote");
 		enderSword = new ItemEnderSword().setUnlocalizedName("enderSword");
+		ninjaSword = new ItemNinjaSword().setUnlocalizedName("ninjaSword");
 
 		GameRegistry.registerItem(magicPotato, "magicPotato");
 		GameRegistry.registerItem(shadowFlesh, "shadowFlesh");
@@ -165,6 +173,9 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(enderHelm, "enderHelm");
 		GameRegistry.registerItem(enderPlate, "enderPlate");
 		GameRegistry.registerItem(enderLegs, "enderLegs");
+		GameRegistry.registerItem(ninjaHelm, "ninjaHelm");
+		GameRegistry.registerItem(ninjaPlate, "ninjaPlate");
+		GameRegistry.registerItem(ninjaLegs, "ninjaLegs");
 		GameRegistry.registerItem(redBoots, "redBoots");
 		GameRegistry.registerItem(greenBoots, "greenBoots");
 		GameRegistry.registerItem(yellowBoots, "yellowBoots");
@@ -178,6 +189,7 @@ public abstract class WarsItems {
 		GameRegistry.registerItem(antidote, "antidote");
 		GameRegistry.registerItem(bowArcher, "ArcherBow");
 		GameRegistry.registerItem(enderSword, "enderSword");
+		GameRegistry.registerItem(ninjaSword, "ninjaSword");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -219,11 +231,15 @@ public abstract class WarsItems {
 		ModelLoader.setCustomModelResourceLocation(enderHelm, 0, new ModelResourceLocation("warsmod:enderHelm", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(enderPlate, 0, new ModelResourceLocation("warsmod:enderPlate", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(enderLegs, 0, new ModelResourceLocation("warsmod:enderLegs", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(ninjaHelm, 0, new ModelResourceLocation("warsmod:ninjaHelm", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(ninjaPlate, 0, new ModelResourceLocation("warsmod:ninjaPlate", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(ninjaLegs, 0, new ModelResourceLocation("warsmod:ninjaLegs", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(redBoots, 0, new ModelResourceLocation("warsmod:redBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(greenBoots, 0, new ModelResourceLocation("warsmod:greenBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(yellowBoots, 0, new ModelResourceLocation("warsmod:yellowBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(blueBoots, 0, new ModelResourceLocation("warsmod:blueBoots", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(enderSword, 0, new ModelResourceLocation("warsmod:enderSword", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(ninjaSword, 0, new ModelResourceLocation("warsmod:ninjaSword", "inventory"));
 
 		ModelLoader.setCustomModelResourceLocation(aWandTNT, 0, new ModelResourceLocation("warsmod:aWandTNT", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(aWandBall, 0, new ModelResourceLocation("warsmod:aWandBall", "inventory"));

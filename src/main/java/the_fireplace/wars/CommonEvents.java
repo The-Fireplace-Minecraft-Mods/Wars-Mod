@@ -261,9 +261,17 @@ public class CommonEvents {
 			ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities, 0.15F, 6);
 			player.fallDistance = 0;
 			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 10, 1));
+		} else if (ItemArmorMod.hasFullSuit(player, WarsItems.ninjaArmor)) {
+			ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities, 0.17F, 6);
+			player.fallDistance = 0;
+			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 10, 1));
+			player.addPotionEffect(new PotionEffect(Potion.jump.getId(), 10, 1));
+			if(player.motionY < 0 && player.motionY > -0.5){
+				player.motionY *= 1.5;
+			}
 		}
 
-		else if (ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor)) {
+		else if (ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.ninjaArmor)) {
 
 			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 10, 0));
 

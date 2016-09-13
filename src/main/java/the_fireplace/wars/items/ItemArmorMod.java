@@ -73,6 +73,12 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 		if (stack.getItem() == WarsItems.enderLegs) {
 			return "warsmod:armor/warsmod_ender_2.png";
 		}
+		if (stack.getItem() == WarsItems.ninjaHelm || stack.getItem() == WarsItems.ninjaPlate) {
+			return "warsmod:armor/warsmod_ninja_1.png";
+		}
+		if (stack.getItem() == WarsItems.ninjaLegs) {
+			return "warsmod:armor/warsmod_ninja_2.png";
+		}
 
 		if (stack.getItem() == WarsItems.blueBoots) {
 			return "warsmod:armor/warsmod_blue_1.png";
@@ -116,6 +122,8 @@ public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 		} else if (getArmorMaterial() == WarsItems.chaosArmor) {
 			return new ArmorProperties(0, 0, 0);
 		} else if (getArmorMaterial() == WarsItems.enderArmor) {
+			return new ArmorProperties(0, 0, 0);
+		} else if (getArmorMaterial() == WarsItems.ninjaArmor) {
 			return new ArmorProperties(0, 0, 0);
 		}
 

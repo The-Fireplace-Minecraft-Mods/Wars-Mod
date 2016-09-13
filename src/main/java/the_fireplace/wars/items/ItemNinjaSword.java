@@ -47,7 +47,7 @@ public class ItemNinjaSword extends Item {
 
 						player.setItemInUse(stack, getMaxItemUseDuration(stack));
 
-						//TODO: Something
+						//TODO: Cool ninja powers
 						cooldown = 40;
 					}
 				} else {
