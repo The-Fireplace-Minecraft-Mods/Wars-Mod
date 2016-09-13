@@ -2,6 +2,7 @@ package the_fireplace.wars.items;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockGlass;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -59,7 +60,7 @@ public class ItemEnderSword extends Item {
                         int x = result.getBlockPos().getX();
                         int y = result.getBlockPos().getY();
                         int z = result.getBlockPos().getZ();
-                        if(!teleportTo(x, y, z, player)){
+                        if(!teleportTo(x, y, z, player) && !(world.getBlockState(result.getBlockPos()).getBlock() instanceof BlockGlass)){//BlockGlass check prevents potentially escaping the dome
                             if(player.posX > x)
                                 if(teleportTo(x+2, y, z, player))
                                     return stack;
