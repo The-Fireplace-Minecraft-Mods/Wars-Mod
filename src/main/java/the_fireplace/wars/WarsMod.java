@@ -102,7 +102,7 @@ public class WarsMod {
 	private ArrayList<String> downloadDonators(){
 		ArrayList donators = new ArrayList<String>();
 		try {
-			URL targetURL = new URL("https://dl.dropboxusercontent.com/u/104023161/Donators.txt");//TODO: new link
+			URL targetURL = new URL("http://thefireplace.bitnamiapp.com/Donators.txt");
 			InputStream in = targetURL.openStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			String dona;
