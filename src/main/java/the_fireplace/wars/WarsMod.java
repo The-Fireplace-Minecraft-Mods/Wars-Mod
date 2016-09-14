@@ -36,7 +36,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 
-@Mod(modid = WarsMod.MODID, name = WarsMod.MODNAME)
+@Mod(modid = WarsMod.MODID, name = WarsMod.MODNAME, updateJSON="http://thefireplace.bitnamiapp.com/jsons/warsmod.json")
 public class WarsMod {
 	public static final String MODID = "warsmod";
 	public static final String MODNAME = "Wars Mod";
