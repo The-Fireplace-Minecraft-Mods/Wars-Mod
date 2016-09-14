@@ -38,7 +38,7 @@ public class EntityPTNTPrimed extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(31, new Integer(fuse));
+		this.dataWatcher.addObject(31, new Integer(fuse));//Leave the boxing there.
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class EntityPTNTPrimed extends Entity {
 	 */
 	@Override
 	public void onUpdate() {
-		dataWatcher.updateObject(31, Integer.valueOf(fuse));
+		dataWatcher.updateObject(31, Integer.valueOf(fuse));//Leave the boxing there.
 		fuse = dataWatcher.getWatchableObjectInt(31);
 		prevPosX = posX;
 		prevPosY = posY;

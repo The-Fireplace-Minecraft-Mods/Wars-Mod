@@ -193,7 +193,7 @@ public class ItemEnderSword extends Item {
                 double d3 = d0 + (player.posX - d0) * d6 + (rand.nextDouble() - 0.5D) * (double)player.width * 2.0D;
                 double d4 = d1 + (player.posY - d1) * d6 + rand.nextDouble() * (double)player.height;
                 double d5 = d2 + (player.posZ - d2) * d6 + (rand.nextDouble() - 0.5D) * (double)player.width * 2.0D;
-                player.worldObj.spawnParticle(EnumParticleTypes.PORTAL, d3, d4, d5, (double)f, (double)f1, (double)f2, new int[0]);
+                player.worldObj.spawnParticle(EnumParticleTypes.PORTAL, d3, d4, d5, (double)f, (double)f1, (double)f2);
             }
 
             player.worldObj.playSoundEffect(d0, d1, d2, "mob.endermen.portal", 1.0F, 1.0F);
