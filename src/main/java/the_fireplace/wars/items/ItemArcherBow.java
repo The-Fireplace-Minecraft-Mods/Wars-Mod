@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import the_fireplace.wars.WarsMod;
 
-public class ItemArcherBow extends ItemBow {
+public class ItemArcherBow extends ItemBow implements Undroppable {
 
 	public ItemArcherBow() {
 		super();

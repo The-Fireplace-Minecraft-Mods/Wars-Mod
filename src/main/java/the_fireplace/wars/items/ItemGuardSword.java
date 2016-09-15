@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
 
-public class ItemGuardSword extends Item {
+public class ItemGuardSword extends Item implements Undroppable {
 
 	private float weaponDamage;
 

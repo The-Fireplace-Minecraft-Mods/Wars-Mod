@@ -26,7 +26,7 @@ import java.util.Random;
 /**
  * @author The_Fireplace
  */
-public class ItemEnderSword extends Item {
+public class ItemEnderSword extends Item implements Undroppable {
 
     private float weaponDamage;
 
