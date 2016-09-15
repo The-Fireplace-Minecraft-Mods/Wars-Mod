@@ -16,11 +16,11 @@ import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
 
-public class ItemWizardStaff extends Item implements Undroppable {
+public class ItemHealerStaff extends Item implements Undroppable {
 
 	private float weaponDamage;
 
-	public ItemWizardStaff() {
+	public ItemHealerStaff() {
 		super();
 		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);

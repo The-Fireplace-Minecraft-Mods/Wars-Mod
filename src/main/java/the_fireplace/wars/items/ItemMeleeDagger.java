@@ -20,7 +20,6 @@ public class ItemMeleeDagger extends Item implements Undroppable {
 		super();
 		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(300);
 		this.weaponDamage = 2F;
 		setFull3D();
 	}

@@ -2,6 +2,7 @@ package the_fireplace.wars.blocks;
 
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -9,6 +10,9 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.entities.EntityPTNTPrimed;
 import the_fireplace.wars.init.WarsItems;
 
@@ -16,6 +20,14 @@ import the_fireplace.wars.init.WarsItems;
  * @author The_Fireplace
  */
 public class BlockPlayerTNT extends BlockTNT {
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public CreativeTabs getCreativeTabToDisplayOn()
+    {
+        return WarsMod.tabWarsClasses;
+    }
+
     @Override
     public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn)
     {

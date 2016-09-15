@@ -23,7 +23,6 @@ public class ItemScoutsDagger extends Item implements Undroppable {
 		super();
 		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(300);
 		this.weaponDamage = 1F;
 		setFull3D();
 	}
@@ -31,7 +30,6 @@ public class ItemScoutsDagger extends Item implements Undroppable {
 	@Override
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLiving, EntityLivingBase par3EntityLiving) {
 		par2EntityLiving.addPotionEffect(new PotionEffect(Potion.blindness.id, 10 * 20, 6));
-		par1ItemStack.damageItem(1, par3EntityLiving);
 		return true;
 	}
 

@@ -26,8 +26,6 @@ public class WarsWorldGenerator implements IWorldGenerator {
 
 
 	public void generateSurface(World world, Random random, int blockX, int blockZ) {
-
-
 		BlockPos position = new BlockPos(blockX, 0, blockZ);
 
 		BiomeGenBase biomegenbase = world.getBiomeGenForCoords(position);
