@@ -92,7 +92,7 @@ public abstract class WarsItems {
 		scoutBlade = new ItemScoutsDagger().setUnlocalizedName("scoutSword").setCreativeTab(WarsMod.tabWarsClasses);
 		guardSword = new ItemGuardSword().setUnlocalizedName("guardSword").setCreativeTab(WarsMod.tabWarsClasses);
 		knightSword = new ItemKnightSword().setUnlocalizedName("knightSword").setCreativeTab(WarsMod.tabWarsClasses);
-		wizardStaff = new ItemWizardStaff().setUnlocalizedName("wizardStaff").setCreativeTab(WarsMod.tabWarsClasses);
+		wizardStaff = new ItemHealerStaff().setUnlocalizedName("wizardStaff").setCreativeTab(WarsMod.tabWarsClasses);
 		bowArcher = new ItemArcherBow().setUnlocalizedName("ArcherBow").setCreativeTab(WarsMod.tabWarsClasses);
 		techSpanner = new ItemTechSpanner().setUnlocalizedName("techSpanner").setCreativeTab(WarsMod.tabWarsClasses);
 		dagger = new ItemMeleeDagger().setUnlocalizedName("dagger").setCreativeTab(WarsMod.tabWarsClasses);

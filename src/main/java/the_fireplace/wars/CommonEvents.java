@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import the_fireplace.wars.data.WarsSavedData;
 import the_fireplace.wars.init.WarsItems;
 import the_fireplace.wars.items.ItemArmorMod;
+import the_fireplace.wars.items.Undroppable;
 import the_fireplace.wars.network.PacketDispatcher;
 import the_fireplace.wars.network.packets.PacketKills;
 import the_fireplace.wars.network.packets.PacketOpenTeamSelect;
@@ -172,16 +174,25 @@ public class CommonEvents {
 
 			PacketDispatcher.sendTo(new PacketKills(0, deadPlayer.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill"), deadPlayerDeaths), (EntityPlayerMP)deadPlayer);
 
-			if(deadPlayer.inventory.getStackInSlot(36) != null) {
-				Item playerBoots = deadPlayer.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
-
-				if (playerBoots != null) {
-					if (playerBoots == WarsItems.redBoots || playerBoots == WarsItems.yellowBoots || playerBoots == WarsItems.blueBoots || playerBoots == WarsItems.greenBoots || playerBoots == WarsItems.chaosBoots) {
-						deadPlayer.inventory.clear();
-					}
-				}
-			}
+			for(ItemStack stack:deadPlayer.inventory.mainInventory)
+				if(stack != null)
+					if(stack.getItem() instanceof Undroppable)
+						stack.stackSize=0;
+			for(ItemStack stack:deadPlayer.inventory.armorInventory)
+				if(stack != null)
+					if(stack.getItem() instanceof Undroppable)
+						stack.stackSize=0;
+			for(ItemStack stack:deadPlayer.inventory.offHandInventory)
+				if(stack != null)
+					if(stack.getItem() instanceof Undroppable)
+						stack.stackSize=0;
 		}
+	}
+
+	@SubscribeEvent
+	public void itemThrown(ItemTossEvent event){
+		if(event.getEntityItem().getEntityItem().getItem() instanceof Undroppable)
+			event.setCanceled(true);
 	}
 
 	@SubscribeEvent
@@ -262,7 +273,7 @@ public class CommonEvents {
 			player.fallDistance = 0;
 			player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 1));
 		} else if (ItemArmorMod.hasFullSuit(player, WarsItems.ninjaArmor)) {
-			ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities, 0.17F, 6);
+			ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities, 0.18F, 6);
 			player.fallDistance = 0;
 			player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 1));
 			player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 10, 1));
@@ -271,14 +282,14 @@ public class CommonEvents {
 			}
 		}
 
-		else if (ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.ninjaArmor)) {
+		else if (ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.enderArmor)) {
 
 			player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10, 0));
 
 		}
 
 		if (ItemArmorMod.hasFullSuit(player, WarsItems.archerArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.techArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.knightArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.healerArmor)
-				|| ItemArmorMod.hasFullSuit(player, WarsItems.guardArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.scoutArmor)) {
+				|| ItemArmorMod.hasFullSuit(player, WarsItems.guardArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.scoutArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.enderArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.ninjaArmor)) {
 			ItemStack boots = player.inventory.armorItemInSlot(0);
 			if (!(boots != null)) {
 				Random random = new Random();

@@ -15,11 +15,11 @@ import net.minecraft.potion.PotionEffect;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
 
-public class ItemWizardStaff extends Item {
+public class ItemHealerStaff extends Item implements Undroppable {
 
 	private float weaponDamage;
 
-	public ItemWizardStaff() {
+	public ItemHealerStaff() {
 		super();
 		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
