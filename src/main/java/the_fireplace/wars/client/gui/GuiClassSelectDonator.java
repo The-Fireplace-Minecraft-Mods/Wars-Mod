@@ -168,7 +168,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 		case 4:
 
 			try {
-				Desktop.getDesktop().browse(new URL("http://resinresin.buycraft.net/category/87818").toURI());
+				Desktop.getDesktop().browse(new URL("http://resinresin.buycraft.net/category/766985").toURI());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
