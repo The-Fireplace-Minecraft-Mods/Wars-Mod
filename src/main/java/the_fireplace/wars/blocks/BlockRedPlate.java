@@ -3,6 +3,7 @@ package the_fireplace.wars.blocks;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -11,6 +12,9 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsItems;
 
 import java.util.List;
@@ -19,6 +23,13 @@ public class BlockRedPlate extends BlockPressurePlate {
 
 	public BlockRedPlate(Material material, Sensitivity sens) {
 		super(material, sens);
+		setCreativeTab(WarsMod.tabWarsBlocks);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public CreativeTabs getCreativeTabToDisplayOn(){
+		return WarsMod.tabWarsBlocks;
 	}
 
 	private void setStateIfMobInteractsWithPlate(World world, BlockPos pos, IBlockState state, int oldRedstoneStrength) {

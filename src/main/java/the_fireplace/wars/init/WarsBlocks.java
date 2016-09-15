@@ -214,5 +214,9 @@ public class WarsBlocks {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(tower), 0, new ModelResourceLocation("warsmod:tower", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(wallEnd), 0, new ModelResourceLocation("warsmod:wallEnd", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(playerTNT), 0, new ModelResourceLocation("warsmod:playerTNT", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(redPlate), 0, new ModelResourceLocation("warsmod:redPlate", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(greenPlate), 0, new ModelResourceLocation("warsmod:greenPlate", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(bluePlate), 0, new ModelResourceLocation("warsmod:bluePlate", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(yellowPlate), 0, new ModelResourceLocation("warsmod:yellowPlate", "inventory"));
 	}
 }
