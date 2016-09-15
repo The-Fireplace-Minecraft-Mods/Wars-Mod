@@ -1,5 +1,6 @@
 package the_fireplace.wars.items;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +16,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import the_fireplace.wars.WarsMod;
 
 public class ItemArcherBow extends ItemBow implements Undroppable {
@@ -25,6 +28,12 @@ public class ItemArcherBow extends ItemBow implements Undroppable {
 		setCreativeTab(WarsMod.tabWarsClasses);
 		setFull3D();
 		this.setMaxDamage(0);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public CreativeTabs getCreativeTab(){
+		return WarsMod.tabWarsClasses;
 	}
 
 	/**

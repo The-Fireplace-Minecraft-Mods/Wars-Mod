@@ -73,7 +73,7 @@ public class WarsMod {
 		WarsTileEntities.createTileEntities();
 		MinecraftForge.EVENT_BUS.register(new CommonEvents());
 
-		GameRegistry.registerWorldGenerator(new WarsWorldGenerator(), 0);
+		GameRegistry.registerWorldGenerator(new WarsWorldGenerator(), 2);
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
