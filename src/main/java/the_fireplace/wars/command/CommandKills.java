@@ -4,7 +4,8 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class CommandKills extends CommandBase {
 
@@ -14,7 +15,7 @@ public class CommandKills extends CommandBase {
 	}
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args) throws CommandException {
+	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
 
@@ -26,8 +27,8 @@ public class CommandKills extends CommandBase {
 				kdr = totalKills / deaths;
 			else
 				kdr = totalKills;
-			player.addChatMessage(new ChatComponentTranslation("command.kills.streak", killstreak));
-			player.addChatMessage(new ChatComponentTranslation("command.kills.kdr", kdr, totalKills, deaths));
+			player.addChatMessage(new TextComponentTranslation("command.kills.streak", killstreak));
+			player.addChatMessage(new TextComponentTranslation("command.kills.kdr", kdr, totalKills, deaths));
 			if(args.length == 5)
 				player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_totalKill", 1000);
 		}

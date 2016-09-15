@@ -1,32 +1,35 @@
 package the_fireplace.wars.blocks.unseen;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.worldgen.ResinresinLoader;
 import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.worldgen.ResinresinLoader;
 
 public class BlockHungerGamesLv2Reset extends Block {
 
 	public BlockHungerGamesLv2Reset() {
-		super(Material.iron);
+		super(Material.IRON);
 		setHardness(5F);
 		setResistance(10F);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(WarsMod.tabWarsBlocks);
+		setSoundType(SoundType.STONE);
 	}
 
 	ResinresinLoader hgLTop = new ResinresinLoader("hgLTop.resinresin");
 	
 	
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack held, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
 		int j = pos.getY();
@@ -68,7 +71,7 @@ public class BlockHungerGamesLv2Reset extends Block {
 //		WarsMod.generateBlock(world, i - 4, j + 28, k + 8, WarsBlocks.hgTeleb23);
 //		WarsMod.generateBlock(world, i - 4, j + 28, k - 8, WarsBlocks.hgTeleb24);
 
-		WarsMod.generateBlock(world, i - 7, j + 28, k + 5, Blocks.glass);
+		WarsMod.generateBlock(world, i - 7, j + 28, k + 5, Blocks.GLASS);
 
 //		WarsMod.generateBlock(world, i + 20, j - 1, k + 0, WarsBlocks.hgTeleb1);
 //		WarsMod.generateBlock(world, i - 20, j - 1, k + 0, WarsBlocks.hgTeleb2);
@@ -98,10 +101,10 @@ public class BlockHungerGamesLv2Reset extends Block {
 //		WarsMod.generateBlock(world, i - 10, j - 1, k + 17, WarsBlocks.hgTeleb23);
 //		WarsMod.generateBlock(world, i - 10, j - 1, k - 17, WarsBlocks.hgTeleb24);
 
-		WarsMod.generateBlock(world, i + 1, j + 1, k, Blocks.air);
-		WarsMod.generateBlock(world, i - 1, j + 1, k, Blocks.air);
-		WarsMod.generateBlock(world, i, j + 1, k + 1, Blocks.air);
-		WarsMod.generateBlock(world, i, j + 1, k - 1, Blocks.air);
+		WarsMod.generateBlock(world, i + 1, j + 1, k, Blocks.AIR);
+		WarsMod.generateBlock(world, i - 1, j + 1, k, Blocks.AIR);
+		WarsMod.generateBlock(world, i, j + 1, k + 1, Blocks.AIR);
+		WarsMod.generateBlock(world, i, j + 1, k - 1, Blocks.AIR);
 		return false;
 
 	}

@@ -5,15 +5,15 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.PlayerCapabilities;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
@@ -38,11 +38,11 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void onLivingAttack(LivingAttackEvent evt) {
-		if (evt.entity instanceof EntityPlayer && evt.source instanceof EntityDamageSource) {
-			EntityDamageSource source = (EntityDamageSource) evt.source;
+		if (evt.getEntity() instanceof EntityPlayer && evt.getSource() instanceof EntityDamageSource) {
+			EntityDamageSource source = (EntityDamageSource) evt.getSource();
 			if (source.getEntity() instanceof EntityPlayer) {
 				EntityPlayer attacker = (EntityPlayer) source.getEntity();
-				EntityPlayer damagee = (EntityPlayer) evt.entity;
+				EntityPlayer damagee = (EntityPlayer) evt.getEntity();
 
 				ItemStack attackerBoots = attacker.inventory.armorItemInSlot(0);
 				ItemStack damageeBoots = damagee.inventory.armorItemInSlot(0);
@@ -58,12 +58,12 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent evt) {
-		if(!evt.entityLiving.worldObj.isRemote)
-		if (evt.entity instanceof EntityPlayer) {
-			EntityPlayer deadPlayer = (EntityPlayer) evt.entity;
+		if(!evt.getEntityLiving().worldObj.isRemote)
+		if (evt.getEntityLiving() instanceof EntityPlayer) {
+			EntityPlayer deadPlayer = (EntityPlayer) evt.getEntityLiving();
 
-			if(evt.source instanceof EntityDamageSource) {
-				Entity attacker = evt.source.getEntity();
+			if(evt.getSource() instanceof EntityDamageSource) {
+				Entity attacker = evt.getSource().getEntity();
 
 				if (attacker instanceof EntityPlayerMP) {
 					int attackerTotalKills = attacker.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill");
@@ -81,78 +81,78 @@ public class CommonEvents {
 
 					if (deadPlayerKillstreak > 1) {
 
-						EntityPlayerMP player = (EntityPlayerMP) evt.entity;
+						EntityPlayerMP player = (EntityPlayerMP) evt.getEntity();
 
-						MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.death", player.getName(), deadPlayerKillstreak));
+						player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.death", player.getName(), deadPlayerKillstreak));
 					}
 
 					switch (attackerKillstreak) {
 						case 2:
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						case 3: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 4: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 5: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 8: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 10: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 12: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 15: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 20: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 25: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 30: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 35: {
-							attacker.addChatMessage(new ChatComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("killstreak.announcement.offscale", player.getName(), attackerKillstreak));
+							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement.offscale", player.getName(), attackerKillstreak));
 							break;
 						}
 						default:
@@ -230,7 +230,7 @@ public class CommonEvents {
 
 	@SuppressWarnings("unchecked")
 	public static final List<EntityPlayerMP> getAll() {
-		return MinecraftServer.getServer().getConfigurationManager().playerEntityList;
+		return FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerList();
 	}
 
 	@SubscribeEvent
@@ -256,16 +256,16 @@ public class CommonEvents {
 	public void tickEvent(TickEvent.PlayerTickEvent event) {
 		EntityPlayer player = event.player;
 		if (ItemArmorMod.hasFullSuit(player, WarsItems.knightArmor)) {
-			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 10, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10, 0));
 		} else if (ItemArmorMod.hasFullSuit(player, WarsItems.scoutArmor)) {
 			ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities, 0.15F, 6);
 			player.fallDistance = 0;
-			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 10, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 1));
 		} else if (ItemArmorMod.hasFullSuit(player, WarsItems.ninjaArmor)) {
 			ObfuscationReflectionHelper.setPrivateValue(PlayerCapabilities.class, player.capabilities, 0.17F, 6);
 			player.fallDistance = 0;
-			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 10, 1));
-			player.addPotionEffect(new PotionEffect(Potion.jump.getId(), 10, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 10, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 10, 1));
 			if(player.motionY < 0 && player.motionY > -0.5){
 				player.motionY *= 1.5;
 			}
@@ -273,7 +273,7 @@ public class CommonEvents {
 
 		else if (ItemArmorMod.hasFullSuit(player, WarsItems.chaosArmor) || ItemArmorMod.hasFullSuit(player, WarsItems.ninjaArmor)) {
 
-			player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 10, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10, 0));
 
 		}
 
@@ -282,14 +282,14 @@ public class CommonEvents {
 			ItemStack boots = player.inventory.armorItemInSlot(0);
 			if (!(boots != null)) {
 				Random random = new Random();
-				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 10, 10));
-				player.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), 10, 100));
-				player.addPotionEffect(new PotionEffect(Potion.weakness.getId(), 10, 10));
+				player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10, 10));
+				player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 10, 100));
+				player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 10, 10));
 
 				int num = random.nextInt(50);
 
 				if (num == 1) {
-					player.addChatMessage(new ChatComponentTranslation("needteamboots"));
+					player.addChatMessage(new TextComponentTranslation("needteamboots"));
 				}
 			}
 		}
@@ -297,31 +297,31 @@ public class CommonEvents {
 		int killstreakBefore = player.getEntityData().getInteger("warsmod_killstreak");
 
 		if (killstreakBefore > 1) {
-			player.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 10, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 10, 0));
 
 		}
 		if (killstreakBefore > 3) {
-			player.addPotionEffect(new PotionEffect(Potion.jump.getId(), 10, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 10, 0));
 
 		}
 		if (killstreakBefore > 7) {
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.getId(), 20 * 15, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 20 * 15, 0));
 
 		}
 		if (killstreakBefore > 11) {
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 10, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 10, 0));
 
 		}
 		if (killstreakBefore > 19) {
-			player.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 10, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 10, 1));
 
 		}
 		if (killstreakBefore > 29) {
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 10, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 10, 1));
 
 		}
 		if (killstreakBefore > 2) {
-			player.addPotionEffect(new PotionEffect(Potion.waterBreathing.getId(), 10, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 10, 0));
 		}
 	}
 
@@ -330,7 +330,7 @@ public class CommonEvents {
 		bluePlayers = 0;
 		greenPlayers = 0;
 		yellowPlayers = 0;
-		for (EntityPlayerMP playerMP : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+		for (EntityPlayerMP playerMP : FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerList()) {
 
 			if(playerMP.inventory.getStackInSlot(36) != null) {
 				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);

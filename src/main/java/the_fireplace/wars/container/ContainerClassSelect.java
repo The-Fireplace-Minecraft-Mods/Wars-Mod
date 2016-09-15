@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import the_fireplace.wars.tileentities.TileEntityClassSelect;
-
+//TODO: Is this necessary?
 public class ContainerClassSelect extends Container {
 
 	protected TileEntityClassSelect tileEntity;

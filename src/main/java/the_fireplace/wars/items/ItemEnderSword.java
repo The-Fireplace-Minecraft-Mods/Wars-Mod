@@ -1,20 +1,21 @@
 package the_fireplace.wars.items;
 
 import com.google.common.collect.Multimap;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.EnumAction;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
@@ -45,51 +46,55 @@ public class ItemEnderSword extends Item {
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        player.setItemInUse(stack, getMaxItemUseDuration(stack));
-
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
         if (!world.isRemote) {
             if (cooldown <= 0) {
                 if (WarsMod.getDonators().contains(player.getName())) {
 
                     if (player instanceof EntityPlayerMP && ItemArmorMod.hasFullSuit(player, WarsItems.enderArmor)) {
-
-                        player.setItemInUse(stack, getMaxItemUseDuration(stack));
-
-                        MovingObjectPosition result = player.rayTrace(20, 1F);
+                        RayTraceResult result = player.rayTrace(20, 1F);
                         int x = result.getBlockPos().getX();
                         int y = result.getBlockPos().getY();
                         int z = result.getBlockPos().getZ();
                         if(!teleportTo(x, y, z, player) && !(world.getBlockState(result.getBlockPos()).getBlock() instanceof BlockGlass)){//BlockGlass check prevents potentially escaping the dome
                             if(player.posX > x)
-                                if(teleportTo(x+2, y, z, player))
-                                    return stack;
+                                if(teleportTo(x+2, y, z, player)) {
+                                    cooldown = 80;
+                                    return new ActionResult(EnumActionResult.SUCCESS, stack);
+                                }
                             if(player.posX < x)
-                                if(teleportTo(x-2, y, z, player))
-                                    return stack;
+                                if(teleportTo(x-2, y, z, player)) {
+                                    cooldown = 80;
+                                    return new ActionResult(EnumActionResult.SUCCESS, stack);
+                                }
                             if(player.posZ > z)
-                                if(teleportTo(x, y, z+2, player))
-                                    return stack;
+                                if(teleportTo(x, y, z+2, player)) {
+                                    cooldown = 80;
+                                    return new ActionResult(EnumActionResult.SUCCESS, stack);
+                                }
                             if(player.posZ < z)
-                                if(teleportTo(x, y, z-2, player))
-                                    return stack;
+                                if(teleportTo(x, y, z-2, player)) {
+                                    cooldown = 80;
+                                    return new ActionResult(EnumActionResult.SUCCESS, stack);
+                                }
                         }
-                        cooldown = 40;
+                        cooldown = 80;
+                        return new ActionResult(EnumActionResult.SUCCESS, stack);
                     }
                 } else {
-                    player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
-                    return stack;
+                    player.addChatMessage(new TextComponentTranslation("class.donatoronly"));
+                    return new ActionResult(EnumActionResult.FAIL, stack);
                 }
             }
         }
-        return stack;
+        return new ActionResult(EnumActionResult.PASS, stack);
     }
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
         if (!WarsMod.getDonators().contains(player.getName())) {
-            player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
+            player.addChatMessage(new TextComponentTranslation("class.donatoronly"));
             return false;
         }
 
@@ -97,26 +102,22 @@ public class ItemEnderSword extends Item {
     }
 
     @Override
-    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
-        return par2Block != WarsBlocks.sumBlock ? 0.9F : 15F;
-    }
-
-    @Override
-    public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-        return EnumAction.BLOCK;
-    }
-
-    @Override
-    public int getMaxItemUseDuration(ItemStack par1ItemStack) {
-        return 72000;
+    public float getStrVsBlock(ItemStack par1ItemStack, IBlockState par2Block) {
+        return par2Block.getBlock() != WarsBlocks.sumBlock ? 0.9F : 15F;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Multimap getAttributeModifiers(ItemStack stack)
+    public Multimap getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
     {
-        Multimap multimap = super.getAttributeModifiers(stack);
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", weaponDamage, 0));
+        Multimap multimap = super.getAttributeModifiers(equipmentSlot, stack);
+
+        if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
+        {
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.weaponDamage, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
+        }
+
         return multimap;
     }
 
@@ -138,7 +139,7 @@ public class ItemEnderSword extends Item {
             while (!flag1 && blockpos.getY() > 0)
             {
                 BlockPos blockpos1 = blockpos.down();
-                Block block = player.worldObj.getBlockState(blockpos1).getBlock();
+                IBlockState block = player.worldObj.getBlockState(blockpos1);
 
                 if (block.getMaterial().blocksMovement())
                 {
@@ -155,17 +156,17 @@ public class ItemEnderSword extends Item {
             {
                 player.setPositionAndUpdate(player.posX, player.posY, player.posZ);
 
-                if (player.worldObj.getCollidingBoundingBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.isAnyLiquid(player.getEntityBoundingBox()))
+                if (player.worldObj.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.containsAnyLiquid(player.getEntityBoundingBox()))
                 {
                     flag = true;
                 }else{
                     player.setPositionAndUpdate(player.posX, player.posY+1, player.posZ);
-                    if (player.worldObj.getCollidingBoundingBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.isAnyLiquid(player.getEntityBoundingBox()))
+                    if (player.worldObj.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.containsAnyLiquid(player.getEntityBoundingBox()))
                     {
                         flag = true;
                     }else{
                         player.setPositionAndUpdate(player.posX, player.posY+2, player.posZ);
-                        if (player.worldObj.getCollidingBoundingBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.isAnyLiquid(player.getEntityBoundingBox()))
+                        if (player.worldObj.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.containsAnyLiquid(player.getEntityBoundingBox()))
                         {
                             flag = true;
                         }
@@ -196,8 +197,8 @@ public class ItemEnderSword extends Item {
                 player.worldObj.spawnParticle(EnumParticleTypes.PORTAL, d3, d4, d5, (double)f, (double)f1, (double)f2);
             }
 
-            player.worldObj.playSoundEffect(d0, d1, d2, "mob.endermen.portal", 1.0F, 1.0F);
-            player.playSound("mob.endermen.portal", 1.0F, 1.0F);
+            player.worldObj.playSound(null, new BlockPos(d0, d1, d2), SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             return true;
         }
     }

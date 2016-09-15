@@ -3,12 +3,13 @@ package the_fireplace.wars.init;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.blocks.*;
 import the_fireplace.wars.blocks.unseen.*;
 
@@ -72,65 +73,65 @@ public class WarsBlocks {
 	public static void createBlocks() {
 
 		// Basic Blocks Used in map building
-		sinkSand = new BlockSinkSand().setUnlocalizedName("sinkSand").setBlockUnbreakable().setHardness(6.9F).setStepSound(Block.soundTypeStone);
+		sinkSand = new BlockSinkSand().setUnlocalizedName("sinkSand").setBlockUnbreakable().setHardness(6.9F);
 
 		// Utility Blocks
-		bounceBlockLow = new BlockBounceLow().setBlockUnbreakable().setUnlocalizedName("bounceBlockLow").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		bounceBlock = new BlockBounce().setBlockUnbreakable().setUnlocalizedName("bounceBlock").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		boostBlock = new BlockBooster().setBlockUnbreakable().setUnlocalizedName("boostBlock").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		sumBlock = new BlockSummoner().setUnlocalizedName("sumBlock").setHardness(0.5F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		badBlock = new BlockBadBlock().setUnlocalizedName("badBlock").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		presentBox = new BlockPresentBox().setHardness(5F).setUnlocalizedName("presentBox").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		spleefStone = new BlockSpleefStone().setHardness(5F).setUnlocalizedName("spleefStone").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest1 = new BlockInstantChestLv1().setBlockUnbreakable().setUnlocalizedName("insChest1").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest2 = new BlockInstantChestLv2().setUnlocalizedName("insChest2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest3 = new BlockInstantChestLv3().setBlockUnbreakable().setUnlocalizedName("insChest3").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest4 = new BlockInstantChestLv4().setUnlocalizedName("insChest4").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		warChest = new BlockWarChest().setBlockUnbreakable().setBlockUnbreakable().setUnlocalizedName("warChest").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		teleporterBlock = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock");
-		teleporterBlock2 = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock2");
-		teleporterBlock3 = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock3");
-		teleporterBlock4 = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock4");
+		bounceBlockLow = new BlockBounceLow().setBlockUnbreakable().setUnlocalizedName("bounceBlockLow").setResistance(6000000F).setLightLevel(0.9F);
+		bounceBlock = new BlockBounce().setBlockUnbreakable().setUnlocalizedName("bounceBlock").setResistance(6000000F).setLightLevel(0.9F);
+		boostBlock = new BlockBooster().setBlockUnbreakable().setUnlocalizedName("boostBlock").setResistance(6000000F).setLightLevel(0.9F);
+		sumBlock = new BlockSummoner().setUnlocalizedName("sumBlock").setHardness(0.5F).setLightLevel(0.9F);
+		badBlock = new BlockBadBlock().setUnlocalizedName("badBlock").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		presentBox = new BlockPresentBox().setHardness(5F).setUnlocalizedName("presentBox").setResistance(6000000F);
+		spleefStone = new BlockSpleefStone().setHardness(5F).setUnlocalizedName("spleefStone").setResistance(6000000F);
+		insChest1 = new BlockInstantChestLv1().setBlockUnbreakable().setUnlocalizedName("insChest1").setResistance(6000000F);
+		insChest2 = new BlockInstantChestLv2().setUnlocalizedName("insChest2").setBlockUnbreakable().setResistance(6000000F);
+		insChest3 = new BlockInstantChestLv3().setBlockUnbreakable().setUnlocalizedName("insChest3").setResistance(6000000F);
+		insChest4 = new BlockInstantChestLv4().setUnlocalizedName("insChest4").setBlockUnbreakable().setResistance(6000000F);
+		warChest = new BlockWarChest().setBlockUnbreakable().setBlockUnbreakable().setUnlocalizedName("warChest").setResistance(6000000F).setLightLevel(0.9F);
+		teleporterBlock = new BlockTeleporter().setHardness(5).setResistance(10).setUnlocalizedName("teleporterBlock");
+		teleporterBlock2 = new BlockTeleporter().setHardness(5).setResistance(10).setUnlocalizedName("teleporterBlock2");
+		teleporterBlock3 = new BlockTeleporter().setHardness(5).setResistance(10).setUnlocalizedName("teleporterBlock3");
+		teleporterBlock4 = new BlockTeleporter().setHardness(5).setResistance(10).setUnlocalizedName("teleporterBlock4");
 		// Selectors
-		castleSelector = new BlockCastleSelector().setUnlocalizedName("castleSelector").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		spleefSelector = new BlockSelectorSpleef().setBlockUnbreakable().setUnlocalizedName("spleefSelector").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		buildingSelector = new BlockSelectorBuildings().setBlockUnbreakable().setUnlocalizedName("buildingSelector").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		gamesSelector = new BlockSelectorGames().setBlockUnbreakable().setUnlocalizedName("gamesSelector").setStepSound(Block.soundTypeStone);
-		classSelect = new BlockSelectorBasic().setBlockUnbreakable().setUnlocalizedName("classSelector").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		classSelectDonator = new BlockClassSelectorDonator().setBlockUnbreakable().setUnlocalizedName("classSelectorDonator").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		castleSelector = new BlockCastleSelector().setUnlocalizedName("castleSelector").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		spleefSelector = new BlockSelectorSpleef().setBlockUnbreakable().setUnlocalizedName("spleefSelector").setResistance(6000000F).setLightLevel(0.9F);
+		buildingSelector = new BlockSelectorBuildings().setBlockUnbreakable().setUnlocalizedName("buildingSelector").setResistance(6000000F).setLightLevel(0.9F);
+		gamesSelector = new BlockSelectorGames().setBlockUnbreakable().setUnlocalizedName("gamesSelector");
+		classSelect = new BlockSelectorBasic().setBlockUnbreakable().setUnlocalizedName("classSelector").setResistance(6000000F).setLightLevel(0.9F);
+		classSelectDonator = new BlockClassSelectorDonator().setBlockUnbreakable().setUnlocalizedName("classSelectorDonator").setResistance(6000000F).setLightLevel(0.9F);
 
 		// Class Blocks
-		playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
+		playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setCreativeTab(WarsMod.tabWarsClasses);
 
 		// Individual Structure Blocks
-		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		cottage = new BlockCottage().setUnlocalizedName("cottage").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		//wall = new BlockWall(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		//corner = new BlockCorner(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		lamp = new BlockLamp().setBlockUnbreakable().setUnlocalizedName("lamp").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("roadPiece").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		tower = new BlockTower().setBlockUnbreakable().setUnlocalizedName("tower").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		wallEnd = new BlockWallEnd().setBlockUnbreakable().setUnlocalizedName("wallEnd").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		cottage = new BlockCottage().setUnlocalizedName("cottage").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		//wall = new BlockWall(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F);
+		//corner = new BlockCorner(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F);
+		lamp = new BlockLamp().setBlockUnbreakable().setUnlocalizedName("lamp").setResistance(6000000F).setLightLevel(0.9F);
+		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("roadPiece").setResistance(6000000F).setLightLevel(0.9F);
+		tower = new BlockTower().setBlockUnbreakable().setUnlocalizedName("tower").setResistance(6000000F).setLightLevel(0.9F);
+		wallEnd = new BlockWallEnd().setBlockUnbreakable().setUnlocalizedName("wallEnd").setResistance(6000000F).setLightLevel(0.9F);
 
 		// War Game Blocks
-		redPlate = new BlockRedPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("redPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		bluePlate = new BlockBluePlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("bluePlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		greenPlate = new BlockGreenPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("greenPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		yellowPlate = new BlockYellowPlate(Material.rock, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("yellowPlate").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
+		redPlate = new BlockRedPlate(Material.ROCK, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("redPlate").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		bluePlate = new BlockBluePlate(Material.ROCK, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("bluePlate").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		greenPlate = new BlockGreenPlate(Material.ROCK, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("greenPlate").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		yellowPlate = new BlockYellowPlate(Material.ROCK, BlockPressurePlate.Sensitivity.MOBS).setUnlocalizedName("yellowPlate").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
 
 		// Game Blocks
-		nSpleefS = new BlockNetherSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNetherSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		nSpleefM = new BlockNetherSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefNetherMedium").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		pSpleefS = new BlockNaturalSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNaturalSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		pSpleefM = new BlockNaturalSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefNaturalMedium").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		mSpleefS = new BlockMinersSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefMinersSmall").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		mSpleefM = new BlockMinersSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefMinersMedium").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		mazeReset = new BlockMazeReset().setUnlocalizedName("resetMaze").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		mazeStart = new BlockMazeStart().setUnlocalizedName("startMaze").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
-		hgLv1start = new BlockHungerGamesLv1Start().setUnlocalizedName("startHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		hgLv1reset = new BlockHungerGamesLv1Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		hgLv2start = new BlockHungerGamesLv2Start().setUnlocalizedName("startHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		hgLv2reset = new BlockHungerGamesLv2Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		nSpleefS = new BlockNetherSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNetherSmall").setResistance(6000000F).setLightLevel(0.9F);
+		nSpleefM = new BlockNetherSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefNetherMedium").setResistance(6000000F).setLightLevel(0.9F);
+		pSpleefS = new BlockNaturalSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefNaturalSmall").setResistance(6000000F).setLightLevel(0.9F);
+		pSpleefM = new BlockNaturalSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefNaturalMedium").setResistance(6000000F).setLightLevel(0.9F);
+		mSpleefS = new BlockMinersSpleefSmall().setBlockUnbreakable().setUnlocalizedName("spleefMinersSmall").setResistance(6000000F).setLightLevel(0.9F);
+		mSpleefM = new BlockMinersSpleefMedium().setBlockUnbreakable().setUnlocalizedName("spleefMinersMedium").setResistance(6000000F).setLightLevel(0.9F);
+		mazeReset = new BlockMazeReset().setUnlocalizedName("resetMaze").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		mazeStart = new BlockMazeStart().setUnlocalizedName("startMaze").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		hgLv1start = new BlockHungerGamesLv1Start().setUnlocalizedName("startHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		hgLv1reset = new BlockHungerGamesLv1Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		hgLv2start = new BlockHungerGamesLv2Start().setUnlocalizedName("startHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
+		hgLv2reset = new BlockHungerGamesLv2Reset().setUnlocalizedName("resetHgLv1").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F);
 
 		//Control Blocks
 		controlBlue = new BlockCBlue().setUnlocalizedName("ControlBlue");

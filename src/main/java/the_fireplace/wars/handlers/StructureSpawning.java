@@ -2,8 +2,7 @@ package the_fireplace.wars.handlers;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraft.util.text.TextComponentTranslation;
 import the_fireplace.wars.worldgen.structure.basic.*;
 import the_fireplace.wars.worldgen.structure.building.*;
 import the_fireplace.wars.worldgen.structure.games.*;
@@ -19,7 +18,7 @@ public class StructureSpawning {
 		case 1:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands(playerMP.getGameProfile())) {
+				if (player.worldObj.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -45,7 +44,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new ChatComponentTranslation("perms.needop"));
+					player.addChatMessage(new TextComponentTranslation("perms.needop"));
 				}
 			}
 
@@ -54,7 +53,7 @@ public class StructureSpawning {
 
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands(playerMP.getGameProfile())) {
+				if (player.worldObj.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -79,7 +78,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new ChatComponentTranslation("perms.needop"));
+					player.addChatMessage(new TextComponentTranslation("perms.needop"));
 				}
 			}
 
@@ -88,7 +87,7 @@ public class StructureSpawning {
 		case 3:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands(playerMP.getGameProfile())) {
+				if (player.worldObj.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -115,14 +114,14 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new ChatComponentTranslation("perms.needop"));
+					player.addChatMessage(new TextComponentTranslation("perms.needop"));
 				}
 			}
 			break;
 		case 4:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().canSendCommands(playerMP.getGameProfile())) {
+				if (player.worldObj.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -149,7 +148,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new ChatComponentTranslation("perms.needop"));
+					player.addChatMessage(new TextComponentTranslation("perms.needop"));
 				}
 			}
 			break;

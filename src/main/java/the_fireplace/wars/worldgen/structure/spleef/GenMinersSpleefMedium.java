@@ -3,17 +3,17 @@ package the_fireplace.wars.worldgen.structure.spleef;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.worldgen.ResinresinLoader;
 import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.worldgen.ResinresinLoader;
 
 public class GenMinersSpleefMedium {
 
 	public GenMinersSpleefMedium(EntityPlayer player, int i, int j, int k) {
 		ResinresinLoader mSpleefM = new ResinresinLoader("mSpleefM.resinresin");
 
-		WarsMod.generateBlock(player.worldObj, i, j + 2, k + 10, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i + 1, j + 2, k + 10, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i + 10, j + 1, k - 2, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i, j + 2, k + 10, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i + 1, j + 2, k + 10, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i + 10, j + 1, k - 2, Blocks.STONE);
 
 		mSpleefM.generate(player.worldObj, i + -12, j - 2, k + -12, false);
 

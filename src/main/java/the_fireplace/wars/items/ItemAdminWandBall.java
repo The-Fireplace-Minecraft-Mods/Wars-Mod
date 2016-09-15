@@ -5,7 +5,10 @@ import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -31,17 +34,17 @@ public class ItemAdminWandBall extends Item {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer, EnumHand hand) {
 		if (!world.isRemote) {
-			Vec3 look = entityplayer.getLookVec();
-			EntityLargeFireball fireball2 = new EntityLargeFireball(world, entityplayer, 1, 1, 1);
-			fireball2.setPosition(entityplayer.posX + look.xCoord * 1, entityplayer.posY + look.yCoord * 1, entityplayer.posZ + look.zCoord * 1);
-			fireball2.accelerationX = look.xCoord * 0.1;
-			fireball2.accelerationY = look.yCoord * 0.1;
-			fireball2.accelerationZ = look.zCoord * 0.1;
-			world.spawnEntityInWorld(fireball2);
+			Vec3d look = entityplayer.getLookVec();
+			EntityLargeFireball fireball = new EntityLargeFireball(world, entityplayer, 1, 1, 1);
+			fireball.setPosition(entityplayer.posX + look.xCoord * 1, entityplayer.posY + look.yCoord * 1, entityplayer.posZ + look.zCoord * 1);
+			fireball.accelerationX = look.xCoord * 0.1;
+			fireball.accelerationY = look.yCoord * 0.1;
+			fireball.accelerationZ = look.zCoord * 0.1;
+			world.spawnEntityInWorld(fireball);
 		}
-		return itemstack;
+		return new ActionResult(EnumActionResult.PASS, itemstack);
 	}
 
 }

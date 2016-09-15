@@ -1,16 +1,19 @@
 package the_fireplace.wars.items;
 
 import com.google.common.collect.Multimap;
-import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.EnumAction;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
@@ -36,34 +39,30 @@ public class ItemNinjaSword extends Item {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		player.setItemInUse(stack, getMaxItemUseDuration(stack));
-
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 		if (!world.isRemote) {
 			if (cooldown <= 0) {
 				if (WarsMod.getDonators().contains(player.getName())) {
-
 					if (player instanceof EntityPlayerMP && ItemArmorMod.hasFullSuit(player, WarsItems.ninjaArmor)) {
-
-						player.setItemInUse(stack, getMaxItemUseDuration(stack));
 
 						//TODO: Cool ninja powers
 						cooldown = 40;
+						return new ActionResult(EnumActionResult.SUCCESS, stack);
 					}
 				} else {
-					player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
-					return stack;
+					player.addChatMessage(new TextComponentTranslation("class.donatoronly"));
+					return new ActionResult(EnumActionResult.FAIL, stack);
 				}
 			}
 		}
-		return stack;
+		return new ActionResult(EnumActionResult.PASS, stack);
 	}
 
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
 		if (!WarsMod.getDonators().contains(player.getName())) {
-			player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));
+			player.addChatMessage(new TextComponentTranslation("class.donatoronly"));
 			return false;
 		}
 
@@ -75,27 +74,22 @@ public class ItemNinjaSword extends Item {
 	 * (Quality+1)*2 if correct blocktype, 1.5F if sword
 	 */
 	@Override
-	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
-		return par2Block != WarsBlocks.sumBlock ? 0.9F : 15F;
-	}
-
-	@Override
-	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.BLOCK;
-	}
-
-	@Override
-	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
-		return 72000;
+	public float getStrVsBlock(ItemStack par1ItemStack, IBlockState par2Block) {
+		return par2Block.getBlock() != WarsBlocks.sumBlock ? 0.9F : 15F;
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public Multimap getAttributeModifiers(ItemStack stack)
+	public Multimap getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
 	{
-		Multimap multimap = super.getAttributeModifiers(stack);
-		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Weapon modifier", weaponDamage, 0));
+		Multimap multimap = super.getAttributeModifiers(equipmentSlot, stack);
+
+		if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
+		{
+			multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.weaponDamage, 0));
+			multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D/3, 0));
+		}
+
 		return multimap;
 	}
-
 }

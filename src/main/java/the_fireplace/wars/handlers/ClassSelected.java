@@ -107,7 +107,7 @@ public class ClassSelected {
 				player.inventory.setInventorySlotContents(0, itemstack21);
 				ItemStack itemstack22 = new ItemStack(WarsItems.dagger, 1);
 				player.inventory.setInventorySlotContents(1, itemstack22);
-				ItemStack itemstack23 = new ItemStack(Items.arrow, 1);
+				ItemStack itemstack23 = new ItemStack(Items.SPECTRAL_ARROW, 1);
 				player.inventory.setInventorySlotContents(2, itemstack23);
 
 				((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);

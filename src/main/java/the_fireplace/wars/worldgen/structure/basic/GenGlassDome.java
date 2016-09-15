@@ -10,7 +10,7 @@ public class GenGlassDome {
 
 	public GenGlassDome(EntityPlayer player, int i, int j, int k) {
 		hunDome.generate(player.worldObj, i + -110, j - 80, k + -110, false);
-		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.AIR);
 
 	}
 

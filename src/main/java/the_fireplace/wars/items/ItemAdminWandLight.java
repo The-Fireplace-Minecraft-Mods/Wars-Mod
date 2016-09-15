@@ -5,7 +5,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -32,19 +35,19 @@ public class ItemAdminWandLight extends Item {
 	}
 
 	@Override
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+    public ActionResult<ItemStack> onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer, EnumHand hand) {
 		if (!world.isRemote) {
-			Vec3 look = entityplayer.getLookVec();
-			EntityLightningBolt fireball2 = new EntityLightningBolt(world, 1, 1, 1);
-			fireball2.setPosition(entityplayer.posX + look.xCoord * 0, entityplayer.posY + look.yCoord * 0, entityplayer.posZ + look.zCoord * 0);
-			fireball2.lastTickPosX = look.xCoord * 0.1;
-			fireball2.lastTickPosY = look.yCoord * 0.1;
-			fireball2.lastTickPosZ = look.zCoord * 0.1;
-			world.spawnEntityInWorld(fireball2);
+			Vec3d look = entityplayer.getLookVec();
+			EntityLightningBolt bolt = new EntityLightningBolt(world, 1, 1, 1, false);
+			bolt.setPosition(entityplayer.posX + look.xCoord * 0, entityplayer.posY + look.yCoord * 0, entityplayer.posZ + look.zCoord * 0);
+			bolt.lastTickPosX = look.xCoord * 0.1;
+			bolt.lastTickPosY = look.yCoord * 0.1;
+			bolt.lastTickPosZ = look.zCoord * 0.1;
+			world.spawnEntityInWorld(bolt);
 
 		}
 
-		return itemstack;
+		return new ActionResult(EnumActionResult.PASS, itemstack);
 	}
 
 }

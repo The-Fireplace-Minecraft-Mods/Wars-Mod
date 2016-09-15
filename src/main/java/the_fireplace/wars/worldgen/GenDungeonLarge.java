@@ -6,7 +6,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import the_fireplace.wars.WarsMod;
@@ -27,7 +27,7 @@ public class GenDungeonLarge extends WorldGenerator {
 	@Override
 	public boolean generate(World world, Random rand, BlockPos pos) {
 
-		Block grass = Blocks.grass;
+		Block grass = Blocks.GRASS;
 
 		int i = pos.getX();
 		int j = pos.getX();
@@ -47,7 +47,7 @@ public class GenDungeonLarge extends WorldGenerator {
 
 		dungL.generate(world, i, j - 40, k, true);
 
-		WarsMod.generateBlock(world, i + 5, j - 40, k + 12, Blocks.mob_spawner);
+		WarsMod.generateBlock(world, i + 5, j - 40, k + 12, Blocks.MOB_SPAWNER);
 		BlockPos spawnerPos1 = new BlockPos(i + 5, j - 40, k + 12);
 		TileEntityMobSpawner var19 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos1);
 		if (var19 != null) {
@@ -56,16 +56,16 @@ public class GenDungeonLarge extends WorldGenerator {
 			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
 		}
 
-		WarsMod.generateBlock(world, i + 19, j - 40, k + 12, Blocks.mob_spawner);
+		WarsMod.generateBlock(world, i + 19, j - 40, k + 12, Blocks.MOB_SPAWNER);
 		BlockPos spawnerPos2 = new BlockPos(i + 19, j - 40, k + 12);
 		TileEntityMobSpawner var20 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos2);
 		if (var20 != null) {
-			var20.getSpawnerBaseLogic().setRandomEntity(null);
+			var20.getSpawnerBaseLogic().setNextSpawnData(null);
 		} else {
 			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
 		}
 
-		WarsMod.generateBlock(world, i + 12, j - 40, k + 19, Blocks.mob_spawner);
+		WarsMod.generateBlock(world, i + 12, j - 40, k + 19, Blocks.MOB_SPAWNER);
 		BlockPos spawnerPos3 = new BlockPos(i + 12, j - 40, k + 19);
 		TileEntityMobSpawner var21 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos3);
 		if (var21 != null) {
@@ -74,7 +74,7 @@ public class GenDungeonLarge extends WorldGenerator {
 			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
 		}
 
-		WarsMod.generateBlock(world, i + 12, j - 40, k + 5, Blocks.mob_spawner);
+		WarsMod.generateBlock(world, i + 12, j - 40, k + 5, Blocks.MOB_SPAWNER);
 		BlockPos spawnerPos4 = new BlockPos(i + 12, j - 40, k + 5);
 		TileEntityMobSpawner var22 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos4);
 		if (var22 != null) {
@@ -83,7 +83,7 @@ public class GenDungeonLarge extends WorldGenerator {
 			System.err.println("Failed to fetch mob spawner entity at (" + i + ", " + j + ", " + k + ")");
 		}
 
-		WarsMod.generateBlock(world, i + 12, j - 37, k + 12, Blocks.chest);
+		WarsMod.generateBlock(world, i + 12, j - 37, k + 12, Blocks.CHEST);
 		BlockPos chestPos1 = new BlockPos(i + 12, j - 37, k + 12);
 		TileEntityChest chest2 = new TileEntityChest();
 		world.setTileEntity(chestPos1, chest2);
@@ -92,44 +92,44 @@ public class GenDungeonLarge extends WorldGenerator {
 			int num = random.nextInt(60);
 
 			if (num == 1) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.iron_ingot));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.IRON_INGOT));
 
 			}
 			if (num == 2) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.GOLD_INGOT));
 
 			}
 
 			if (num == 3) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.bone));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.BONE));
 
 			}
 
 			if (num == 4) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.book));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.BOOK));
 
 			}
 			if (num == 5) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.rotten_flesh));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.ROTTEN_FLESH));
 
 			}
 			if (num == 7) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.bread));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.BREAD));
 
 			}
 			if (num == 8) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.emerald));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.EMERALD));
 
 			}
 			if (num == 9) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.slime_ball));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.SLIME_BALL));
 
 			}
 			if (num == 10) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.experience_bottle));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.EXPERIENCE_BOTTLE));
 			}
 			if (num == 11) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.ender_pearl));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.ENDER_PEARL));
 
 			}
 		}

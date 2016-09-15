@@ -3,6 +3,7 @@ package the_fireplace.wars.items;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -12,12 +13,12 @@ import the_fireplace.wars.init.WarsItems;
 public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
 
 
-	public ItemArmorMod(ArmorMaterial material, int type) {
+	public ItemArmorMod(ArmorMaterial material, EntityEquipmentSlot type) {
 		super(material, -1, type);
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
 
 		if (stack.getItem() == WarsItems.scoutHelm || stack.getItem() == WarsItems.scoutPlate) {
 			return "warsmod:armor/warsmod_scout_1.png";

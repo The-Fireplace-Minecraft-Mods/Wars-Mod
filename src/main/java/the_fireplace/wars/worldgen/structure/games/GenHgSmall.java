@@ -2,8 +2,8 @@ package the_fireplace.wars.worldgen.structure.games;
 
 import net.minecraft.entity.player.EntityPlayer;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.worldgen.ResinresinLoader;
 import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.worldgen.ResinresinLoader;
 
 public class GenHgSmall {
 
@@ -11,30 +11,30 @@ public class GenHgSmall {
 		ResinresinLoader hgS = new ResinresinLoader("hgS.resinresin");
 
 		//TODO find a better way of making these blocks
-//		WarsMod.generateBlock(player.worldObj, i + 8, j - 1, k + 0, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 0, j - 1, k + 8, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i - 8, j - 1, k + 0, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 0, j - 1, k - 8, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 8, j - 2, k + 0, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 0, j - 2, k + 8, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i - 8, j - 2, k + 0, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 0, j - 2, k - 8, Blocks.air);
+//		WarsMod.generateBlock(player.worldObj, i + 8, j - 1, k + 0, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 0, j - 1, k + 8, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i - 8, j - 1, k + 0, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 0, j - 1, k - 8, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 8, j - 2, k + 0, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 0, j - 2, k + 8, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i - 8, j - 2, k + 0, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 0, j - 2, k - 8, Blocks.AIR);
 //
-//		WarsMod.generateBlock(player.worldObj, i + 6, j - 2, k + 6, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 6, j - 2, k - 6, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i - 6, j - 2, k + 6, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i - 6, j - 2, k - 6, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 6, j - 1, k + 6, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 6, j - 1, k - 6, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i - 6, j - 1, k + 6, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i - 6, j - 1, k - 6, Blocks.air);
+//		WarsMod.generateBlock(player.worldObj, i + 6, j - 2, k + 6, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 6, j - 2, k - 6, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i - 6, j - 2, k + 6, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i - 6, j - 2, k - 6, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 6, j - 1, k + 6, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 6, j - 1, k - 6, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i - 6, j - 1, k + 6, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i - 6, j - 1, k - 6, Blocks.AIR);
 //
-//		WarsMod.generateBlock(player.worldObj, i + 7, j - 1, k - 5, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i - 7, j - 1, k - 5, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i + 7, j - 2, k - 5, Blocks.air);
-//		WarsMod.generateBlock(player.worldObj, i - 7, j - 2, k - 5, Blocks.air);
+//		WarsMod.generateBlock(player.worldObj, i + 7, j - 1, k - 5, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i - 7, j - 1, k - 5, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i + 7, j - 2, k - 5, Blocks.AIR);
+//		WarsMod.generateBlock(player.worldObj, i - 7, j - 2, k - 5, Blocks.AIR);
 //
-//		WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k - 0, Blocks.air);
+//		WarsMod.generateBlock(player.worldObj, i + 0, j - 0, k - 0, Blocks.AIR);
 //
 		hgS.generate(player.worldObj, i - 9, j - 3, k - 9, false);
 //		WarsMod.generateBlock(player.worldObj, i + 8, j - 4, k + 0, WarsBlocks.hgTele1);

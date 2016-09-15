@@ -1,10 +1,9 @@
 package the_fireplace.wars.tileentities;
 
 import net.minecraft.init.Blocks;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.text.TextComponentString;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
 import the_fireplace.wars.worldgen.ResinresinLoader;
@@ -31,48 +30,36 @@ public class TileEntityHungerGamesLv2 extends TileEntity implements ITickable {
 			tickCount++;
 
 			if (tickCount == TICKS_IN_30_SECONDS) {
-				MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a75HUNGER GAMES MEDIUM STARTING IN 30 SECONDS"));
+				worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES MEDIUM STARTING IN 30 SECONDS"));
 			}
 		}
 
 		if (tickCount == TICKS_IN_50_SECONDS) {
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a75HUNGER GAMES MEDIUM STARTING IN 10 SECONDS"));
-
+			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES MEDIUM STARTING IN 10 SECONDS"));
 		}
 
 		if (tickCount == TICKS_IN_55_SECONDS) {
-
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a75HUNGER GAMES MEDIUM STARTING IN 5 SECONDS"));
-
+			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES MEDIUM STARTING IN 5 SECONDS"));
 		}
 
 		if (tickCount == TICKS_IN_56_SECONDS) {
-
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a754"));
-
+			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a754"));
 		}
 
 		if (tickCount == TICKS_IN_57_SECONDS) {
-
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a753"));
-
+			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a753"));
 		}
 
 		if (tickCount == TICKS_IN_58_SECONDS) {
-
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a752"));
-
+			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a752"));
 		}
 
 		if (tickCount == TICKS_IN_59_SECONDS) {
-
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a751"));
-
+			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a751"));
 		}
 
 		if (tickCount == TICKS_IN_1_MINUTE) {
-
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("\u00a72HUNGER GAMES MEDIUM HAS STARTED GO GO GO "));
+			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a72HUNGER GAMES MEDIUM HAS STARTED GO GO GO "));
 
 			
 			worldObj.createExplosion(null, pos.getX() - 19, pos.getY() + 4, pos.getZ(), 0.0F, shouldTick);
@@ -93,25 +80,25 @@ public class TileEntityHungerGamesLv2 extends TileEntity implements ITickable {
 			worldObj.createExplosion(null, pos.getX() - 19, pos.getY() + 1, pos.getZ(), 0.0F, shouldTick);
 			worldObj.createExplosion(null, pos.getX() - 19, pos.getY(), pos.getZ(), 0.0F, shouldTick);
 
-			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY(), pos.getZ(), Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR);
 
-			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY(), pos.getZ(), Blocks.glass);
+			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY(), pos.getZ(), Blocks.GLASS);
 
 			hgLStarted.generate(worldObj, pos.getX() - 40, pos.getY(), pos.getZ() - 22, false);
 
-			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() + 4, Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() - 4, Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 23, pos.getY(), pos.getZ(), Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 15, pos.getY(), pos.getZ(), Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() + 4, Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() - 4, Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 23, pos.getY(), pos.getZ(), Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 15, pos.getY(), pos.getZ(), Blocks.AIR);
 
-			WarsMod.generateBlock(worldObj, pos.getX() - 18, pos.getY(), pos.getZ(), Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 20, pos.getY(), pos.getZ(), Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() - 1, Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() + 1, Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() + 5, Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() - 5, Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 24, pos.getY(), pos.getZ(), Blocks.air);
-			WarsMod.generateBlock(worldObj, pos.getX() - 14, pos.getY(), pos.getZ() + 1, Blocks.air);
+			WarsMod.generateBlock(worldObj, pos.getX() - 18, pos.getY(), pos.getZ(), Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 20, pos.getY(), pos.getZ(), Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() - 1, Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() + 1, Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() + 5, Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 19, pos.getY(), pos.getZ() - 5, Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 24, pos.getY(), pos.getZ(), Blocks.AIR);
+			WarsMod.generateBlock(worldObj, pos.getX() - 14, pos.getY(), pos.getZ() + 1, Blocks.AIR);
 
 			WarsMod.generateBlock(worldObj, pos.getX() - 18, pos.getY(), pos.getZ(), WarsBlocks.insChest3);
 			WarsMod.generateBlock(worldObj, pos.getX() - 20, pos.getY(), pos.getZ(), WarsBlocks.insChest3);
@@ -130,8 +117,5 @@ public class TileEntityHungerGamesLv2 extends TileEntity implements ITickable {
 		if (tickCount == TICKS_WHEN_EVERYTHING_IS_DONE) {
 			shouldTick = false;
 		}
-
 	}
-
-
 }

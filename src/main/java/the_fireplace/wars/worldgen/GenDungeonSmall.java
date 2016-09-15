@@ -6,7 +6,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import the_fireplace.wars.WarsMod;
@@ -22,7 +22,7 @@ public class GenDungeonSmall extends WorldGenerator {
 	@Override
 	public boolean generate(World world, Random rand, BlockPos pos) {
 
-		Block grass = Blocks.grass;
+		Block grass = Blocks.GRASS;
 
 		int i = pos.getX();
 		int j = pos.getX();
@@ -42,14 +42,14 @@ public class GenDungeonSmall extends WorldGenerator {
 
 		dungS.generate(world, i, j - 55, k, true);
 
-		WarsMod.generateBlock(world, i + 3, j - 53, k + 3, Blocks.mob_spawner);
+		WarsMod.generateBlock(world, i + 3, j - 53, k + 3, Blocks.MOB_SPAWNER);
 		BlockPos spawnerPos = new BlockPos(i + 3, j - 53, k + 3);
 		TileEntityMobSpawner var19 = (TileEntityMobSpawner) world.getTileEntity(spawnerPos);
 		if (var19 != null) {
 			var19.getSpawnerBaseLogic().setEntityName("Blaze");
 		}
 
-		WarsMod.generateBlock(world, i + 3, j - 52, k + 3, Blocks.chest);
+		WarsMod.generateBlock(world, i + 3, j - 52, k + 3, Blocks.CHEST);
 		TileEntityChest chest2 = new TileEntityChest();
 		BlockPos chestPos = new BlockPos(i + 3, j - 52, k + 3);
 		world.setTileEntity(chestPos, chest2);
@@ -59,44 +59,44 @@ public class GenDungeonSmall extends WorldGenerator {
 			int num = random.nextInt(80);
 
 			if (num == 1) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.iron_ingot));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.IRON_INGOT));
 
 			}
 			if (num == 2) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.gold_ingot));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.GOLD_INGOT));
 
 			}
 
 			if (num == 3) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.bone));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.BONE));
 
 			}
 
 			if (num == 4) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.book));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.BOOK));
 
 			}
 			if (num == 5) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.rotten_flesh));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.ROTTEN_FLESH));
 
 			}
 			if (num == 7) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.bread));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.BREAD));
 
 			}
 			if (num == 8) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.emerald));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.EMERALD));
 
 			}
 			if (num == 9) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.slime_ball));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.SLIME_BALL));
 
 			}
 			if (num == 10) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.experience_bottle));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.EXPERIENCE_BOTTLE));
 			}
 			if (num == 11) {
-				chest2.setInventorySlotContents(slot, new ItemStack(Items.ender_pearl));
+				chest2.setInventorySlotContents(slot, new ItemStack(Items.ENDER_PEARL));
 
 			}
 		}

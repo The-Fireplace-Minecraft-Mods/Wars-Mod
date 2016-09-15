@@ -6,9 +6,10 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -19,10 +20,15 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import the_fireplace.wars.command.*;
+import the_fireplace.wars.command.CommandEditMode;
+import the_fireplace.wars.command.CommandKills;
+import the_fireplace.wars.command.CommandSetBase;
+import the_fireplace.wars.command.CommandShowKills;
 import the_fireplace.wars.entities.EntityPTNTPrimed;
 import the_fireplace.wars.handlers.GuiHandler;
-import the_fireplace.wars.init.*;
+import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.init.WarsItems;
+import the_fireplace.wars.init.WarsTileEntities;
 import the_fireplace.wars.network.PacketDispatcher;
 import the_fireplace.wars.tabs.WarsBlocksTab;
 import the_fireplace.wars.tabs.WarsClassesTab;
@@ -77,7 +83,7 @@ public class WarsMod {
 
 	@EventHandler
 	public void serverStart(FMLServerStartingEvent event) {
-		MinecraftServer server = MinecraftServer.getServer();
+		MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
 		ICommandManager command = server.getCommandManager();
 
 		ServerCommandManager serverCommand = (ServerCommandManager) command;

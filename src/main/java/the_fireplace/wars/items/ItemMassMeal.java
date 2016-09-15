@@ -5,8 +5,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.BonemealEvent;
@@ -19,10 +21,10 @@ public class ItemMassMeal extends Item {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
 		if (!player.canPlayerEdit(pos, side, stack)) {
-			return false;
+			return EnumActionResult.FAIL;
 		} else {
 			IBlockState state;
 			int i;
@@ -33,10 +35,10 @@ public class ItemMassMeal extends Item {
 			BonemealEvent event = new BonemealEvent(player, world, pos, state);
 
 			if (MinecraftForge.EVENT_BUS.post(event)) {
-				return false;
+				return EnumActionResult.FAIL;
 			}
 
-			if (state == Blocks.grass.getDefaultState()) {
+			if (state == Blocks.GRASS.getDefaultState()) {
 				if (!world.isRemote) {
 					--stack.stackSize;
 					label133:
@@ -53,25 +55,26 @@ public class ItemMassMeal extends Item {
 
 								BlockPos positionGrass2 = new BlockPos(x, y - 1, z);
 
-								if (world.getBlockState(positionGrass2).getBlock() != Blocks.grass || world.isBlockNormalCube(pos, true)) {
+								if (world.getBlockState(positionGrass2).getBlock() != Blocks.GRASS || world.isBlockNormalCube(pos, true)) {
 									continue label133;
 								}
 							}
 
 							BlockPos positionGrass = new BlockPos(x, y, z);
 
-							if (world.getBlockState(positionGrass) == Blocks.air.getDefaultState()) {
+							if (world.getBlockState(positionGrass) == Blocks.AIR.getDefaultState()) {
 								if (itemRand.nextInt(3) != 0) {
-									if (Blocks.tallgrass.canBlockStay(world, positionGrass, Blocks.tallgrass.getDefaultState() )) {
-										WarsMod.generateBlock(world, x, y, z, Blocks.tallgrass);
+									if (Blocks.TALLGRASS.canBlockStay(world, positionGrass, Blocks.TALLGRASS.getDefaultState() )) {
+										WarsMod.generateBlock(world, x, y, z, Blocks.TALLGRASS);
 									}
 								}
 							}
+							return EnumActionResult.SUCCESS;
 						}
 				}
 			}
 		}
-		return false;
+		return EnumActionResult.PASS;
 
 	}
 

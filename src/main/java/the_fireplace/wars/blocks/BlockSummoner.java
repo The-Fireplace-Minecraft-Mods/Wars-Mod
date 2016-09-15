@@ -9,7 +9,7 @@ import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 
@@ -18,7 +18,7 @@ import java.util.Random;
 public class BlockSummoner extends Block {
 
 	public BlockSummoner() {
-		super(Material.iron);
+		super(Material.IRON);
 		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
@@ -34,7 +34,7 @@ public class BlockSummoner extends Block {
 			int num = random.nextInt(7);
 
 			if (num == 1) {
-				EntityLightningBolt entityLightningBolt = new EntityLightningBolt(par1World, maxX, maxX, maxX);
+				EntityLightningBolt entityLightningBolt = new EntityLightningBolt(par1World, 1, 1, 1, false);
 				entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 				par1World.spawnEntityInWorld(entityLightningBolt);
 			}
@@ -49,7 +49,7 @@ public class BlockSummoner extends Block {
 				par1World.spawnEntityInWorld(entitySnowman);
 			}
 			if (num == 4) {
-				EntityXPOrb entityXPOrb = new EntityXPOrb(par1World, maxX, maxX, maxX, num);
+				EntityXPOrb entityXPOrb = new EntityXPOrb(par1World, 1, 1, 1, num);
 				entityXPOrb.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 				par1World.spawnEntityInWorld(entityXPOrb);
 
@@ -65,7 +65,7 @@ public class BlockSummoner extends Block {
 				par1World.spawnEntityInWorld(entitySheep);
 			}
 			if (num == 7) {
-				EntityLightningBolt entityLightningBolt = new EntityLightningBolt(par1World, maxX, maxX, maxX);
+				EntityLightningBolt entityLightningBolt = new EntityLightningBolt(par1World, 1, 1, 1, false);
 				entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
 				par1World.spawnEntityInWorld(entityLightningBolt);
 			}

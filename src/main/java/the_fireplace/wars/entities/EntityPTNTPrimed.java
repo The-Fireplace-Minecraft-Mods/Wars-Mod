@@ -3,15 +3,22 @@ package the_fireplace.wars.entities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class EntityPTNTPrimed extends Entity {
+	private static final DataParameter<Integer> FUSE = EntityDataManager.<Integer>createKey(EntityPTNTPrimed.class, DataSerializers.VARINT);
 	/** How long the fuse is */
 	public int fuse;
 
@@ -38,7 +45,7 @@ public class EntityPTNTPrimed extends Entity {
 
 	@Override
 	protected void entityInit() {
-		this.dataWatcher.addObject(31, new Integer(fuse));//Leave the boxing there.
+		this.dataManager.register(FUSE, Integer.valueOf(fuse));
 	}
 
 	/**
@@ -64,8 +71,8 @@ public class EntityPTNTPrimed extends Entity {
 	 */
 	@Override
 	public void onUpdate() {
-		dataWatcher.updateObject(31, Integer.valueOf(fuse));//Leave the boxing there.
-		fuse = dataWatcher.getWatchableObjectInt(31);
+		dataManager.set(FUSE, Integer.valueOf(fuse));
+		fuse = dataManager.get(FUSE);
 		prevPosX = posX;
 		prevPosY = posY;
 		prevPosZ = posZ;
@@ -83,7 +90,7 @@ public class EntityPTNTPrimed extends Entity {
 
 		if (fuse-- <= 0) {
 			worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, posX, posY, posZ, 1.0D, 0.0D, 0.0D);
-			worldObj.playSoundEffect(posX, posY, posZ, "random.explode", 4.0F, (1.0F + (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
+			worldObj.playSound(null, posX, posY, posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.AMBIENT, 4.0F, (1.0F + (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
 
 			setDead();
 
@@ -100,11 +107,10 @@ public class EntityPTNTPrimed extends Entity {
 	@SuppressWarnings("unchecked")
 	private void explode() {
 
-		List<EntityLiving> nearbyEntities = worldObj.getEntitiesWithinAABB(EntityLiving.class, AxisAlignedBB.fromBounds(posX - 5, posY - 5, posZ - 5, posX + 5, posY + 5, posZ + 5));
+		List<EntityLiving> nearbyEntities = worldObj.getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(posX - 5, posY - 5, posZ - 5, posX + 5, posY + 5, posZ + 5));
 		for (EntityLiving living : nearbyEntities) {
-			living.attackEntityFrom(DamageSource.setExplosionSource(null), 10);
+			living.attackEntityFrom(DamageSource.causeExplosionDamage((Explosion)null), 10);
 		}
-
 	}
 
 	/**

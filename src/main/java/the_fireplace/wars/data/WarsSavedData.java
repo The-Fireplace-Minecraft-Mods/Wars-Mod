@@ -37,7 +37,7 @@ public class WarsSavedData extends WorldSavedData {
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbttagcompound) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbttagcompound) {
 		nbttagcompound.setTag("teamRed", teamRed.writeToNBT(new NBTTagCompound()));
 		nbttagcompound.setTag("teamBlue", teamBlue.writeToNBT(new NBTTagCompound()));
 		nbttagcompound.setTag("teamGreen", teamGreen.writeToNBT(new NBTTagCompound()));
@@ -46,7 +46,7 @@ public class WarsSavedData extends WorldSavedData {
 		nbttagcompound.setTag("teamChaos", teamChaos.writeToNBT(new NBTTagCompound()));
 
 		nbttagcompound.setTag("editMode", editMode.writeToNBT(new NBTTagCompound()));
-
+		return nbttagcompound;
 	}
 
 	public static WarsSavedData get(World world) {

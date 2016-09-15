@@ -10,43 +10,43 @@ public class GenWizardTower {
 	public GenWizardTower(EntityPlayer player, int i, int j, int k) {
 		ResinresinLoader wizardTower = new ResinresinLoader("wizardTower.resinresin");
 
-		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k + 1, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k - 1, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i - 2, j + 7, k, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i + 2, j + 7, k, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k + 1, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k - 1, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i - 2, j + 7, k, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i + 2, j + 7, k, Blocks.STONE);
 
-		WarsMod.generateBlock(player.worldObj, i - 3, j + 2, k - 1, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i - 3, j + 2, k + 1, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i - 3, j + 2, k - 1, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i - 3, j + 2, k + 1, Blocks.STONE);
 
-		WarsMod.generateBlock(player.worldObj, i + 1, j + 2, k - 3, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i - 1, j + 2, k - 3, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i + 1, j + 2, k - 3, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i - 1, j + 2, k - 3, Blocks.STONE);
 
-		WarsMod.generateBlock(player.worldObj, i + 3, j + 2, k - 1, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i + 3, j + 2, k + 1, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i + 3, j + 2, k - 1, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i + 3, j + 2, k + 1, Blocks.STONE);
 
-		WarsMod.generateBlock(player.worldObj, i + 4, j + 2, k - 1, Blocks.torch);
-		WarsMod.generateBlock(player.worldObj, i + 4, j + 2, k + 1, Blocks.torch);
+		WarsMod.generateBlock(player.worldObj, i + 4, j + 2, k - 1, Blocks.TORCH);
+		WarsMod.generateBlock(player.worldObj, i + 4, j + 2, k + 1, Blocks.TORCH);
 
-		WarsMod.generateBlock(player.worldObj, i + 1, j + 2, k + 3, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i - 1, j + 2, k + 3, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i + 1, j + 2, k + 3, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i - 1, j + 2, k + 3, Blocks.STONE);
 		// break
-		WarsMod.generateBlock(player.worldObj, i - 2, j + 7, k - 1, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i - 2, j + 7, k + 1, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i - 2, j + 7, k - 1, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i - 2, j + 7, k + 1, Blocks.STONE);
 
-		WarsMod.generateBlock(player.worldObj, i + 1, j + 7, k - 2, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i - 1, j + 7, k - 2, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i + 1, j + 7, k - 2, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i - 1, j + 7, k - 2, Blocks.STONE);
 
-		WarsMod.generateBlock(player.worldObj, i + 2, j + 7, k - 1, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i + 2, j + 7, k + 1, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i + 2, j + 7, k - 1, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i + 2, j + 7, k + 1, Blocks.STONE);
 
-		WarsMod.generateBlock(player.worldObj, i + 3, j + 7, k - 1, Blocks.torch);
-		WarsMod.generateBlock(player.worldObj, i + 3, j + 7, k + 1, Blocks.torch);
+		WarsMod.generateBlock(player.worldObj, i + 3, j + 7, k - 1, Blocks.TORCH);
+		WarsMod.generateBlock(player.worldObj, i + 3, j + 7, k + 1, Blocks.TORCH);
 
-		WarsMod.generateBlock(player.worldObj, i + 1, j + 7, k + 2, Blocks.stone);
-		WarsMod.generateBlock(player.worldObj, i - 1, j + 7, k + 2, Blocks.stone);
+		WarsMod.generateBlock(player.worldObj, i + 1, j + 7, k + 2, Blocks.STONE);
+		WarsMod.generateBlock(player.worldObj, i - 1, j + 7, k + 2, Blocks.STONE);
 		wizardTower.generate(player.worldObj, i - 4, j - 1, k - 4, false);
 
-		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.AIR);
 	}
 
 }

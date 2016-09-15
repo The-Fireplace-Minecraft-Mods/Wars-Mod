@@ -13,7 +13,7 @@ public class GenWindmill {
 		windmill.generate(player.worldObj, i - 6, j - 1, k - 8, false);
 		windmill.generate(player.worldObj, i - 6, j - 1, k - 8, false);
 
-		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.air);
+		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.AIR);
 	}
 
 }

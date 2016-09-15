@@ -5,6 +5,9 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -30,14 +33,14 @@ public class ItemAntidote extends Item {
 	}
 
 	@Override
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+    public ActionResult<ItemStack> onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer, EnumHand hand) {
 		if (!world.isRemote) {
-			entityplayer.curePotionEffects(new ItemStack(Items.milk_bucket));
+			entityplayer.curePotionEffects(new ItemStack(Items.MILK_BUCKET));
 
 			itemstack.stackSize = 0;
 		}
 
-		return itemstack;
+		return new ActionResult(EnumActionResult.PASS, itemstack);
 	}
 
 }

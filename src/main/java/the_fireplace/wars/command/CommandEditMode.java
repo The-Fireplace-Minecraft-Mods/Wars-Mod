@@ -3,7 +3,8 @@ package the_fireplace.wars.command;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentTranslation;
 import the_fireplace.wars.data.WarsSavedData;
 
 public class CommandEditMode extends CommandBase {
@@ -19,7 +20,7 @@ public class CommandEditMode extends CommandBase {
 	}
 
 	@Override
-	public void processCommand(ICommandSender sender, String[] args) throws CommandException {
+	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 			WarsSavedData savedData = WarsSavedData.get(sender.getEntityWorld());
 			int a = savedData.teamRed.baseX;
 			int b = savedData.teamRed.baseY;
@@ -44,36 +45,36 @@ public class CommandEditMode extends CommandBase {
 			boolean flag = false;
 
 			if (a == 0 && b == 0 && c == 0) {
-				sender.addChatMessage(new ChatComponentTranslation("command.edit.rednotset"));
+				sender.addChatMessage(new TextComponentTranslation("command.edit.rednotset"));
 				flag = true;
 			}
 			if (d == 0 && e == 0 && f == 0) {
-				sender.addChatMessage(new ChatComponentTranslation("command.edit.greennotset"));
+				sender.addChatMessage(new TextComponentTranslation("command.edit.greennotset"));
 				flag = true;
 			}
 			if (g == 0 && h == 0 && i == 0) {
-				sender.addChatMessage(new ChatComponentTranslation("command.edit.bluenotset"));
+				sender.addChatMessage(new TextComponentTranslation("command.edit.bluenotset"));
 				flag = true;
 			}
 			if (j == 0 && k == 0 && l == 0) {
-				sender.addChatMessage(new ChatComponentTranslation("command.edit.yellownotset"));
+				sender.addChatMessage(new TextComponentTranslation("command.edit.yellownotset"));
 				flag = true;
 			}
 			if (m == 0 && n == 0 && o == 0) {
-				sender.addChatMessage(new ChatComponentTranslation("command.edit.chaosnotset"));
+				sender.addChatMessage(new TextComponentTranslation("command.edit.chaosnotset"));
 				flag = true;
 			}
 			if(flag && savedData.editMode.editModeToggle){
-				sender.addChatMessage(new ChatComponentTranslation("command.edit.setpoints"));
+				sender.addChatMessage(new TextComponentTranslation("command.edit.setpoints"));
 			}
 
 			if(!flag || !savedData.editMode.editModeToggle){
 				savedData.editMode.editModeToggle = !savedData.editMode.editModeToggle;
 				savedData.markDirty();
 				if(savedData.editMode.editModeToggle)
-					sender.addChatMessage(new ChatComponentTranslation("command.edit.enabled"));
+					sender.addChatMessage(new TextComponentTranslation("command.edit.enabled"));
 				else
-					sender.addChatMessage(new ChatComponentTranslation("command.edit.disabled"));
+					sender.addChatMessage(new TextComponentTranslation("command.edit.disabled"));
 			}
 	}
 

@@ -2,40 +2,44 @@ package the_fireplace.wars.blocks.unseen;
 
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.worldgen.ResinresinLoader;
 import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.worldgen.ResinresinLoader;
 
 public class BlockNaturalSpleefMedium extends Block {
 
 	public BlockNaturalSpleefMedium() {
-		super(Material.iron);
+		super(Material.IRON);
+		setSoundType(SoundType.STONE);
 	}
 
 	ResinresinLoader pSpleefM = new ResinresinLoader("pSpleefM.resinresin");
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float par7, float par8, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack held, EnumFacing side, float par7, float par8, float par9) {
 
 		int i = pos.getX();
 		int j = pos.getY();
 		int k = pos.getZ();
 		
 		BlockPos position1 = new BlockPos(i, j + 2, k + 10);
-		world.setBlockState(position1, Blocks.stone.getDefaultState());
+		world.setBlockState(position1, Blocks.STONE.getDefaultState());
 		
 		BlockPos position2 = new BlockPos(i + 1, j + 2, k + 10);
-		world.setBlockState(position2, Blocks.stone.getDefaultState());
+		world.setBlockState(position2, Blocks.STONE.getDefaultState());
 		
 		BlockPos position3 = new BlockPos(i + 10, j + 1, k - 2);
-		world.setBlockState(position3, Blocks.stone.getDefaultState());
+		world.setBlockState(position3, Blocks.STONE.getDefaultState());
 		
 		pSpleefM.generate(world, i + -14, j - 2, k + -13, false);
 
