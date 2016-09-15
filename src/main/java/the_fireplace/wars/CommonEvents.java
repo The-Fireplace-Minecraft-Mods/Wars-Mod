@@ -12,6 +12,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import the_fireplace.wars.data.WarsSavedData;
 import the_fireplace.wars.init.WarsItems;
 import the_fireplace.wars.items.ItemArmorMod;
+import the_fireplace.wars.items.Undroppable;
 import the_fireplace.wars.network.PacketDispatcher;
 import the_fireplace.wars.network.packets.PacketKills;
 import the_fireplace.wars.network.packets.PacketOpenTeamSelect;
@@ -172,16 +174,23 @@ public class CommonEvents {
 
 			PacketDispatcher.sendTo(new PacketKills(0, deadPlayer.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).getInteger("warsmod_totalKill"), deadPlayerDeaths), (EntityPlayerMP)deadPlayer);
 
-			if(deadPlayer.inventory.getStackInSlot(36) != null) {
-				Item playerBoots = deadPlayer.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);
-
-				if (playerBoots != null) {
-					if (playerBoots == WarsItems.redBoots || playerBoots == WarsItems.yellowBoots || playerBoots == WarsItems.blueBoots || playerBoots == WarsItems.greenBoots || playerBoots == WarsItems.chaosBoots) {
-						deadPlayer.inventory.clear();
-					}
-				}
+			for(ItemStack stack:deadPlayer.inventory.mainInventory){
+				if(stack != null)
+					if(stack.getItem() instanceof Undroppable)
+						stack.stackSize=0;
+			}
+			for(ItemStack stack:deadPlayer.inventory.armorInventory){
+				if(stack != null)
+					if(stack.getItem() instanceof Undroppable)
+						stack.stackSize=0;
 			}
 		}
+	}
+
+	@SubscribeEvent
+	public void onItemThrown(ItemTossEvent event){
+		if(event.entityItem.getEntityItem().getItem() instanceof Undroppable)
+			event.setCanceled(true);
 	}
 
 	@SubscribeEvent

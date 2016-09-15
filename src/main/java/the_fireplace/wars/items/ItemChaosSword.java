@@ -18,7 +18,7 @@ import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
 import the_fireplace.wars.init.WarsItems;
 
-public class ItemChaosSword extends Item {
+public class ItemChaosSword extends Item implements Undroppable {
 
 	private float weaponDamage;
 

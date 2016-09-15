@@ -9,7 +9,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ISpecialArmor;
 import the_fireplace.wars.init.WarsItems;
 
-public class ItemArmorMod extends ItemArmor implements ISpecialArmor {
+public class ItemArmorMod extends ItemArmor implements ISpecialArmor, Undroppable {
 
 
 	public ItemArmorMod(ArmorMaterial material, int type) {
