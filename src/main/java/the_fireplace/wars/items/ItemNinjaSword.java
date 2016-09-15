@@ -6,15 +6,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
-import the_fireplace.wars.init.WarsItems;
 
 public class ItemNinjaSword extends Item {
 
@@ -28,7 +25,7 @@ public class ItemNinjaSword extends Item {
 		setFull3D();
 	}
 
-	int cooldown = 0;
+	/*int cooldown = 0;
 
 	@Override
 	public void onUpdate(ItemStack par1ItemStak, World par2World, Entity par3Entity, int par4, boolean par5) {
@@ -57,7 +54,7 @@ public class ItemNinjaSword extends Item {
 			}
 		}
 		return stack;
-	}
+	}*/
 
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {

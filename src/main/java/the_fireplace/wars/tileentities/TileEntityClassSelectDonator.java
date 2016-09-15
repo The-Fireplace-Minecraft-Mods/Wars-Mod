@@ -115,43 +115,36 @@ public class TileEntityClassSelectDonator extends TileEntity implements IInvento
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean hasCustomName() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public IChatComponent getDisplayName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int getField(int id) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void setField(int id, int value) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public int getFieldCount() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
 		
 	}
 

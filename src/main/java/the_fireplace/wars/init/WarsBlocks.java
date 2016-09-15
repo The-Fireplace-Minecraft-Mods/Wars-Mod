@@ -72,7 +72,7 @@ public class WarsBlocks {
 	public static void createBlocks() {
 
 		// Basic Blocks Used in map building
-		sinkSand = new BlockSinkSand().setUnlocalizedName("sinkSand").setBlockUnbreakable().setHardness(6.9F).setStepSound(Block.soundTypeStone);
+		sinkSand = new BlockSinkSand().setUnlocalizedName("sinkSand").setBlockUnbreakable().setHardness(6.9F).setStepSound(Block.soundTypeSand);
 
 		// Utility Blocks
 		bounceBlockLow = new BlockBounceLow().setBlockUnbreakable().setUnlocalizedName("bounceBlockLow").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -82,15 +82,15 @@ public class WarsBlocks {
 		badBlock = new BlockBadBlock().setUnlocalizedName("badBlock").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		presentBox = new BlockPresentBox().setHardness(5F).setUnlocalizedName("presentBox").setResistance(6000000F).setStepSound(Block.soundTypeStone);
 		spleefStone = new BlockSpleefStone().setHardness(5F).setUnlocalizedName("spleefStone").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest1 = new BlockInstantChestLv1().setBlockUnbreakable().setUnlocalizedName("insChest1").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest2 = new BlockInstantChestLv2().setUnlocalizedName("insChest2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest3 = new BlockInstantChestLv3().setBlockUnbreakable().setUnlocalizedName("insChest3").setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		insChest4 = new BlockInstantChestLv4().setUnlocalizedName("insChest4").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone);
-		warChest = new BlockWarChest().setBlockUnbreakable().setBlockUnbreakable().setUnlocalizedName("warChest").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		teleporterBlock = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock");
-		teleporterBlock2 = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock2");
-		teleporterBlock3 = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock3");
-		teleporterBlock4 = new BlockTeleporter().setHardness(5).setResistance(10).setStepSound(Block.soundTypeStone).setUnlocalizedName("teleporterBlock4");
+		insChest1 = new BlockInstantChestLv1().setBlockUnbreakable().setUnlocalizedName("insChest1").setResistance(6000000F).setStepSound(Block.soundTypeWood);
+		insChest2 = new BlockInstantChestLv2().setUnlocalizedName("insChest2").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeWood);
+		insChest3 = new BlockInstantChestLv3().setBlockUnbreakable().setUnlocalizedName("insChest3").setResistance(6000000F).setStepSound(Block.soundTypeWood);
+		insChest4 = new BlockInstantChestLv4().setUnlocalizedName("insChest4").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeWood);
+		warChest = new BlockWarChest().setBlockUnbreakable().setBlockUnbreakable().setUnlocalizedName("warChest").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeWood);
+		teleporterBlock = new BlockTeleporter().setHardness(5).setResistance(10).setUnlocalizedName("teleporterBlock");
+		teleporterBlock2 = new BlockTeleporter().setHardness(5).setResistance(10).setUnlocalizedName("teleporterBlock2");
+		teleporterBlock3 = new BlockTeleporter().setHardness(5).setResistance(10).setUnlocalizedName("teleporterBlock3");
+		teleporterBlock4 = new BlockTeleporter().setHardness(5).setResistance(10).setUnlocalizedName("teleporterBlock4");
 		// Selectors
 		castleSelector = new BlockCastleSelector().setUnlocalizedName("castleSelector").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		spleefSelector = new BlockSelectorSpleef().setBlockUnbreakable().setUnlocalizedName("spleefSelector").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
@@ -103,11 +103,11 @@ public class WarsBlocks {
 		playerTNT = new BlockPlayerTNT().setHardness(0.2F).setUnlocalizedName("playerTNT").setResistance(1F).setStepSound(Block.soundTypeStone);
 
 		// Individual Structure Blocks
-		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		hill = new BlockHill().setUnlocalizedName("hill").setBlockUnbreakable().setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeGravel);
 		cottage = new BlockCottage().setUnlocalizedName("cottage").setBlockUnbreakable().setResistance(6000000F).setStepSound(Block.soundTypeStone).setLightLevel(0.9F);
 		//wall = new BlockWall(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("wall2").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		//corner = new BlockCorner(hill.getDefaultState().withProperty(BlockPlanks.VARIANT, BlockPlanks.EnumType.OAK)).setBlockUnbreakable().setUnlocalizedName("corner").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
-		lamp = new BlockLamp().setBlockUnbreakable().setUnlocalizedName("lamp").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
+		lamp = new BlockLamp().setBlockUnbreakable().setUnlocalizedName("lamp").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeWood);
 		roadPiece = new BlockRoadPiece().setBlockUnbreakable().setUnlocalizedName("roadPiece").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		tower = new BlockTower().setBlockUnbreakable().setUnlocalizedName("tower").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);
 		wallEnd = new BlockWallEnd().setBlockUnbreakable().setUnlocalizedName("wallEnd").setResistance(6000000F).setLightLevel(0.9F).setStepSound(Block.soundTypeStone);

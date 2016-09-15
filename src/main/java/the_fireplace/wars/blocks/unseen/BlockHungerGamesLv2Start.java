@@ -43,7 +43,6 @@ public class BlockHungerGamesLv2Start extends Block {
 		}
 		te.tickCount = 0;
 		te.shouldTick = true;
-		//TODO: This should be the same method of sending a message that the HungerGames Lv1 is
 		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("hungergames.medium.start"));
 
 		return false;

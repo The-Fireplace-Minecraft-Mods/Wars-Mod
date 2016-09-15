@@ -2,7 +2,6 @@ package the_fireplace.wars.items;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,11 +22,6 @@ public class ItemGuardSword extends Item {
 		this.setMaxStackSize(1);
 		this.weaponDamage = 3F;
 		setFull3D();
-	}
-
-	@Override
-	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		return false;
 	}
 
 	@Override

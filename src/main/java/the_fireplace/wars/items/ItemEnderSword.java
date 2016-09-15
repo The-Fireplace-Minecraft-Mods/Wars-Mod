@@ -62,19 +62,27 @@ public class ItemEnderSword extends Item {
                         int z = result.getBlockPos().getZ();
                         if(!teleportTo(x, y, z, player) && !(world.getBlockState(result.getBlockPos()).getBlock() instanceof BlockGlass)){//BlockGlass check prevents potentially escaping the dome
                             if(player.posX > x)
-                                if(teleportTo(x+2, y, z, player))
+                                if(teleportTo(x+2, y, z, player)){
+                                    cooldown = 80;
                                     return stack;
+                                }
                             if(player.posX < x)
-                                if(teleportTo(x-2, y, z, player))
+                                if(teleportTo(x-2, y, z, player)) {
+                                    cooldown = 80;
                                     return stack;
+                                }
                             if(player.posZ > z)
-                                if(teleportTo(x, y, z+2, player))
+                                if(teleportTo(x, y, z+2, player)) {
+                                    cooldown = 80;
                                     return stack;
+                                }
                             if(player.posZ < z)
-                                if(teleportTo(x, y, z-2, player))
+                                if(teleportTo(x, y, z-2, player)) {
+                                    cooldown = 80;
                                     return stack;
+                                }
                         }
-                        cooldown = 40;
+                        cooldown = 80;
                     }
                 } else {
                     player.addChatMessage(new ChatComponentTranslation("class.donatoronly"));

@@ -3,15 +3,14 @@ package the_fireplace.wars.blocks.unseen;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
-import the_fireplace.wars.worldgen.ResinresinLoader;
 import the_fireplace.wars.init.WarsBlocks;
+import the_fireplace.wars.worldgen.ResinresinLoader;
 
 public class BlockHungerGamesLv2Reset extends Block {
 
@@ -19,7 +18,7 @@ public class BlockHungerGamesLv2Reset extends Block {
 		super(Material.iron);
 		setHardness(5F);
 		setResistance(10F);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(WarsMod.tabWarsBlocks);
 	}
 
 	ResinresinLoader hgLTop = new ResinresinLoader("hgLTop.resinresin");

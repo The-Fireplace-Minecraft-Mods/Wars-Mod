@@ -7,17 +7,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 import the_fireplace.wars.WarsMod;
 import the_fireplace.wars.init.WarsBlocks;
-import the_fireplace.wars.init.WarsItems;
 
 public class ItemWizardStaff extends Item {
 
@@ -27,19 +24,12 @@ public class ItemWizardStaff extends Item {
 		super();
 		this.setCreativeTab(WarsMod.tabWarsClasses);
 		this.setMaxStackSize(1);
-		this.setMaxDamage(300);
 		this.weaponDamage = 1F;
 		setFull3D();
 	}
 
 	@Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		if (player instanceof EntityPlayerMP && !ItemArmorMod.hasFullSuit(player, WarsItems.healerArmor)) {
-			player.addChatMessage(new ChatComponentTranslation("nocheat.healer"));
-			stack.stackSize = 0;
-			return false;
-		}
-
 		((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 10 * 20, 2));
 		return false;
 	}

@@ -2,7 +2,6 @@ package the_fireplace.wars.items;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -27,11 +26,6 @@ public class ItemKnightSword extends Item {
 		this.setMaxDamage(300);
 		this.weaponDamage = 4F;
 		setFull3D();
-	}
-    
-	@Override
-    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		return false;
 	}
 
 	@Override

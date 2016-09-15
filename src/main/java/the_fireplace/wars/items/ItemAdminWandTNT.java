@@ -34,12 +34,12 @@ public class ItemAdminWandTNT extends Item {
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!world.isRemote) {
 			Vec3 look = entityplayer.getLookVec();
-			EntityTNTPrimed fireball2 = new EntityTNTPrimed(world);
-			fireball2.setPosition(entityplayer.posX + look.xCoord * 0, entityplayer.posY + look.yCoord * 0, entityplayer.posZ + look.zCoord * 0);
-			fireball2.motionX = look.xCoord * 0.1;
-			fireball2.motionY = look.yCoord * 0.1;
-			fireball2.motionZ = look.zCoord * 0.1;
-			world.spawnEntityInWorld(fireball2);
+			EntityTNTPrimed tntPrimed = new EntityTNTPrimed(world);
+			tntPrimed.setPosition(entityplayer.posX + look.xCoord * 0, entityplayer.posY + look.yCoord * 0, entityplayer.posZ + look.zCoord * 0);
+			tntPrimed.motionX = look.xCoord * 0.1;
+			tntPrimed.motionY = look.yCoord * 0.1;
+			tntPrimed.motionZ = look.zCoord * 0.1;
+			world.spawnEntityInWorld(tntPrimed);
 		}
 		return itemstack;
 	}

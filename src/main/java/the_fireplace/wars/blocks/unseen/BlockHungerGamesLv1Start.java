@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
@@ -42,10 +43,7 @@ public class BlockHungerGamesLv1Start extends Block {
 		}
 		te.tickCount = 0;
 		te.shouldTick = true;
-
-		if (!world.isRemote) {
-			player.addChatMessage(new ChatComponentTranslation("hungergames.small.start"));
-		}
+		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("hungergames.small.start"));
 
 		return false;
 	}

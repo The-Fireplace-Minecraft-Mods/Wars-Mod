@@ -34,12 +34,12 @@ public class ItemAdminWandBall extends Item {
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!world.isRemote) {
 			Vec3 look = entityplayer.getLookVec();
-			EntityLargeFireball fireball2 = new EntityLargeFireball(world, entityplayer, 1, 1, 1);
-			fireball2.setPosition(entityplayer.posX + look.xCoord * 1, entityplayer.posY + look.yCoord * 1, entityplayer.posZ + look.zCoord * 1);
-			fireball2.accelerationX = look.xCoord * 0.1;
-			fireball2.accelerationY = look.yCoord * 0.1;
-			fireball2.accelerationZ = look.zCoord * 0.1;
-			world.spawnEntityInWorld(fireball2);
+			EntityLargeFireball fireball = new EntityLargeFireball(world, entityplayer, 1, 1, 1);
+			fireball.setPosition(entityplayer.posX + look.xCoord * 1, entityplayer.posY + look.yCoord * 1, entityplayer.posZ + look.zCoord * 1);
+			fireball.accelerationX = look.xCoord * 0.1;
+			fireball.accelerationY = look.yCoord * 0.1;
+			fireball.accelerationZ = look.zCoord * 0.1;
+			world.spawnEntityInWorld(fireball);
 		}
 		return itemstack;
 	}
