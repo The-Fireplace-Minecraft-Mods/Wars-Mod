@@ -14,18 +14,15 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "2.0.5"
 group= "the_fireplace.warsmod"
-archivesBaseName = "WarsMod-1.10.2"
+archivesBaseName = "WarsMod-1.11.2"
 
 minecraft {
-    version = "1.10.2-12.18.1.2088"
+    version = "1.11.2-13.20.1.2386"
     runDir = "run"
-    
-    mappings = "snapshot_20160522"
+    mappings = "stable_32"
 }
 
-dependencies {
-
-}
+dependencies {}
 
 processResources
 {
