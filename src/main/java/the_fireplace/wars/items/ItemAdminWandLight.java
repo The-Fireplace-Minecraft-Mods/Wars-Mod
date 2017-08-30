@@ -43,11 +43,11 @@ public class ItemAdminWandLight extends Item {
 			bolt.lastTickPosX = look.xCoord * 0.1;
 			bolt.lastTickPosY = look.yCoord * 0.1;
 			bolt.lastTickPosZ = look.zCoord * 0.1;
-			world.spawnEntityInWorld(bolt);
+			world.spawnEntity(bolt);
 
 		}
 
-		return new ActionResult(EnumActionResult.PASS, itemstack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 
 }

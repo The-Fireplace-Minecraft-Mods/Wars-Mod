@@ -37,7 +37,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 	@Override
 	protected void keyTyped(char par1, int par2) {
 		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 
@@ -58,7 +58,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 		drawString(fontRendererObj, info, posX + 25, posY + 30, 0x6A5ACD);
 
-		drawEntityOnScreen(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.thePlayer);
+		drawEntityOnScreen(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.player);
 
 		super.drawScreen(x, y, f);
 	}
@@ -68,7 +68,6 @@ public class GuiClassSelectDonator extends GuiScreen {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		super.initGui();
@@ -132,7 +131,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 		boolean flag = false;
 		switch (guibutton.id) {
 		case 1:
-			if (WarsMod.getDonators().contains(this.mc.thePlayer.getName())) {
+			if (WarsMod.getDonators().contains(this.mc.player.getName())) {
 				colorIndex = 2;
 				talkTo = I18n.format("classselect.selected", I18n.format("class.chaoswarrior"));
 				flag = true;
@@ -143,7 +142,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 			break;
 		case 2:
-			if (WarsMod.getDonators().contains(this.mc.thePlayer.getName())) {
+			if (WarsMod.getDonators().contains(this.mc.player.getName())) {
 				colorIndex = 3;
 				talkTo = I18n.format("classselect.selected", I18n.format("class.enderknight"));
 				flag = true;
@@ -154,7 +153,7 @@ public class GuiClassSelectDonator extends GuiScreen {
 
 			break;
 		case 3:
-			if (WarsMod.getDonators().contains(this.mc.thePlayer.getName())) {
+			if (WarsMod.getDonators().contains(this.mc.player.getName())) {
 				colorIndex = 1;
 				talkTo = I18n.format("classselect.selected", I18n.format("class.ninja"));
 				flag = true;

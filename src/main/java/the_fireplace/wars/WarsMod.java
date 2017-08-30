@@ -104,9 +104,8 @@ public class WarsMod {
 		par1World.setBlockState(position, state);
 	}
 
-	@SuppressWarnings("unchecked")
 	private ArrayList<String> downloadDonators(){
-		ArrayList donators = new ArrayList<String>();
+		ArrayList<String> donators = new ArrayList<String>();
 		try {
 			URL targetURL = new URL("http://thefireplace.bitnamiapp.com/Donators.txt");
 			InputStream in = targetURL.openStream();

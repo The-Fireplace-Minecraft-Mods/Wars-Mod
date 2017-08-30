@@ -10,11 +10,11 @@ public class GenKnightHut {
 	public GenKnightHut(EntityPlayer player, int i, int j, int k) {
 		ResinresinLoader knightHut = new ResinresinLoader("knightHut.resinresin");
 
-		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k + 2, Blocks.STONE);
-		WarsMod.generateBlock(player.worldObj, i - 2, j + 1, k + 2, Blocks.STONE);
-		WarsMod.generateBlock(player.worldObj, i + 2, j + 1, k - 4, Blocks.STONE);
-		WarsMod.generateBlock(player.worldObj, i - 2, j + 1, k - 4, Blocks.STONE);
-		knightHut.generate(player.worldObj, i + -5, j - 1, k + -5, false);
+		WarsMod.generateBlock(player.world, i + 2, j + 1, k + 2, Blocks.STONE);
+		WarsMod.generateBlock(player.world, i - 2, j + 1, k + 2, Blocks.STONE);
+		WarsMod.generateBlock(player.world, i + 2, j + 1, k - 4, Blocks.STONE);
+		WarsMod.generateBlock(player.world, i - 2, j + 1, k - 4, Blocks.STONE);
+		knightHut.generate(player.world, i + -5, j - 1, k + -5, false);
 	}
 
 }

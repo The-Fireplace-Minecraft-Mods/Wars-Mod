@@ -36,38 +36,38 @@ public class BlockSummoner extends Block {
 			if (num == 1) {
 				EntityLightningBolt entityLightningBolt = new EntityLightningBolt(par1World, 1, 1, 1, false);
 				entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-				par1World.spawnEntityInWorld(entityLightningBolt);
+				par1World.spawnEntity(entityLightningBolt);
 			}
 			if (num == 2) {
 				EntityCreeper entityCreeper = new EntityCreeper(par1World);
 				entityCreeper.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-				par1World.spawnEntityInWorld(entityCreeper);
+				par1World.spawnEntity(entityCreeper);
 			}
 			if (num == 3) {
 				EntitySnowman entitySnowman = new EntitySnowman(par1World);
 				entitySnowman.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-				par1World.spawnEntityInWorld(entitySnowman);
+				par1World.spawnEntity(entitySnowman);
 			}
 			if (num == 4) {
 				EntityXPOrb entityXPOrb = new EntityXPOrb(par1World, 1, 1, 1, num);
 				entityXPOrb.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-				par1World.spawnEntityInWorld(entityXPOrb);
+				par1World.spawnEntity(entityXPOrb);
 
 			}
 			if (num == 5) {
 				EntityWolf entityWolf = new EntityWolf(par1World);
 				entityWolf.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-				par1World.spawnEntityInWorld(entityWolf);
+				par1World.spawnEntity(entityWolf);
 			}
 			if (num == 6) {
 				EntitySheep entitySheep = new EntitySheep(par1World);
 				entitySheep.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-				par1World.spawnEntityInWorld(entitySheep);
+				par1World.spawnEntity(entitySheep);
 			}
 			if (num == 7) {
 				EntityLightningBolt entityLightningBolt = new EntityLightningBolt(par1World, 1, 1, 1, false);
 				entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-				par1World.spawnEntityInWorld(entityLightningBolt);
+				par1World.spawnEntity(entityLightningBolt);
 			}
         }
 	}

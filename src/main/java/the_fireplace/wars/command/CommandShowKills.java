@@ -12,7 +12,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 public class CommandShowKills extends CommandBase {
 
 	@Override
-	public String getCommandName() {
+	public String getName() {
 		return "showkills";
 	}
 
@@ -25,15 +25,15 @@ public class CommandShowKills extends CommandBase {
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		EntityPlayer player = null;
 		if(args.length <= 0)
-			throw new WrongUsageException(getCommandUsage(sender));
-		for (EntityPlayerMP playerMP : server.getPlayerList().getPlayerList()) {
+			throw new WrongUsageException(getUsage(sender));
+		for (EntityPlayerMP playerMP : server.getPlayerList().getPlayers()) {
 			if(playerMP.getDisplayNameString().equals(args[0])){
 				player = playerMP;
 				break;
 			}
 		}
 		if(player == null){
-			sender.addChatMessage(new TextComponentTranslation("command.showkills.notfound", args[0]));
+			sender.sendMessage(new TextComponentTranslation("command.showkills.notfound", args[0]));
 			return;
 		}
 
@@ -45,12 +45,12 @@ public class CommandShowKills extends CommandBase {
 			kdr = totalKills / deaths;
 		else
 			kdr = totalKills;
-		sender.addChatMessage(new TextComponentTranslation("command.showkills.streak", player.getDisplayNameString(), killstreak));
-		sender.addChatMessage(new TextComponentTranslation("command.showkills.kdr", player.getDisplayNameString(), kdr, totalKills, deaths));
+		sender.sendMessage(new TextComponentTranslation("command.showkills.streak", player.getDisplayNameString(), killstreak));
+		sender.sendMessage(new TextComponentTranslation("command.showkills.kdr", player.getDisplayNameString(), kdr, totalKills, deaths));
 	}
 
 	@Override
-	public String getCommandUsage(ICommandSender icommandsender) {
+	public String getUsage(ICommandSender icommandsender) {
 		return "/showkills <playername>";
 	}
 }

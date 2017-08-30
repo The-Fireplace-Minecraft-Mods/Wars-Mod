@@ -38,7 +38,7 @@ public class BlockPlayerTNT extends BlockTNT {
         {
             EntityPTNTPrimed entitytntprimed = new EntityPTNTPrimed(worldIn, (double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), explosionIn.getExplosivePlacedBy());
             entitytntprimed.fuse = worldIn.rand.nextInt(entitytntprimed.fuse / 4) + entitytntprimed.fuse / 8;
-            worldIn.spawnEntityInWorld(entitytntprimed);
+            worldIn.spawnEntity(entitytntprimed);
         }
     }
     @Override
@@ -49,7 +49,7 @@ public class BlockPlayerTNT extends BlockTNT {
             if (state.getValue(EXPLODE))
             {
                 EntityPTNTPrimed entitytntprimed = new EntityPTNTPrimed(worldIn, (double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), igniter);
-                worldIn.spawnEntityInWorld(entitytntprimed);
+                worldIn.spawnEntity(entitytntprimed);
                 worldIn.playSound(null, entitytntprimed.posX, entitytntprimed.posY, entitytntprimed.posZ, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
             }
         }

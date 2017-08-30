@@ -42,9 +42,9 @@ public class ItemAdminWandBall extends Item {
 			fireball.accelerationX = look.xCoord * 0.1;
 			fireball.accelerationY = look.yCoord * 0.1;
 			fireball.accelerationZ = look.zCoord * 0.1;
-			world.spawnEntityInWorld(fireball);
+			world.spawnEntity(fireball);
 		}
-		return new ActionResult(EnumActionResult.PASS, itemstack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 
 }

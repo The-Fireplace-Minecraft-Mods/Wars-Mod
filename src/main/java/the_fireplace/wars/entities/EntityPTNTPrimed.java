@@ -77,7 +77,7 @@ public class EntityPTNTPrimed extends Entity {
 		prevPosY = posY;
 		prevPosZ = posZ;
 		motionY -= 0.03999999910593033D;
-		moveEntity(motionX, motionY, motionZ);
+		move(motionX, motionY, motionZ);
 		motionX *= 0.9800000190734863D;
 		motionY *= 0.9800000190734863D;
 		motionZ *= 0.9800000190734863D;
@@ -89,25 +89,24 @@ public class EntityPTNTPrimed extends Entity {
 		}
 
 		if (fuse-- <= 0) {
-			worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, posX, posY, posZ, 1.0D, 0.0D, 0.0D);
-			worldObj.playSound(null, posX, posY, posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.AMBIENT, 4.0F, (1.0F + (worldObj.rand.nextFloat() - worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
+			world.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, posX, posY, posZ, 1.0D, 0.0D, 0.0D);
+			world.playSound(null, posX, posY, posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.AMBIENT, 4.0F, (1.0F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
 
 			setDead();
 
-			if (!worldObj.isRemote) {
+			if (!world.isRemote) {
 
 				explode();
 
 			}
 		} else {
-			worldObj.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.5D, posZ, 0.0D, 0.0D, 0.0D);
+			world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, posX, posY + 0.5D, posZ, 0.0D, 0.0D, 0.0D);
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private void explode() {
 
-		List<EntityLiving> nearbyEntities = worldObj.getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(posX - 5, posY - 5, posZ - 5, posX + 5, posY + 5, posZ + 5));
+		List<EntityLiving> nearbyEntities = world.getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(posX - 5, posY - 5, posZ - 5, posX + 5, posY + 5, posZ + 5));
 		for (EntityLiving living : nearbyEntities) {
 			living.attackEntityFrom(DamageSource.causeExplosionDamage((Explosion)null), 10);
 		}

@@ -18,7 +18,7 @@ public class StructureSpawning {
 		case 1:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (player.worldObj.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
+				if (player.world.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -44,7 +44,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new TextComponentTranslation("perms.needop"));
+					player.sendMessage(new TextComponentTranslation("perms.needop"));
 				}
 			}
 
@@ -53,7 +53,7 @@ public class StructureSpawning {
 
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (player.worldObj.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
+				if (player.world.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -78,7 +78,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new TextComponentTranslation("perms.needop"));
+					player.sendMessage(new TextComponentTranslation("perms.needop"));
 				}
 			}
 
@@ -87,7 +87,7 @@ public class StructureSpawning {
 		case 3:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (player.worldObj.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
+				if (player.world.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -114,14 +114,14 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new TextComponentTranslation("perms.needop"));
+					player.sendMessage(new TextComponentTranslation("perms.needop"));
 				}
 			}
 			break;
 		case 4:
 			if (player instanceof EntityPlayerMP) {
 				EntityPlayerMP playerMP = (EntityPlayerMP) player;
-				if (player.worldObj.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
+				if (player.world.getMinecraftServer().getPlayerList().canSendCommands(playerMP.getGameProfile())) {
 
 					switch (structure) {
 
@@ -148,7 +148,7 @@ public class StructureSpawning {
 					}
 
 				} else {
-					player.addChatMessage(new TextComponentTranslation("perms.needop"));
+					player.sendMessage(new TextComponentTranslation("perms.needop"));
 				}
 			}
 			break;

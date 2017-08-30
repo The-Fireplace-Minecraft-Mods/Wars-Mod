@@ -10,10 +10,10 @@ public class GenWindmill {
 	public GenWindmill(EntityPlayer player, int i, int j, int k) {
 		ResinresinLoader windmill = new ResinresinLoader("windmill.resinresin");
 
-		windmill.generate(player.worldObj, i - 6, j - 1, k - 8, false);
-		windmill.generate(player.worldObj, i - 6, j - 1, k - 8, false);
+		windmill.generate(player.world, i - 6, j - 1, k - 8, false);
+		windmill.generate(player.world, i - 6, j - 1, k - 8, false);
 
-		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.AIR);
+		WarsMod.generateBlock(player.world, i, j, k, Blocks.AIR);
 	}
 
 }

@@ -41,7 +41,7 @@ public class BlockCYellow extends Block {
 		{
 			EntityLightningBolt entityLightningBolt = new EntityLightningBolt(world, 1, 1, 1, true);
 			entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-			world.spawnEntityInWorld(entityLightningBolt);
+			world.spawnEntity(entityLightningBolt);
 		}
 		return false;
 	}

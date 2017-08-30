@@ -12,7 +12,7 @@ import the_fireplace.wars.data.WarsSavedData;
 public class CommandSetBase extends CommandBase {
 
 	@Override
-	public String getCommandName() {
+	public String getName() {
 		return "setBase";
 	}
 
@@ -25,7 +25,7 @@ public class CommandSetBase extends CommandBase {
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
-			WarsSavedData savedData = WarsSavedData.get(player.worldObj);
+			WarsSavedData savedData = WarsSavedData.get(player.world);
 
 			if(args.length > 0){
 				if(args[0].toLowerCase().equals("red")) {
@@ -49,16 +49,16 @@ public class CommandSetBase extends CommandBase {
 					savedData.teamChaos.baseY = (int) player.posY;
 					savedData.teamChaos.baseZ = (int) player.posZ;
 				}else
-					throw new WrongUsageException(getCommandUsage(sender));
+					throw new WrongUsageException(getUsage(sender));
 			}else
-				throw new WrongUsageException(getCommandUsage(sender));
+				throw new WrongUsageException(getUsage(sender));
 			savedData.markDirty();
-			player.addChatMessage(new TextComponentTranslation("command.setbase."+args[0].toLowerCase(), (int)player.posX, (int)player.posY, (int)player.posZ));
+			player.sendMessage(new TextComponentTranslation("command.setbase."+args[0].toLowerCase(), (int)player.posX, (int)player.posY, (int)player.posZ));
 		}
 	}
 
 	@Override
-	public String getCommandUsage(ICommandSender icommandsender) {
+	public String getUsage(ICommandSender icommandsender) {
 		return "/setBase <team>";
 	}
 }

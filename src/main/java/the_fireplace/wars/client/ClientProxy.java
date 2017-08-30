@@ -48,7 +48,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	private void addServerToList(){
-		ArrayList serverip = new ArrayList<String>();
+		ArrayList<String> serverip = new ArrayList<String>();
 		try {
 			URL targetURL = new URL("http://thefireplace.bitnamiapp.com/warsmodserverip.txt");
 			InputStream in = targetURL.openStream();
@@ -86,22 +86,22 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void handleKillData(EntityPlayer player, int totalKills, int killStreak, int deaths) {
-		this.totalKills = totalKills;
-		this.killStreak = killStreak;
-		this.deaths = deaths;
+		ClientProxy.totalKills = totalKills;
+		ClientProxy.killStreak = killStreak;
+		ClientProxy.deaths = deaths;
 		super.handleKillData(player, totalKills, killStreak, deaths);
 	}
 
 	@Override
 	public void handleTeams(int redPlayers, int greenPlayers, int bluePlayers, int yellowPlayers) {
-		this.redPlayers = redPlayers;
-		this.greenPlayers = greenPlayers;
-		this.bluePlayers = bluePlayers;
-		this.yellowPlayers = yellowPlayers;
+		ClientProxy.redPlayers = redPlayers;
+		ClientProxy.greenPlayers = greenPlayers;
+		ClientProxy.bluePlayers = bluePlayers;
+		ClientProxy.yellowPlayers = yellowPlayers;
 	}
 
     @Override
     public EntityPlayer getPlayerEntity(MessageContext ctx) {
-        return ctx.side.isClient() ? Minecraft.getMinecraft().thePlayer : super.getPlayerEntity(ctx);
+        return ctx.side.isClient() ? Minecraft.getMinecraft().player : super.getPlayerEntity(ctx);
     }
 }

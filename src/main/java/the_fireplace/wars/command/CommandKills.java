@@ -10,11 +10,6 @@ import net.minecraft.util.text.TextComponentTranslation;
 public class CommandKills extends CommandBase {
 
 	@Override
-	public String getCommandName() {
-		return "kills";
-	}
-
-	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (sender instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) sender;
@@ -27,15 +22,21 @@ public class CommandKills extends CommandBase {
 				kdr = totalKills / deaths;
 			else
 				kdr = totalKills;
-			player.addChatMessage(new TextComponentTranslation("command.kills.streak", killstreak));
-			player.addChatMessage(new TextComponentTranslation("command.kills.kdr", kdr, totalKills, deaths));
+			player.sendMessage(new TextComponentTranslation("command.kills.streak", killstreak));
+			player.sendMessage(new TextComponentTranslation("command.kills.kdr", kdr, totalKills, deaths));
 			if(args.length == 5)
 				player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG).setInteger("warsmod_totalKill", 1000);
 		}
 	}
+	
+	
+	@Override
+	public String getName() {
+		return "kills";
+	}
 
 	@Override
-	public String getCommandUsage(ICommandSender icommandsender) {
+	public String getUsage(ICommandSender sender) {
 		return "/kills";
 	}
 }

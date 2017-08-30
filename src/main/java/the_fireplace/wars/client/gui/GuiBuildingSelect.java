@@ -31,7 +31,7 @@ public class GuiBuildingSelect extends GuiScreen {
 	@Override
 	protected void keyTyped(char par1, int par2) {
 		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 
@@ -110,22 +110,22 @@ public class GuiBuildingSelect extends GuiScreen {
 	protected void actionPerformed(GuiButton guibutton) {
 		switch (guibutton.id) {
 		case 1:
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			break;
 		case 2:
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			break;
 		case 3:
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			break;
 		case 4:
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			break;
 		case 5:
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			break;
 		case 6:
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			break;
 
 		case 7:

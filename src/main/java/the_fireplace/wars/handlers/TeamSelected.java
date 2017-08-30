@@ -15,21 +15,20 @@ import static the_fireplace.wars.CommonEvents.*;
 public class TeamSelected {
 	
 	//this class handles what happens depending on what team the player selects
-	@SuppressWarnings("unchecked")
 	public TeamSelected(EntityPlayer player, int teamSelected) {
 		if (player instanceof EntityPlayerMP) {
-			WarsSavedData savedData = WarsSavedData.get(player.worldObj);
+			WarsSavedData savedData = WarsSavedData.get(player.world);
 
 			CommonEvents.recalcTeams();
 
 			switch (teamSelected) {
 			case 1:
 				if (redPlayers > greenPlayers || redPlayers > yellowPlayers || redPlayers > bluePlayers) {
-					player.addChatMessage(new TextComponentTranslation("teamselected.retry"));
+					player.sendMessage(new TextComponentTranslation("teamselected.retry"));
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP)player);
 				} else {
 
-					player.addChatMessage(new TextComponentTranslation("teamselected.red"));
+					player.sendMessage(new TextComponentTranslation("teamselected.red"));
 
 					int redBaseX = savedData.teamRed.baseX;
 					int redBaseY = savedData.teamRed.baseY;
@@ -44,10 +43,10 @@ public class TeamSelected {
 				break;
 			case 2:
 				if (greenPlayers > redPlayers || greenPlayers > yellowPlayers || greenPlayers > bluePlayers) {
-					player.addChatMessage(new TextComponentTranslation("teamselected.retry"));
+					player.sendMessage(new TextComponentTranslation("teamselected.retry"));
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP)player);
 				} else {
-					player.addChatMessage(new TextComponentTranslation("teamselected.green"));
+					player.sendMessage(new TextComponentTranslation("teamselected.green"));
 
 					int greenBaseX = savedData.teamGreen.baseX;
 					int greenBaseY = savedData.teamGreen.baseY;
@@ -61,11 +60,11 @@ public class TeamSelected {
 				break;
 			case 3:
 				if (bluePlayers > greenPlayers || bluePlayers > yellowPlayers || bluePlayers > redPlayers) {
-					player.addChatMessage(new TextComponentTranslation("teamselected.retry"));
+					player.sendMessage(new TextComponentTranslation("teamselected.retry"));
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP)player);
 				} else {
 
-					player.addChatMessage(new TextComponentTranslation("teamselected.blue"));
+					player.sendMessage(new TextComponentTranslation("teamselected.blue"));
 
 					int blueBaseX = savedData.teamBlue.baseX;
 					int blueBaseY = savedData.teamBlue.baseY;
@@ -80,11 +79,11 @@ public class TeamSelected {
 				break;
 			case 4:
 				if (yellowPlayers > greenPlayers || yellowPlayers > redPlayers || yellowPlayers > bluePlayers) {
-					player.addChatMessage(new TextComponentTranslation("teamselected.retry"));
+					player.sendMessage(new TextComponentTranslation("teamselected.retry"));
 					PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP)player);
 				} else {
 
-					player.addChatMessage(new TextComponentTranslation("teamselected.yellow"));
+					player.sendMessage(new TextComponentTranslation("teamselected.yellow"));
 
 					int yellowBaseX = savedData.teamYellow.baseX;
 					int yellowBaseY = savedData.teamYellow.baseY;

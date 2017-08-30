@@ -12,19 +12,19 @@ public class GenControlTower {
 	ResinresinLoader controlMain = new ResinresinLoader("controlMain.resinresin");
 
 	public GenControlTower(EntityPlayer player, int i, int j, int k) {
-		controlMain.generate(player.worldObj, i + -1, j, k + -1, true);
+		controlMain.generate(player.world, i + -1, j, k + -1, true);
 		{
-			WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.PLANKS);
-			WarsMod.generateBlock(player.worldObj, i + -1, j, k, WarsBlocks.controlYellow);
-			WarsMod.generateBlock(player.worldObj, i + 1, j, k, WarsBlocks.controlBlue);
-			WarsMod.generateBlock(player.worldObj, i, j, k + -1, WarsBlocks.controlRed);
-			WarsMod.generateBlock(player.worldObj, i, j, k + 1, WarsBlocks.controlGreen);
+			WarsMod.generateBlock(player.world, i, j, k, Blocks.PLANKS);
+			WarsMod.generateBlock(player.world, i + -1, j, k, WarsBlocks.controlYellow);
+			WarsMod.generateBlock(player.world, i + 1, j, k, WarsBlocks.controlBlue);
+			WarsMod.generateBlock(player.world, i, j, k + -1, WarsBlocks.controlRed);
+			WarsMod.generateBlock(player.world, i, j, k + 1, WarsBlocks.controlGreen);
 		}
 
 		{
-			EntityLightningBolt entityLightningBolt = new EntityLightningBolt(player.worldObj, i, j, k, true);
+			EntityLightningBolt entityLightningBolt = new EntityLightningBolt(player.world, i, j, k, true);
 			entityLightningBolt.setLocationAndAngles((double) i + 0.5D, j, (double) k + 0.5D, 0.0F, 0.0F);
-			player.worldObj.spawnEntityInWorld(entityLightningBolt);
+			player.world.spawnEntity(entityLightningBolt);
 
 		}
 	}

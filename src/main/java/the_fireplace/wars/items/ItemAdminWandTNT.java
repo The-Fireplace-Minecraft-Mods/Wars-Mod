@@ -42,9 +42,9 @@ public class ItemAdminWandTNT extends Item {
 			tntPrimed.motionX = look.xCoord * 0.1;
 			tntPrimed.motionY = look.yCoord * 0.1;
 			tntPrimed.motionZ = look.zCoord * 0.1;
-			world.spawnEntityInWorld(tntPrimed);
+			world.spawnEntity(tntPrimed);
 		}
-		return new ActionResult(EnumActionResult.PASS, itemstack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 
 }

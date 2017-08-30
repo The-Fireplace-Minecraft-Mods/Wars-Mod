@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class DonatorClassSelected {
 
 	public DonatorClassSelected(EntityPlayer player, int classSelected) {
-		WarsSavedData savedData = WarsSavedData.get(player.worldObj);
+		WarsSavedData savedData = WarsSavedData.get(player.world);
 		if (WarsMod.getDonators().contains(player.getName())) {
 			int chaosSpawnX = savedData.teamChaos.baseX;
 			int chaosSpawnY = savedData.teamChaos.baseY;

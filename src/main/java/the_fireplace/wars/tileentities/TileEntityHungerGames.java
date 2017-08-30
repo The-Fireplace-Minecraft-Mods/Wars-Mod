@@ -27,53 +27,53 @@ public class TileEntityHungerGames extends TileEntity implements ITickable {
 	@Override
 	public void update() {
 
-		if (shouldTick && !worldObj.isRemote) {
+		if (shouldTick && !world.isRemote) {
 			tickCount++;
 
 			if (tickCount == TICKS_IN_30_SECONDS) {
-				worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES SMALL STARTING IN 30 SECONDS"));
+				world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES SMALL STARTING IN 30 SECONDS"));
 			}
 		}
 
 		if (tickCount == TICKS_IN_50_SECONDS) {
-			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES SMALL STARTING IN 10 SECONDS"));
+			world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES SMALL STARTING IN 10 SECONDS"));
 		}
 
 		if (tickCount == TICKS_IN_55_SECONDS) {
-			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES SMALL STARTING IN 5 SECONDS"));
+			world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a75HUNGER GAMES SMALL STARTING IN 5 SECONDS"));
 		}
 
 		if (tickCount == TICKS_IN_56_SECONDS) {
-			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a754"));
+			world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a754"));
 		}
 
 		if (tickCount == TICKS_IN_57_SECONDS) {
-			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a753"));
+			world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a753"));
 		}
 
 		if (tickCount == TICKS_IN_58_SECONDS) {
-			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a752"));
+			world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a752"));
 		}
 
 		if (tickCount == TICKS_IN_59_SECONDS) {
-			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a751"));
+			world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a751"));
 		}
 
 		if (tickCount == TICKS_IN_1_MINUTE) {
-			worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a72HUNGER GAMES SMALL HAS STARTED GO GO GO "));
+			world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentString("\u00a72HUNGER GAMES SMALL HAS STARTED GO GO GO "));
 
-			worldObj.createExplosion(null, pos.getX(), pos.getY() + 3, pos.getZ() - 5, 0.0F, shouldTick);
-			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR);
+			world.createExplosion(null, pos.getX(), pos.getY() + 3, pos.getZ() - 5, 0.0F, shouldTick);
+			WarsMod.generateBlock(world, pos.getX(), pos.getY(), pos.getZ(), Blocks.AIR);
 
-			hgSStarted.generate(worldObj, pos.getX() - 9, pos.getY() - 2, pos.getZ() - 16, false);
-			WarsMod.generateBlock(worldObj, pos.getX() + 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
-			WarsMod.generateBlock(worldObj, pos.getX() - 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
-			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY() + 1, pos.getZ() - 6, WarsBlocks.insChest3);
-			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY() + 1, pos.getZ() - 8, WarsBlocks.insChest3);
+			hgSStarted.generate(world, pos.getX() - 9, pos.getY() - 2, pos.getZ() - 16, false);
+			WarsMod.generateBlock(world, pos.getX() + 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
+			WarsMod.generateBlock(world, pos.getX() - 1, pos.getY() + 1, pos.getZ() - 7, WarsBlocks.insChest3);
+			WarsMod.generateBlock(world, pos.getX(), pos.getY() + 1, pos.getZ() - 6, WarsBlocks.insChest3);
+			WarsMod.generateBlock(world, pos.getX(), pos.getY() + 1, pos.getZ() - 8, WarsBlocks.insChest3);
 
-			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY() + 2, pos.getZ() - 7, Blocks.CRAFTING_TABLE);
-			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY() + 1, pos.getZ() - 7, Blocks.STONEBRICK);
-			WarsMod.generateBlock(worldObj, pos.getX(), pos.getY(), pos.getZ() - 7, WarsBlocks.hgLv1reset);
+			WarsMod.generateBlock(world, pos.getX(), pos.getY() + 2, pos.getZ() - 7, Blocks.CRAFTING_TABLE);
+			WarsMod.generateBlock(world, pos.getX(), pos.getY() + 1, pos.getZ() - 7, Blocks.STONEBRICK);
+			WarsMod.generateBlock(world, pos.getX(), pos.getY(), pos.getZ() - 7, WarsBlocks.hgLv1reset);
 			//WarsMod.generateBlock(worldObj, pos.getX() - 0, pos.getY() + 16, pos.getZ() - 7, WarsBlocks.hgTeleMain);
 
 		}

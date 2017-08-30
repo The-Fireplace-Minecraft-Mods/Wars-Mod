@@ -28,6 +28,7 @@ import the_fireplace.wars.network.packets.PacketKills;
 import the_fireplace.wars.network.packets.PacketOpenTeamSelect;
 import the_fireplace.wars.network.packets.PacketTeams;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -60,7 +61,7 @@ public class CommonEvents {
 
 	@SubscribeEvent
 	public void onEntityDeath(LivingDeathEvent evt) {
-		if(!evt.getEntityLiving().worldObj.isRemote)
+		if(!evt.getEntityLiving().world.isRemote)
 		if (evt.getEntityLiving() instanceof EntityPlayer) {
 			EntityPlayer deadPlayer = (EntityPlayer) evt.getEntityLiving();
 
@@ -85,76 +86,76 @@ public class CommonEvents {
 
 						EntityPlayerMP player = (EntityPlayerMP) evt.getEntity();
 
-						player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.death", player.getName(), deadPlayerKillstreak));
+						player.world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.death", player.getName(), deadPlayerKillstreak));
 					}
 
 					switch (attackerKillstreak) {
 						case 2:
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						case 3: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 4: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 5: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 8: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 10: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 12: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							break;
 						}
 						case 15: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 20: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 25: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 30: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
+							player.world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement", player.getName(), attackerKillstreak));
 							break;
 						}
 						case 35: {
-							attacker.addChatMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
+							attacker.sendMessage(new TextComponentTranslation("killstreak."+attackerKillstreak));
 							EntityPlayerMP player = (EntityPlayerMP) attacker;
 
-							player.worldObj.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement.offscale", player.getName(), attackerKillstreak));
+							player.world.getMinecraftServer().getPlayerList().sendChatMsg(new TextComponentTranslation("killstreak.announcement.offscale", player.getName(), attackerKillstreak));
 							break;
 						}
 						default:
@@ -210,7 +211,7 @@ public class CommonEvents {
 
 			PacketDispatcher.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
 
-			WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
+			WarsSavedData savedWarsData = WarsSavedData.get(event.player.world);
 			ItemStack playerBoots = event.player.inventory.getStackInSlot(36);// playerMP.inventory.armorItemInSlot(0);
 			if (playerBoots == null) {
 				if (!savedWarsData.editMode.editModeToggle) {
@@ -221,9 +222,8 @@ public class CommonEvents {
 	}
 
 	private int timer = 0;
-	private List scheduledPlayers = Lists.newArrayList();
+	private ArrayList<Object> scheduledPlayers = Lists.newArrayList();
 
-	@SuppressWarnings("unchecked")
 	private void scheduleDelayedGui(EntityPlayerMP player){
 		timer += 100;
 		scheduledPlayers.add(player);
@@ -239,9 +239,8 @@ public class CommonEvents {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public static final List<EntityPlayerMP> getAll() {
-		return FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerList();
+		return FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayers();
 	}
 
 	@SubscribeEvent
@@ -256,7 +255,7 @@ public class CommonEvents {
 
 		PacketDispatcher.sendTo(new PacketTeams(redPlayers, greenPlayers, bluePlayers, yellowPlayers), (EntityPlayerMP) event.player);
 
-		WarsSavedData savedWarsData = WarsSavedData.get(event.player.worldObj);
+		WarsSavedData savedWarsData = WarsSavedData.get(event.player.world);
 		if (!savedWarsData.editMode.editModeToggle) {
 			PacketDispatcher.sendTo(new PacketOpenTeamSelect(), (EntityPlayerMP) event.player);
 		}
@@ -300,7 +299,7 @@ public class CommonEvents {
 				int num = random.nextInt(50);
 
 				if (num == 1) {
-					player.addChatMessage(new TextComponentTranslation("needteamboots"));
+					player.sendMessage(new TextComponentTranslation("needteamboots"));
 				}
 			}
 		}
@@ -341,7 +340,7 @@ public class CommonEvents {
 		bluePlayers = 0;
 		greenPlayers = 0;
 		yellowPlayers = 0;
-		for (EntityPlayerMP playerMP : FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerList()) {
+		for (EntityPlayerMP playerMP : FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayers()) {
 
 			if(playerMP.inventory.getStackInSlot(36) != null) {
 				Item playerBoots = playerMP.inventory.getStackInSlot(36).getItem();// playerMP.inventory.armorItemInSlot(0);

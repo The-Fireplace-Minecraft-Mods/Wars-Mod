@@ -44,9 +44,9 @@ public class ItemAdminWandWater extends Item {
 			fallingBlock.lastTickPosY = look.yCoord * 0.1;
 			fallingBlock.lastTickPosZ = look.zCoord * 0.1;
 			fallingBlock.fallTime = 1;
-			world.spawnEntityInWorld(fallingBlock);
+			world.spawnEntity(fallingBlock);
 		}
-		return new ActionResult(EnumActionResult.PASS, itemstack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 
 }

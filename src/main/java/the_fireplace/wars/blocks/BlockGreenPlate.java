@@ -38,7 +38,7 @@ public class BlockGreenPlate extends BlockPressurePlate {
 		boolean flag = oldRedstoneStrength > 0;
 		boolean flag1 = j > 0;
 
-		List entities;
+		List<EntityPlayer> entities;
 		float offset = 0.125F;
 
 		BlockPos posMin = new BlockPos(pos.getX() + offset, pos.getY(), pos.getZ() + offset);

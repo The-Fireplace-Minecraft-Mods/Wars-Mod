@@ -16,16 +16,16 @@ public class GenSkyblock {
 	    
 	    	
 	    	
-	    	skyBlock.generate(player.worldObj, i + -9, j, k + -9, true);
-	    	WarsMod.generateBlock(player.worldObj, i + 2, j + 65, k + -1, Blocks.SAND);
-	    	WarsMod.generateBlock(player.worldObj, i + 1, j + 65, k + -1, Blocks.SAND);
-	    	WarsMod.generateBlock(player.worldObj, i, j + 65, k + -1, Blocks.SAND);
-	    	WarsMod.generateBlock(player.worldObj, i + 3, j + 67, k + -2, Blocks.CHEST);
+	    	skyBlock.generate(player.world, i + -9, j, k + -9, true);
+	    	WarsMod.generateBlock(player.world, i + 2, j + 65, k + -1, Blocks.SAND);
+	    	WarsMod.generateBlock(player.world, i + 1, j + 65, k + -1, Blocks.SAND);
+	    	WarsMod.generateBlock(player.world, i, j + 65, k + -1, Blocks.SAND);
+	    	WarsMod.generateBlock(player.world, i + 3, j + 67, k + -2, Blocks.CHEST);
 	        TileEntityChest chest2 = new TileEntityChest();
 	        
 	        BlockPos chestPos1 = new BlockPos(i + 3, j + 67, k + -2);
-	        player.worldObj.setTileEntity(chestPos1, chest2);
-	        TileEntityChest tileentitychest = (TileEntityChest)player.worldObj.getTileEntity(chestPos1);
+	        player.world.setTileEntity(chestPos1, chest2);
+	        TileEntityChest tileentitychest = (TileEntityChest)player.world.getTileEntity(chestPos1);
 	        if (tileentitychest != null && tileentitychest.getSizeInventory() > 0) {
 	        	ItemStack itemstack = new ItemStack(Items.STRING, 12);
 	        	tileentitychest.setInventorySlotContents(0, itemstack);
@@ -48,13 +48,13 @@ public class GenSkyblock {
 	        	ItemStack itemstack9 = new ItemStack(Blocks.CACTUS, 1);
 	        	tileentitychest.setInventorySlotContents(20, itemstack9);
 	        	
-	        WarsMod.generateBlock(player.worldObj, i + 1, j + 1, k, Blocks.CHEST);
+	        WarsMod.generateBlock(player.world, i + 1, j + 1, k, Blocks.CHEST);
 	        TileEntityChest chest3 = new TileEntityChest();
 	        
 	        BlockPos chestPos2 = new BlockPos(i + 1, j + 1, k);
 	        
-	        player.worldObj.setTileEntity(chestPos2, chest3);
-	        TileEntityChest tileentitychest1 = (TileEntityChest)player.worldObj.getTileEntity(chestPos2);
+	        player.world.setTileEntity(chestPos2, chest3);
+	        TileEntityChest tileentitychest1 = (TileEntityChest)player.world.getTileEntity(chestPos2);
 	        if (tileentitychest1 != null && tileentitychest1.getSizeInventory() > 0) {
 	        ItemStack itemstack15 = new ItemStack(Items.BOAT, 4);
 	        tileentitychest1.setInventorySlotContents(0, itemstack15);

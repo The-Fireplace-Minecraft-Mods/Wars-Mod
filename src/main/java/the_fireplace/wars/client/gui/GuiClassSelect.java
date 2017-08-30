@@ -33,7 +33,7 @@ public class GuiClassSelect extends GuiScreen {
 	@Override
 	protected void keyTyped(char par1, int par2) {
 		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()) {
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 		}
 	}
 
@@ -79,7 +79,7 @@ public class GuiClassSelect extends GuiScreen {
 
 		drawString(fontRendererObj, talkTo, posX + 40, posY + 148, colorsHex[colorIndex]);
 
-		drawEntityOnScreen(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.thePlayer);
+		drawEntityOnScreen(posX + 10, posY + 60, 30, (float) (posX + 51) - this.xSizeOfTexture, (float) (posY + 75 - 50) - this.ySizeOfTexture, this.mc.player);
 
 		super.drawScreen(x, y, f);
 	}
@@ -89,7 +89,6 @@ public class GuiClassSelect extends GuiScreen {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		super.initGui();

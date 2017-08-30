@@ -11,11 +11,11 @@ public class GenMazerace {
 	public GenMazerace(EntityPlayer player, int i, int j, int k) {
 		ResinresinLoader mazeRace = new ResinresinLoader("mazeRace.resinresin");
 
-		mazeRace.generate(player.worldObj, i - 21, j - 4, k - 19, true);
-		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.AIR);
-		WarsMod.generateBlock(player.worldObj, i, j + 4, k, WarsBlocks.mazeStart);
-		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.WOODEN_SLAB);
-		WarsMod.generateBlock(player.worldObj, i - 8, j - 1, k + 4, Blocks.GLASS);
+		mazeRace.generate(player.world, i - 21, j - 4, k - 19, true);
+		WarsMod.generateBlock(player.world, i, j, k, Blocks.AIR);
+		WarsMod.generateBlock(player.world, i, j + 4, k, WarsBlocks.mazeStart);
+		WarsMod.generateBlock(player.world, i, j, k, Blocks.WOODEN_SLAB);
+		WarsMod.generateBlock(player.world, i - 8, j - 1, k + 4, Blocks.GLASS);
 	}
 
 }

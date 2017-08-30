@@ -60,41 +60,41 @@ public class ItemEnderSword extends Item implements Undroppable {
                             if(player.posX > x)
                                 if(teleportTo(x+2, y, z, player)) {
                                     cooldown = 80;
-                                    return new ActionResult(EnumActionResult.SUCCESS, stack);
+                                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                                 }
                             if(player.posX < x)
                                 if(teleportTo(x-2, y, z, player)) {
                                     cooldown = 80;
-                                    return new ActionResult(EnumActionResult.SUCCESS, stack);
+                                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                                 }
                             if(player.posZ > z)
                                 if(teleportTo(x, y, z+2, player)) {
                                     cooldown = 80;
-                                    return new ActionResult(EnumActionResult.SUCCESS, stack);
+                                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                                 }
                             if(player.posZ < z)
                                 if(teleportTo(x, y, z-2, player)) {
                                     cooldown = 80;
-                                    return new ActionResult(EnumActionResult.SUCCESS, stack);
+                                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                                 }
                         }
                         cooldown = 80;
-                        return new ActionResult(EnumActionResult.SUCCESS, stack);
+                        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
                     }
                 } else {
-                    player.addChatMessage(new TextComponentTranslation("class.donatoronly"));
-                    return new ActionResult(EnumActionResult.FAIL, stack);
+                    player.sendMessage(new TextComponentTranslation("class.donatoronly"));
+                    return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
                 }
             }
         }
-        return new ActionResult(EnumActionResult.PASS, stack);
+        return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
     }
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
         if (!WarsMod.getDonators().contains(player.getName())) {
-            player.addChatMessage(new TextComponentTranslation("class.donatoronly"));
+            player.sendMessage(new TextComponentTranslation("class.donatoronly"));
             return false;
         }
 
@@ -107,15 +107,14 @@ public class ItemEnderSword extends Item implements Undroppable {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    public Multimap getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
     {
-        Multimap multimap = super.getAttributeModifiers(equipmentSlot, stack);
+        Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot, stack);
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
         {
-            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.weaponDamage, 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double)this.weaponDamage, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", -2.4000000953674316D, 0));
         }
 
         return multimap;
@@ -132,14 +131,14 @@ public class ItemEnderSword extends Item implements Undroppable {
         boolean flag = false;
         BlockPos blockpos = new BlockPos(player.posX, player.posY, player.posZ);
 
-        if (player.worldObj.isBlockLoaded(blockpos))
+        if (player.world.isBlockLoaded(blockpos))
         {
             boolean flag1 = false;
 
             while (!flag1 && blockpos.getY() > 0)
             {
                 BlockPos blockpos1 = blockpos.down();
-                IBlockState block = player.worldObj.getBlockState(blockpos1);
+                IBlockState block = player.world.getBlockState(blockpos1);
 
                 if (block.getMaterial().blocksMovement())
                 {
@@ -156,17 +155,17 @@ public class ItemEnderSword extends Item implements Undroppable {
             {
                 player.setPositionAndUpdate(player.posX, player.posY, player.posZ);
 
-                if (player.worldObj.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.containsAnyLiquid(player.getEntityBoundingBox()))
+                if (player.world.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.world.containsAnyLiquid(player.getEntityBoundingBox()))
                 {
                     flag = true;
                 }else{
                     player.setPositionAndUpdate(player.posX, player.posY+1, player.posZ);
-                    if (player.worldObj.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.containsAnyLiquid(player.getEntityBoundingBox()))
+                    if (player.world.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.world.containsAnyLiquid(player.getEntityBoundingBox()))
                     {
                         flag = true;
                     }else{
                         player.setPositionAndUpdate(player.posX, player.posY+2, player.posZ);
-                        if (player.worldObj.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.worldObj.containsAnyLiquid(player.getEntityBoundingBox()))
+                        if (player.world.getCollisionBoxes(player, player.getEntityBoundingBox()).isEmpty() && !player.world.containsAnyLiquid(player.getEntityBoundingBox()))
                         {
                             flag = true;
                         }
@@ -194,10 +193,10 @@ public class ItemEnderSword extends Item implements Undroppable {
                 double d3 = d0 + (player.posX - d0) * d6 + (rand.nextDouble() - 0.5D) * (double)player.width * 2.0D;
                 double d4 = d1 + (player.posY - d1) * d6 + rand.nextDouble() * (double)player.height;
                 double d5 = d2 + (player.posZ - d2) * d6 + (rand.nextDouble() - 0.5D) * (double)player.width * 2.0D;
-                player.worldObj.spawnParticle(EnumParticleTypes.PORTAL, d3, d4, d5, (double)f, (double)f1, (double)f2);
+                player.world.spawnParticle(EnumParticleTypes.PORTAL, d3, d4, d5, (double)f, (double)f1, (double)f2);
             }
 
-            player.worldObj.playSound(null, new BlockPos(d0, d1, d2), SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            player.world.playSound(null, new BlockPos(d0, d1, d2), SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
             player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             return true;
         }

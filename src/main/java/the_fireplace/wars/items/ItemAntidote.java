@@ -40,7 +40,7 @@ public class ItemAntidote extends Item {
 			itemstack.stackSize = 0;
 		}
 
-		return new ActionResult(EnumActionResult.PASS, itemstack);
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 
 }

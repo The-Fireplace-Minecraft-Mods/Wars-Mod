@@ -27,7 +27,7 @@ public class PacketOpenTeamSelect implements IMessage {
         public IMessage handleClientMessage(EntityPlayer player, PacketOpenTeamSelect message, MessageContext ctx) {
             System.out.println(String.format("Received %s from %s", "command to open team selection gui", player.getDisplayName().getUnformattedText()));
 
-            FMLNetworkHandler.openGui(player, WarsMod.instance, 3, player.worldObj, 0, 0, 0);
+            FMLNetworkHandler.openGui(player, WarsMod.instance, 3, player.world, 0, 0, 0);
             
             return null;
         }

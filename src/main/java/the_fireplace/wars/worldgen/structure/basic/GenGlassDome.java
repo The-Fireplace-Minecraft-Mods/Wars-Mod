@@ -9,8 +9,8 @@ public class GenGlassDome {
 	ResinresinLoader hunDome = new ResinresinLoader("hunDome.resinresin");
 
 	public GenGlassDome(EntityPlayer player, int i, int j, int k) {
-		hunDome.generate(player.worldObj, i + -110, j - 80, k + -110, false);
-		WarsMod.generateBlock(player.worldObj, i, j, k, Blocks.AIR);
+		hunDome.generate(player.world, i + -110, j - 80, k + -110, false);
+		WarsMod.generateBlock(player.world, i, j, k, Blocks.AIR);
 
 	}
 

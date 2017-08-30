@@ -50,10 +50,10 @@ public class WarsSavedData extends WorldSavedData {
 	}
 
 	public static WarsSavedData get(World world) {
-		WarsSavedData warsdata = (WarsSavedData) world.loadItemData(WarsSavedData.class, wars);
+		WarsSavedData warsdata = (WarsSavedData) world.loadData(WarsSavedData.class, wars);
 		if (warsdata == null) {
 			warsdata = new WarsSavedData();
-			world.setItemData(wars, warsdata);
+			world.setData(wars, warsdata);
 		}
 		return warsdata;
 	}

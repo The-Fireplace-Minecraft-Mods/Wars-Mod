@@ -83,7 +83,6 @@ public class GuiTeamSelect extends GuiScreen {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void initGui() {
 		super.initGui();
@@ -110,7 +109,7 @@ public class GuiTeamSelect extends GuiScreen {
 			if (ClientProxy.redPlayers > ClientProxy.greenPlayers && ClientProxy.redPlayers > ClientProxy.yellowPlayers && ClientProxy.redPlayers > ClientProxy.bluePlayers) {
 				info = I18n.format("teamselect.redfull");
 			} else {
-				this.mc.thePlayer.closeScreen();
+				this.mc.player.closeScreen();
 				joinedteam = true;
 			}
 			break;
@@ -118,7 +117,7 @@ public class GuiTeamSelect extends GuiScreen {
 			if (ClientProxy.greenPlayers > ClientProxy.redPlayers && ClientProxy.greenPlayers > ClientProxy.yellowPlayers && ClientProxy.greenPlayers > ClientProxy.bluePlayers) {
 				info = I18n.format("teamselect.greenfull");
 			} else {
-				this.mc.thePlayer.closeScreen();
+				this.mc.player.closeScreen();
 				joinedteam = true;
 			}
 			break;
@@ -126,7 +125,7 @@ public class GuiTeamSelect extends GuiScreen {
 			if (ClientProxy.bluePlayers > ClientProxy.redPlayers && ClientProxy.bluePlayers > ClientProxy.yellowPlayers && ClientProxy.bluePlayers > ClientProxy.greenPlayers) {
 				info = I18n.format("teamselect.bluefull");
 			} else {
-				this.mc.thePlayer.closeScreen();
+				this.mc.player.closeScreen();
 				joinedteam = true;
 			}
 			break;
@@ -134,12 +133,12 @@ public class GuiTeamSelect extends GuiScreen {
 			if (ClientProxy.yellowPlayers > ClientProxy.greenPlayers && ClientProxy.yellowPlayers > ClientProxy.redPlayers && ClientProxy.yellowPlayers > ClientProxy.bluePlayers) {
 				info = I18n.format("teamselect.yellowfull");
 			} else {
-				this.mc.thePlayer.closeScreen();
+				this.mc.player.closeScreen();
 				joinedteam = true;
 			}
 			break;
 		case 5:
-			this.mc.thePlayer.closeScreen();
+			this.mc.player.closeScreen();
 			break;
 		case 6:
 			redText = I18n.format("teamselect.red", ClientProxy.redPlayers);
