@@ -17,10 +17,10 @@ group= "the_fireplace.warsmod"
 archivesBaseName = "WarsMod-1.10.2"
 
 minecraft {
-    version = "1.10.2-12.18.1.2088"
+    version = "1.10.2-12.18.3.2185"
     runDir = "run"
     
-    mappings = "snapshot_20160522"
+    mappings = "stable_29"
 }
 
 dependencies {
